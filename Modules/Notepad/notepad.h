@@ -1,0 +1,70 @@
+#ifndef NOTEPAD_H
+#define NOTEPAD_H
+
+#include <QtWidgets>
+#include <QtXml/QDomDocument>
+#include <iostream>
+#include <stack>
+
+using namespace std;
+
+#include "texthighlighter.h"
+
+class NotePad : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    NotePad();
+
+signals:
+
+private slots:
+    void quit();
+    void open();
+    void save();
+    void toRed();
+    void toGreen();
+    void toBlack();
+    void onTextChange();
+    void indent();
+    void parse();
+
+private:
+    QTextEdit* text;
+
+    QAction* openAction;
+    QAction* saveAction;
+    QAction* exitAction;
+    QAction* changeColorAction;
+    QAction* toRedAction;
+    QAction* toGreenAction;
+    QAction* toBlackAction;
+    QAction* textChangedAction;
+    QAction* indentAction;
+
+    QMenu* fileMenu;
+    QMenu* editMenu;
+    QMenu* changeColorMenu;
+    QMenu* toRedMenu;
+    QMenu* toGreenMenu;
+    QMenu* toBlackMenu;
+
+    QDomDocument* xml;
+    QXmlStreamReader* reader;
+
+    TextHighLighter* th;
+
+    void keyPressEvent(QKeyEvent *e);
+    bool eventFilter(QObject *o, QEvent *e);
+    void insertTabs(int i);
+
+    stack<QString>* pile;
+
+    bool isOpenTag(QString token) const;
+    bool isCloseTag(QString token) const;
+    bool addTabs(QStringList* l) const;
+
+};
+
+#endif // NOTEPAD_H
