@@ -65,6 +65,11 @@ private:
     bool isCloseTag(QString token) const;
     bool addTabs(QStringList* l) const;
 
+    int selectLineStart(QString s);
+    int selectLineEnd(QString s);
+
+    void appendTextWithBounds(int readSoFar, QStringList* indented, int selectionStart, int selectionEnd, QString toAppend);
+
 };
 
 #endif // NOTEPAD_H

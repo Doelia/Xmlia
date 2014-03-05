@@ -42,7 +42,6 @@ NotePad::NotePad()
     setCentralWidget(text);
 
     setWindowTitle("superman");
-
     //this->xml = new QDomDocument();
 }
 
@@ -142,12 +141,11 @@ void NotePad::parse()
 
 void NotePad::onTextChange()
 {
- //st   parse();
+    //st   parse();
 }
 
 void NotePad::keyPressEvent(QKeyEvent *e)
 {
-    cout << e->key() << endl;
     if ((e->key () == Qt::Key_Enter))
     {
         //cout << "enter pressed" << endl;
@@ -163,7 +161,6 @@ bool NotePad::eventFilter(QObject *o, QEvent *e)
         if (keyEvent->key() == Qt::Key_Return || keyEvent->key() == Qt::Key_Enter)
         {
             parse();
-            //this->text->setText(text->toPlainText().insert(, "   "));
         }
     }
     return false;
@@ -171,57 +168,51 @@ bool NotePad::eventFilter(QObject *o, QEvent *e)
 
 void NotePad::indent()
 {
-    /*QTextCursor cursor = text->textCursor();
-    QTextBlockFormat blockFormat = cursor.blockFormat();
-    blockFormat.setIndent(th->getTabNumber());
-    cursor.setBlockFormat(blockFormat);
-    text->setTextCursor(cursor);*/
+    th->clearTabNumber();
 
-    //text->setText(text->toPlainText().insert(cursor.position(), " "));
     QStringList indented;
     QString s = text->toPlainText();
+
+    int selectionStart = selectLineStart(s);
+    int selectionEnd = selectLineEnd(s);
+
+    QString left = s.left(selectionStart);
+    QString right = s.right(s.length() - selectionEnd);
+
     QStringList line = s.split("\n");
 
-    cout << "length : " << line.length() << endl;
-
     QRegExp regex("^(\\s)+");
+
+    int readSoFar = 0;
 
     for (int i = 0; i < line.length(); ++i) {
         QStringList tokens = line.at(i).split(regex);
         for (int var = 0; var < tokens.length(); ++var) {
             QString token = tokens.at(var);
+            readSoFar += token.length();
 
             if(isCloseTag(token))
             {
-                cout << "close tag : " << token.toUtf8().constData() << endl;
                 th->decrementTabNumber();
-                addTabs(&indented);
-                indented.append(token);
-                indented.append("\n");
+                appendTextWithBounds(readSoFar, &indented, selectionStart, selectionEnd, token);
+
             }
             else if (isOpenTag(token))
             {
-                cout << "open tag : " << token.toUtf8().constData() << endl;
-                addTabs(&indented);
-                indented.append(token);
-                indented.append("\n");
+                appendTextWithBounds(readSoFar, &indented, selectionStart, selectionEnd, token);
                 th->incrementTabNumber();
             }
             else if(!token.isEmpty())
             {
-                addTabs(&indented);
-                indented.append(token);
-                indented.append("\n");
+                appendTextWithBounds(readSoFar, &indented, selectionStart, selectionEnd, token);
             }
         }
+
     }
-    cout << indented.join("").toUtf8().constData() << endl;
-    text->setPlainText(indented.join(""));
-}
-
-void NotePad::insertTabs(int i)
-{
-
+    if(selectionStart < s.length() - 1)
+    {
+        text->setPlainText(left.append(indented.join("")).append(right));
+    }
 }
 
 bool NotePad::isOpenTag(QString token) const
@@ -239,6 +230,44 @@ bool NotePad::isCloseTag(QString token) const
 bool NotePad::addTabs(QStringList* l) const
 {
     for (int i = 0; i < th->getTabNumber(); ++i) {
-        l->append(" ");
+        l->append("    ");
+    }
+}
+
+int NotePad::selectLineStart(QString s)
+{
+    QRegExp r("\n");
+
+    int selectionStart = text->textCursor().selectionStart();
+
+    while(selectionStart > 0 && r.indexIn(s.at(selectionStart)))
+    {
+        selectionStart--;
+    }
+
+    return selectionStart;
+}
+
+int NotePad::selectLineEnd(QString s)
+{
+    QRegExp r("\n");
+
+    int selectionEnd = text->textCursor().selectionEnd();
+
+    while(selectionEnd < s.length() && r.indexIn(s.at(selectionEnd)))
+    {
+        selectionEnd++;
+    }
+
+    return selectionEnd;
+}
+
+void NotePad::appendTextWithBounds(int readSoFar, QStringList *indented, int selectionStart, int selectionEnd, QString toAppend)
+{
+    if(readSoFar > selectionStart && readSoFar < selectionEnd)
+    {
+        indented->append("\n");
+        addTabs(indented);
+        indented->append(toAppend);
     }
 }

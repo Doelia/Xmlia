@@ -65,7 +65,6 @@ void TextHighLighter::decrementTabNumber()
 
 int TextHighLighter::getTabNumber() const
 {
-    cout << tabNumber << endl;
     return tabNumber;
 }
 
