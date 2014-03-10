@@ -56,26 +56,22 @@ Arbo::Arbo()
    /* char s[256];
     file.readLine(s, 256);*/
 
-    QFile file2("out2.txt");
+    QFile file2("/Users/Doelia/Documents/xmlia/xmlia/Modules/Arbo/Arbo/out2.txt");
     if (!file2.open(QIODevice::WriteOnly | QIODevice::Text))
        return;
 
-
     QDomDocument doc("mydocument");
-        QFile file("out2.txt");
-        if (!file.open(QIODevice::ReadOnly)){
-            cout<< "ERROR 1"<< endl;
-            return;
-        }
-        if (!doc.setContent(&file)) {
-            cout << "ERROR 2" << endl;
-            file.close();
-            return;
-        }
+    QFile file("/Users/Doelia/Documents/xmlia/xmlia/Modules/Arbo/Arbo/test.xml");
+    if (!file.open(QIODevice::ReadOnly)){
+        cout<< "ERROR 1"<< endl;
+        return;
+    }
+    if (!doc.setContent(&file)) {
+        cout << "ERROR 2" << endl;
         file.close();
-
-
-
+        return;
+    }
+    file.close();
 
     doc.setContent(&file);
 
