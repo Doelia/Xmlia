@@ -1,0 +1,14 @@
+A faire sur Arbo :
+
+Méthode void Arbo::preOrder(QDomNode dom, QStandardItemModel *model)
+
+Cette méthode permet de générer l'arbre à partir d'un dom.
+Le dom est lu depuis un fichier .xml, ça c'est fait.
+"QDomNode dom" contient le premier noeud du fichier.
+
+Le but et de remplir *model à partir de l'arbo du dom.
+J'ai mis en place un exemple de création de modèle dans la méthode.
+
+Pour tester, il suffit de compiler/lancer le programme "Arbo/main.cpp".
+Ca affiche directement l'arbre.
+
