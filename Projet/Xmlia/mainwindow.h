@@ -2,6 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QWidget>
+#include <QVBoxLayout>
+
+/**
+  Fenetre principale du programme
+**/
 
 class MainWindow : public QWidget
 {
