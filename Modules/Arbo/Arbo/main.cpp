@@ -11,20 +11,16 @@
 #include <iostream>
 
 #include "arbo.h"
+#include "fenetre.h"
 
 using namespace std;
 
 
-int main(int argc, char *argv[])
-{
-
+int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
-    Arbo fenetre;
+    Fenetre fenetre;
     fenetre.show();
-
-
-
 
     return app.exec();
 
