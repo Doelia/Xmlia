@@ -102,41 +102,7 @@ void NotePad::toRed()
 
 void NotePad::parse()
 {
-    /*reader->clear();
-    reader->addData(text->toPlainText());
-    th->clearTabNumber();
-    int i = 0;
-    while(!reader->atEnd())
-    {
-        /*if(reader->hasError())
-        {
-            cout << "erreur" << endl;
-        }
 
-
-        cout << "line number : " << i << endl;
-        if(reader->isStartElement())
-        {
-            cout << "start element : ";
-            QString t = reader->name().toString();
-           /* cout << t.toUtf8().constData() << endl;
-            th->incrementTabNumber();
-            pile->push(t);
-
-        }
-        else if(reader->isEndElement())
-        {
-            cout << "end element : ";
-            QString t = reader->name().toString();
-           // cout << t.toUtf8().constData() << endl;
-           // th->decrementTabNumber();
-           // indent();
-
-        }
-
-        reader->readNext();
-        i++;
-    }*/
 }
 
 void NotePad::onTextChange()
@@ -217,13 +183,13 @@ void NotePad::indent()
 
 bool NotePad::isOpenTag(QString token) const
 {
-    QRegExp rx("^(<.*>)$");
+    QRegExp rx("<\\w>");
     return rx.exactMatch(token);
 }
 
 bool NotePad::isCloseTag(QString token) const
 {
-    QRegExp rx("^(</.*>)$");
+    QRegExp rx("</\\w>");
     return rx.exactMatch(token);
 }
 
@@ -266,7 +232,10 @@ void NotePad::appendTextWithBounds(int readSoFar, QStringList *indented, int sel
 {
     if(readSoFar > selectionStart && readSoFar < selectionEnd)
     {
-        indented->append("\n");
+        if(!(selectionStart == 0 && readSoFar == toAppend.length()))
+        {
+            indented->append("\n");
+        }
         addTabs(indented);
         indented->append(toAppend);
     }
