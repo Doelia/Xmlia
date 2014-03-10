@@ -11,6 +11,7 @@
 #include <QDomDocument>
 #include <QStandardItemModel>
 #include <QString>
+#include <QTextStream>
 #include <iostream>
 
 using namespace std;
