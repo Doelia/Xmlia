@@ -1,7 +1,7 @@
 #ifndef NOTEPAD_H
 #define NOTEPAD_H
 
-#include <QtWidgets>
+#include <QtGui>
 #include <QtXml/QDomDocument>
 #include <iostream>
 #include <stack>
@@ -27,7 +27,7 @@ private slots:
     void toGreen();
     void toBlack();
     void onTextChange();
-    void indent();
+    void onIndent();
     void parse();
 
 private:
@@ -57,18 +57,23 @@ private:
 
     void keyPressEvent(QKeyEvent *e);
     bool eventFilter(QObject *o, QEvent *e);
-    void insertTabs(int i);
+
+    void insertTabsOnEnterHit() const;
+    void insertTabs(QString* l) const;
 
     stack<QString>* pile;
 
     bool isOpenTag(QString token) const;
     bool isCloseTag(QString token) const;
-    bool addTabs(QStringList* l) const;
 
     int selectLineStart(QString s);
     int selectLineEnd(QString s);
 
-    void appendTextWithBounds(int readSoFar, QStringList* indented, int selectionStart, int selectionEnd, QString toAppend);
+    void selectWholeLine() const;
+
+    void indent();
+
+    void appendTextWithBounds(QString* indented, int upperBound, int lowerBound, int currentLine, QString toAppend);
 
 };
 

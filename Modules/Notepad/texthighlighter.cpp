@@ -37,15 +37,13 @@ void TextHighLighter::highlightBlock(const QString &text)
         {
             last = i + ((text.mid(i + 1, 1) == "/")?2:1);
             setCurrentBlockState(TAG_STATE);
-            //incrementTabNumber();
-            //t->setText(t->toPlainText().insert(i, "   "));
+
         }
 
         else if (currentBlockState() == TAG_STATE && text.mid(i, 1) == ">")
         {
             setFormat(last, i - last, Qt::red);
             setCurrentBlockState(DEFAULT_STATE);
-           // decrementTabNumber();
         }
     }
 }
