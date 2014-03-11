@@ -218,13 +218,13 @@ bool NotePad::insertCharacterForKeyFiltering(const QString str)
 
 bool NotePad::isOpenTag(QString token) const
 {
-    QRegExp rx("<\\w>");
+    QRegExp rx("<[a-zA-Z]*>");
     return rx.exactMatch(token);
 }
 
 bool NotePad::isCloseTag(QString token) const
 {
-    QRegExp rx("</\\w>");
+    QRegExp rx("</[a-zA-Z]*>");
     return rx.exactMatch(token);
 }
 
