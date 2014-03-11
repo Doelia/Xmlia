@@ -73,6 +73,8 @@ private:
 
     void indent();
 
+    bool insertCharacterForKeyFiltering(const QString str);
+
     void appendTextWithBounds(QString* indented, int upperBound, int lowerBound, int currentLine, QString toAppend);
 
 };

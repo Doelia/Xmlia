@@ -131,20 +131,11 @@ bool NotePad::eventFilter(QObject *o, QEvent *e)
     {
         if (keyEvent->key() == Qt::Key_Return || keyEvent->key() == Qt::Key_Enter)
         {
-            QTextCursor c = text->textCursor();
-
-            int pos = c.position();
-            QString left = text->toPlainText().left(pos);
-            QString right = text->toPlainText().right(text->toPlainText().length() - pos);
-
-            QString s = left.append("\n").append(right);
-
-            cout << "cursor position : " << pos << endl;
-            text->setPlainText(s);
-            c.setPosition(pos + 1);
-            text->setTextCursor(c);
-            this->indent();
-            return true;
+            return insertCharacterForKeyFiltering("\n");
+        }
+        else if (keyEvent->key() == Qt::Key_Greater)
+        {
+            return insertCharacterForKeyFiltering(">");
         }
     }
     return false;
@@ -206,6 +197,23 @@ void NotePad::indent()
     c.setPosition(selectionEnd);
     c.movePosition(QTextCursor::EndOfBlock);
     text->setTextCursor(c);
+}
+
+bool NotePad::insertCharacterForKeyFiltering(const QString str)
+{
+    QTextCursor c = text->textCursor();
+
+    int pos = c.position();
+    QString left = text->toPlainText().left(pos);
+    QString right = text->toPlainText().right(text->toPlainText().length() - pos);
+
+    QString s = left.append(str).append(right);
+
+    text->setPlainText(s);
+    c.setPosition(pos + 1);
+    text->setTextCursor(c);
+    this->indent();
+    return true;
 }
 
 bool NotePad::isOpenTag(QString token) const
