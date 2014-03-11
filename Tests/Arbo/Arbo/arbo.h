@@ -19,14 +19,11 @@ using namespace std;
 class Arbo : public QWidget
 {
 private:
-    QStandardItem* item;
-    int nRow;
+    QTreeView* vue;
 public:
     Arbo();
+    QTreeView* getVue() const;
     void preOrder(QDomNode dom, QStandardItemModel *model);
-    void insertFather(QString name);
-    void insertChildren(QString name);
-    void setItem(QStandardItemModel *model);
 };
 
 #endif // ARBO_H
