@@ -218,7 +218,7 @@ bool NotePad::insertCharacterForKeyFiltering(const QString str)
 
 bool NotePad::isOpenTag(QString token) const
 {
-    QRegExp rx("<[a-zA-Z]*>");
+    QRegExp rx("<[a-zA-Z \"=]*>");
     return rx.exactMatch(token);
 }
 

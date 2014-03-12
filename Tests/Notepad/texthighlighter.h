@@ -16,6 +16,7 @@ public:
     void decrementTabNumber();
     int getTabNumber() const;
     void clearTabNumber();
+    void setTextColor(int last, int current);
 
 signals:
     
