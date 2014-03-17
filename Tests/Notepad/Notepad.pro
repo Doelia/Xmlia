@@ -9,3 +9,5 @@ HEADERS += \
 
 CONFIG += qt
 
+QT+=widgets
+

@@ -17,52 +17,59 @@ TextHighLighter::TextHighLighter(QTextDocument *parent) :
 void TextHighLighter::highlightBlock(const QString &text)
 {
     int last = 0;
+
     setCurrentBlockState(previousBlockState());
 
     for (int i = 0; i < text.length(); ++i)
     {
-        if (text.mid(i, 1) == "\"")
+        if(currentBlockState() == COMMENT_STATE)
         {
-            if (currentBlockState() == QUOTE_STATE)
+            last = i;
+            if (text.mid(i, 3) == "-->")
             {
                 setCurrentBlockState(DEFAULT_STATE);
             }
-            else
+        }
+        else
+        {
+            if (text.mid(i, 1) == "\"")
             {
-                setCurrentBlockState(QUOTE_STATE);
-                last = i + 1;
+                if (currentBlockState() == QUOTE_STATE)
+                {
+                    setCurrentBlockState(DEFAULT_STATE);
+                }
+                else
+                {
+                    setCurrentBlockState(QUOTE_STATE);
+                    last = i + 1;
+                }
+            }
+
+            else if (currentBlockState() == TAG_STATE && text.mid(i, 1) == " ")
+            {
+                last = i;
+                setCurrentBlockState(IN_TAG_ATTR_STATE);
+            }
+
+            else if (text.mid(i, 4) == "<!--")
+            {
+                last = i;
+                setCurrentBlockState(COMMENT_STATE);
+            }
+
+            else if (text.mid(i, 1) == "<")
+            {
+                last = i + ((text.mid(i + 1, 1) == "/")?2:1);
+                setCurrentBlockState(TAG_STATE);
+            }
+
+            else if (currentBlockState() == TAG_STATE && text.mid(i, 1) == ">")
+            {
+                setCurrentBlockState(DEFAULT_STATE);
             }
         }
+        setTextColor(last, i);
 
-        else if (currentBlockState() == TAG_STATE && text.mid(i, 1) == " ")
-        {
-            last = i;
-            setCurrentBlockState(IN_TAG_ATTR_STATE);
-        }
-
-        else if (text.mid(i, 4) == "<!--")
-        {
-            last = i;
-            setCurrentBlockState(COMMENT_STATE);
-        }
-
-        else if (text.mid(i, 3) == "-->")
-        {
-            setCurrentBlockState(DEFAULT_STATE);
-        }
-
-        else if (text.mid(i, 1) == "<")
-        {
-            last = i + ((text.mid(i + 1, 1) == "/")?2:1);
-            setCurrentBlockState(TAG_STATE);
-        }
-
-        else if (currentBlockState() == TAG_STATE && text.mid(i, 1) == ">")
-        {
-            setCurrentBlockState(DEFAULT_STATE);
-        }
-
-    setTextColor(last, i);
     }
 }
 

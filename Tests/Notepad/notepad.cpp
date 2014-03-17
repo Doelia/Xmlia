@@ -137,6 +137,10 @@ bool NotePad::eventFilter(QObject *o, QEvent *e)
         {
             return insertCharacterForKeyFiltering(">");
         }
+        else if(keyEvent->key() == Qt::Key_Tab)
+        {
+            return insertCharacterForKeyFiltering("");
+        }
     }
     return false;
 }
@@ -171,6 +175,8 @@ void NotePad::indent()
         QStringList tokens = line.at(i).split(regex);
         for (int var = 1; var < tokens.length(); ++var) {
             QString token = tokens.at(var);
+
+            cout << "token : " << token.toStdString() << endl;
 
             if(isCloseTag(token))
             {
@@ -218,19 +224,19 @@ bool NotePad::insertCharacterForKeyFiltering(const QString str)
 
 bool NotePad::isOpenTag(QString token) const
 {
-    QRegExp rx("<[a-zA-Z \"=]*>");
-    return rx.exactMatch(token);
+    QRegExp rx("<[^\\n?(!--)].*[^/(--)]>");
+    return token.contains(rx);
 }
 
 bool NotePad::isCloseTag(QString token) const
 {
-    QRegExp rx("</[a-zA-Z]*>");
-    return rx.exactMatch(token);
+    QRegExp rx("</[^\\n].*>");
+    return token.contains(rx);
 }
 
-void NotePad::insertTabs(QString* l) const
+void NotePad::insertTabs(QString* l, int n) const
 {
-    for (int i = 0; i < th->getTabNumber(); ++i) {
+    for (int i = 0; i < n; ++i) {
         l->append("    ");
     }
 }
@@ -273,7 +279,7 @@ void NotePad::appendTextWithBounds(QString *indented, int upperBound, int lowerB
             indented->append("\n");
         }
         cout << "to append :" << toAppend.toStdString() << endl;
-        insertTabs(indented);
+        insertTabs(indented, th->getTabNumber());
         indented->append(toAppend);
     }
 }
