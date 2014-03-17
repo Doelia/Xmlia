@@ -137,10 +137,6 @@ bool NotePad::eventFilter(QObject *o, QEvent *e)
         {
             return insertCharacterForKeyFiltering(">");
         }
-        else if(keyEvent->key() == Qt::Key_Tab)
-        {
-            return insertCharacterForKeyFiltering("");
-        }
     }
     return false;
 }
@@ -175,8 +171,6 @@ void NotePad::indent()
         QStringList tokens = line.at(i).split(regex);
         for (int var = 1; var < tokens.length(); ++var) {
             QString token = tokens.at(var);
-
-            cout << "token : " << token.toStdString() << endl;
 
             if(isCloseTag(token))
             {
