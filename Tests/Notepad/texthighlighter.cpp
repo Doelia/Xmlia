@@ -2,12 +2,6 @@
 
 using namespace std;
 
-#define DEFAULT_STATE -1
-#define QUOTE_STATE 0
-#define TAG_STATE 1
-#define COMMENT_STATE 2
-#define IN_TAG_ATTR_STATE 3
-
 TextHighLighter::TextHighLighter(QTextDocument *parent) :
     QSyntaxHighlighter(parent)
 {

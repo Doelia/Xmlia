@@ -5,6 +5,12 @@
 #include <iostream>
 #include <QTextEdit>
 
+#define DEFAULT_STATE -1
+#define QUOTE_STATE 0
+#define TAG_STATE 1
+#define COMMENT_STATE 2
+#define IN_TAG_ATTR_STATE 3
+
 class TextHighLighter : public QSyntaxHighlighter
 {
     Q_OBJECT
@@ -16,7 +22,6 @@ public:
     void decrementTabNumber();
     int getTabNumber() const;
     void clearTabNumber();
-    void setTextColor(int last, int current);
 
 signals:
     
@@ -24,7 +29,7 @@ public slots:
 
 private:
     int tabNumber;
-
+    void setTextColor(int last, int current);
 };
 
 #endif // TEXTHIGHLIGHTER_H
