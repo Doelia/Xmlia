@@ -6,6 +6,7 @@
 #include <QtXml/QDomDocument>
 #include <iostream>
 #include <stack>
+#include <QtXml/QXmlSimpleReader>
 
 using namespace std;
 
@@ -60,23 +61,16 @@ private:
     bool eventFilter(QObject *o, QEvent *e);
 
     void insertTabsOnEnterHit() const;
-    void insertTabs(QString* l, int n) const;
-
-    stack<QString>* pile;
-
-    bool isOpenTag(QString token) const;
-    bool isCloseTag(QString token) const;
-
-    int selectLineStart(QString s);
-    int selectLineEnd(QString s);
+    QString tabsString(int n) const;
 
     void selectWholeLine() const;
 
     void indent();
+    void indentLineWithBounds(QStringList *list, int line, int upperBound, int lowerBound);
 
     bool insertCharacterForKeyFiltering(const QString str);
 
-    void appendTextWithBounds(QString* indented, int upperBound, int lowerBound, int currentLine, QString toAppend);
+    int tabNumber;
 
 };
 

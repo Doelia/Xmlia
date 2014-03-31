@@ -35,6 +35,11 @@ public slots:
 
 private:
     int tabNumber;
+    bool isTagOpen;
+
+    QColor *tag = new QColor(18, 59, 171);
+    QColor *inTagAttr = new QColor(0, 176, 100);
+    QColor *quote = new QColor(255, 159, 0);
 
 };
 

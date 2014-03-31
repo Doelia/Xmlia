@@ -7,6 +7,7 @@ TextHighLighter::TextHighLighter(QTextDocument *parent) :
     QSyntaxHighlighter(parent)
 {
     this->tabNumber = 0;
+    this->isTagOpen = false;
 }
 
 void TextHighLighter::highlightBlock(const QString &text)
@@ -82,17 +83,17 @@ bool TextHighLighter::cQuote(int *last, const QString &text, int i)
         if (equalsQuote)
         {
             setCurrentBlockState(DEFAULT_STATE);
-            setTextColor(*last, i, Qt::blue);
+            setTextColor(*last, i, *this->quote);
             return true;
         }
-        setTextColor(*last, i + 1, Qt::blue);
+        setTextColor(*last, i + 1, *this->quote);
         return true;
     }
     else if (equalsQuote)
     {
         setCurrentBlockState(QUOTE_STATE);
         *last = i + 1;
-        setTextColor(*last, i, Qt::blue);
+        setTextColor(*last, i, *this->quote);
         return true;
     }
     return false;
@@ -105,17 +106,19 @@ bool TextHighLighter::cTag(int *last, const QString &text, int i)
         if(text.mid(i, 1) == ">")
         {
             setCurrentBlockState(DEFAULT_STATE);
-            setTextColor(*last, i, Qt::red);
+            setTextColor(*last, i, *this->tag);
+            this->isTagOpen = false;
             return true;
         }
-        setTextColor(*last, i + 1, Qt::red);
+        setTextColor(*last, i + 1, *this->tag);
         return true;
     }
     else if (text.mid(i, 1) == "<")
     {
         *last = i + ((text.mid(i + 1, 1) == "/")?2:1);
         setCurrentBlockState(TAG_STATE);
-        setTextColor(*last, i + 1, Qt::red);
+        setTextColor(*last, i + 1, *this->tag);
+        this->isTagOpen = true;
         return true;
     }
     return false;
@@ -125,10 +128,14 @@ bool TextHighLighter::cInTagAttr(int *last, const QString &text, int i)
 {
     if(currentBlockState() == IN_TAG_ATTR_STATE)
     {
-        setTextColor(*last, i + 1, Qt::cyan);
+        setTextColor(*last, i + 1, *this->inTagAttr);
+        if(text.mid(i, 1) == " ")
+        {
+            setCurrentBlockState(TAG_STATE);
+        }
         return true;
     }
-    else if (currentBlockState() == TAG_STATE && text.mid(i, 1) == " ")
+    else if (this->isTagOpen && text.mid(i, 1) == " " && text.mid(i + 1, 1) != "?" && text.mid(i + 1, 1) != ">")
     {
         *last = i;
         setCurrentBlockState(IN_TAG_ATTR_STATE);

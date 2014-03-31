@@ -5,7 +5,6 @@ NotePad::NotePad()
     this->text = new QTextEdit();
     this->th = new TextHighLighter(text->document());
     this->reader = new QXmlStreamReader();
-    this->pile = new stack<QString>();
 
     this->text->installEventFilter(this);
 
@@ -41,9 +40,10 @@ NotePad::NotePad()
 
     setCentralWidget(text);
 
-    setWindowTitle("superman");
+    this->tabNumber = 0;
 
-    //this->xml = new QDomDocument();
+    setWindowTitle("superman");
+    this->resize(800, 600);
 }
 
 void NotePad::quit()
@@ -54,7 +54,7 @@ void NotePad::quit()
 void NotePad::open()
 {
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "",
-                                                    tr("Text Files (*.txt);;C++ Files (*.cpp *.h)"));
+                                                    tr("Text Files (*.txt);;Xml Files (*.xml)"));
 
     if (fileName != "") {
         QFile file(fileName);
@@ -71,7 +71,7 @@ void NotePad::open()
 void NotePad::save()
 {
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "",
-                                                    tr("Text Files (*.txt);;C++ Files (*.cpp *.h)"));
+                                                    tr("Text Files (*.txt);;Xml Files (*.xml)"));
 
     if (fileName != "") {
         QFile file(fileName);
@@ -103,6 +103,7 @@ void NotePad::toRed()
 
 void NotePad::parse()
 {
+
 }
 
 void NotePad::onTextChange()
@@ -119,7 +120,6 @@ void NotePad::keyPressEvent(QKeyEvent *e)
 {
     if ((e->key () == Qt::Key_Enter))
     {
-        //cout << "enter pressed" << endl;
     }
 }
 
@@ -147,56 +147,68 @@ void NotePad::indent()
     int selectionStart = text->textCursor().selectionStart();
     int selectionEnd = text->textCursor().selectionEnd();
 
-    th->clearTabNumber();
-
-    QString indented;
-    QString s = text->toPlainText();
-
-    QString left = s.left(selectionStart);
-    QString right = s.right(s.length() - selectionEnd);
-
-    QStringList line = s.split("\n");
-
-    QRegExp regex("^(\\s)*");
+    tabNumber = 0;
 
     QTextCursor c = text->textCursor();
 
     c.setPosition(selectionStart);
     int upperBound = c.blockNumber();
-
     c.setPosition(selectionEnd);
     int lowerBound = c.blockNumber();
 
-    for (int i = 0; i < line.length(); ++i) {
-        QStringList tokens = line.at(i).split(regex);
-        for (int var = 1; var < tokens.length(); ++var) {
-            QString token = tokens.at(var);
+    QString s = text->toPlainText();
+    QStringList line = s.split("\n");
 
-            if(isCloseTag(token))
-            {
-                th->decrementTabNumber();
-                appendTextWithBounds(&indented, upperBound, lowerBound, i, token);
+    QXmlStreamReader xml(this->text->toPlainText());
 
-            }
-            else if (isOpenTag(token))
-            {
-                appendTextWithBounds(&indented, upperBound, lowerBound, i, token);
-                th->incrementTabNumber();
-            }
-            else
-            {
-                appendTextWithBounds(&indented, upperBound, lowerBound, i, token);
-            }
+    int last = 0;
+
+    while(!xml.atEnd())
+    {
+        QXmlStreamReader::TokenType token = xml.readNext();
+
+        for (int var = last; var < xml.lineNumber(); ++var) {
+            indentLineWithBounds(&line, var, upperBound, lowerBound);
         }
+
+        if(token == QXmlStreamReader::StartElement)
+        {
+            last = xml.lineNumber();
+            indentLineWithBounds(&line, xml.lineNumber() - 1, upperBound, lowerBound);
+            tabNumber++;
+        }
+        else if(token == QXmlStreamReader::EndElement)
+        {
+            last = xml.lineNumber();
+            tabNumber--;
+            indentLineWithBounds(&line, xml.lineNumber() - 1, upperBound, lowerBound);
+        }
+
+
     }
+
     if(selectionStart < s.length() - 1)
     {
-        text->setPlainText(left.append(indented).append(right));
+        text->setPlainText(line.join("\n"));
     }
-
     c.setPosition(selectionEnd);
     c.movePosition(QTextCursor::EndOfBlock);
     text->setTextCursor(c);
+}
+
+void NotePad::indentLineWithBounds(QStringList *list, int line, int upperBound, int lowerBound)
+{
+    if(line >= upperBound && line <= lowerBound)
+    {
+        QRegExp regex("^(\\s)*");
+        QString content = list->at(line).split(regex)[1];
+
+        QString res;
+        res.append(tabsString(tabNumber)).append(content);
+
+        list->removeAt(line);
+        list->insert(line, res);
+    }
 }
 
 bool NotePad::insertCharacterForKeyFiltering(const QString str)
@@ -216,30 +228,20 @@ bool NotePad::insertCharacterForKeyFiltering(const QString str)
     return true;
 }
 
-bool NotePad::isOpenTag(QString token) const
+QString NotePad::tabsString(int n) const
 {
-    QRegExp rx("<[^\\n?(!--)].*[^/(--)]>");
-    return token.contains(rx);
-}
-
-bool NotePad::isCloseTag(QString token) const
-{
-    QRegExp rx("</[^\\n].*>");
-    return token.contains(rx);
-}
-
-void NotePad::insertTabs(QString* l, int n) const
-{
-    for (int i = 0; i < n; ++i) {
-        l->append("    ");
+    QString l;
+    for (int i = 0; i < n; i++) {
+        l.append("        ");
     }
+    return l;
 }
 
 void NotePad::insertTabsOnEnterHit() const
 {
     this->text->textCursor().insertText("\n");
 
-    for (int i = 0; i < th->getTabNumber(); ++i) {
+    for (int i = 0; i < tabNumber; ++i) {
         this->text->textCursor().insertText("    ");
     }
 }
@@ -262,18 +264,4 @@ void NotePad::selectWholeLine() const
     cursor.setPosition(selectionEnd, QTextCursor::KeepAnchor);
 
     text->setTextCursor(cursor);
-}
-
-void NotePad::appendTextWithBounds(QString *indented, int upperBound, int lowerBound, int currentLine, QString toAppend)
-{
-    if(currentLine >= upperBound && currentLine <= lowerBound)
-    {
-        if(currentLine != upperBound)
-        {
-            indented->append("\n");
-        }
-        cout << "to append :" << toAppend.toStdString() << endl;
-        insertTabs(indented, th->getTabNumber());
-        indented->append(toAppend);
-    }
 }
