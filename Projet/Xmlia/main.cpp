@@ -11,15 +11,30 @@
 #include <iostream>
 
 #include "mainwindow.h"
+#include "xmlfilemanager.h"
+#include "modelexml.h"
+#include "arbo.h"
 
 using namespace std;
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
-    MainWindow window;
-    window.show();
+    // Chargement d'un fichier XML
+    XmlFileManager* fm = new XmlFileManager();
+    ModeleXml* modele = fm->openFile("/home/doelia/Documents/xmlia/Tests/Arbo/test.xml");
 
+    // Création de la vue arborescente en passant le pointeur vers le modèle
+    Arbo* arbo = new Arbo(modele);
+
+    // Fenetre principale
+    MainWindow window;
+
+    // Envoi de la vue arborescente à la fenetre
+    window.setArbo(arbo);
+
+    // Affichage et execution
+    window.show();
     return app.exec();
 
 }

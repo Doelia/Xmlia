@@ -15,6 +15,7 @@ public:
     void removeNode(QDomDocument* dom);
     void addAttribut(QDomDocument* element, Attribute t);
     void removeAttribut(QDomDocument* element, Attribute t);
+    QDomDocument* getRacine() const;
 };
 
 #endif // MODELEXML_H
