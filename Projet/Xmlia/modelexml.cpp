@@ -1,6 +1,6 @@
 #include "modelexml.h"
 
-ModeleXml::ModeleXml(QDomDocument* dom)
+ModeleXml::ModeleXml(QDomNode* dom)
 {
     this->dom = dom;
 }
