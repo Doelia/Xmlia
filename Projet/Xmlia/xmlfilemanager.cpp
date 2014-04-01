@@ -1,12 +1,10 @@
-
-
 #include "xmlfilemanager.h"
 
 XmlFileManager::XmlFileManager()
 {
 }
 
-ModeleXml* XmlFileManager::openFile(QString path)
+void XmlFileManager::openFile(QString path)
 {
     QDomDocument doc("document");
     QFile file(path);
@@ -14,12 +12,27 @@ ModeleXml* XmlFileManager::openFile(QString path)
         // TODO Faire un critical
         cout<< "ERROR 1"<< endl;
     }
+    QTextStream in(&file);
+    content = in.readAll();
+    cout << "content : " << content.toStdString() << endl;
     if (!doc.setContent(&file)) {
         // Todo faire un critical
         cout << "ERROR 2" << endl;
     }
+
     file.close();
 
-    return new ModeleXml(&doc);
+    this->modele = new ModeleXml(&doc);
 
+}
+
+ModeleXml *XmlFileManager::getModele() const
+{
+    return this->modele;
+}
+
+XmlFileManager *XmlFileManager::getFileManager()
+{
+    static XmlFileManager *manager = new XmlFileManager();
+    return manager;
 }

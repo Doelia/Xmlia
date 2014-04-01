@@ -8,45 +8,12 @@ NotePad::NotePad()
 
     this->text->installEventFilter(this);
 
-    openAction = new QAction(tr("&Open"), this);
-    saveAction = new QAction(tr("&Save"), this);
-    exitAction = new QAction(tr("E&xit"), this);
-    toRedAction = new QAction(tr("&Red"), this);
-    toGreenAction = new QAction(tr("&Green"), this);
-    toBlackAction = new QAction(tr("&Black"), this);
-    indentAction = new QAction(tr("&Indent"), this);
-
-    connect(openAction, SIGNAL(triggered()), this, SLOT(open()));
-    connect(saveAction, SIGNAL(triggered()), this, SLOT(save()));
-    connect(exitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
-    connect(toRedAction, SIGNAL(triggered()), this, SLOT(toRed()));
-    connect(toGreenAction, SIGNAL(triggered()), this, SLOT(toGreen()));
-    connect(toBlackAction, SIGNAL(triggered()), this, SLOT(toBlack()));
-    connect(text, SIGNAL(textChanged()), this, SLOT(onTextChange()));
-    connect(indentAction, SIGNAL(triggered()), this, SLOT(onIndent()));
-
-    fileMenu = menuBar()->addMenu(tr("&File"));
-    fileMenu->addAction(openAction);
-    fileMenu->addAction(saveAction);
-    fileMenu->addSeparator();
-    fileMenu->addAction(exitAction);
-
-    editMenu = menuBar()->addMenu(tr("&Edit"));
-    changeColorMenu = editMenu->addMenu("&Change color");
-    changeColorMenu->addAction(toRedAction);
-    changeColorMenu->addAction(toGreenAction);
-    changeColorMenu->addAction(toBlackAction);
-    editMenu->addAction(indentAction);
-
-    setCentralWidget(text);
+    //setCentralWidget(text);
 
     this->tabNumber = 0;
-
-    setWindowTitle("superman");
-    this->resize(800, 600);
 }
 
-void NotePad::quit()
+/*void NotePad::quit()
 {
     qApp->quit();
 }
@@ -54,7 +21,7 @@ void NotePad::quit()
 void NotePad::open()
 {
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "",
-                                                    tr("Text Files (*.txt);;Xml Files (*.xml)"));
+                                                    tr("Xml Files (*.xml);;Text Files (*.txt)"));
 
     if (fileName != "") {
         QFile file(fileName);
@@ -71,7 +38,7 @@ void NotePad::open()
 void NotePad::save()
 {
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "",
-                                                    tr("Text Files (*.txt);;Xml Files (*.xml)"));
+                                                    tr("Xml Files (*.xml);;Text Files (*.txt)"));
 
     if (fileName != "") {
         QFile file(fileName);
@@ -86,35 +53,7 @@ void NotePad::save()
     }
 }
 
-void NotePad::toBlack()
-{
-    text->setTextColor(QColor("black"));
-}
-
-void NotePad::toGreen()
-{
-    text->setTextColor(QColor("green"));
-}
-
-void NotePad::toRed()
-{
-    text->setTextColor(QColor("red"));
-}
-
-void NotePad::parse()
-{
-
-}
-
-void NotePad::onTextChange()
-{
-}
-
-void NotePad::onIndent()
-{
-    QString s = text->toPlainText();
-    this->indent();
-}
+*/
 
 void NotePad::keyPressEvent(QKeyEvent *e)
 {
@@ -182,8 +121,6 @@ void NotePad::indent()
             tabNumber--;
             indentLineWithBounds(&line, xml.lineNumber() - 1, upperBound, lowerBound);
         }
-
-
     }
 
     if(selectionStart < s.length() - 1)
@@ -193,6 +130,21 @@ void NotePad::indent()
     c.setPosition(selectionEnd);
     c.movePosition(QTextCursor::EndOfBlock);
     text->setTextCursor(c);
+}
+
+void NotePad::setText(QString s)
+{
+    text->setText(s);
+}
+
+QTextEdit *NotePad::getTextEdit() const
+{
+    return this->text;
+}
+
+QString NotePad::getStringFromDom() const
+{
+
 }
 
 void NotePad::indentLineWithBounds(QStringList *list, int line, int upperBound, int lowerBound)

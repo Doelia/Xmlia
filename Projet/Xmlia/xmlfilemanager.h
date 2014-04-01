@@ -6,7 +6,7 @@
 #include <QDomDocument>
 #include <QFile>
 #include <iostream>
-
+#include <QTextStream>
 
 /**
   * Permet de gérer les fichiers (enregistrement, ouverture...) et récupérer le dom
@@ -17,8 +17,13 @@ using namespace std;
 
 class XmlFileManager
 {
-public:
+private:
     XmlFileManager();
+    ModeleXml *modele;
+
+public:
+    //PROVISOIRE
+    QString content;
 
     /**
         Enregistre un modèle dans un fichier .xml
@@ -28,7 +33,11 @@ public:
     /**
        Ouvre un fichier .xml et retourne son modèle
     */
-    ModeleXml* openFile(QString path);
+    void openFile(QString path);
+
+    ModeleXml *getModele() const;
+    static XmlFileManager *getFileManager();
 };
+
 
 #endif // XMLFILEMANAGER_H

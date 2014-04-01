@@ -5,56 +5,34 @@
 //#include <QtWidgets>
 #include <QtXml/QDomDocument>
 #include <iostream>
+#include <stack>
 #include <QtXml/QXmlSimpleReader>
 
 using namespace std;
 
 #include "texthighlighter.h"
+#include "modelexml.h"
 
-class NotePad : public QMainWindow
+class NotePad : public QWidget
 {
     Q_OBJECT
 
 public:
     NotePad();
+    void indent();
+    void setText(QString s);
+
+    QTextEdit *getTextEdit() const;
 
 signals:
 
-private slots:
-    void quit();
-    void open();
-    void save();
-    void toRed();
-    void toGreen();
-    void toBlack();
-    void onTextChange();
-    void onIndent();
-    void parse();
 
 private:
     QTextEdit* text;
-
-    QAction* openAction;
-    QAction* saveAction;
-    QAction* exitAction;
-    QAction* changeColorAction;
-    QAction* toRedAction;
-    QAction* toGreenAction;
-    QAction* toBlackAction;
-    QAction* textChangedAction;
-    QAction* indentAction;
-
-    QMenu* fileMenu;
-    QMenu* editMenu;
-    QMenu* changeColorMenu;
-    QMenu* toRedMenu;
-    QMenu* toGreenMenu;
-    QMenu* toBlackMenu;
-
-    QDomDocument* xml;
     QXmlStreamReader* reader;
-
     TextHighLighter* th;
+
+    QString getStringFromDom() const;
 
     void keyPressEvent(QKeyEvent *e);
     bool eventFilter(QObject *o, QEvent *e);
@@ -62,7 +40,6 @@ private:
     void insertTabsOnEnterHit() const;
     QString tabsString(int n) const;
 
-    void indent();
     void indentLineWithBounds(QStringList *list, int line, int upperBound, int lowerBound);
 
     bool insertCharacterForKeyFiltering(const QString str);

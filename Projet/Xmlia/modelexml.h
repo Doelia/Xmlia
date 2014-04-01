@@ -1,20 +1,21 @@
 #ifndef MODELEXML_H
 #define MODELEXML_H
 
-#include <QDomDocument>
+#include <QDomNode>
 #include <attribute.h>
-
 
 class ModeleXml
 {
 private:
-    QDomDocument* dom;
+    QDomNode* dom;
 public:
-    ModeleXml(QDomDocument* dom);
-    void addNode(QDomDocument* dom);
-    void removeNode(QDomDocument* dom);
-    void addAttribut(QDomDocument* element, Attribute t);
-    void removeAttribut(QDomDocument* element, Attribute t);
+    ModeleXml(QDomNode* dom);
+    void addNode(QDomNode* dom);
+    void removeNode(QDomNode* dom);
+    void addAttribut(QDomNode* element, Attribute t);
+    void removeAttribut(QDomNode* element, Attribute t);
+    QString domToString() const;
+    QDomNode* getRacine() const;
 };
 
 #endif // MODELEXML_H
