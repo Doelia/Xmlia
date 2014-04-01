@@ -2,6 +2,7 @@
 #define NOTEPAD_H
 
 #include <QtGui>
+//#include <QtWidgets>
 #include <QtXml/QDomDocument>
 #include <iostream>
 #include <stack>
@@ -59,7 +60,7 @@ private:
     bool eventFilter(QObject *o, QEvent *e);
 
     void insertTabsOnEnterHit() const;
-    void insertTabs(QString* l) const;
+    void insertTabs(QString* l, int n) const;
 
     stack<QString>* pile;
 

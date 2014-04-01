@@ -23,6 +23,13 @@ public:
     int getTabNumber() const;
     void clearTabNumber();
 
+    void setTextColor(int last, int current, QColor c);
+
+    bool cComment(int *last, const QString &text, int i);
+    bool cQuote(int *last, const QString &text, int i);
+    bool cTag(int *last, const QString &text, int i);
+    bool cInTagAttr(int *last, const QString &text, int i);
+
 signals:
     
 public slots:
