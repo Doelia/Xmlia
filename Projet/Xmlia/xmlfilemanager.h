@@ -22,9 +22,6 @@ private:
     ModeleXml *modele;
 
 public:
-    //PROVISOIRE
-    QString content;
-
     /**
         Enregistre un modèle dans un fichier .xml
     */

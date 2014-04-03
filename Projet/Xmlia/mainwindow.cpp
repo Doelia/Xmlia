@@ -2,7 +2,7 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
-    setFixedSize(800, 600);
+    resize(800, 600);
     QHBoxLayout *layout = new QHBoxLayout;
     //   
     openAction = new QAction(tr("&Open"), this);
@@ -64,6 +64,7 @@ void MainWindow::open()
     cout << fileName.toStdString() << endl;
 
     XmlFileManager::getFileManager()->openFile(fileName);
+
     this->notepad->setText(XmlFileManager::getFileManager()->getModele()->domToString());
 }
 

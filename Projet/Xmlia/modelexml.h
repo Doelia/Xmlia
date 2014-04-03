@@ -7,9 +7,9 @@
 class ModeleXml
 {
 private:
-    QDomNode* dom;
+    QDomDocument* dom;
 public:
-    ModeleXml(QDomNode* dom);
+    ModeleXml(QDomDocument* dom);
     void addNode(QDomNode* dom);
     void removeNode(QDomNode* dom);
     void addAttribut(QDomNode* element, Attribute t);

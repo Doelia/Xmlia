@@ -3,7 +3,7 @@
 #include "xmlfilemanager.h"
 
 
-ModeleXml::ModeleXml(QDomNode* dom)
+ModeleXml::ModeleXml(QDomDocument* dom)
 {
     this->dom = dom;
 }
@@ -15,7 +15,6 @@ QDomNode *ModeleXml::getRacine() const
 
 QString ModeleXml::domToString() const
 {
-    //TODO changer ca
-    return XmlFileManager::getFileManager()->content;
+    return dom->toString();
 }
 

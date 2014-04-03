@@ -6,24 +6,26 @@ XmlFileManager::XmlFileManager()
 
 void XmlFileManager::openFile(QString path)
 {
-    QDomDocument doc("document");
+    QDomDocument *doc = new QDomDocument("document");
+
+    QString error;
+    int errorLine;
+    int errorColumn;
+
     QFile file(path);
     if (!file.open(QIODevice::ReadOnly)){
         // TODO Faire un critical
         cout<< "ERROR 1"<< endl;
     }
-    QTextStream in(&file);
-    content = in.readAll();
-    cout << "content : " << content.toStdString() << endl;
-    if (!doc.setContent(&file)) {
-        // Todo faire un critical
+
+    if (!doc->setContent(&file, &error, &errorLine, &errorColumn)) {
+        cout << "error : " << error.toStdString() << " at line " << errorLine << " at column " << errorColumn << endl;
         cout << "ERROR 2" << endl;
     }
 
     file.close();
 
-    this->modele = new ModeleXml(&doc);
-
+    this->modele = new ModeleXml(doc);
 }
 
 ModeleXml *XmlFileManager::getModele() const

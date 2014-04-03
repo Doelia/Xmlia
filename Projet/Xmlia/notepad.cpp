@@ -8,52 +8,8 @@ NotePad::NotePad()
 
     this->text->installEventFilter(this);
 
-    //setCentralWidget(text);
-
     this->tabNumber = 0;
 }
-
-/*void NotePad::quit()
-{
-    qApp->quit();
-}
-
-void NotePad::open()
-{
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "",
-                                                    tr("Xml Files (*.xml);;Text Files (*.txt)"));
-
-    if (fileName != "") {
-        QFile file(fileName);
-        if (!file.open(QIODevice::ReadOnly)) {
-            QMessageBox::critical(this, tr("Error"), tr("Could not open file"));
-            return;
-        }
-        QTextStream in(&file);
-        text->setText(in.readAll());
-        file.close();
-    }
-}
-
-void NotePad::save()
-{
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "",
-                                                    tr("Xml Files (*.xml);;Text Files (*.txt)"));
-
-    if (fileName != "") {
-        QFile file(fileName);
-        if (!file.open(QIODevice::WriteOnly)) {
-            // error message
-        } else {
-            QTextStream stream(&file);
-            stream << text->toPlainText();
-            stream.flush();
-            file.close();
-        }
-    }
-}
-
-*/
 
 void NotePad::keyPressEvent(QKeyEvent *e)
 {
