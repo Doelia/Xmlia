@@ -14,6 +14,7 @@ void TextHighLighter::highlightBlock(const QString &text)
     int last = 0;
 
     setCurrentBlockState(previousBlockState());
+    this->isTagOpen = false;
 
     for (int i = 0; i < text.length(); ++i)
     {
@@ -75,7 +76,7 @@ bool TextHighLighter::cComment(int *last, const QString &text, int i)
 
 bool TextHighLighter::cQuote(int *last, const QString &text, int i)
 {
-    bool equalsQuote = (text.mid(i, 1) == "\"");
+     bool equalsQuote = ((text.mid(i, 1) == "\"") || (text.mid(i, 1) == "'"));
 
     if(currentBlockState() == QUOTE_STATE)
     {

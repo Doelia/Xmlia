@@ -47,8 +47,13 @@ void NotePad::indent()
 
     c.setPosition(selectionStart);
     int upperBound = c.blockNumber();
+    c.movePosition(QTextCursor::StartOfBlock);
+    selectionStart = c.selectionStart();
+
     c.setPosition(selectionEnd);
     int lowerBound = c.blockNumber();
+    c.movePosition(QTextCursor::StartOfBlock);
+    selectionEnd = c.selectionEnd();
 
     QString s = text->toPlainText();
     QStringList line = s.split("\n");
@@ -67,15 +72,17 @@ void NotePad::indent()
 
         if(token == QXmlStreamReader::StartElement)
         {
-            last = xml.lineNumber();
-            indentLineWithBounds(&line, xml.lineNumber() - 1, upperBound, lowerBound);
+            if(last != xml.lineNumber()) {
+                last = xml.lineNumber();
+                indentLineWithBounds(&line, last - 1, upperBound, lowerBound);
+            }
             tabNumber++;
         }
         else if(token == QXmlStreamReader::EndElement)
         {
-            last = xml.lineNumber();
             tabNumber--;
-            indentLineWithBounds(&line, xml.lineNumber() - 1, upperBound, lowerBound);
+            last = xml.lineNumber();
+            indentLineWithBounds(&line, last - 1, upperBound, lowerBound);
         }
     }
 
@@ -84,7 +91,7 @@ void NotePad::indent()
         text->setPlainText(line.join("\n"));
     }
     c.setPosition(selectionEnd);
-    c.movePosition(QTextCursor::EndOfBlock);
+    c.movePosition(QTextCursor::EndOfLine);
     text->setTextCursor(c);
 }
 

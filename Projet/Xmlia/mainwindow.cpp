@@ -40,13 +40,14 @@ void MainWindow::setNotePad(NotePad *notepad)
 
     indentAction = new QAction(tr("&Indent"), this);
 
-    connect(indentAction, SIGNAL(triggered()), this, SLOT(onIndent()));
+    connect(indentAction, SIGNAL(triggered()), this, SLOT(indent()));
+    new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_I), this, SLOT(indent()));
 
     editMenu = menuBar()->addMenu(tr("&Edit"));
     editMenu->addAction(indentAction);
 }
 
-void MainWindow::onIndent()
+void MainWindow::indent()
 {
     this->notepad->indent();
 }

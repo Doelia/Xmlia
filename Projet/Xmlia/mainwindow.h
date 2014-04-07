@@ -26,7 +26,7 @@ private slots:
     void quit();
     void open();
     void save();
-    void onIndent();
+    void indent();
 
 public slots:
 
