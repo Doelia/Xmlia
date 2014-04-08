@@ -4,9 +4,13 @@
 
 using namespace std;
 
-Arbo::Arbo() : QWidget()
-{
 
+Arbo::Arbo() {
+    connect(this, SIGNAL(itemClicked(QTreeWidgetItem *, int)), this, SLOT(onEdit(QTreeWidgetItem *, int)));
+}
+
+void Arbo::onEdit (QTreeWidgetItem * item, int column) {
+    cout << "coucou" << endl;
 }
 
 QStandardItem* Arbo::getFils(QDomNode dom) {
@@ -17,31 +21,19 @@ QStandardItem* Arbo::getFils(QDomNode dom) {
     return item;
 }
 
-/**
-  * @action Remplit le modèle QStandardItemModel à partir d'un QDomNode dom
-  * TODO Benoit
-  *
-  */
 void Arbo::preOrder(QDomNode* dom, QStandardItemModel* model) {
-
-  //  cout << dom->childNodes().at(0).localName().toStdString();
-
     model->setItem(0, getFils(*dom));
 }
 
-
-/**
- * @brief Arbo::getVue
- * @return Une nouvelle vue calculée à partir du modèle
- */
-
 QTreeView* Arbo::getVue() {
-
     // Création de la vue
-    vue = new QTreeView;
-    this->updateView();
+    if (this->vue == NULL) {
+        vue = new QTreeView;
+        this->updateView();
+    }
     return this->vue;
 }
+
 
 void Arbo::updateView() {
 
@@ -51,6 +43,7 @@ void Arbo::updateView() {
     // Mise en ordre
     this->preOrder(XmlFileManager::getFileManager()->getModele()->getRacine(), model);
 
+    // Redéfinition du modèle
     vue->setModel(model);
 }
 

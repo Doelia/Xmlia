@@ -23,12 +23,12 @@ private:
 
 public:
     /**
-        Enregistre un modèle dans un fichier .xml
+        Enregistre le modèle dans un fichier .xml
     */
-    void saveInFile(ModeleXml* modele, QString path);
+    void saveInFile(QString path);
 
     /**
-       Ouvre un fichier .xml et retourne son modèle
+        COnstruit le modèle à partir d'un fichier
     */
     void openFile(QString path);
 

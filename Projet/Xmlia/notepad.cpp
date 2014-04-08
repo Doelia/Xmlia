@@ -33,8 +33,12 @@ bool NotePad::eventFilter(QObject *o, QEvent *e)
         {
             return insertCharacterForKeyFiltering(">");
         }
+        else if (keyEvent->key() == Qt::Key_Tab)
+        {
+            this->currentNode();
+            return true;
+        }
     }
-    //currentNode();
     return false;
 }
 
@@ -165,7 +169,6 @@ bool NotePad::insertCharacterForKeyFiltering(const QString str)
     c.setPosition(pos + 1);
     text->setTextCursor(c);
     this->indent();
-    currentNode();
     return true;
 }
 
@@ -173,11 +176,33 @@ QString NotePad::currentNode() const
 {
     QTextCursor c = this->text->textCursor();
 
-    int line = c.blockNumber();
+    stack<QString> s;
 
-    cout << "line : " << line << endl;
+    s.push("");
 
-    return "";
+    int line = c.blockNumber() + 1;
+    int column = c.positionInBlock();
+    int last = 0;
+
+    QXmlStreamReader xml(this->text->toPlainText());
+
+    while(!xml.atEnd()) {
+
+
+        if(xml.isStartElement()) {
+            s.push(xml.name().toString());
+        }
+
+        if(last <= line && xml.lineNumber() >= line && xml.columnNumber() >= column) {
+           return s.top();
+        }
+        if(xml.isEndElement())
+        {
+            s.pop();
+        }
+        last = xml.lineNumber();
+        xml.readNext();
+    }
 }
 
 QString NotePad::tabsString(int n) const
