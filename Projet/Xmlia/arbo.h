@@ -2,7 +2,7 @@
 #define ARBO_H
 
 #include <QApplication>
-#include <QWidget>
+#include <QTreeWidget>
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QDirModel>
@@ -18,8 +18,15 @@
 
 using namespace std;
 
-class Arbo : public QWidget
+class Arbo : public QTreeWidget
 {
+
+    Q_OBJECT
+
+public slots:
+
+    void onEdit (QTreeWidgetItem * item, int column);
+
 private:
     QTreeView* vue;
     ModeleXml* modele;
@@ -30,6 +37,12 @@ private:
       */
     void preOrder(QDomNode* dom, QStandardItemModel *model);
 
+    /**
+     * @brief Arbo::getFils
+     * @param dom
+     * @return Un item remplit avec les fils du dom
+     * Méthode récusrive
+     */
     QStandardItem* getFils(QDomNode dom);
 
 public:
@@ -38,13 +51,15 @@ public:
 
     /**
      * @brief Arbo::getVue
-     * @return Une nouvelle vue calculée à partir du modèle
+     * @return Génére une vue et la retourne
      */
     QTreeView* getVue();
 
+    /**
+     * @brief Arbo::updateView
+     * @action Met à jour la vue à partir du modèle
+     */
     void updateView();
-
-
 
 };
 
