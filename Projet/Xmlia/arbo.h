@@ -25,7 +25,7 @@ class Arbo : public QTreeWidget
 
 public slots:
 
-    void onEdit (QTreeWidgetItem * item, int column);
+    void onEdit (QModelIndex);
 
 private:
     QTreeView* vue;

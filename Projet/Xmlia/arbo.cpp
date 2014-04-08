@@ -6,11 +6,10 @@ using namespace std;
 
 
 Arbo::Arbo() {
-    connect(this, SIGNAL(itemClicked(QTreeWidgetItem *, int)), this, SLOT(onEdit(QTreeWidgetItem *, int)));
+
 }
 
-
-void Arbo::onEdit (QTreeWidgetItem * item, int column) {
+void Arbo::onEdit (QModelIndex item) {
     cout << "coucou" << endl;
 }
 
@@ -31,6 +30,7 @@ QTreeView* Arbo::getVue() {
     if (this->vue == NULL) {
         vue = new QTreeView;
         this->updateView();
+        connect(this->vue, SIGNAL(edited(QModelIndex)), this, SLOT(onEdit(QModelIndex)));
     }
     return this->vue;
 }

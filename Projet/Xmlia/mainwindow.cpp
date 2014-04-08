@@ -31,8 +31,6 @@ void MainWindow::setArbo(Arbo* arbo)
     this->arbo = arbo;
     this->layout->addWidget(this->arbo->getVue());
 
-
-
 }
 
 void MainWindow::setNotePad(NotePad *notepad)
