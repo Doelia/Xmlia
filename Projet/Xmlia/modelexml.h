@@ -10,6 +10,7 @@ private:
     QDomDocument* dom;
 public:
     ModeleXml(QDomDocument* dom);
+    virtual ~ModeleXml();
     void addNode(QDomNode* dom);
     void removeNode(QDomNode* dom);
     void addAttribut(QDomNode* element, Attribute t);

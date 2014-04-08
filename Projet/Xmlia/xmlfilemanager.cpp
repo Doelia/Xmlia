@@ -2,10 +2,14 @@
 
 XmlFileManager::XmlFileManager()
 {
+    this->modele = new ModeleXml(new QDomDocument(""));
 }
 
 void XmlFileManager::openFile(QString path)
 {
+    delete(this->modele);
+    cout << "freed !" << endl;
+
     QDomDocument *doc = new QDomDocument("document");
 
     QString error;

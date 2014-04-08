@@ -107,7 +107,7 @@ QTextEdit *NotePad::getTextEdit() const
 
 QString NotePad::getStringFromDom() const
 {
-
+    this->text->setText(XmlFileManager::getFileManager()->getModele()->domToString());
 }
 
 void NotePad::indentLineWithBounds(QStringList *list, int line, int upperBound, int lowerBound)
@@ -149,13 +149,4 @@ QString NotePad::tabsString(int n) const
         l.append("        ");
     }
     return l;
-}
-
-void NotePad::insertTabsOnEnterHit() const
-{
-    this->text->textCursor().insertText("\n");
-
-    for (int i = 0; i < tabNumber; ++i) {
-        this->text->textCursor().insertText("    ");
-    }
 }
