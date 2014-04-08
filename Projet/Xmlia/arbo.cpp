@@ -30,7 +30,7 @@ QTreeView* Arbo::getVue() {
     if (this->vue == NULL) {
         vue = new QTreeView;
         this->updateView();
-        connect(this->vue, SIGNAL(edited(QModelIndex)), this, SLOT(onEdit(QModelIndex)));
+
     }
     return this->vue;
 }
@@ -46,5 +46,7 @@ void Arbo::updateView() {
 
     // Redéfinition du modèle
     vue->setModel(model);
+
+     connect(this->vue->selectionModel(), SIGNAL(currentChanged(const QModelIndex &, const QModelIndex &)), this, SLOT(onEdit(QModelIndex)));
 }
 
