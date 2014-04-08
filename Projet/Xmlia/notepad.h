@@ -7,6 +7,7 @@
 #include <iostream>
 #include <stack>
 #include <QtXml/QXmlSimpleReader>
+#include "xmlfilemanager.h"
 
 using namespace std;
 
@@ -37,7 +38,6 @@ private:
     void keyPressEvent(QKeyEvent *e);
     bool eventFilter(QObject *o, QEvent *e);
 
-    void insertTabsOnEnterHit() const;
     QString tabsString(int n) const;
 
     void indentLineWithBounds(QStringList *list, int line, int upperBound, int lowerBound);
