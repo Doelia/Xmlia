@@ -22,6 +22,7 @@ bool NotePad::eventFilter(QObject *o, QEvent *e)
 {
     QKeyEvent *keyEvent = static_cast<QKeyEvent*>(e);
 
+
     if (e->type() == QEvent::KeyPress)
     {
         if (keyEvent->key() == Qt::Key_Return || keyEvent->key() == Qt::Key_Enter)
@@ -33,6 +34,7 @@ bool NotePad::eventFilter(QObject *o, QEvent *e)
             return insertCharacterForKeyFiltering(">");
         }
     }
+    //currentNode();
     return false;
 }
 
@@ -93,6 +95,7 @@ void NotePad::indent()
     c.setPosition(selectionEnd);
     c.movePosition(QTextCursor::EndOfLine);
     text->setTextCursor(c);
+    this->updateDom();
 }
 
 void NotePad::setText(QString s)
@@ -108,6 +111,29 @@ QTextEdit *NotePad::getTextEdit() const
 QString NotePad::getStringFromDom() const
 {
     this->text->setText(XmlFileManager::getFileManager()->getModele()->domToString());
+}
+
+void NotePad::updateDom()
+{
+    /*QXmlStreamReader xml(this->text->toPlainText());
+    QDomNode dom;
+
+    while(!xml.atEnd())
+    {
+        xml.readNext();
+
+        if(xml.isStartElement())
+        {
+
+            cout << xml.name().toString().toStdString() << endl;
+        }
+        else if(xml.isEndElement())
+        {
+
+        }
+    }*/
+    XmlFileManager::getFileManager()->getModele()->update(this->text->toPlainText());
+    emit update();
 }
 
 void NotePad::indentLineWithBounds(QStringList *list, int line, int upperBound, int lowerBound)
@@ -139,7 +165,19 @@ bool NotePad::insertCharacterForKeyFiltering(const QString str)
     c.setPosition(pos + 1);
     text->setTextCursor(c);
     this->indent();
+    currentNode();
     return true;
+}
+
+QString NotePad::currentNode() const
+{
+    QTextCursor c = this->text->textCursor();
+
+    int line = c.blockNumber();
+
+    cout << "line : " << line << endl;
+
+    return "";
 }
 
 QString NotePad::tabsString(int n) const

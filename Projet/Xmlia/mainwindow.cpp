@@ -19,11 +19,14 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     connect(saveAction, SIGNAL(triggered()), this, SLOT(save()));
     connect(exitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
 
+
     QWidget *a = new QWidget();
     this->layout = layout;
     a->setLayout(this->layout);
     //this->setLayout(this->layout);
     this->setCentralWidget(a);
+
+    new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_O), this, SLOT(open()));
 }
 
 void MainWindow::setArbo(Arbo* arbo)
@@ -45,6 +48,8 @@ void MainWindow::setNotePad(NotePad *notepad)
 
     editMenu = menuBar()->addMenu(tr("&Edit"));
     editMenu->addAction(indentAction);
+
+    connect(this->notepad, SIGNAL(update()), arbo, SLOT(updateView()));
 }
 
 void MainWindow::indent()

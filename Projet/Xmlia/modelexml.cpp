@@ -19,6 +19,13 @@ QDomNode *ModeleXml::getRacine() const
     return this->dom;
 }
 
+void ModeleXml::update(QString s)
+{
+    cout << "update" << endl;
+    this->dom->setContent(s);
+    cout << dom->childNodes().count() << endl;
+}
+
 QString ModeleXml::domToString() const
 {
     return dom->toString();

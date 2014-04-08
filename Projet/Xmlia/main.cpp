@@ -24,8 +24,6 @@ int main(int argc, char *argv[]) {
     /*XmlFileManager* fm = new XmlFileManager();
     ModeleXml* modele = fm->openFile("/home/doelia/Documents/xmlia/Tests/Arbo/test.xml");*/
 
-    XmlFileManager::getFileManager()->openFile("/home/doelia/Documents/xmlia/Tests/Arbo/test.xml");
-
     // Création de la vue arborescente en passant le pointeur vers le modèle
     Arbo* arbo = new Arbo();
     NotePad *notePad = new NotePad();

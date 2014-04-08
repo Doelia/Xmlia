@@ -4,8 +4,7 @@
 
 using namespace std;
 
-
-Arbo::Arbo()
+Arbo::Arbo() : QWidget()
 {
 
 }

@@ -20,6 +20,8 @@ using namespace std;
 
 class Arbo : public QWidget
 {
+    Q_OBJECT
+
 private:
     QTreeView* vue;
     ModeleXml* modele;
@@ -42,6 +44,7 @@ public:
      */
     QTreeView* getVue();
 
+public slots:
     void updateView();
 
 

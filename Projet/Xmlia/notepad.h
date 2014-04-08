@@ -26,7 +26,7 @@ public:
     QTextEdit *getTextEdit() const;
 
 signals:
-
+    void update();
 
 private:
     QTextEdit* text;
@@ -34,6 +34,8 @@ private:
     TextHighLighter* th;
 
     QString getStringFromDom() const;
+
+    void updateDom();
 
     void keyPressEvent(QKeyEvent *e);
     bool eventFilter(QObject *o, QEvent *e);
@@ -46,6 +48,7 @@ private:
 
     int tabNumber;
 
+    QString currentNode() const;
 };
 
 #endif // NOTEPAD_H

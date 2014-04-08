@@ -17,6 +17,7 @@ public:
     void removeAttribut(QDomNode* element, Attribute t);
     QString domToString() const;
     QDomNode* getRacine() const;
+    void update(QString s);
 };
 
 #endif // MODELEXML_H
