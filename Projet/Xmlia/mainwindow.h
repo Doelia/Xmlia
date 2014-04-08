@@ -3,6 +3,11 @@
 
 #include <QWidget>
 #include <QHBoxLayout>
+#include <QMainWindow>
+#include <QAction>
+#include <QMenuBar>
+#include <QShortcut>
+#include <QFileDialog>
 
 #include "arbo.h"
 #include "notepad.h"

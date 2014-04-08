@@ -10,6 +10,14 @@ Arbo::Arbo()
 
 }
 
+QStandardItem* Arbo::getFils(QDomNode dom) {
+    QStandardItem *item = new QStandardItem(dom.nodeName());
+    for (int i = 0; i < dom.childNodes().size(); i++) {
+        item->appendRow(this->getFils(dom.childNodes().at(i)));
+    }
+    return item;
+}
+
 /**
   * @action Remplit le modèle QStandardItemModel à partir d'un QDomNode dom
   * TODO Benoit
@@ -17,19 +25,9 @@ Arbo::Arbo()
   */
 void Arbo::preOrder(QDomNode* dom, QStandardItemModel* model) {
 
-      // Exemple de création d'item
-    QStandardItem *item1 = new QStandardItem("Item 1");
-    QStandardItem *item11 = new QStandardItem("Item 1.1");
-    QStandardItem *item111 = new QStandardItem("Item 1.1.1");
-    QStandardItem *item12 = new QStandardItem("Item 1.2");
+  //  cout << dom->childNodes().at(0).localName().toStdString();
 
-    // Exemple de laison entre les items
-    item1->appendRow(item11);
-    item11->appendRow(item111);
-    item1->appendRow(item12);
-
-    // Ajout d'un item au modèle
-    model->setItem(0, item1);
+    model->setItem(0, getFils(*dom));
 }
 
 
@@ -40,16 +38,20 @@ void Arbo::preOrder(QDomNode* dom, QStandardItemModel* model) {
 
 QTreeView* Arbo::getVue() {
 
-    // Construction du modèle arborescent vide
+    // Création de la vue
+    vue = new QTreeView;
+    this->updateView();
+    return this->vue;
+}
+
+void Arbo::updateView() {
+
+     // Construction du modèle arborescent vide
     QStandardItemModel *model = new QStandardItemModel();
 
     // Mise en ordre
     this->preOrder(XmlFileManager::getFileManager()->getModele()->getRacine(), model);
 
-    // Création de la vue
-    vue = new QTreeView;
     vue->setModel(model);
-
-    return this->vue;
 }
 

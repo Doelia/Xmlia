@@ -4,6 +4,7 @@
 #include <QSyntaxHighlighter>
 #include <iostream>
 #include <QTextEdit>
+#include <QColor>
 
 #define DEFAULT_STATE -1
 #define QUOTE_STATE 0

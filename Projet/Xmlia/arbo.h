@@ -23,6 +23,15 @@ class Arbo : public QWidget
 private:
     QTreeView* vue;
     ModeleXml* modele;
+
+    /**
+      * @action Remplit le modèle QStandardItemModel à partir d'un QDomNode dom
+      *
+      */
+    void preOrder(QDomNode* dom, QStandardItemModel *model);
+
+    QStandardItem* getFils(QDomNode dom);
+
 public:
 
     Arbo();
@@ -33,12 +42,10 @@ public:
      */
     QTreeView* getVue();
 
+    void updateView();
 
-    /**
-      * @action Remplit le modèle QStandardItemModel à partir d'un QDomNode dom
-      *
-      */
-    void preOrder(QDomNode* dom, QStandardItemModel *model);
+
+
 };
 
 #endif // ARBO_H

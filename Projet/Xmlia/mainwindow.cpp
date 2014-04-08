@@ -67,6 +67,7 @@ void MainWindow::open()
     XmlFileManager::getFileManager()->openFile(fileName);
 
     this->notepad->setText(XmlFileManager::getFileManager()->getModele()->domToString());
+    this->arbo->updateView();
 }
 
 void MainWindow::save()

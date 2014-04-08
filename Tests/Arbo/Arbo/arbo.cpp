@@ -1,13 +1,16 @@
 #include "arbo.h"
+#include <string>
+
+using namespace std;
 
 /**
   * @action Remplit le modèle QStandardItemModel à partir d'un QDomNode dom
-  * TODO
+  * TODO Benoit
   *
   */
 void Arbo::preOrder(QDomNode dom, QStandardItemModel *model) {
 
-    // Exemple de création d'item
+      // Exemple de création d'item
     QStandardItem *item1 = new QStandardItem("Item 1");
     QStandardItem *item11 = new QStandardItem("Item 1.1");
     QStandardItem *item111 = new QStandardItem("Item 1.1.1");
@@ -31,9 +34,9 @@ Arbo::Arbo()
 
     // TODO : QDomDocument à récupérer ailleurs
     QDomDocument doc("mydocument");
-    QFile file("/auto_home/swouters/Documents/cours/s6/xmlia/Modules/Arbo/Arbo/test.xml");
-    if (!file.open(QIODevice::ReadOnly)){
-        cout<< "ERROR 1"<< endl;
+    QFile file("//home/doelia/Documents/xmlia/Tests/Arbo/test.xml"); // TODO récupérer en relatif...
+    if (!file.open(QIODevice::ReadOnly)) {
+        cout << "ERROR 1"<< endl;
         return;
     }
     if (!doc.setContent(&file)) {
