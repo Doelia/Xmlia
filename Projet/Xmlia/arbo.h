@@ -25,12 +25,13 @@ class Arbo : public QTreeWidget
 
 public slots:
 
-    void onEdit (QTreeWidgetItem * item, int column);
     /**
      * @brief Arbo::updateView
      * @action Met à jour la vue à partir du modèle
      */
     void updateView();
+
+    void onEdit (QModelIndex);
 
 private:
     QTreeView* vue;
