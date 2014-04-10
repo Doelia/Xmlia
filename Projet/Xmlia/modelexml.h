@@ -4,6 +4,7 @@
 #include <QDomNode>
 #include <QWidget>
 #include <attribute.h>
+#include <stack>
 
 class ModeleXml  : public QObject
 {
@@ -11,6 +12,7 @@ class ModeleXml  : public QObject
 
 private:
     QDomDocument* dom;
+    static int rowFromNode(QDomNode n);
 
 public:
     ModeleXml(QDomDocument* dom);
@@ -31,6 +33,8 @@ public:
     */
     void updateNodeName(QDomNode n, QString newName);
     void setFromDocument(QDomDocument* doc);
+
+    static std::stack<int> pathFromRoot(QDomNode n);
 
 signals:
     void onNodeNameUpdate(QDomNode n, QString newName);

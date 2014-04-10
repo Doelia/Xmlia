@@ -2,7 +2,6 @@
 #include <iostream>
 #include "xmlfilemanager.h"
 
-
 ModeleXml::ModeleXml(QDomDocument* dom)
 {
     this->dom = dom;
@@ -35,11 +34,36 @@ void ModeleXml::updateNodeName(QDomNode n, QString newName)
 
 void ModeleXml::setFromDocument(QDomDocument* doc)
 {
-   delete dom;
-   this->dom = doc;
+    delete dom;
+    this->dom = doc;
+}
+
+stack<int> ModeleXml::pathFromRoot(QDomNode n)
+{
+    stack<int> s;
+    //s.push(0);
+
+    while(!n.parentNode().isNull())
+    {
+        s.push(rowFromNode(n));
+        n = n.parentNode();
+    }
+
+    return s;
+}
+
+int ModeleXml::rowFromNode(QDomNode n)
+{
+    int i = 0;
+    while (n.parentNode().childNodes().at(i) != n)
+    {
+        i++;
+    }
+    return i;
 }
 
 QString ModeleXml::domToString() const
 {
     return dom->toString();
 }
+

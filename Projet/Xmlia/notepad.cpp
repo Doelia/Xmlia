@@ -119,8 +119,55 @@ QTextEdit *NotePad::getTextEdit() const
 
 void NotePad::onNodeNameUpdate(QDomNode n, QString newName)
 {
-    cout << "recu" << endl;
-    cout << "node name : " << n.nodeName().toStdString() << endl;
+    stack<int> s = ModeleXml::pathFromRoot(n);
+    QString oldName = n.nodeName();
+
+    QDomDocument dom;
+    dom.setContent(text->toPlainText());
+    n = dom;
+
+    while(!s.empty())
+    {
+        n = n.childNodes().at(s.top());
+        s.pop();
+    }
+    cout << "line number : " << n.lineNumber() << endl;
+    cout << "column number : " << n.columnNumber() << endl;
+    QTextCursor c = text->textCursor();
+
+    QString t = text->toPlainText();
+
+    QString open = "<";
+    QString close = ">";
+
+    c.setPosition(0);
+    c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, n.lineNumber()-1);
+    c.setPosition(c.position() + n.columnNumber());
+    int begin = c.position();
+    int end = c.position();
+
+    cout << "at begin : " << QString(t.at(begin - 1)).toStdString() << endl;
+    while(open.compare(t.at(begin)))
+    {
+        begin--;
+    }
+    while(close.compare(t.at(end)))
+    {
+        end++;
+    }
+
+    t = t.mid(begin, end - begin);
+
+    t.replace(oldName, newName);
+    c.setPosition(begin, QTextCursor::MoveAnchor);
+    c.setPosition(end, QTextCursor::KeepAnchor);
+
+    cout << "begin : " << begin << endl;
+    cout << "end : " << end << endl;
+    c.removeSelectedText();
+    c.insertText(t);
+
+    text->setTextCursor(c);
 }
 
 QString NotePad::getStringFromDom() const
