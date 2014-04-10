@@ -31,7 +31,7 @@ public slots:
      */
     void updateView();
 
-    void onEdit (QModelIndex);
+    void onEdit (QStandardItem*);
 
 private:
     QTreeView* vue;

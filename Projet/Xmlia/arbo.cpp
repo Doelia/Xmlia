@@ -8,12 +8,15 @@ using namespace std;
 Arbo::Arbo() {
 }
 
-void Arbo::onEdit (QModelIndex item) {
-    cout << "coucou" << endl;
+void Arbo::onEdit (QStandardItem* item) {
+    cout << "column=" << item->column() << endl;
+    cout << "column=" << item->row() << endl;
 }
+
 
 QStandardItem* Arbo::getFils(QDomNode dom) {
     QStandardItem *item = new QStandardItem(dom.nodeName());
+
     for (int i = 0; i < dom.childNodes().size(); i++) {
         item->appendRow(this->getFils(dom.childNodes().at(i)));
     }
@@ -22,6 +25,7 @@ QStandardItem* Arbo::getFils(QDomNode dom) {
 
 void Arbo::preOrder(QDomNode* dom, QStandardItemModel* model) {
     model->setItem(0, getFils(*dom));
+     connect(model, SIGNAL(itemChanged(QStandardItem*)), this, SLOT(onEdit(QStandardItem*)));
 }
 
 QTreeView* Arbo::getVue() {
@@ -46,6 +50,7 @@ void Arbo::updateView() {
     // Redéfinition du modèle
     vue->setModel(model);
 
-     connect(this->vue->selectionModel(), SIGNAL(currentChanged(const QModelIndex &, const QModelIndex &)), this, SLOT(onEdit(QModelIndex)));
+    // connect(this->vue->selectionModel(), SIGNAL(currentChanged(const QModelIndex &, const QModelIndex &)), this, SLOT(onEdit(QModelIndex)));
+    // connect(this->vue, SIGNAL(itemChanged( QTreeWidgetItem * item, int column)), this,SLOT(onEdit2( QTreeWidgetItem * item, int column)));
 }
 
