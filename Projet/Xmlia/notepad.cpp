@@ -31,12 +31,18 @@ bool NotePad::eventFilter(QObject *o, QEvent *e)
         }
         else if (keyEvent->key() == Qt::Key_Greater)
         {
-            return insertCharacterForKeyFiltering(">");
+            //return insertCharacterForKeyFiltering(">");
+            addCloseMarkup();
+            return true;
         }
         else if (keyEvent->key() == Qt::Key_Tab)
         {
-            this->currentNode();
+            indent();
             return true;
+        }
+        else if (keyEvent->key() == Qt::Key_Shift)
+        {
+            currentNode();
         }
     }
     return false;
@@ -172,6 +178,45 @@ bool NotePad::insertCharacterForKeyFiltering(const QString str)
     return true;
 }
 
+void NotePad::addCloseMarkup()
+{
+    QTextCursor c = text->textCursor();
+    int pos = c.position() - 1;
+
+    QString open = "<";
+    QString error1 = "\n";
+    QString error2 = "/";
+    QString error3 = ">";
+
+    QString s = text->toPlainText();
+    QChar at;
+
+    while(true)
+    {
+        at = s.at(pos);
+        if(!open.compare(at))
+        {
+            QString markup = s.mid(pos + 1, c.position() - pos - 1);
+            markup = markup.split(" ").at(0);
+            if(markup.length() > 0)
+            {
+                QString toAdd = "></";
+                toAdd.append(markup).append(">");
+                c.insertText(toAdd);
+                c.setPosition(c.position() -  markup.length() - 3);
+                text->setTextCursor(c);
+            }
+            return;
+        }
+        else if (!error1.compare(at) && !error2.compare(at) && !error3.compare(at))
+        {
+            cout << s.mid(pos + 1, c.position()).toStdString() << endl;
+            return;
+        }
+        pos--;
+    }
+}
+
 QString NotePad::currentNode() const
 {
     QTextCursor c = this->text->textCursor();
@@ -187,14 +232,14 @@ QString NotePad::currentNode() const
     QXmlStreamReader xml(this->text->toPlainText());
 
     while(!xml.atEnd()) {
-
-
         if(xml.isStartElement()) {
             s.push(xml.name().toString());
         }
 
         if(last <= line && xml.lineNumber() >= line && xml.columnNumber() >= column) {
-           return s.top();
+            cout << "node : " << s.top().toStdString() << endl;
+            cout << "type : " << xml.tokenString().toStdString() << endl;
+            return s.top();
         }
         if(xml.isEndElement())
         {
