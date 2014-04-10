@@ -18,6 +18,16 @@ void Arbo::onEdit (QStandardItem* item) {
     XmlFileManager::getFileManager()->getModele()->updateNodeName(node, item->text());
 }
 
+void Arbo::onRemoveNove() {
+    cout << "remove node" << endl;
+    QStandardItem* item = this->itemRoot->model()->itemFromIndex(this->getVue()->selectionModel()->currentIndex());
+    cout << item->text().toStdString() << endl;
+
+    QDomNode node = this->getNodeFromItem(item);
+
+    XmlFileManager::getFileManager()->getModele()->removeNode(node);
+}
+
 QStandardItem* Arbo::getItemFromNode(QDomNode dom) {
 
 }
@@ -59,10 +69,16 @@ void Arbo::preOrder(QDomNode* dom, QStandardItemModel* model) {
      connect(model, SIGNAL(itemChanged(QStandardItem*)), this, SLOT(onEdit(QStandardItem*)));
 }
 
+
+
 QTreeView* Arbo::getVue() {
     // Création de la vue
     if (!this->vue) {
         vue = new QTreeView();
+        vue->setContextMenuPolicy(Qt::ActionsContextMenu);
+        QAction* rmove = new QAction("Supprimer le noeud", vue);
+        vue->addAction(rmove);
+        connect(rmove, SIGNAL(triggered()), this, SLOT(onRemoveNove()));
         this->updateView();
     }
     return this->vue;

@@ -41,7 +41,7 @@ bool NotePad::eventFilter(QObject *o, QEvent *e)
         }
         else if (keyEvent->key() == Qt::Key_Shift)
         {
-            currentNode();
+            //currentNode();
         }
     }
     return false;
@@ -122,6 +122,8 @@ void NotePad::onNodeNameUpdate(QDomNode n, QString newName)
     stack<int> s = ModeleXml::pathFromRoot(n);
     QString oldName = n.nodeName();
 
+    cout << oldName.toStdString() << endl;
+
     QDomDocument dom;
     dom.setContent(text->toPlainText());
     n = dom;
@@ -167,7 +169,9 @@ void NotePad::onNodeNameUpdate(QDomNode n, QString newName)
     c.removeSelectedText();
     c.insertText(t);
 
+    cout << t.toStdString() << endl;
     text->setTextCursor(c);
+    //this->setText(XmlFileManager::getFileManager()->getModele()->domToString());
 }
 
 QString NotePad::getStringFromDom() const
