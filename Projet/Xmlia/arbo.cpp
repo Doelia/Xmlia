@@ -15,17 +15,15 @@ void Arbo::onEdit (QStandardItem* item) {
     QDomNode node = this->getNodeFromItem(item);
     cout << "Node modifié = " << node.nodeName().toStdString() << endl;
 
-    XmlFileManager::getFileManager()->getModele()->modifyNodeName(
-                node,
-                item->text()
-    );
-
+    XmlFileManager::getFileManager()->getModele()->updateNodeName(node, item->text());
 }
 
 void Arbo::onRemoveNove() {
     cout << "remove node" << endl;
     QStandardItem* item = this->itemRoot->model()->itemFromIndex(this->getVue()->selectionModel()->currentIndex());
     cout << item->text().toStdString() << endl;
+
+    QDomNode node = this->getNodeFromItem(item);
 
     XmlFileManager::getFileManager()->getModele()->removeNode(node);
 }

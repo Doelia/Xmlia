@@ -9,8 +9,6 @@
 #include <QtXml/QXmlSimpleReader>
 #include "xmlfilemanager.h"
 
-using namespace std;
-
 #include "texthighlighter.h"
 #include "modelexml.h"
 
@@ -25,10 +23,15 @@ public:
 
     QTextEdit *getTextEdit() const;
 
+public slots:
+    void onNodeNameUpdate(QDomNode, QString);
+
 signals:
     void update();
 
 private:
+    int NB_SPACE = 8;
+
     QTextEdit* text;
     QXmlStreamReader* reader;
     TextHighLighter* th;

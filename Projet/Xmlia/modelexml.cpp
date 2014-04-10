@@ -27,21 +27,25 @@ void ModeleXml::update(QString s)
     cout << dom->childNodes().count() << endl;
 }
 
-QString ModeleXml::domToString() const
+void ModeleXml::updateNodeName(QDomNode n, QString newName)
 {
-    return dom->toString();
+    cout << "ModeleXml::emitNodeNameUpdate()" << endl;
+    emit onNodeNameUpdate(n, newName);
+}
+
+void ModeleXml::setFromDocument(QDomDocument* doc)
+{
+   delete dom;
+   this->dom = doc;
 }
 
 
-// TODO, voir .H
-void ModeleXml::modifyNodeName(QDomNode nodeModify, QString s)
-{
-
-}
-
-//
 void ModeleXml::removeNode(QDomNode dom)
 {
 
 }
 
+QString ModeleXml::domToString() const
+{
+    return dom->toString();
+}
