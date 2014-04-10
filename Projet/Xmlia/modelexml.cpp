@@ -30,7 +30,9 @@ void ModeleXml::update(QString s)
 void ModeleXml::updateNodeName(QDomNode n, QString newName)
 {
     cout << "ModeleXml::emitNodeNameUpdate()" << endl;
-    n.toElement().setTagName(newName);
+    if (n.isElement()) {
+        n.toElement().setTagName(newName);
+    }
     emit onNodeNameUpdate(n, newName);
 }
 
