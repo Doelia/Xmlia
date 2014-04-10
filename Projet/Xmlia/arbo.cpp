@@ -7,6 +7,7 @@ using namespace std;
 
 
 Arbo::Arbo() {
+    this->vue = 0;
 }
 
 void Arbo::onEdit (QStandardItem* item) {
@@ -64,7 +65,7 @@ void Arbo::preOrder(QDomNode* dom, QStandardItemModel* model) {
 
 QTreeView* Arbo::getVue() {
     // Création de la vue
-    if (this->vue == NULL) {
+    if (!this->vue) {
         vue = new QTreeView();
         this->updateView();
     }
