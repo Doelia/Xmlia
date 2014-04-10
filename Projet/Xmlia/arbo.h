@@ -31,11 +31,12 @@ public slots:
      */
     void updateView();
 
-    void onEdit (QModelIndex);
+    void onEdit (QStandardItem*);
 
 private:
     QTreeView* vue;
     ModeleXml* modele;
+    QStandardItem* itemRoot;
 
     /**
       * @action Remplit le modèle QStandardItemModel à partir d'un QDomNode dom
@@ -50,6 +51,10 @@ private:
      * Méthode récusrive
      */
     QStandardItem* getFils(QDomNode dom);
+
+
+    QStandardItem* getItemFromNode(QDomNode dom);
+    QDomNode getNodeFromItem(QStandardItem* item);
 
 public:
 

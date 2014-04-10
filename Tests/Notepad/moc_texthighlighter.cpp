@@ -1,13 +1,13 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'texthighlighter.h'
 **
-** Created: Thu Apr 10 12:09:08 2014
+** Created: Fri Mar 14 09:30:07 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../Xmlia/texthighlighter.h"
+#include "texthighlighter.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'texthighlighter.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63

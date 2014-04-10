@@ -1,6 +1,7 @@
 #include "arbo.h"
 #include <string>
 #include "xmlfilemanager.h"
+#include <stack>
 
 using namespace std;
 
@@ -8,12 +9,47 @@ using namespace std;
 Arbo::Arbo() {
 }
 
-void Arbo::onEdit (QModelIndex item) {
-    cout << "coucou" << endl;
+void Arbo::onEdit (QStandardItem* item) {
+
+    QDomNode node = this->getNodeFromItem(item);
+    cout << "Node modifié = " << node.nodeName().toStdString() << endl;
+
+    XmlFileManager::getFileManager()->getModele()->modifyNodeName(
+                 node,
+                item->text()
+    );
+
+}
+
+QStandardItem* Arbo::getItemFromNode(QDomNode dom) {
+
+}
+
+// Pré requis: L'arboresecende de QDomNode est la même que celle de QStandardItem, sauf le nom qui change
+QDomNode Arbo::getNodeFromItem(QStandardItem* item) {
+
+    QDomNode curentNode = *(XmlFileManager::getFileManager()->getModele()->getRacine());
+
+    stack<int> pile;
+
+    pile.push(item->row());
+    while (item->parent()) {
+        item = item->parent();
+         pile.push(item->row());
+    }
+
+     pile.pop();
+    while (!pile.empty()) {
+        curentNode = curentNode.childNodes().at(pile.top());
+        pile.pop();
+    }
+
+    return curentNode;
 }
 
 QStandardItem* Arbo::getFils(QDomNode dom) {
     QStandardItem *item = new QStandardItem(dom.nodeName());
+
     for (int i = 0; i < dom.childNodes().size(); i++) {
         item->appendRow(this->getFils(dom.childNodes().at(i)));
     }
@@ -21,7 +57,9 @@ QStandardItem* Arbo::getFils(QDomNode dom) {
 }
 
 void Arbo::preOrder(QDomNode* dom, QStandardItemModel* model) {
-    model->setItem(0, getFils(*dom));
+    this->itemRoot = getFils(*dom);
+    model->setItem(0, this->itemRoot);
+     connect(model, SIGNAL(itemChanged(QStandardItem*)), this, SLOT(onEdit(QStandardItem*)));
 }
 
 QTreeView* Arbo::getVue() {
@@ -44,6 +82,5 @@ void Arbo::updateView() {
     // Redéfinition du modèle
     vue->setModel(model);
 
-     connect(this->vue->selectionModel(), SIGNAL(currentChanged(const QModelIndex &, const QModelIndex &)), this, SLOT(onEdit(QModelIndex)));
 }
 

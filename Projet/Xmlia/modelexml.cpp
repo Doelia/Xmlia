@@ -14,7 +14,8 @@ ModeleXml::~ModeleXml()
     delete this->dom;
 }
 
-QDomNode *ModeleXml::getRacine() const
+
+QDomNode* ModeleXml::getRacine() const
 {
     return this->dom;
 }
@@ -29,5 +30,10 @@ void ModeleXml::update(QString s)
 QString ModeleXml::domToString() const
 {
     return dom->toString();
+}
+
+void ModeleXml::modifyNodeName(QDomNode dom, QString s)
+{
+   // TODO
 }
 
