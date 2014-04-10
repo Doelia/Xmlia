@@ -169,6 +169,8 @@ bool NotePad::insertCharacterForKeyFiltering(const QString str)
 
     c.setPosition(pos);
     c.movePosition(QTextCursor::StartOfLine);
+
+
    /* QString left = text->toPlainText().left(pos);
     QString right = text->toPlainText().right(text->toPlainText().length() - pos);
 
