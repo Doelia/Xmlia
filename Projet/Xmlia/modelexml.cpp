@@ -32,8 +32,10 @@ QString ModeleXml::domToString() const
     return dom->toString();
 }
 
-void ModeleXml::modifyNodeName(QDomNode dom, QString s)
+
+// TODO, voir .H
+void ModeleXml::modifyNodeName(QDomNode nodeModify, QString s)
 {
-   // TODO
+
 }
 

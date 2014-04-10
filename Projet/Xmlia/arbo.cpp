@@ -15,7 +15,7 @@ void Arbo::onEdit (QStandardItem* item) {
     cout << "Node modifié = " << node.nodeName().toStdString() << endl;
 
     XmlFileManager::getFileManager()->getModele()->modifyNodeName(
-                 node,
+                node,
                 item->text()
     );
 
