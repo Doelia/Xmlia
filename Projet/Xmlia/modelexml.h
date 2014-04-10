@@ -11,10 +11,11 @@ private:
 public:
     ModeleXml(QDomDocument* dom);
     virtual ~ModeleXml();
-    void addNode(QDomNode* dom);
-    void removeNode(QDomNode* dom);
-    void addAttribut(QDomNode* element, Attribute t);
-    void removeAttribut(QDomNode* element, Attribute t);
+    void addNode(QDomNode, QDomNode);
+    void removeNode(QDomNode dom);
+     void modifyNodeName(QDomNode dom, QString s);
+    void addAttribut(QDomNode element, Attribute t);
+    void removeAttribut(QDomNode element, Attribute t);
     QString domToString() const;
     QDomNode* getRacine() const;
     void update(QString s);
