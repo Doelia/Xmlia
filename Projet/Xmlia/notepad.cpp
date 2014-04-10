@@ -41,7 +41,7 @@ bool NotePad::eventFilter(QObject *o, QEvent *e)
         }
         else if (keyEvent->key() == Qt::Key_Shift)
         {
-            currentNode();
+            //currentNode();
         }
     }
     return false;

@@ -40,6 +40,12 @@ void ModeleXml::setFromDocument(QDomDocument* doc)
    this->dom = doc;
 }
 
+
+void ModeleXml::removeNode(QDomNode dom)
+{
+
+}
+
 QString ModeleXml::domToString() const
 {
     return dom->toString();
