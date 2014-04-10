@@ -121,6 +121,7 @@ void NotePad::onNodeNameUpdate(QDomNode n, QString newName)
 {
     cout << "recu" << endl;
     cout << "node name : " << n.nodeName().toStdString() << endl;
+    this->setText(XmlFileManager::getFileManager()->getModele()->domToString());
 }
 
 QString NotePad::getStringFromDom() const
