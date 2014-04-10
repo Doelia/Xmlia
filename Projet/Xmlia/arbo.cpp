@@ -7,6 +7,7 @@ using namespace std;
 
 
 Arbo::Arbo() {
+    this->vue = 0;
 }
 
 void Arbo::onEdit (QStandardItem* item) {
@@ -14,11 +15,7 @@ void Arbo::onEdit (QStandardItem* item) {
     QDomNode node = this->getNodeFromItem(item);
     cout << "Node modifié = " << node.nodeName().toStdString() << endl;
 
-    XmlFileManager::getFileManager()->getModele()->modifyNodeName(
-                 node,
-                item->text()
-    );
-
+    XmlFileManager::getFileManager()->getModele()->updateNodeName(node, item->text());
 }
 
 QStandardItem* Arbo::getItemFromNode(QDomNode dom) {
@@ -64,7 +61,7 @@ void Arbo::preOrder(QDomNode* dom, QStandardItemModel* model) {
 
 QTreeView* Arbo::getVue() {
     // Création de la vue
-    if (this->vue == NULL) {
+    if (!this->vue) {
         vue = new QTreeView();
         this->updateView();
     }

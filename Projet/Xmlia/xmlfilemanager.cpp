@@ -7,9 +7,6 @@ XmlFileManager::XmlFileManager()
 
 void XmlFileManager::openFile(QString path)
 {
-    delete(this->modele);
-    cout << "freed !" << endl;
-
     QDomDocument *doc = new QDomDocument("document");
 
     QString error;
@@ -29,7 +26,7 @@ void XmlFileManager::openFile(QString path)
 
     file.close();
 
-    this->modele = new ModeleXml(doc);
+    this->modele->setFromDocument(doc);
 }
 
 ModeleXml *XmlFileManager::getModele() const

@@ -10,8 +10,10 @@
 #include <QFileDialog>
 
 #include "arbo.h"
+#include "modelexml.h"
 #include "notepad.h"
 #include "xmlfilemanager.h"
+
 /**
   Fenetre principale du programme
   Contient les différentes vues

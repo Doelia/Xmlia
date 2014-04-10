@@ -117,6 +117,12 @@ QTextEdit *NotePad::getTextEdit() const
     return this->text;
 }
 
+void NotePad::onNodeNameUpdate(QDomNode n, QString newName)
+{
+    cout << "recu" << endl;
+    cout << "node name : " << n.nodeName().toStdString() << endl;
+}
+
 QString NotePad::getStringFromDom() const
 {
     this->text->setText(XmlFileManager::getFileManager()->getModele()->domToString());
@@ -124,23 +130,6 @@ QString NotePad::getStringFromDom() const
 
 void NotePad::updateDom()
 {
-    /*QXmlStreamReader xml(this->text->toPlainText());
-    QDomNode dom;
-
-    while(!xml.atEnd())
-    {
-        xml.readNext();
-
-        if(xml.isStartElement())
-        {
-
-            cout << xml.name().toString().toStdString() << endl;
-        }
-        else if(xml.isEndElement())
-        {
-
-        }
-    }*/
     XmlFileManager::getFileManager()->getModele()->update(this->text->toPlainText());
     emit update();
 }
@@ -166,20 +155,24 @@ bool NotePad::insertCharacterForKeyFiltering(const QString str)
 
     int pos = c.position();
     c.insertText(str);
-
+    int oldPos = c.position();
     c.setPosition(pos);
     c.movePosition(QTextCursor::StartOfLine);
-   /* QString left = text->toPlainText().left(pos);
-    QString right = text->toPlainText().right(text->toPlainText().length() - pos);
+    pos = c.position();
 
-    QString s = left.append(str).append(right);
+    QString s = text->toPlainText();
+    QString space = " ";
+    int nbSpace = 0;
 
-    text->setPlainText(s);
-    c.setPosition(pos + 1);
+    while(!s.mid(pos, 1).compare(space))
+    {
+        nbSpace++;
+        pos++;
+    }
+
+    c.setPosition(oldPos);
+    c.insertText(tabsString(nbSpace/NB_SPACE));
     text->setTextCursor(c);
-    this->indent();
-    c.setPosition(pos+1);
-    text->setTextCursor(c);*/
 
     return true;
 }
@@ -262,7 +255,9 @@ QString NotePad::tabsString(int n) const
 {
     QString l;
     for (int i = 0; i < n; i++) {
-        l.append("        ");
+        for (int var = 0; var < NB_SPACE; ++var) {
+            l.append(" ");
+        }
     }
     return l;
 }
