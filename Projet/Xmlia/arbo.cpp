@@ -65,16 +65,14 @@ void Arbo::preOrder(QDomNode* dom, QStandardItemModel* model) {
 QTreeView* Arbo::getVue() {
     // Création de la vue
     if (this->vue == NULL) {
-        vue = new QTreeView;
+        vue = new QTreeView();
         this->updateView();
-
     }
     return this->vue;
 }
 
 
 void Arbo::updateView() {
-
      // Construction du modèle arborescent vide
     QStandardItemModel *model = new QStandardItemModel();
 

@@ -3,7 +3,6 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
     resize(800, 600);
-    QHBoxLayout *layout = new QHBoxLayout;
     //   
     openAction = new QAction(tr("&Open"), this);
     saveAction = new QAction(tr("&Save"), this);
@@ -21,10 +20,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
 
     QWidget *a = new QWidget();
-    this->layout = layout;
+    this->layout = new QHBoxLayout();
     a->setLayout(this->layout);
-    //this->setLayout(this->layout);
     this->setCentralWidget(a);
+
 
     new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_O), this, SLOT(open()));
 }
@@ -32,8 +31,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 void MainWindow::setArbo(Arbo* arbo)
 {
     this->arbo = arbo;
-    this->layout->addWidget(this->arbo->getVue());
-
+    cout << "recuperation de la vue" << endl;
+    QTreeView* temp = this->arbo->getVue();
+    cout << "vue recuperee" << endl;
+    cout << "ajout au layout" << endl;
+    this->layout->addWidget(temp);
+    cout << "ajoute au layout" << endl;
 }
 
 void MainWindow::setNotePad(NotePad *notepad)

@@ -46,6 +46,8 @@ private:
 
     bool insertCharacterForKeyFiltering(const QString str);
 
+    void addCloseMarkup();
+
     int tabNumber;
 
     QString currentNode() const;
