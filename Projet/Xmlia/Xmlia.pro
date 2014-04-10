@@ -21,3 +21,5 @@ QT += widgets
 QT += xml
 
 CONFIG += qt
+
+QMAKE_CXXFLAGS += -std=c++11

@@ -9,6 +9,8 @@ NotePad::NotePad()
     this->text->installEventFilter(this);
 
     this->tabNumber = 0;
+
+    this->text->setWordWrapMode(QTextOption::NoWrap);
 }
 
 void NotePad::keyPressEvent(QKeyEvent *e)
@@ -122,62 +124,127 @@ void NotePad::onNodeNameUpdate(QDomNode n, QString newName)
     stack<int> s = ModeleXml::pathFromRoot(n);
     QString oldName = n.nodeName();
 
-    cout << oldName.toStdString() << endl;
-
     QDomDocument dom;
     dom.setContent(text->toPlainText());
     n = dom;
+    int child;
 
     while(!s.empty())
     {
-        n = n.childNodes().at(s.top());
+        child = s.top();
+        n = n.childNodes().at(child);
         s.pop();
     }
-    cout << "line number : " << n.lineNumber() << endl;
-    cout << "column number : " << n.columnNumber() << endl;
+
+    changeTextFromNode(n, oldName, newName, child);
+}
+
+void NotePad::changeTextFromNode(QDomNode node, QString oldName, QString newName, int childNumber)
+{
+    int begin;
+    int end;
     QTextCursor c = text->textCursor();
 
+    auto f = [] (int *begin, int *end, QDomNode node, QTextCursor *c)->void {
+        c->setPosition(0);
+        c->movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, node.lineNumber()-1);
+        c->setPosition(c->position() + node.columnNumber());
+        *begin = c->position();
+        *end = c->position();
+    };
+
+    auto f1 = [] (int *begin, int *end, QString oldName, QString newName, QString text, QTextCursor *c)->void {
+        QString t = text.mid(*begin, *end - *begin);
+        t.replace(oldName, newName);
+
+        c->setPosition(*begin, QTextCursor::MoveAnchor);
+        c->setPosition(*end, QTextCursor::KeepAnchor);
+
+        c->removeSelectedText();
+        c->insertText(t);
+    };
+
+    f(&begin, &end, node, &c);
+    gotoNodeStart(&begin);
+    f1(&begin, &end, oldName, newName, text->toPlainText(), &c);
+
+    QDomNode temp = node.parentNode().childNodes().at(childNumber + 1);
+
+    if(temp.isNull())
+    {
+        temp = node.parentNode().nextSibling();
+        if(temp.isNull())
+        {
+            QString s = text->toPlainText();
+            begin = s.length();
+            QString close = "</";
+            close.append(oldName).append(">");
+            while(close.compare(s.mid(begin, close.length())))
+            {
+                begin--;
+            }
+            end = begin + close.length();
+            f1(&begin, &end, oldName, newName, text->toPlainText(), &c);
+        }
+        else
+        {
+            f(&begin, &end, temp, &c);
+            gotoNodeEnd(&begin, &end);
+            f1(&begin, &end, oldName, newName, text->toPlainText(), &c);
+            begin--;
+            end = begin;
+            gotoNodeStart(&begin);
+            f1(&begin, &end, oldName, newName, text->toPlainText(), &c);
+        }
+    }
+    else
+    {
+        node = temp;
+        f(&begin, &end, node, &c);
+        gotoNodeEnd(&begin, &end);
+        f1(&begin, &end, oldName, newName, text->toPlainText(), &c);
+    }
+
+
+
+    text->setTextCursor(c);
+}
+
+void NotePad::gotoNodeStart(int* begin)
+{
     QString t = text->toPlainText();
 
     QString open = "<";
-    QString close = ">";
 
-    c.setPosition(0);
-    c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, n.lineNumber()-1);
-    c.setPosition(c.position() + n.columnNumber());
-    int begin = c.position();
-    int end = c.position();
-
-    cout << "at begin : " << QString(t.at(begin - 1)).toStdString() << endl;
-    while(open.compare(t.at(begin)))
+    while(open.compare(t.at(*begin)))
     {
-        begin--;
+        (*begin)--;
     }
-    while(close.compare(t.at(end)))
+}
+
+void NotePad::gotoNodeEnd(int *begin, int *end)
+{
+    QString t = text->toPlainText();
+    QString open = "<";
+
+    while(open.compare(t.at(*begin)))
     {
-        end++;
+        (*begin)--;
     }
-
-    t = t.mid(begin, end - begin);
-
-    t.replace(oldName, newName);
-    c.setPosition(begin, QTextCursor::MoveAnchor);
-    c.setPosition(end, QTextCursor::KeepAnchor);
-
-    cout << "begin : " << begin << endl;
-    cout << "end : " << end << endl;
-    c.removeSelectedText();
-    c.insertText(t);
-
-    cout << t.toStdString() << endl;
-    text->setTextCursor(c);
-    //this->setText(XmlFileManager::getFileManager()->getModele()->domToString());
+    (*begin)--;
+    *end = *begin - 1;
+    while(open.compare(t.at(*begin)))
+    {
+        (*begin)--;
+    }
 }
 
 QString NotePad::getStringFromDom() const
 {
     this->text->setText(XmlFileManager::getFileManager()->getModele()->domToString());
 }
+
+
 
 void NotePad::updateDom()
 {
@@ -301,6 +368,7 @@ QString NotePad::currentNode() const
         xml.readNext();
     }
 }
+
 
 QString NotePad::tabsString(int n) const
 {
