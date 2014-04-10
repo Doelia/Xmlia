@@ -39,3 +39,9 @@ void ModeleXml::modifyNodeName(QDomNode nodeModify, QString s)
 
 }
 
+//
+void ModeleXml::removeNode(QDomNode dom)
+{
+
+}
+

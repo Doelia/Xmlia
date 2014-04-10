@@ -11,6 +11,7 @@
 #include <QDomDocument>
 #include <QStandardItemModel>
 #include <QString>
+#include <QAction>
 #include <QTextStream>
 #include <iostream>
 
@@ -32,6 +33,8 @@ public slots:
     void updateView();
 
     void onEdit (QStandardItem*);
+
+    void onRemoveNove();
 
 private:
     QTreeView* vue;
