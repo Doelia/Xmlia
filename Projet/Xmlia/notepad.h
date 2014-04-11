@@ -55,8 +55,6 @@ private:
 
     QString currentNode() const;
     void changeTextFromNode(QDomNode node, QString oldName, QString newName, int childNumber);
-    void gotoNodeStart(int *begin);
-    void gotoNodeEnd(int *begin, int *end);
 };
 
 #endif // NOTEPAD_H
