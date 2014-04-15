@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'arbo.h'
 **
-** Created: Tue Apr 15 14:24:23 2014
+** Created: Tue Apr 15 14:31:56 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_Arbo[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -35,6 +35,7 @@ static const uint qt_meta_data_Arbo[] = {
       19,    5,    5,    5, 0x0a,
       42,    5,    5,    5, 0x0a,
       59,   57,    5,    5, 0x0a,
+      94,    5,    5,    5, 0x0a,
 
        0        // eod
 };
@@ -42,6 +43,7 @@ static const uint qt_meta_data_Arbo[] = {
 static const char qt_meta_stringdata_Arbo[] = {
     "Arbo\0\0updateView()\0onEdit(QStandardItem*)\0"
     "onRemoveNove()\0,\0onNodeNameUpdate(QDomNode,QString)\0"
+    "onNodeDelete(QDomNode)\0"
 };
 
 void Arbo::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -54,6 +56,7 @@ void Arbo::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         case 1: _t->onEdit((*reinterpret_cast< QStandardItem*(*)>(_a[1]))); break;
         case 2: _t->onRemoveNove(); break;
         case 3: _t->onNodeNameUpdate((*reinterpret_cast< QDomNode(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 4: _t->onNodeDelete((*reinterpret_cast< QDomNode(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -91,9 +94,9 @@ int Arbo::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }

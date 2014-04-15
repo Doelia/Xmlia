@@ -14,7 +14,7 @@ Arbo::Arbo() {
 void Arbo::onEdit (QStandardItem* item) {
 
     QDomNode node = this->getNodeFromItem(item);
-    cout << "Node modifié par l'utilisateur = " << node.nodeName().toStdString() << endl;
+    cout << "Arbo:: Node modifié par l'utilisateur = " << node.nodeName().toStdString() << endl;
 
     XmlFileManager::getFileManager()->getModele()->updateNodeName(node, item->text());
 }
@@ -23,7 +23,7 @@ void Arbo::onEdit (QStandardItem* item) {
 // Quand l'utilisateur supprimer un noeud
 void Arbo::onRemoveNove() {
     QStandardItem* item = this->itemRoot->model()->itemFromIndex(this->getVue()->selectionModel()->currentIndex());
-    cout << "Node supprimé par l'utilisateur : " << item->text().toStdString() << endl;
+    cout << "Arbo:: Node supprimé par l'utilisateur : " << item->text().toStdString() << endl;
 
     QDomNode node = this->getNodeFromItem(item);
 
