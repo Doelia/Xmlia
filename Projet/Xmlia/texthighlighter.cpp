@@ -78,7 +78,7 @@ bool TextHighLighter::cQuote(int *last, const QString &text, int i)
 {
      bool equalsQuote = ((text.mid(i, 1) == "\"") || (text.mid(i, 1) == "'"));
 
-    if(currentBlockState() == QUOTE_STATE)
+    if(currentBlockState() == QUOTE_STATE && this->isTagOpen)
     {
         if (equalsQuote)
         {

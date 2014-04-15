@@ -41,9 +41,9 @@ bool NotePad::eventFilter(QObject *o, QEvent *e)
             indent();
             return true;
         }
-        else if (keyEvent->key() == Qt::Key_Shift)
+        else if (keyEvent->key() == Qt::Key_Alt)
         {
-            //currentNode();
+            currentNode();
         }
     }
     return false;
@@ -148,45 +148,45 @@ void NotePad::changeTextFromNode(QDomNode node, QString oldName, QString newName
 
     auto goToNode = [] (int *begin, int *end, QDomNode node, QTextCursor *c)->void
     {
-        c->setPosition(0);
-        c->movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, node.lineNumber()-1);
-        c->setPosition(c->position() + node.columnNumber());
-        *begin = c->position();
-        *end = c->position();
-    };
+            c->setPosition(0);
+    c->movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, node.lineNumber()-1);
+    c->setPosition(c->position() + node.columnNumber());
+    *begin = c->position();
+    *end = c->position();
+};
 
-    auto replaceNodeName = [] (int *begin, int *end, QString oldName, QString newName, QString text, QTextCursor *c)->void
-    {
+auto replaceNodeName = [] (int *begin, int *end, QString oldName, QString newName, QString text, QTextCursor *c)->void
+{
         if(*end > text.length())
-        {
-            *end = text.length();
-        }
-        QString t = text.mid(*begin, *end - *begin);
-        t.replace(oldName, newName);
+{
+        *end = text.length();
+}
+QString t = text.mid(*begin, *end - *begin);
+t.replace(oldName, newName);
 
-        c->setPosition(*begin, QTextCursor::MoveAnchor);
-        c->setPosition(*end, QTextCursor::KeepAnchor);
+c->setPosition(*begin, QTextCursor::MoveAnchor);
+c->setPosition(*end, QTextCursor::KeepAnchor);
 
-        cout << "t : " << t.toStdString() << endl;
+cout << "t : " << t.toStdString() << endl;
 
-        c->removeSelectedText();
-        c->insertText(t);
-    };
+c->removeSelectedText();
+c->insertText(t);
+};
 
-    auto gotoNodeStart = [] (int* begin, QString s)->void
-    {
+auto gotoNodeStart = [] (int* begin, QString s)->void
+{
         QString open = "<";
-        (*begin)--;
+(*begin)--;
 
-        do
-        {
-            (*begin)--;
-        }
-        while(open.compare(s.at(*begin)) != 0);
-    };
+do
+{
+(*begin)--;
+}
+while(open.compare(s.at(*begin)) != 0);
+};
 
-    auto goToNodeEnd = [] (int *begin, int *end, QString s, QString toFind)->void
-    {
+auto goToNodeEnd = [] (int *begin, int *end, QString s, QString toFind)->void
+{
         QString open = "<";
         open.append(toFind).append(">");
         QString close = "</";
@@ -209,18 +209,17 @@ void NotePad::changeTextFromNode(QDomNode node, QString oldName, QString newName
         }
         *begin = pos;
         *end = pos + close.length();
-    };
+        };
 
-    goToNode(&begin, &end, node, &c);
-    goToNodeEnd(&begin, &end, text->toPlainText(), oldName);
-    replaceNodeName(&begin, &end, oldName, newName, text->toPlainText(), &c);
+        goToNode(&begin, &end, node, &c);
+        goToNodeEnd(&begin, &end, text->toPlainText(), oldName);
+        replaceNodeName(&begin, &end, oldName, newName, text->toPlainText(), &c);
 
-    goToNode(&begin, &end, node, &c);
-    gotoNodeStart(&begin, text->toPlainText());
-    replaceNodeName(&begin, &end, oldName, newName, text->toPlainText(), &c);
+        goToNode(&begin, &end, node, &c);
+        gotoNodeStart(&begin, text->toPlainText());
+        replaceNodeName(&begin, &end, oldName, newName, text->toPlainText(), &c);
 
-
-    text->setTextCursor(c);
+        text->setTextCursor(c);
 }
 
 QString NotePad::getStringFromDom() const
@@ -329,22 +328,52 @@ QString NotePad::currentNode() const
     int line = c.blockNumber() + 1;
     int column = c.positionInBlock();
     int last = 0;
+    vector<int> path;
+    int pos = 0;
 
     QXmlStreamReader xml(this->text->toPlainText());
 
+    QXmlStreamReader::TokenType lastToken;
+    QString lastString;
+
     while(!xml.atEnd()) {
+
+        cout << "last type : " << xml.tokenString().toStdString() << endl;
         if(xml.isStartElement()) {
             s.push(xml.name().toString());
+
+            if(lastToken == QXmlStreamReader::StartElement || lastToken == QXmlStreamReader::StartDocument) {
+                path.push_back(0);
+            } else {
+                path[path.size() - 1]++;
+            }
         }
 
         if(last <= line && xml.lineNumber() >= line && xml.columnNumber() >= column) {
-            cout << "node : " << s.top().toStdString() << endl;
-            cout << "type : " << xml.tokenString().toStdString() << endl;
+            //cout << "node : " << s.top().toStdString() << endl;
+            //cout << "type : " << xml.tokenString().toStdString() << endl;
+            for (int var = 0; var < path.size(); ++var) {
+                cout << path[var] << endl;
+            }
+            cout << "---------" << endl;
             return s.top();
         }
         if(xml.isEndElement())
         {
             s.pop();
+
+            if(lastToken == QXmlStreamReader::EndElement || lastToken == QXmlStreamReader::EndDocument) {
+                path.pop_back();
+            }
+
+        }
+
+        if(xml.tokenType() == QXmlStreamReader::StartElement ||
+                xml.tokenType() == QXmlStreamReader::StartDocument ||
+                xml.tokenType() == QXmlStreamReader::EndDocument ||
+                xml.tokenType() == QXmlStreamReader::EndElement) {
+            lastString = xml.tokenString();
+            lastToken = xml.tokenType();
         }
         last = xml.lineNumber();
         xml.readNext();
