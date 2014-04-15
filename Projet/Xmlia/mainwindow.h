@@ -30,6 +30,8 @@ public:
 signals:
 
 private slots:
+
+    /*** Barre de menu **/
     void quit();
     void open();
     void save();
@@ -39,8 +41,9 @@ public slots:
 
 private:
     Arbo* arbo;
-    QHBoxLayout* layout;
     NotePad *notepad;
+
+    QHBoxLayout* layout;
 
     QMenu* fileMenu;
     QMenu* editMenu;

@@ -15,8 +15,7 @@ NotePad::NotePad()
 
 void NotePad::keyPressEvent(QKeyEvent *e)
 {
-    if ((e->key () == Qt::Key_Enter))
-    {
+    if ((e->key () == Qt::Key_Enter)) {
     }
 }
 
@@ -106,7 +105,7 @@ void NotePad::indent()
     c.setPosition(selectionEnd);
     c.movePosition(QTextCursor::EndOfLine);
     text->setTextCursor(c);
-    this->updateDom();
+    this->updateDom(); // Provisoir
 }
 
 void NotePad::setText(QString s)

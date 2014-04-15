@@ -35,7 +35,6 @@ public slots:
 
 
     /***** Action envoyés par l'utilisateur, à retourner au modèle  *******/
-
     /** Quand l'utilisateur modifie le nom d'un noeud */
     void onEdit (QStandardItem*);
     /** Quand l'utilisateur supprime un noeud */
