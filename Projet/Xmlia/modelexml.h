@@ -49,6 +49,12 @@ public:
     */
     static std::stack<int> pathFromRoot(QDomNode n);
 
+    /**
+     * @brief NodeFromPath
+     * @return QDomNode got from the path
+     */
+    QDomNode nodeFromPath(std::vector<int>) const;
+
 signals:
     void onNodeNameUpdate(QDomNode n, QString newName);
     void onNodeDelete(QDomNode n);

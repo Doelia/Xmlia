@@ -42,7 +42,7 @@ void ModeleXml::updateNodeName(QDomNode n, QString newName)
 
 void ModeleXml::removeNode(QDomNode n)
 {
-     emit onNodeDelete(n);
+    emit onNodeDelete(n);
 
     cout << "Remove " << n.nodeName().toStdString() << endl;
 
@@ -59,8 +59,6 @@ void ModeleXml::setFromDocument(QDomDocument* doc)
 stack<int> ModeleXml::pathFromRoot(QDomNode n)
 {
     stack<int> s;
-    //s.push(0);
-
     while(!n.parentNode().isNull())
     {
         s.push(rowFromNode(n));
@@ -68,6 +66,16 @@ stack<int> ModeleXml::pathFromRoot(QDomNode n)
     }
 
     return s;
+}
+
+QDomNode ModeleXml::nodeFromPath(std::vector<int> path) const
+{
+    QDomNode n = *this->dom;
+
+    for (int var = 0; var < path.size(); ++var) {
+        n = n.childNodes().at(path[var]);
+    }
+    return n;
 }
 
 int ModeleXml::rowFromNode(QDomNode n)
