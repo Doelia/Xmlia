@@ -53,7 +53,10 @@ void MainWindow::setNotePad(NotePad *notepad)
     editMenu->addAction(indentAction);
 
     connect(this->notepad, SIGNAL(update()), arbo, SLOT(updateView()));
+
+    // Mise à jour d'un nom de node par le modèle
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeNameUpdate(QDomNode, QString)), this->notepad, SLOT(onNodeNameUpdate(QDomNode, QString)));
+    connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeNameUpdate(QDomNode, QString)), this->arbo, SLOT(onNodeNameUpdate(QDomNode, QString)));
 }
 
 void MainWindow::indent()

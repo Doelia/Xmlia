@@ -29,12 +29,23 @@ public slots:
     /**
      * @brief Arbo::updateView
      * @action Met à jour la vue à partir du modèle
+     * Met a jour la vue à partir du modèle, à faire qu'au début du programme
      */
     void updateView();
 
-    void onEdit (QStandardItem*);
 
+    /***** Action envoyés par l'utilisateur, à retourner au modèle  *******/
+
+    /** Quand l'utilisateur modifie le nom d'un noeud */
+    void onEdit (QStandardItem*);
+    /** Quand l'utilisateur supprime un noeud */
     void onRemoveNove();
+    /**********************************************************************/
+
+    /**** Action envoyé par le modèle, modifs à appliquer à l'arbre *******/
+    void onNodeNameUpdate(QDomNode, QString);
+    /**********************************************************************/
+
 
 private:
     QTreeView* vue;
@@ -51,7 +62,7 @@ private:
      * @brief Arbo::getFils
      * @param dom
      * @return Un item remplit avec les fils du dom
-     * Méthode récusrive
+     * Méthode récusrive nécessaire au preOrder
      */
     QStandardItem* getFils(QDomNode dom);
 
@@ -65,7 +76,7 @@ public:
 
     /**
      * @brief Arbo::getVue
-     * @return Génére une vue et la retourne
+     * @return Génére une vue si elle n'existe pas encore, et la retourne
      */
     QTreeView* getVue();
 
