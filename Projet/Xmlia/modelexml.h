@@ -17,27 +17,41 @@ private:
 public:
     ModeleXml(QDomDocument* dom);
     virtual ~ModeleXml();
-    void addNode(QDomNode, QDomNode);
-    void removeNode(QDomNode dom);
 
-    void addAttribut(QDomNode element, Attribute t);
-    void removeAttribut(QDomNode element, Attribute t);
     QString domToString() const;
     QDomNode* getRacine() const;
+
+    /**
+      Provisoir, mise à jour du modèle à partir d'un text
+    */
     void update(QString s);
 
     /**
-       Reconstruit le QDomDocument en modifiant le nom du noeud "dom"
-       Stratégie : Parcourir et reconstruire un nouveau QDomDocument à partir de l'ancien, en recursif ou avec une pile,
-       et detecter quand on atteint le bon dom en modifiant le nom
+       Modifie le nom du noeud passé en parametre,
+       et envoi le signal onNodeNameUpdate
     */
     void updateNodeName(QDomNode n, QString newName);
+
+    /**
+      Supprime le noeud et sa sous arborescente
+      et envoi le signal onNodeRemove
+    */
+    void removeNode(QDomNode dom);
+
+    /**
+      Affecte le modèle par le docuement passé en parametre
+    */
     void setFromDocument(QDomDocument* doc);
 
+    /**
+      Retourne un chemin à partir de la racine, numéroté par le numéro de chaque fis.
+      Exemple: 0-1-2-0
+    */
     static std::stack<int> pathFromRoot(QDomNode n);
 
 signals:
     void onNodeNameUpdate(QDomNode n, QString newName);
+    void onNodeDelete(QDomNode n);
 
 };
 

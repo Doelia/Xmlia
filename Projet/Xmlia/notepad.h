@@ -25,6 +25,7 @@ public:
 
 public slots:
     void onNodeNameUpdate(QDomNode, QString);
+    void onNodeDelete(QDomNode);
 
 signals:
     void update();

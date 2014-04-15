@@ -10,22 +10,39 @@ Arbo::Arbo() {
     this->vue = 0;
 }
 
+// Quand l'utilisateur édite un noeud
 void Arbo::onEdit (QStandardItem* item) {
 
     QDomNode node = this->getNodeFromItem(item);
-    cout << "Node modifié = " << node.nodeName().toStdString() << endl;
+    cout << "Arbo:: Node modifié par l'utilisateur = " << node.nodeName().toStdString() << endl;
 
     XmlFileManager::getFileManager()->getModele()->updateNodeName(node, item->text());
 }
 
+
+// Quand l'utilisateur supprimer un noeud
 void Arbo::onRemoveNove() {
-    cout << "remove node" << endl;
     QStandardItem* item = this->itemRoot->model()->itemFromIndex(this->getVue()->selectionModel()->currentIndex());
-    cout << item->text().toStdString() << endl;
+    cout << "Arbo:: Node supprimé par l'utilisateur : " << item->text().toStdString() << endl;
 
     QDomNode node = this->getNodeFromItem(item);
 
     XmlFileManager::getFileManager()->getModele()->removeNode(node);
+}
+
+
+// Quand le modèle est modifié, on modifie la vue
+// TODO
+void Arbo::onNodeNameUpdate(QDomNode, QString)
+{
+    cout << "Le modèle demande à modifier l'arbre" << endl;
+}
+
+// Quand le modèle est modifié
+// TODO
+void Arbo::onNodeDelete(QDomNode)
+{
+
 }
 
 QStandardItem* Arbo::getItemFromNode(QDomNode dom) {
@@ -54,6 +71,7 @@ QDomNode Arbo::getNodeFromItem(QStandardItem* item) {
     return curentNode;
 }
 
+// Fonction récursive nécessaire au preOrder
 QStandardItem* Arbo::getFils(QDomNode dom) {
     QStandardItem *item = new QStandardItem(dom.nodeName());
 
@@ -69,8 +87,7 @@ void Arbo::preOrder(QDomNode* dom, QStandardItemModel* model) {
      connect(model, SIGNAL(itemChanged(QStandardItem*)), this, SLOT(onEdit(QStandardItem*)));
 }
 
-
-
+// Retourne la vue, la crée si elle nexiste pas
 QTreeView* Arbo::getVue() {
     // Création de la vue
     if (!this->vue) {
@@ -85,6 +102,7 @@ QTreeView* Arbo::getVue() {
 }
 
 
+// Met a jour la vue à partir du modèle, à faire qu'au début du programme
 void Arbo::updateView() {
      // Construction du modèle arborescent vide
     QStandardItemModel *model = new QStandardItemModel();
