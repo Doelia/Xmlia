@@ -43,6 +43,7 @@ public slots:
 
     /**** Action envoyé par le modèle, modifs à appliquer à l'arbre *******/
     void onNodeNameUpdate(QDomNode, QString);
+    void onNodeDelete(QDomNode);
     /**********************************************************************/
 
 
@@ -65,7 +66,7 @@ private:
      */
     QStandardItem* getFils(QDomNode dom);
 
-
+    /*** Conversions item/modèle **/
     QStandardItem* getItemFromNode(QDomNode dom);
     QDomNode getNodeFromItem(QStandardItem* item);
 

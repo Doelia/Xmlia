@@ -139,6 +139,11 @@ void NotePad::onNodeNameUpdate(QDomNode n, QString newName)
     changeTextFromNode(n, oldName, newName, child);
 }
 
+void NotePad::onNodeDelete(QDomNode)
+{
+
+}
+
 void NotePad::changeTextFromNode(QDomNode node, QString oldName, QString newName, int childNumber)
 {
     int begin;

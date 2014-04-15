@@ -18,12 +18,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     connect(saveAction, SIGNAL(triggered()), this, SLOT(save()));
     connect(exitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
 
-
     QWidget *a = new QWidget();
     this->layout = new QHBoxLayout();
     a->setLayout(this->layout);
     this->setCentralWidget(a);
-
 
     new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_O), this, SLOT(open()));
 }
@@ -37,6 +35,10 @@ void MainWindow::setArbo(Arbo* arbo)
     cout << "ajout au layout" << endl;
     this->layout->addWidget(temp);
     cout << "ajoute au layout" << endl;
+
+    // Signaux
+     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeNameUpdate(QDomNode, QString)), this->arbo, SLOT(onNodeNameUpdate(QDomNode, QString)));
+     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->arbo, SLOT(onNodeDelete(QDomNode)));
 }
 
 void MainWindow::setNotePad(NotePad *notepad)
@@ -52,11 +54,11 @@ void MainWindow::setNotePad(NotePad *notepad)
     editMenu = menuBar()->addMenu(tr("&Edit"));
     editMenu->addAction(indentAction);
 
-    connect(this->notepad, SIGNAL(update()), arbo, SLOT(updateView()));
-
-    // Mise à jour d'un nom de node par le modèle
+    // Signaux
+    connect(this->notepad, SIGNAL(update()), arbo, SLOT(updateView())); // Provisoire
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeNameUpdate(QDomNode, QString)), this->notepad, SLOT(onNodeNameUpdate(QDomNode, QString)));
-    connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeNameUpdate(QDomNode, QString)), this->arbo, SLOT(onNodeNameUpdate(QDomNode, QString)));
+    connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->notepad, SLOT(onNodeDelete(QDomNode)));
+
 }
 
 void MainWindow::indent()

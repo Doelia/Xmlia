@@ -38,6 +38,13 @@ void Arbo::onNodeNameUpdate(QDomNode, QString)
     cout << "Le modèle demande à modifier l'arbre" << endl;
 }
 
+// Quand le modèle est modifié
+// TODO
+void Arbo::onNodeDelete(QDomNode)
+{
+
+}
+
 QStandardItem* Arbo::getItemFromNode(QDomNode dom) {
 
 }
@@ -79,7 +86,6 @@ void Arbo::preOrder(QDomNode* dom, QStandardItemModel* model) {
     model->setItem(0, this->itemRoot);
      connect(model, SIGNAL(itemChanged(QStandardItem*)), this, SLOT(onEdit(QStandardItem*)));
 }
-
 
 // Retourne la vue, la crée si elle nexiste pas
 QTreeView* Arbo::getVue() {

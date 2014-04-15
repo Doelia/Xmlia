@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'modelexml.h'
 **
-** Created: Tue Apr 15 11:51:45 2014
+** Created: Tue Apr 15 14:24:23 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,22 +23,24 @@ static const uint qt_meta_data_ModeleXml[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
       21,   11,   10,   10, 0x05,
+      58,   56,   10,   10, 0x05,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_ModeleXml[] = {
     "ModeleXml\0\0n,newName\0"
-    "onNodeNameUpdate(QDomNode,QString)\0"
+    "onNodeNameUpdate(QDomNode,QString)\0n\0"
+    "onNodeDelete(QDomNode)\0"
 };
 
 void ModeleXml::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -48,6 +50,7 @@ void ModeleXml::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         ModeleXml *_t = static_cast<ModeleXml *>(_o);
         switch (_id) {
         case 0: _t->onNodeNameUpdate((*reinterpret_cast< QDomNode(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 1: _t->onNodeDelete((*reinterpret_cast< QDomNode(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -85,9 +88,9 @@ int ModeleXml::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
 }
@@ -97,5 +100,12 @@ void ModeleXml::onNodeNameUpdate(QDomNode _t1, QString _t2)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void ModeleXml::onNodeDelete(QDomNode _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_END_MOC_NAMESPACE

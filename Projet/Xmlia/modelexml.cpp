@@ -32,10 +32,22 @@ void ModeleXml::updateNodeName(QDomNode n, QString newName)
     //IMPORTANT : notifier tout le monde de changer avant de changer le modele
     emit onNodeNameUpdate(n, newName);
     cout << "ModeleXml::emitNodeNameUpdate()" << endl;
+
+    // Mise à jour du modèle
     if (n.isElement()) {
         n.toElement().setTagName(newName);
     }
 }
+
+void ModeleXml::removeNode(QDomNode n)
+{
+     emit onNodeDelete(n);
+
+    cout << "Remove " << n.nodeName().toStdString() << endl;
+
+    // Mise à jour du modèle TODO (voir issue bitbucket)
+}
+
 
 void ModeleXml::setFromDocument(QDomDocument* doc)
 {
@@ -68,10 +80,6 @@ int ModeleXml::rowFromNode(QDomNode n)
 }
 
 
-void ModeleXml::removeNode(QDomNode dom)
-{
-    cout << "Remove " << dom.nodeName().toStdString() << endl;
-}
 
 QString ModeleXml::domToString() const
 {
