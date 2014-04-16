@@ -4,6 +4,7 @@ NotePad::NotePad()
 {
     this->text = new QTextEdit();
     this->th = new TextHighLighter(text->document());
+    this->th->rehighlight();
     this->reader = new QXmlStreamReader();
 
     this->text->installEventFilter(this);
@@ -137,6 +138,7 @@ void NotePad::onNodeNameUpdate(QDomNode n, QString newName)
     }
 
     changeTextFromNode(n, oldName, newName, child);
+    this->th->rehighlight();
 }
 
 void NotePad::onNodeDelete(QDomNode)
