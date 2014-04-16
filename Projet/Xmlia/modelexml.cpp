@@ -46,7 +46,7 @@ void ModeleXml::removeNode(QDomNode n)
 
     cout << "Remove " << n.nodeName().toStdString() << endl;
 
-    // Mise à jour du modèle TODO (voir issue bitbucket)
+    n.parentNode().removeChild(n);
 }
 
 
