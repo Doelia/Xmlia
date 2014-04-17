@@ -23,6 +23,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     widgetContainer->setLayout(this->layout);
     this->setCentralWidget(widgetContainer);
 
+    this->buttonRefresh = new QPushButton("Rafraichir l'arbre (ctrl+r)");
+    this->layout->addWidget(this->buttonRefresh, 1, 0);
+    QObject::connect(this->buttonRefresh, SIGNAL(clicked()), this->notepad, SLOT(onRefreshRequest()));
+
     this->layout->activate();
 
     new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_O), this, SLOT(open()));
@@ -38,15 +42,12 @@ void MainWindow::setArbo(Arbo* arbo)
     this->layout->addWidget(temp, 0, 0, 1, 2);
     cout << "ajoute au layout" << endl;
 
-    // Signaux
-    connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeNameUpdate(QDomNode, QString)), this->arbo, SLOT(onNodeNameUpdate(QDomNode, QString)));
-    connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->arbo, SLOT(onNodeDelete(QDomNode)));
 }
 
 void MainWindow::setNotePad(NotePad *notepad)
 {
     this->notepad = notepad;
-    this->layout->addWidget(notepad->getTextEdit(), 0, 1, 1, 2);
+    this->layout->addWidget(notepad->getTextEdit(), 0, 1, 2, 2);
 
     indentAction = new QAction(tr("&Indent"), this);
 
