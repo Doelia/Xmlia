@@ -106,7 +106,7 @@ void NotePad::indent()
     c.setPosition(selectionEnd);
     c.movePosition(QTextCursor::EndOfLine);
     text->setTextCursor(c);
-    this->updateDom(); // Provisoire
+   // this->updateDom(); // Provisoire
 }
 
 void NotePad::setText(QString s)
@@ -208,6 +208,22 @@ void NotePad::onNodeDelete(QDomNode n)
 void NotePad::onRefreshRequest()
 {
     //emit un signal si le xml est valide
+    QXmlStreamReader xml(text->toPlainText());
+    bool error = false;
+
+    while(!xml.atEnd() & !error) {
+        xml.readNext();
+        if(xml.hasError())
+        {
+            error = true;
+        }
+    }
+
+    if(!error)
+    {
+        updateDom();
+    }
+
 }
 
 void NotePad::updateNodeName(QDomNode node, QString oldName, QString newName)
