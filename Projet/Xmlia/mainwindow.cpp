@@ -25,7 +25,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
     this->buttonRefresh = new QPushButton("Rafraichir l'arbre (ctrl+r)");
     this->layout->addWidget(this->buttonRefresh, 1, 0);
-    QObject::connect(this->buttonRefresh, SIGNAL(clicked()), this->notepad, SLOT(onRefreshRequest()));
 
     this->layout->activate();
 
@@ -61,7 +60,7 @@ void MainWindow::setNotePad(NotePad *notepad)
     connect(this->notepad, SIGNAL(update()), arbo, SLOT(updateView())); // Provisoire
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeNameUpdate(QDomNode, QString)), this->notepad, SLOT(onNodeNameUpdate(QDomNode, QString)));
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->notepad, SLOT(onNodeDelete(QDomNode)));
-
+    connect(this->buttonRefresh, SIGNAL(clicked()), this->notepad, SLOT(onRefreshRequest()));
 }
 
 void MainWindow::indent()

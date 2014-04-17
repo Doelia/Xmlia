@@ -203,7 +203,11 @@ void NotePad::onNodeDelete(QDomNode n)
     deleteNode(begin, end, &c);
     removeLineIfEmpty(n, &c);
     text->setTextCursor(c);
+}
 
+void NotePad::onRefreshRequest()
+{
+    //emit un signal si le xml est valide
 }
 
 void NotePad::updateNodeName(QDomNode node, QString oldName, QString newName)

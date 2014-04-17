@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'notepad.h'
 **
-** Created: Thu Apr 17 12:04:30 2014
+** Created: Thu Apr 17 12:24:51 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_NotePad[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -36,6 +36,7 @@ static const uint qt_meta_data_NotePad[] = {
  // slots: signature, parameters, type, tag, flags
       20,   18,    8,    8, 0x0a,
       55,    8,    8,    8, 0x0a,
+      78,    8,    8,    8, 0x0a,
 
        0        // eod
 };
@@ -43,7 +44,7 @@ static const uint qt_meta_data_NotePad[] = {
 static const char qt_meta_stringdata_NotePad[] = {
     "NotePad\0\0update()\0,\0"
     "onNodeNameUpdate(QDomNode,QString)\0"
-    "onNodeDelete(QDomNode)\0"
+    "onNodeDelete(QDomNode)\0onRefreshRequest()\0"
 };
 
 void NotePad::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -55,6 +56,7 @@ void NotePad::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 0: _t->update(); break;
         case 1: _t->onNodeNameUpdate((*reinterpret_cast< QDomNode(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         case 2: _t->onNodeDelete((*reinterpret_cast< QDomNode(*)>(_a[1]))); break;
+        case 3: _t->onRefreshRequest(); break;
         default: ;
         }
     }
@@ -92,9 +94,9 @@ int NotePad::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 4;
     }
     return _id;
 }
