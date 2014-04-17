@@ -18,10 +18,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     connect(saveAction, SIGNAL(triggered()), this, SLOT(save()));
     connect(exitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
 
-    QWidget *a = new QWidget();
-    this->layout = new QHBoxLayout();
-    a->setLayout(this->layout);
-    this->setCentralWidget(a);
+    QWidget *widgetContainer = new QWidget();
+    this->layout = new QGridLayout();
+    widgetContainer->setLayout(this->layout);
+    this->setCentralWidget(widgetContainer);
+
+    this->layout->activate();
 
     new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_O), this, SLOT(open()));
 }
@@ -33,18 +35,18 @@ void MainWindow::setArbo(Arbo* arbo)
     QTreeView* temp = this->arbo->getVue();
     cout << "vue recuperee" << endl;
     cout << "ajout au layout" << endl;
-    this->layout->addWidget(temp);
+    this->layout->addWidget(temp, 0, 0, 1, 2);
     cout << "ajoute au layout" << endl;
 
     // Signaux
-     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeNameUpdate(QDomNode, QString)), this->arbo, SLOT(onNodeNameUpdate(QDomNode, QString)));
-     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->arbo, SLOT(onNodeDelete(QDomNode)));
+    connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeNameUpdate(QDomNode, QString)), this->arbo, SLOT(onNodeNameUpdate(QDomNode, QString)));
+    connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->arbo, SLOT(onNodeDelete(QDomNode)));
 }
 
 void MainWindow::setNotePad(NotePad *notepad)
 {
     this->notepad = notepad;
-    this->layout->addWidget(notepad->getTextEdit());
+    this->layout->addWidget(notepad->getTextEdit(), 0, 1, 1, 2);
 
     indentAction = new QAction(tr("&Indent"), this);
 
