@@ -21,20 +21,33 @@ public:
     void indent();
     void setText(QString s);
 
-    QTextEdit *getTextEdit() const;
+    //QTextEdit *getTextEdit() const;
+
+    QWidget* getView() const;
 
 public slots:
     void onNodeNameUpdate(QDomNode, QString);
     void onNodeDelete(QDomNode);
     void onRefreshRequest();
 
+private slots:
+    void onScroll(int);
+    void addLinesNumber();
+
 signals:
     void update();
 
 private:
     int NB_SPACE = 8;
+    bool hasError;
 
     QTextEdit* text;
+    QTextEdit* linesDisplay;
+
+    QHBoxLayout* hbox;
+
+    QWidget* view;
+
     QXmlStreamReader* reader;
     TextHighLighter* th;
     int tabNumber;
@@ -58,6 +71,7 @@ private:
     void updateNodeName(QDomNode node, QString oldName, QString newName);
 
     QDomNode nodeWithPositionFromNode(QDomNode) const;
+
 };
 
 #endif // NOTEPAD_H
