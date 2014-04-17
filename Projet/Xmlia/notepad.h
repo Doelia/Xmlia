@@ -26,6 +26,7 @@ public:
 public slots:
     void onNodeNameUpdate(QDomNode, QString);
     void onNodeDelete(QDomNode);
+    void onRefreshRequest();
 
 signals:
     void update();
@@ -36,6 +37,7 @@ private:
     QTextEdit* text;
     QXmlStreamReader* reader;
     TextHighLighter* th;
+    int tabNumber;
 
     QString getStringFromDom() const;
 
@@ -51,8 +53,6 @@ private:
     bool insertCharacterForKeyFiltering(const QString str);
 
     void addCloseMarkup();
-
-    int tabNumber;
 
     QDomNode currentNode() const;
     void updateNodeName(QDomNode node, QString oldName, QString newName);

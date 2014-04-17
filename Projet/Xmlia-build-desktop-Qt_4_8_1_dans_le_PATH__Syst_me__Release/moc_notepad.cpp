@@ -1,11 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'notepad.h'
 **
-<<<<<<< HEAD
-** Created: Thu Apr 17 10:43:14 2014
-=======
-** Created: Thu Apr 17 10:17:02 2014
->>>>>>> 8cc424764644ec90aab305d91e746e661be0673b
+** Created: Thu Apr 17 12:04:30 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!

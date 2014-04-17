@@ -177,7 +177,6 @@ void NotePad::onNodeDelete(QDomNode n)
 
     auto deleteNode = [] (int begin, int end, QTextCursor *c)->void
     {
-
         c->setPosition(begin, QTextCursor::MoveAnchor);
         c->setPosition(end, QTextCursor::KeepAnchor);
         c->removeSelectedText();
@@ -233,8 +232,6 @@ void NotePad::updateNodeName(QDomNode node, QString oldName, QString newName)
 
         c->setPosition(*begin, QTextCursor::MoveAnchor);
         c->setPosition(*end, QTextCursor::KeepAnchor);
-
-        cout << "t : " << t.toStdString() << endl;
 
         c->removeSelectedText();
         c->insertText(t);
