@@ -34,6 +34,7 @@ NotePad::NotePad()
 
     this->text->setWordWrapMode(QTextOption::NoWrap);
 
+    connect(linesDisplay->verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(onScroll(int)));
     connect(text->verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(onScroll(int)));
     connect(text, SIGNAL(textChanged()), this, SLOT(addLinesNumber()));
 
@@ -54,7 +55,6 @@ QWidget* NotePad::getView() const
 bool NotePad::eventFilter(QObject *o, QEvent *e)
 {
     QKeyEvent *keyEvent = static_cast<QKeyEvent*>(e);
-
 
     if (e->type() == QEvent::KeyPress)
     {
@@ -137,7 +137,6 @@ void NotePad::indent()
     c.setPosition(selectionEnd);
     c.movePosition(QTextCursor::EndOfLine);
     text->setTextCursor(c);
-    // this->updateDom(); // Provisoire
 }
 
 void NotePad::setText(QString s)
@@ -271,7 +270,7 @@ void NotePad::onRefreshRequest()
 
 void NotePad::onScroll(int y)
 {
-    linesDisplay->verticalScrollBar()->setValue(y);
+    linesDisplay->verticalScrollBar()->setValue(text->verticalScrollBar()->value());
 }
 
 void NotePad::updateNodeName(QDomNode node, QString oldName, QString newName)
@@ -532,7 +531,6 @@ QDomNode NotePad::currentNode() const
         xml.readNext();
     }
 }
-
 
 QString NotePad::tabsString(int n) const
 {
