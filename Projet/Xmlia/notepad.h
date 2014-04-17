@@ -8,7 +8,7 @@
 #include <iostream>
 #include <stack>
 #include <QtXml/QXmlSimpleReader>
-#include "QHBoxLayout"
+#include "QGridLayout"
 #include "xmlfilemanager.h"
 
 #include "texthighlighter.h"
@@ -31,6 +31,7 @@ public slots:
     void onNodeNameUpdate(QDomNode, QString);
     void onNodeDelete(QDomNode);
     void onRefreshRequest();
+    void toggleLoggerWindow();
 
 private slots:
     void onScroll(int);
@@ -45,8 +46,9 @@ private:
 
     QTextEdit* text;
     QTextEdit* linesDisplay;
+    QTextEdit* logger;
 
-    QHBoxLayout* hbox;
+    QGridLayout* grid;
 
     QWidget* view;
 

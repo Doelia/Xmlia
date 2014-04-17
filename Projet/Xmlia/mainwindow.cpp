@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     this->setCentralWidget(widgetContainer);
 
     this->buttonRefresh = new QPushButton("Reconstruire l'arbre (ctrl+r)");
-    this->layout->addWidget(this->buttonRefresh, 2, 0);
+    //this->layout->addWidget(this->buttonRefresh, 2, 0);
 
     this->layout->activate();
 
@@ -38,6 +38,7 @@ void MainWindow::setArbo(Arbo* arbo)
     QTreeView* temp = this->arbo->getVue();
     cout << "vue recuperee" << endl;
     cout << "ajout au layout" << endl;
+    this->layout->setSpacing(0);
     this->layout->addWidget(temp, 1, 0, 1, 2);
     cout << "ajoute au layout" << endl;
 
@@ -58,12 +59,18 @@ void MainWindow::setNotePad(NotePad *notepad)
     editMenu = menuBar()->addMenu(tr("&Edit"));
     editMenu->addAction(indentAction);
 
+    QShortcut *refresh = new QShortcut(this);
+    refresh->setKey(QKeySequence(Qt::CTRL + Qt::Key_R));
+    QShortcut *toggleLogger = new QShortcut(this);
+    toggleLogger->setKey(QKeySequence(Qt::CTRL + Qt::Key_L));
+
     // Signaux
     connect(this->notepad, SIGNAL(update()), arbo, SLOT(updateView())); // Provisoire
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeNameUpdate(QDomNode, QString)), this->notepad, SLOT(onNodeNameUpdate(QDomNode, QString)));
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->notepad, SLOT(onNodeDelete(QDomNode)));
     connect(this->buttonRefresh, SIGNAL(clicked()), this->notepad, SLOT(onRefreshRequest()));
-    new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_R), this->notepad, SLOT(onRefreshRequest()));
+    connect(refresh, SIGNAL(activated()), this->notepad, SLOT(onRefreshRequest()));
+    connect(toggleLogger, SIGNAL(activated()), this->notepad, SLOT(toggleLoggerWindow()));
 }
 
 void MainWindow::setIconBar(IconBar *iconbar)

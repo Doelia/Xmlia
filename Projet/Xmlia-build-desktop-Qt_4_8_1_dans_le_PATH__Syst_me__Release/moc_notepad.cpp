@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'notepad.h'
 **
-** Created: Thu Apr 17 18:29:08 2014
+** Created: Thu Apr 17 22:05:51 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_NotePad[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -37,8 +37,9 @@ static const uint qt_meta_data_NotePad[] = {
       20,   18,    8,    8, 0x0a,
       55,    8,    8,    8, 0x0a,
       78,    8,    8,    8, 0x0a,
-      97,    8,    8,    8, 0x08,
-     111,    8,    8,    8, 0x08,
+      97,    8,    8,    8, 0x0a,
+     118,    8,    8,    8, 0x08,
+     132,    8,    8,    8, 0x08,
 
        0        // eod
 };
@@ -47,7 +48,8 @@ static const char qt_meta_stringdata_NotePad[] = {
     "NotePad\0\0update()\0,\0"
     "onNodeNameUpdate(QDomNode,QString)\0"
     "onNodeDelete(QDomNode)\0onRefreshRequest()\0"
-    "onScroll(int)\0addLinesNumber()\0"
+    "toggleLoggerWindow()\0onScroll(int)\0"
+    "addLinesNumber()\0"
 };
 
 void NotePad::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -60,8 +62,9 @@ void NotePad::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 1: _t->onNodeNameUpdate((*reinterpret_cast< QDomNode(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         case 2: _t->onNodeDelete((*reinterpret_cast< QDomNode(*)>(_a[1]))); break;
         case 3: _t->onRefreshRequest(); break;
-        case 4: _t->onScroll((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 5: _t->addLinesNumber(); break;
+        case 4: _t->toggleLoggerWindow(); break;
+        case 5: _t->onScroll((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 6: _t->addLinesNumber(); break;
         default: ;
         }
     }
@@ -99,9 +102,9 @@ int NotePad::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }

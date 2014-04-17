@@ -8,19 +8,19 @@ IconBar::IconBar(QWidget *parent) :
     this->layout->setSpacing(5);
     this->layout->setAlignment(Qt::AlignLeft);
 
-    this->open = createButton("../assets/open.png");
+    this->open = createButton("document-open");
     this->open->setToolTip("Open");
     this->layout->addWidget(open);
 
-    this->save = createButton("../assets/save.png");
+    this->save = createButton("document-save");
     this->save->setToolTip("Save");
     this->layout->addWidget(save);
 
-    this->indent = createButton("../assets/indent.png");
+    this->indent = createButton("format-indent-more");
     this->indent->setToolTip("Indent");
     this->layout->addWidget(indent);
 
-    this->build = createButton("../assets/build.png");
+    this->build = createButton("emblem-default");
     this->build->setToolTip("Build");
     this->layout->addWidget(build);
 
@@ -47,11 +47,11 @@ void IconBar::connectBuild(QObject *o)
     connect(build, SIGNAL(clicked()), o, SLOT(onRefreshRequest()));
 }
 
-QPushButton *IconBar::createButton(QString path) const
+QPushButton *IconBar::createButton(QString name) const
 {
     QPushButton *button = new QPushButton();
-    button->setIcon(QIcon(path));
-    button->setIconSize(QSize(32,32));
+    button->setIcon(QIcon::fromTheme(name));
+    button->setIconSize(QSize(30,30));
     button->setFixedSize(32, 32);
     return button;
 }

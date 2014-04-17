@@ -4,25 +4,35 @@ NotePad::NotePad()
 {
     this->text = new QTextEdit();
     this->linesDisplay = new QTextEdit();
+    this->logger = new QTextEdit();
 
-    this->hbox = new QHBoxLayout();
-    this->hbox->setMargin(0);
-    this->hbox->setSpacing(1);
-    linesDisplay->setFixedWidth(38);
+    this->grid = new QGridLayout();
+    this->grid->setMargin(0);
+    this->grid->setSpacing(1);
 
     linesDisplay->setReadOnly(true);
     linesDisplay->setWordWrapMode(QTextOption::NoWrap);
     linesDisplay->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     linesDisplay->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    linesDisplay->setTextColor(Qt::gray);
+    linesDisplay->setTextColor(Qt::darkGray);
     linesDisplay->setText("1");
+    linesDisplay->setStyleSheet("* { background-color: rgb(200, 200, 200); border-color: gray; border-style: outset; border-width: 2px;}");
+    linesDisplay->setFixedWidth(38);
 
-    hbox->addWidget(linesDisplay);
-    hbox->addWidget(text);
+    text->setStyleSheet("* { border-color: gray; border-style: outset; border-width: 2px;}");
+    text->setWordWrapMode(QTextOption::NoWrap);
+
+    logger->setFixedHeight(100);
+    logger->setReadOnly(true);
+    logger->hide();
+
+    grid->addWidget(linesDisplay, 0, 0);
+    grid->addWidget(text, 0, 1);
+    grid->addWidget(logger, 1, 0, 1, 0);
 
     this->view = new QWidget();
-    this->view->setLayout(hbox);
+    this->view->setLayout(grid);
 
     this->th = new TextHighLighter(text->document());
     this->th->rehighlight();
@@ -31,8 +41,6 @@ NotePad::NotePad()
     this->text->installEventFilter(this);
 
     this->tabNumber = 0;
-
-    this->text->setWordWrapMode(QTextOption::NoWrap);
 
     connect(linesDisplay->verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(onScroll(int)));
     connect(text->verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(onScroll(int)));
@@ -167,72 +175,72 @@ void NotePad::onNodeDelete(QDomNode n)
 
     auto goToNodeStart = [] (int *begin, QDomNode node, QString s, QTextCursor *c)->void
     {
-            c->setPosition(0);
-    c->movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, node.lineNumber()-1);
-    c->setPosition(c->position() + node.columnNumber());
-    *begin = c->position();
-    QString open = "<";
-    (*begin) -= 2;
-
-    while(open.compare(s.at(*begin)) != 0)
-    {
-        (*begin)--;
-    }
-};
-
-auto goToNodeEnd = [] (int begin, int *end, QString s, QString toFind)->void
-{
-        QString open = "<";
-open.append(toFind).append(">");
-QString close = "</";
-close.append(toFind).append(">");
-
-int dyck = 1;
-begin += toFind.length();
-
-while(dyck != 0)
-{
-    if(!open.compare(s.mid(begin, open.length())))
-    {
-        dyck++;
-    }
-    else if (!close.compare(s.mid(begin, close.length())))
-    {
-        dyck--;
-    }
-    begin++;
-}
-*end = begin + close.length() - 1;
-};
-
-auto deleteNode = [] (int begin, int end, QTextCursor *c)->void
-{
-        c->setPosition(begin, QTextCursor::MoveAnchor);
-c->setPosition(end, QTextCursor::KeepAnchor);
-c->removeSelectedText();
-};
-
-auto removeLineIfEmpty = [] (QDomNode node, QTextCursor *c)->void
-{
         c->setPosition(0);
-c->movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, node.lineNumber()-1);
-c->movePosition(QTextCursor::EndOfLine, QTextCursor::KeepAnchor);
+        c->movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, node.lineNumber()-1);
+        c->setPosition(c->position() + node.columnNumber());
+        *begin = c->position();
+        QString open = "<";
+        (*begin) -= 2;
 
-QRegExp q("\\S+");
-if(q.indexIn(c->selectedText()) == -1) {
-    c->setPosition(c->position() + 1, QTextCursor::KeepAnchor);
-    c->removeSelectedText();
-}
-else {
-c->movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, node.lineNumber()-1);
-}
-};
+        while(open.compare(s.at(*begin)) != 0)
+        {
+            (*begin)--;
+        }
+    };
 
-goToNodeStart(&begin, n, text->toPlainText(), &c);
-goToNodeEnd(begin, &end, text->toPlainText(), n.nodeName());
-deleteNode(begin, end, &c);
-removeLineIfEmpty(n, &c);
-text->setTextCursor(c);
+    auto goToNodeEnd = [] (int begin, int *end, QString s, QString toFind)->void
+    {
+        QString open = "<";
+        open.append(toFind).append(">");
+        QString close = "</";
+        close.append(toFind).append(">");
+
+        int dyck = 1;
+        begin += toFind.length();
+
+        while(dyck != 0)
+        {
+            if(!open.compare(s.mid(begin, open.length())))
+            {
+                dyck++;
+            }
+            else if (!close.compare(s.mid(begin, close.length())))
+            {
+                dyck--;
+            }
+            begin++;
+        }
+        *end = begin + close.length() - 1;
+    };
+
+    auto deleteNode = [] (int begin, int end, QTextCursor *c)->void
+    {
+        c->setPosition(begin, QTextCursor::MoveAnchor);
+        c->setPosition(end, QTextCursor::KeepAnchor);
+        c->removeSelectedText();
+    };
+
+    auto removeLineIfEmpty = [] (QDomNode node, QTextCursor *c)->void
+    {
+        c->setPosition(0);
+        c->movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, node.lineNumber()-1);
+        c->movePosition(QTextCursor::EndOfLine, QTextCursor::KeepAnchor);
+
+        QRegExp q("\\S+");
+        if(q.indexIn(c->selectedText()) == -1) {
+            c->setPosition(c->position() + 1, QTextCursor::KeepAnchor);
+            c->removeSelectedText();
+        }
+        else {
+            c->movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, node.lineNumber()-1);
+        }
+    };
+
+    goToNodeStart(&begin, n, text->toPlainText(), &c);
+    goToNodeEnd(begin, &end, text->toPlainText(), n.nodeName());
+    deleteNode(begin, end, &c);
+    removeLineIfEmpty(n, &c);
+    text->setTextCursor(c);
 }
 
 void NotePad::onRefreshRequest()
@@ -252,6 +260,8 @@ void NotePad::onRefreshRequest()
     if(!hasError)
     {
         updateDom();
+        logger->setTextColor("green");
+        logger->append("Xml valide");
     }
     else
     {
@@ -268,9 +278,23 @@ void NotePad::onRefreshRequest()
         c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber() - 1);
         text->setTextCursor(c);
         text->ensureCursorVisible();
-        QMessageBox::information(0, QString("Action impossible"), QString("Le document XML n'est pas valide"), QMessageBox::Ok);
-    }
 
+        logger->setTextColor("red");
+        logger->append("Erreur ligne " + QString::number(xml.lineNumber()) + " : " + xml.errorString());
+    }
+    logger->show();
+}
+
+void NotePad::toggleLoggerWindow()
+{
+    if(logger->isVisible())
+    {
+        logger->hide();
+    }
+    else
+    {
+        logger->show();
+    }
 }
 
 void NotePad::onScroll(int y)
@@ -286,76 +310,76 @@ void NotePad::updateNodeName(QDomNode node, QString oldName, QString newName)
 
     auto goToNode = [] (int *begin, int *end, QDomNode node, QTextCursor *c)->void
     {
-            c->setPosition(0);
-    c->movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, node.lineNumber()-1);
-    c->setPosition(c->position() + node.columnNumber());
-    *begin = c->position();
-    *end = c->position();
-};
+        c->setPosition(0);
+        c->movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, node.lineNumber()-1);
+        c->setPosition(c->position() + node.columnNumber());
+        *begin = c->position();
+        *end = c->position();
+    };
 
-auto replaceNodeName = [] (int *begin, int *end, QString oldName, QString newName, QString text, QTextCursor *c)->void
-{
+    auto replaceNodeName = [] (int *begin, int *end, QString oldName, QString newName, QString text, QTextCursor *c)->void
+    {
         if(*end > text.length())
-{
-        *end = text.length();
-}
-QString t = text.mid(*begin, *end - *begin);
-t.replace(oldName, newName);
+        {
+            *end = text.length();
+        }
+        QString t = text.mid(*begin, *end - *begin);
+        t.replace(oldName, newName);
 
-c->setPosition(*begin, QTextCursor::MoveAnchor);
-c->setPosition(*end, QTextCursor::KeepAnchor);
+        c->setPosition(*begin, QTextCursor::MoveAnchor);
+        c->setPosition(*end, QTextCursor::KeepAnchor);
 
-c->removeSelectedText();
-c->insertText(t);
-};
+        c->removeSelectedText();
+        c->insertText(t);
+    };
 
-auto gotoNodeStart = [] (int* begin, QString s)->void
-{
-        QString open = "<";
-(*begin)--;
-
-do
-{
-(*begin)--;
-}
-while(open.compare(s.at(*begin)) != 0);
-};
-
-auto goToNodeEnd = [] (int *begin, int *end, QString s, QString toFind)->void
-{
-        QString open = "<";
-open.append(toFind).append(">");
-QString close = "</";
-close.append(toFind).append(">");
-
-int dyck = 1;
-int pos = *begin;
-
-while(dyck != 0)
-{
-    if(!open.compare(s.mid(pos, open.length())))
+    auto gotoNodeStart = [] (int* begin, QString s)->void
     {
-        dyck++;
-    }
-    else if (!close.compare(s.mid(pos, close.length())))
+        QString open = "<";
+        (*begin)--;
+
+        do
+        {
+            (*begin)--;
+        }
+        while(open.compare(s.at(*begin)) != 0);
+    };
+
+    auto goToNodeEnd = [] (int *begin, int *end, QString s, QString toFind)->void
     {
-        dyck--;
-    }
-    pos++;
-}
-*begin = pos;
-*end = pos + close.length();
-};
+        QString open = "<";
+        open.append(toFind).append(">");
+        QString close = "</";
+        close.append(toFind).append(">");
 
-goToNode(&begin, &end, node, &c);
-goToNodeEnd(&begin, &end, text->toPlainText(), oldName);
-replaceNodeName(&begin, &end, oldName, newName, text->toPlainText(), &c);
+        int dyck = 1;
+        int pos = *begin;
 
-goToNode(&begin, &end, node, &c);
-gotoNodeStart(&begin, text->toPlainText());
-replaceNodeName(&begin, &end, oldName, newName, text->toPlainText(), &c);
+        while(dyck != 0)
+        {
+            if(!open.compare(s.mid(pos, open.length())))
+            {
+                dyck++;
+            }
+            else if (!close.compare(s.mid(pos, close.length())))
+            {
+                dyck--;
+            }
+            pos++;
+        }
+        *begin = pos;
+        *end = pos + close.length();
+    };
 
-text->setTextCursor(c);
+    goToNode(&begin, &end, node, &c);
+    goToNodeEnd(&begin, &end, text->toPlainText(), oldName);
+    replaceNodeName(&begin, &end, oldName, newName, text->toPlainText(), &c);
+
+    goToNode(&begin, &end, node, &c);
+    gotoNodeStart(&begin, text->toPlainText());
+    replaceNodeName(&begin, &end, oldName, newName, text->toPlainText(), &c);
+
+    text->setTextCursor(c);
 }
 
 QDomNode NotePad::nodeWithPositionFromNode(QDomNode n) const
