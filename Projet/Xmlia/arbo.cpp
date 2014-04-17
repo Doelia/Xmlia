@@ -45,8 +45,9 @@ void Arbo::onNodeDelete(QDomNode)
 
 }
 
+// TODO
 QStandardItem* Arbo::getItemFromNode(QDomNode dom) {
-
+    stack<int> pile = XmlFileManager::getFileManager()->getModele()->pathFromRoot(dom);
 }
 
 // Pré requis: L'arboresecende de QDomNode est la même que celle de QStandardItem, sauf le nom qui change
