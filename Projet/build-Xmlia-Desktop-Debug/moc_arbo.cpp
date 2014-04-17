@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Arbo_t {
-    QByteArrayData data[3];
-    char stringdata[14];
+    QByteArrayData data[9];
+    char stringdata[92];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,10 +30,18 @@ struct qt_meta_stringdata_Arbo_t {
 static const qt_meta_stringdata_Arbo_t qt_meta_stringdata_Arbo = {
     {
 QT_MOC_LITERAL(0, 0, 4),
-QT_MOC_LITERAL(1, 5, 6),
-QT_MOC_LITERAL(2, 12, 0)
+QT_MOC_LITERAL(1, 5, 10),
+QT_MOC_LITERAL(2, 16, 0),
+QT_MOC_LITERAL(3, 17, 6),
+QT_MOC_LITERAL(4, 24, 14),
+QT_MOC_LITERAL(5, 39, 12),
+QT_MOC_LITERAL(6, 52, 16),
+QT_MOC_LITERAL(7, 69, 8),
+QT_MOC_LITERAL(8, 78, 12)
     },
-    "Arbo\0onEdit\0\0"
+    "Arbo\0updateView\0\0onEdit\0QStandardItem*\0"
+    "onRemoveNove\0onNodeNameUpdate\0QDomNode\0"
+    "onNodeDelete\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -43,7 +51,7 @@ static const uint qt_meta_data_Arbo[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -51,10 +59,18 @@ static const uint qt_meta_data_Arbo[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   19,    2, 0x0a,
+       1,    0,   39,    2, 0x0a,
+       3,    1,   40,    2, 0x0a,
+       5,    0,   43,    2, 0x0a,
+       6,    2,   44,    2, 0x0a,
+       8,    1,   49,    2, 0x0a,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QModelIndex,    2,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 4,    2,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 7, QMetaType::QString,    2,    2,
+    QMetaType::Void, 0x80000000 | 7,    2,
 
        0        // eod
 };
@@ -64,7 +80,11 @@ void Arbo::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
     if (_c == QMetaObject::InvokeMetaMethod) {
         Arbo *_t = static_cast<Arbo *>(_o);
         switch (_id) {
-        case 0: _t->onEdit((*reinterpret_cast< QModelIndex(*)>(_a[1]))); break;
+        case 0: _t->updateView(); break;
+        case 1: _t->onEdit((*reinterpret_cast< QStandardItem*(*)>(_a[1]))); break;
+        case 2: _t->onRemoveNove(); break;
+        case 3: _t->onNodeNameUpdate((*reinterpret_cast< QDomNode(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 4: _t->onNodeDelete((*reinterpret_cast< QDomNode(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -95,13 +115,13 @@ int Arbo::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 5;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 5)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 1;
+        _id -= 5;
     }
     return _id;
 }

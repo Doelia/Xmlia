@@ -32,21 +32,30 @@ void Arbo::onRemoveNove() {
 
 
 // Quand le modèle est modifié, on modifie la vue
-// TODO
-void Arbo::onNodeNameUpdate(QDomNode, QString)
+void Arbo::onNodeNameUpdate(QDomNode n, QString s)
 {
-    cout << "Le modèle demande à modifier l'arbre" << endl;
+    this->getItemFromNode(n)->setText(s);
 }
 
 // Quand le modèle est modifié
-// TODO
-void Arbo::onNodeDelete(QDomNode)
+void Arbo::onNodeDelete(QDomNode n)
 {
-
+       QStandardItem* itemRemoved =  this->getItemFromNode(n);
+       cout << "onNodeDelete: ItemRemoved = " << itemRemoved->text().toStdString() << endl;
+       itemRemoved->parent()->removeRow(itemRemoved->row());
 }
 
 QStandardItem* Arbo::getItemFromNode(QDomNode dom) {
+    stack<int> pile = XmlFileManager::getFileManager()->getModele()->pathFromRoot(dom);
+    QStandardItem* item = this->itemRoot;
 
+    while (!pile.empty()) {
+        cout << "pileTOp=" << pile.top() << endl;
+        item = item->child(pile.top());
+        pile.pop();
+    }
+
+    return item;
 }
 
 // Pré requis: L'arboresecende de QDomNode est la même que celle de QStandardItem, sauf le nom qui change

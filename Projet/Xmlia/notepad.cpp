@@ -135,7 +135,6 @@ void NotePad::onNodeDelete(QDomNode n)
     int begin;
     int end;
 
-
     auto goToNodeStart = [] (int *begin, QDomNode node, QString s, QTextCursor *c)->void
     {
         c->setPosition(0);
@@ -143,10 +142,12 @@ void NotePad::onNodeDelete(QDomNode n)
         c->setPosition(c->position() + node.columnNumber());
         *begin = c->position();
         QString open = "<";
-        (*begin)--;
+        (*begin) -= 2;
 
-        do { (*begin)--; }
-        while(open.compare(s.at(*begin)) != 0);
+        while(open.compare(s.at(*begin)) != 0)
+        {
+            (*begin)--;
+        }
     };
 
     auto goToNodeEnd = [] (int begin, int *end, QString s, QString toFind)->void
@@ -171,7 +172,7 @@ void NotePad::onNodeDelete(QDomNode n)
             }
             begin++;
         }
-        *end = begin + close.length();
+        *end = begin + close.length() - 1;
     };
 
     auto deleteNode = [] (int begin, int end, QTextCursor *c)->void
@@ -182,9 +183,26 @@ void NotePad::onNodeDelete(QDomNode n)
         c->removeSelectedText();
     };
 
+    auto removeLineIfEmpty = [] (QDomNode node, QTextCursor *c)->void
+    {
+        c->setPosition(0);
+        c->movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, node.lineNumber()-1);
+        c->movePosition(QTextCursor::EndOfLine, QTextCursor::KeepAnchor);
+
+        QRegExp q("\\S+");
+        if(q.indexIn(c->selectedText()) == -1) {
+            c->setPosition(c->position() + 1, QTextCursor::KeepAnchor);
+            c->removeSelectedText();
+        }
+        else {
+            c->movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, node.lineNumber()-1);
+        }
+    };
+
     goToNodeStart(&begin, n, text->toPlainText(), &c);
     goToNodeEnd(begin, &end, text->toPlainText(), n.nodeName());
     deleteNode(begin, end, &c);
+    removeLineIfEmpty(n, &c);
     text->setTextCursor(c);
 
 }
