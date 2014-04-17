@@ -263,6 +263,11 @@ void NotePad::onRefreshRequest()
         c.setBlockFormat(b);
         linesDisplay->setTextCursor(c);
 
+        c = text->textCursor();
+        c.setPosition(0);
+        c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber() - 1);
+        text->setTextCursor(c);
+        text->ensureCursorVisible();
         QMessageBox::information(0, QString("Action impossible"), QString("Le document XML n'est pas valide"), QMessageBox::Ok);
     }
 
