@@ -40,6 +40,10 @@ public slots:
     void onRemoveNove();
     /**********************************************************************/
 
+    /***** Action envoyé par le modèle, à appliquer sur l'arbre ***********/
+    /** Suppresion d'un node **/
+    void onNodeDelete(QDomNode);
+
 private:
     QTreeView* vue;
     ModeleXml* modele;

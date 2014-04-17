@@ -24,23 +24,26 @@ void Arbo::onEdit (QStandardItem* item) {
 void Arbo::onRemoveNove() {
     QStandardItem* item = this->itemRoot->model()->itemFromIndex(this->getVue()->selectionModel()->currentIndex());
     cout << "Arbo:: Node supprimé par l'utilisateur : " << item->text().toStdString() << endl;
-
     QDomNode node = this->getNodeFromItem(item);
-
     XmlFileManager::getFileManager()->getModele()->removeNode(node);
 }
+
+
+// Quand le modèle est modifié
+void Arbo::onNodeDelete(QDomNode n)
+ {
+       QStandardItem* itemRemoved =  this->getItemFromNode(n);
+       itemRemoved->parent()->removeRow(itemRemoved->row());
+ }
 
 
 QStandardItem* Arbo::getItemFromNode(QDomNode dom) {
     stack<int> pile = XmlFileManager::getFileManager()->getModele()->pathFromRoot(dom);
     QStandardItem* item = this->itemRoot;
-
     while (!pile.empty()) {
-        cout << "pileTOp=" << pile.top() << endl;
         item = item->child(pile.top());
         pile.pop();
     }
-
     return item;
 }
 

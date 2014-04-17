@@ -41,6 +41,8 @@ void MainWindow::setArbo(Arbo* arbo)
     this->layout->addWidget(temp, 0, 0, 1, 2);
     cout << "ajoute au layout" << endl;
 
+    connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->arbo, SLOT(onNodeDelete(QDomNode)));
+
 }
 
 void MainWindow::setNotePad(NotePad *notepad)
