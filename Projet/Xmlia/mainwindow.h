@@ -29,6 +29,7 @@ public:
     
 signals:
 
+
 private slots:
 
     /*** Barre de menu **/
@@ -44,6 +45,7 @@ private:
     NotePad *notepad;
 
     QGridLayout* layout;
+    QPushButton* buttonRefresh;
 
     QMenu* fileMenu;
     QMenu* editMenu;

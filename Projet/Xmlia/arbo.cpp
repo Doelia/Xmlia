@@ -31,20 +31,6 @@ void Arbo::onRemoveNove() {
 }
 
 
-// Quand le modèle est modifié, on modifie la vue
-void Arbo::onNodeNameUpdate(QDomNode n, QString s)
-{
-    this->getItemFromNode(n)->setText(s);
-}
-
-// Quand le modèle est modifié
-void Arbo::onNodeDelete(QDomNode n)
-{
-       QStandardItem* itemRemoved =  this->getItemFromNode(n);
-       cout << "onNodeDelete: ItemRemoved = " << itemRemoved->text().toStdString() << endl;
-       itemRemoved->parent()->removeRow(itemRemoved->row());
-}
-
 QStandardItem* Arbo::getItemFromNode(QDomNode dom) {
     stack<int> pile = XmlFileManager::getFileManager()->getModele()->pathFromRoot(dom);
     QStandardItem* item = this->itemRoot;
