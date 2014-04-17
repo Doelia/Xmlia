@@ -48,7 +48,7 @@ void MainWindow::setArbo(Arbo* arbo)
 void MainWindow::setNotePad(NotePad *notepad)
 {
     this->notepad = notepad;
-    this->layout->addWidget(notepad->getTextEdit(), 0, 1, 2, 2);
+    this->layout->addWidget(notepad->getView(), 0, 2, 2, 10);
 
     indentAction = new QAction(tr("&Indent"), this);
 
