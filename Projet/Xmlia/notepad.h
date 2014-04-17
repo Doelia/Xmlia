@@ -1,12 +1,14 @@
 #ifndef NOTEPAD_H
 #define NOTEPAD_H
 
+#include <QObject>
 #include <QtGui>
-//#include <QtWidgets>
+#include <QtWidgets>
 #include <QtXml/QDomDocument>
 #include <iostream>
 #include <stack>
 #include <QtXml/QXmlSimpleReader>
+#include "QHBoxLayout"
 #include "xmlfilemanager.h"
 
 #include "texthighlighter.h"
