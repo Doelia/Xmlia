@@ -43,7 +43,7 @@ private:
     Arbo* arbo;
     NotePad *notepad;
 
-    QHBoxLayout* layout;
+    QGridLayout* layout;
 
     QMenu* fileMenu;
     QMenu* editMenu;

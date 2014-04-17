@@ -28,7 +28,7 @@ public:
     void saveInFile(QString path);
 
     /**
-        COnstruit le modèle à partir d'un fichier
+        Construit le modèle à partir d'un fichier
     */
     void openFile(QString path);
 

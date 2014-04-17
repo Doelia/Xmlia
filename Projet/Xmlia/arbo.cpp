@@ -110,7 +110,6 @@ QTreeView* Arbo::getVue() {
     return this->vue;
 }
 
-
 // Met a jour la vue à partir du modèle, à faire qu'au début du programme
 void Arbo::updateView() {
      // Construction du modèle arborescent vide
@@ -123,4 +122,3 @@ void Arbo::updateView() {
     vue->setModel(model);
 
 }
-
