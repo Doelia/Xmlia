@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     widgetContainer->setLayout(this->layout);
     this->setCentralWidget(widgetContainer);
 
-    this->buttonRefresh = new QPushButton("Rafraichir l'arbre (ctrl+r)");
+    this->buttonRefresh = new QPushButton("Reconstruire l'arbre (ctrl+r)");
     this->layout->addWidget(this->buttonRefresh, 1, 0);
 
     this->layout->activate();
