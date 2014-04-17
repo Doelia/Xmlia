@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QtGui>
-#include <QtWidgets>
+//#include <QtWidgets>
 #include <QtXml/QDomDocument>
 #include <iostream>
 #include <stack>

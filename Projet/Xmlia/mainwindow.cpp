@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     this->setCentralWidget(widgetContainer);
 
     this->buttonRefresh = new QPushButton("Reconstruire l'arbre (ctrl+r)");
-    this->layout->addWidget(this->buttonRefresh, 1, 0);
+    this->layout->addWidget(this->buttonRefresh, 2, 0);
 
     this->layout->activate();
 
@@ -38,7 +38,7 @@ void MainWindow::setArbo(Arbo* arbo)
     QTreeView* temp = this->arbo->getVue();
     cout << "vue recuperee" << endl;
     cout << "ajout au layout" << endl;
-    this->layout->addWidget(temp, 0, 0, 1, 2);
+    this->layout->addWidget(temp, 1, 0, 1, 2);
     cout << "ajoute au layout" << endl;
 
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->arbo, SLOT(onNodeDelete(QDomNode)));
@@ -48,7 +48,7 @@ void MainWindow::setArbo(Arbo* arbo)
 void MainWindow::setNotePad(NotePad *notepad)
 {
     this->notepad = notepad;
-    this->layout->addWidget(notepad->getView(), 0, 2, 2, 10);
+    this->layout->addWidget(notepad->getView(), 1, 2, 2, 10);
 
     indentAction = new QAction(tr("&Indent"), this);
 
@@ -64,6 +64,17 @@ void MainWindow::setNotePad(NotePad *notepad)
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->notepad, SLOT(onNodeDelete(QDomNode)));
     connect(this->buttonRefresh, SIGNAL(clicked()), this->notepad, SLOT(onRefreshRequest()));
     new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_R), this->notepad, SLOT(onRefreshRequest()));
+}
+
+void MainWindow::setIconBar(IconBar *iconbar)
+{
+    this->iconbar = iconbar;
+    this->layout->addWidget(iconbar, 0, 0);
+
+    this->iconbar->connectOpen(this);
+    this->iconbar->connectSave(this);
+    this->iconbar->connectIndent(this);
+    this->iconbar->connectBuild(this->notepad);
 }
 
 void MainWindow::indent()

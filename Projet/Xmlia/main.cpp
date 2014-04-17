@@ -28,6 +28,8 @@ int main(int argc, char *argv[]) {
     NotePad *notePad = new NotePad();
     cout << "editeur de texte cree" << endl;
 
+    IconBar *iconbar = new IconBar();
+
     cout << "creation du file manager" << endl;
     XmlFileManager::getFileManager();
     cout << "file manager cree" << endl;
@@ -44,6 +46,7 @@ int main(int argc, char *argv[]) {
     cout << "ajout de l'editeur de texte dans la fenetre principale" << endl;
     window.setNotePad(notePad);
     cout << "editeur de texte ajoute" << endl;
+    window.setIconBar(iconbar);
 
     // Affichage et execution
     window.show();

@@ -13,6 +13,7 @@
 #include "modelexml.h"
 #include "notepad.h"
 #include "xmlfilemanager.h"
+#include "iconbar.h"
 
 /**
   Fenetre principale du programme
@@ -26,6 +27,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     void setArbo(Arbo* arbo);
     void setNotePad(NotePad *notepad);
+    void setIconBar(IconBar *iconbar);
     
 signals:
 
@@ -43,6 +45,7 @@ public slots:
 private:
     Arbo* arbo;
     NotePad *notepad;
+    IconBar *iconbar;
 
     QGridLayout* layout;
     QPushButton* buttonRefresh;

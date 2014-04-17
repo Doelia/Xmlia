@@ -5,7 +5,8 @@ HEADERS += \
     attribute.h \
     arbo.h \
     texthighlighter.h \
-    notepad.h
+    notepad.h \
+    iconbar.h
 
 SOURCES += \
     mainwindow.cpp \
@@ -15,7 +16,8 @@ SOURCES += \
     attribute.cpp \
     arbo.cpp \
     texthighlighter.cpp \
-    notepad.cpp
+    notepad.cpp \
+    iconbar.cpp
 
 QT += widgets
 QT += xml
