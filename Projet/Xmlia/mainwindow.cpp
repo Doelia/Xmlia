@@ -3,7 +3,7 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
     resize(800, 600);
-    //   
+    //
     openAction = new QAction(tr("&Open"), this);
     saveAction = new QAction(tr("&Save"), this);
     exitAction = new QAction(tr("E&xit"), this);
@@ -61,6 +61,7 @@ void MainWindow::setNotePad(NotePad *notepad)
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeNameUpdate(QDomNode, QString)), this->notepad, SLOT(onNodeNameUpdate(QDomNode, QString)));
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->notepad, SLOT(onNodeDelete(QDomNode)));
     connect(this->buttonRefresh, SIGNAL(clicked()), this->notepad, SLOT(onRefreshRequest()));
+    new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_R), this->notepad, SLOT(onRefreshRequest()));
 }
 
 void MainWindow::indent()
@@ -88,7 +89,7 @@ void MainWindow::open()
 
 void MainWindow::save()
 {
-   /*QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "",
+    /*QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "",
                                                     tr("Text Files (*.txt);;Xml Files (*.xml)"));
 
     if (fileName != "") {
