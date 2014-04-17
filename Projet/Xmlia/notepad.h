@@ -55,7 +55,9 @@ private:
     int tabNumber;
 
     QDomNode currentNode() const;
-    void changeTextFromNode(QDomNode node, QString oldName, QString newName, int childNumber);
+    void updateNodeName(QDomNode node, QString oldName, QString newName);
+
+    QDomNode nodeWithPositionFromNode(QDomNode) const;
 };
 
 #endif // NOTEPAD_H

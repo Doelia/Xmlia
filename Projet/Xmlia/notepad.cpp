@@ -43,7 +43,7 @@ bool NotePad::eventFilter(QObject *o, QEvent *e)
         }
         else if (keyEvent->key() == Qt::Key_Control)
         {
-            currentNode();
+           // currentNode();
         }
     }
     return false;
@@ -121,32 +121,75 @@ QTextEdit *NotePad::getTextEdit() const
 
 void NotePad::onNodeNameUpdate(QDomNode n, QString newName)
 {
-    stack<int> s = ModeleXml::pathFromRoot(n);
     QString oldName = n.nodeName();
 
-    QDomDocument dom;
-    dom.setContent(text->toPlainText());
-
-    n = dom;
-    int child;
-
-    while(!s.empty())
-    {
-        child = s.top();
-        n = n.childNodes().at(child);
-        s.pop();
-    }
-
-    changeTextFromNode(n, oldName, newName, child);
+    updateNodeName(nodeWithPositionFromNode(n), oldName, newName);
     this->th->rehighlight();
 }
 
-void NotePad::onNodeDelete(QDomNode)
+void NotePad::onNodeDelete(QDomNode n)
 {
+    n = nodeWithPositionFromNode(n);
+
+    QTextCursor c = text->textCursor();
+    int begin;
+    int end;
+
+
+    auto goToNodeStart = [] (int *begin, QDomNode node, QString s, QTextCursor *c)->void
+    {
+        c->setPosition(0);
+        c->movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, node.lineNumber()-1);
+        c->setPosition(c->position() + node.columnNumber());
+        *begin = c->position();
+        QString open = "<";
+        (*begin)--;
+
+        do { (*begin)--; }
+        while(open.compare(s.at(*begin)) != 0);
+    };
+
+    auto goToNodeEnd = [] (int begin, int *end, QString s, QString toFind)->void
+    {
+        QString open = "<";
+        open.append(toFind).append(">");
+        QString close = "</";
+        close.append(toFind).append(">");
+
+        int dyck = 1;
+        begin += toFind.length();
+
+        while(dyck != 0)
+        {
+            if(!open.compare(s.mid(begin, open.length())))
+            {
+                dyck++;
+            }
+            else if (!close.compare(s.mid(begin, close.length())))
+            {
+                dyck--;
+            }
+            begin++;
+        }
+        *end = begin + close.length();
+    };
+
+    auto deleteNode = [] (int begin, int end, QTextCursor *c)->void
+    {
+
+        c->setPosition(begin, QTextCursor::MoveAnchor);
+        c->setPosition(end, QTextCursor::KeepAnchor);
+        c->removeSelectedText();
+    };
+
+    goToNodeStart(&begin, n, text->toPlainText(), &c);
+    goToNodeEnd(begin, &end, text->toPlainText(), n.nodeName());
+    deleteNode(begin, end, &c);
+    text->setTextCursor(c);
 
 }
 
-void NotePad::changeTextFromNode(QDomNode node, QString oldName, QString newName, int childNumber)
+void NotePad::updateNodeName(QDomNode node, QString oldName, QString newName)
 {
     int begin;
     int end;
@@ -226,6 +269,25 @@ void NotePad::changeTextFromNode(QDomNode node, QString oldName, QString newName
     replaceNodeName(&begin, &end, oldName, newName, text->toPlainText(), &c);
 
     text->setTextCursor(c);
+}
+
+QDomNode NotePad::nodeWithPositionFromNode(QDomNode n) const
+{
+    stack<int> s = ModeleXml::pathFromRoot(n);
+
+    QDomDocument dom;
+    dom.setContent(text->toPlainText());
+    int child;
+
+    n = dom;
+
+    while(!s.empty())
+    {
+        child = s.top();
+        n = n.childNodes().at(child);
+        s.pop();
+    }
+    return n;
 }
 
 QString NotePad::getStringFromDom() const
