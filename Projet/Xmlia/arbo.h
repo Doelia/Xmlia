@@ -29,7 +29,6 @@ public slots:
     /**
      * @brief Arbo::updateView
      * @action Met à jour la vue à partir du modèle
-     * Met a jour la vue à partir du modèle, à faire qu'au début du programme
      */
     void updateView();
 

@@ -96,7 +96,7 @@ QTreeView* Arbo::getVue() {
     return this->vue;
 }
 
-// Met a jour la vue à partir du modèle, à faire qu'au début du programme
+// Met a jour la vue à partir du modèle
 void Arbo::updateView() {
      // Construction du modèle arborescent vide
     QStandardItemModel *model = new QStandardItemModel();
