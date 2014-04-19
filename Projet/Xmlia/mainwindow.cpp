@@ -23,12 +23,20 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     widgetContainer->setLayout(this->layout);
     this->setCentralWidget(widgetContainer);
 
+    this->vLayout = new QVBoxLayout();
+    this->vLayout->setMargin(0);
+    this->vLayout->setSpacing(5);
+    this->vContainer = new QWidget();
+
     this->buttonRefresh = new QPushButton("Reconstruire l'arbre (ctrl+r)");
     //this->layout->addWidget(this->buttonRefresh, 2, 0);
 
+    this->layout->setMargin(5);
     this->layout->activate();
 
     new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_O), this, SLOT(open()));
+    new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_S), this, SLOT(save()));
+    new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_S), this, SLOT(saveAs()));
 }
 
 void MainWindow::setArbo(Arbo* arbo)
@@ -39,7 +47,7 @@ void MainWindow::setArbo(Arbo* arbo)
     cout << "vue recuperee" << endl;
     cout << "ajout au layout" << endl;
     this->layout->setSpacing(0);
-    this->layout->addWidget(temp, 1, 0, 1, 2);
+    this->layout->addWidget(temp, 1, 0, 2, 2);
     cout << "ajoute au layout" << endl;
 
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->arbo, SLOT(onNodeDelete(QDomNode)));
@@ -49,7 +57,7 @@ void MainWindow::setArbo(Arbo* arbo)
 void MainWindow::setNotePad(NotePad *notepad)
 {
     this->notepad = notepad;
-    this->layout->addWidget(notepad->getView(), 1, 2, 2, 10);
+    vLayout->addWidget(notepad->getView(), 4);
 
     indentAction = new QAction(tr("&Indent"), this);
 
@@ -61,8 +69,6 @@ void MainWindow::setNotePad(NotePad *notepad)
 
     QShortcut *refresh = new QShortcut(this);
     refresh->setKey(QKeySequence(Qt::CTRL + Qt::Key_R));
-    QShortcut *toggleLogger = new QShortcut(this);
-    toggleLogger->setKey(QKeySequence(Qt::CTRL + Qt::Key_L));
 
     // Signaux
     connect(this->notepad, SIGNAL(update()), arbo, SLOT(updateView())); // Provisoire
@@ -70,18 +76,36 @@ void MainWindow::setNotePad(NotePad *notepad)
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->notepad, SLOT(onNodeDelete(QDomNode)));
     connect(this->buttonRefresh, SIGNAL(clicked()), this->notepad, SLOT(onRefreshRequest()));
     connect(refresh, SIGNAL(activated()), this->notepad, SLOT(onRefreshRequest()));
-    connect(toggleLogger, SIGNAL(activated()), this->notepad, SLOT(toggleLoggerWindow()));
 }
 
 void MainWindow::setIconBar(IconBar *iconbar)
 {
     this->iconbar = iconbar;
     this->layout->addWidget(iconbar, 0, 0);
+    this->iconbar->setFixedHeight(40);
 
     this->iconbar->connectOpen(this);
     this->iconbar->connectSave(this);
+    this->iconbar->connectSaveAs(this);
     this->iconbar->connectIndent(this);
     this->iconbar->connectBuild(this->notepad);
+}
+
+void MainWindow::setLogger(Logger *logger)
+{
+    this->logger = logger;
+    vLayout->addWidget(logger);
+    vContainer->setLayout(vLayout);
+    layout->setHorizontalSpacing(5);
+    layout->addWidget(vContainer, 1, 2, 2, 4);
+
+    QShortcut *toggleLogger = new QShortcut(this);
+    toggleLogger->setKey(QKeySequence(Qt::CTRL + Qt::Key_L));
+
+    connect(toggleLogger, SIGNAL(activated()), this->logger, SLOT(toggle()));
+    connect(notepad, SIGNAL(log(QString,QColor)), this->logger, SLOT(log(QString,QColor)));
+    connect(this, SIGNAL(log(QString,QColor)), this->logger, SLOT(log(QString,QColor)));
+    connect(XmlFileManager::getFileManager(), SIGNAL(log(QString,QColor)), this->logger, SLOT(log(QString,QColor)));
 }
 
 void MainWindow::indent()
@@ -96,31 +120,40 @@ void MainWindow::quit()
 
 void MainWindow::open()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "",
-                                                    tr("Xml Files (*.xml);;Text Files (*.txt)"));
+    QString currentFile = QFileDialog::getOpenFileName(this, tr("Open File"), "",
+                                               tr("Xml Files (*.xml);;All Files (*.*)"));
 
-    cout << fileName.toStdString() << endl;
+    if(currentFile != "")
+    {
+        XmlFileManager::getFileManager()->setCurrentFile(currentFile);
+        XmlFileManager::getFileManager()->openFile(notepad);
 
-    XmlFileManager::getFileManager()->openFile(fileName);
+        //this->notepad->setText(XmlFileManager::getFileManager()->getModele()->domToString());
+        this->arbo->updateView();
 
-    this->notepad->setText(XmlFileManager::getFileManager()->getModele()->domToString());
-    this->arbo->updateView();
+        emit log("Opened file " + currentFile, QColor("gray"));
+    }
+
 }
-
 void MainWindow::save()
 {
-    /*QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "",
-                                                    tr("Text Files (*.txt);;Xml Files (*.xml)"));
+    if(XmlFileManager::getFileManager()->getCurrentFile() != "")
+    {
+        XmlFileManager::getFileManager()->saveFile(notepad);
+    }
+    else
+    {
+        saveAs();
+    }
+}
+
+void MainWindow::saveAs()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "",
+                                                    tr("Xml Files (*.xml)"));
 
     if (fileName != "") {
-        QFile file(fileName);
-        if (!file.open(QIODevice::WriteOnly)) {
-            // error message
-        } else {
-            QTextStream stream(&file);
-            stream << notepad->text->toPlainText();
-            stream.flush();
-            file.close();
-        }
-    }*/
+        XmlFileManager::getFileManager()->setCurrentFile(fileName);
+        save();
+    }
 }

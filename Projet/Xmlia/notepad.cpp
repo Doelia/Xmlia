@@ -1,10 +1,11 @@
 #include "notepad.h"
+#include "xmlfilemanager.h"
 
 NotePad::NotePad()
 {
     this->text = new QTextEdit();
     this->linesDisplay = new QTextEdit();
-    this->logger = new QTextEdit();
+    //this->logger = new QTextEdit();
 
     this->grid = new QGridLayout();
     this->grid->setMargin(0);
@@ -23,13 +24,13 @@ NotePad::NotePad()
     text->setStyleSheet("* { border-color: gray; border-style: outset; border-width: 2px;}");
     text->setWordWrapMode(QTextOption::NoWrap);
 
-    logger->setFixedHeight(100);
+   /* logger->setFixedHeight(100);
     logger->setReadOnly(true);
-    logger->hide();
+    logger->hide();*/
 
     grid->addWidget(linesDisplay, 0, 0);
     grid->addWidget(text, 0, 1);
-    grid->addWidget(logger, 1, 0, 1, 0);
+    //grid->addWidget(logger, 1, 0, 1, 0);
 
     this->view = new QWidget();
     this->view->setLayout(grid);
@@ -49,11 +50,7 @@ NotePad::NotePad()
     hasError = false;
 }
 
-void NotePad::keyPressEvent(QKeyEvent *e)
-{
-    if ((e->key () == Qt::Key_Enter)) {
-    }
-}
+void NotePad::keyPressEvent(QKeyEvent *e){}
 
 QWidget* NotePad::getView() const
 {
@@ -152,10 +149,10 @@ void NotePad::setText(QString s)
     text->setText(s);
 }
 
-/*QTextEdit *NotePad::getTextEdit() const
+QString NotePad::getText() const
 {
-    return this->text;
-}*/
+    return text->toPlainText();
+}
 
 void NotePad::onNodeNameUpdate(QDomNode n, QString newName)
 {
@@ -260,8 +257,9 @@ void NotePad::onRefreshRequest()
     if(!hasError)
     {
         updateDom();
-        logger->setTextColor("green");
-        logger->append("Xml valide");
+        emit log("Xml valide", QColor("green"));
+        //logger->setTextColor("green");
+        //logger->append("Xml valide");
     }
     else
     {
@@ -279,22 +277,11 @@ void NotePad::onRefreshRequest()
         text->setTextCursor(c);
         text->ensureCursorVisible();
 
-        logger->setTextColor("red");
-        logger->append("Erreur ligne " + QString::number(xml.lineNumber()) + " : " + xml.errorString());
+        /*logger->setTextColor("red");
+        logger->append("Erreur ligne " + QString::number(xml.lineNumber()) + " : " + xml.errorString());*/
+        emit log("Erreur ligne " + QString::number(xml.lineNumber()) + " : " + xml.errorString(), QColor("red"));
     }
-    logger->show();
-}
-
-void NotePad::toggleLoggerWindow()
-{
-    if(logger->isVisible())
-    {
-        logger->hide();
-    }
-    else
-    {
-        logger->show();
-    }
+   // logger->show();
 }
 
 void NotePad::onScroll(int y)

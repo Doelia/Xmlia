@@ -29,6 +29,7 @@ int main(int argc, char *argv[]) {
     cout << "editeur de texte cree" << endl;
 
     IconBar *iconbar = new IconBar();
+    Logger *logger = new Logger();
 
     cout << "creation du file manager" << endl;
     XmlFileManager::getFileManager();
@@ -47,6 +48,7 @@ int main(int argc, char *argv[]) {
     window.setNotePad(notePad);
     cout << "editeur de texte ajoute" << endl;
     window.setIconBar(iconbar);
+    window.setLogger(logger);
 
     // Affichage et execution
     window.show();

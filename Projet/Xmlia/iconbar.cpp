@@ -16,6 +16,10 @@ IconBar::IconBar(QWidget *parent) :
     this->save->setToolTip("Save");
     this->layout->addWidget(save);
 
+    this->saveAs = createButton("document-save-as");
+    this->saveAs->setToolTip("Save as");
+    this->layout->addWidget(saveAs);
+
     this->indent = createButton("format-indent-more");
     this->indent->setToolTip("Indent");
     this->layout->addWidget(indent);
@@ -37,6 +41,11 @@ void IconBar::connectSave(QObject * o)
     connect(save, SIGNAL(clicked()), o, SLOT(save()));
 }
 
+void IconBar::connectSaveAs(QObject * o)
+{
+    connect(saveAs, SIGNAL(clicked()), o, SLOT(saveAs()));
+}
+
 void IconBar::connectIndent(QObject *o)
 {
     connect(indent, SIGNAL(clicked()), o, SLOT(indent()));
@@ -50,8 +59,8 @@ void IconBar::connectBuild(QObject *o)
 QPushButton *IconBar::createButton(QString name) const
 {
     QPushButton *button = new QPushButton();
-    button->setIcon(QIcon::fromTheme(name));
-    button->setIconSize(QSize(30,30));
+    button->setIcon(QIcon::fromTheme(name, QIcon("../assets/"+name)));
+    button->setIconSize(QSize(25,25));
     button->setFixedSize(32, 32);
     return button;
 }

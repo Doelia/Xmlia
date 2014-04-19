@@ -2,18 +2,21 @@
 #define MAINWINDOW_H
 
 #include <QWidget>
-#include <QHBoxLayout>
+#include <QGridLayout>
 #include <QMainWindow>
 #include <QAction>
 #include <QMenuBar>
 #include <QShortcut>
 #include <QFileDialog>
+#include <QTextStream>
+#include <QFile>
 
 #include "arbo.h"
 #include "modelexml.h"
 #include "notepad.h"
 #include "xmlfilemanager.h"
 #include "iconbar.h"
+#include "logger.h"
 
 /**
   Fenetre principale du programme
@@ -28,9 +31,10 @@ public:
     void setArbo(Arbo* arbo);
     void setNotePad(NotePad *notepad);
     void setIconBar(IconBar *iconbar);
+    void setLogger(Logger *logger);
     
 signals:
-
+    void log(QString s, QColor c);
 
 private slots:
 
@@ -38,6 +42,7 @@ private slots:
     void quit();
     void open();
     void save();
+    void saveAs();
     void indent();
 
 public slots:
@@ -46,8 +51,12 @@ private:
     Arbo* arbo;
     NotePad *notepad;
     IconBar *iconbar;
+    Logger *logger;
 
     QGridLayout* layout;
+    QVBoxLayout *vLayout;
+    QWidget *vContainer;
+
     QPushButton* buttonRefresh;
 
     QMenu* fileMenu;
@@ -58,7 +67,6 @@ private:
     QAction* exitAction;
     QAction* textChangedAction;
     QAction* indentAction;
-    
 };
 
 #endif // MAINWINDOW_H

@@ -9,7 +9,6 @@
 #include <stack>
 #include <QtXml/QXmlSimpleReader>
 #include "QGridLayout"
-#include "xmlfilemanager.h"
 
 #include "texthighlighter.h"
 #include "modelexml.h"
@@ -22,6 +21,7 @@ public:
     NotePad();
     void indent();
     void setText(QString s);
+    QString getText() const;
 
     //QTextEdit *getTextEdit() const;
 
@@ -31,7 +31,6 @@ public slots:
     void onNodeNameUpdate(QDomNode, QString);
     void onNodeDelete(QDomNode);
     void onRefreshRequest();
-    void toggleLoggerWindow();
 
 private slots:
     void onScroll(int);
@@ -39,6 +38,7 @@ private slots:
 
 signals:
     void update();
+    void log(QString s, QColor c);
 
 private:
     int NB_SPACE = 8;
@@ -46,8 +46,6 @@ private:
 
     QTextEdit* text;
     QTextEdit* linesDisplay;
-    QTextEdit* logger;
-
     QGridLayout* grid;
 
     QWidget* view;

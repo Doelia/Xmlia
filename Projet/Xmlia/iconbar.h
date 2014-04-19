@@ -13,6 +13,7 @@ public:
 
     void connectOpen(QObject*);
     void connectSave(QObject*);
+    void connectSaveAs(QObject*);
     void connectIndent(QObject*);
     void connectBuild(QObject*);
     
@@ -23,6 +24,7 @@ public slots:
 private:
     QPushButton *open;
     QPushButton *save;
+    QPushButton *saveAs;
     QPushButton *indent;
     QPushButton *build;
 
