@@ -42,19 +42,29 @@ void Logger::log(QString s, QColor c)
 {
     logArea->setTextColor(c);
     logArea->append(s);
-    logArea->show();
+    show();
 }
 
 void Logger::toggle() const
 {
     if(logArea->isVisible())
     {
-        logArea->hide();
-        toggleButton->setIcon(openIcon);
+        hide();
     }
     else
     {
-        logArea->show();
-        toggleButton->setIcon(closeIcon);
+        show();
     }
+}
+
+void Logger::hide() const
+{
+    logArea->hide();
+    toggleButton->setIcon(openIcon);
+}
+
+void Logger::show() const
+{
+    logArea->show();
+    toggleButton->setIcon(closeIcon);
 }

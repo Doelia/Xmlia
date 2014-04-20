@@ -97,7 +97,7 @@ void MainWindow::setLogger(Logger *logger)
     vLayout->addWidget(logger);
     vContainer->setLayout(vLayout);
     layout->setHorizontalSpacing(5);
-    layout->addWidget(vContainer, 1, 2, 2, 4);
+    layout->addWidget(vContainer, 1, 2, 2, 6);
 
     QShortcut *toggleLogger = new QShortcut(this);
     toggleLogger->setKey(QKeySequence(Qt::CTRL + Qt::Key_L));
@@ -130,8 +130,6 @@ void MainWindow::open()
 
         //this->notepad->setText(XmlFileManager::getFileManager()->getModele()->domToString());
         this->arbo->updateView();
-
-        emit log("Opened file " + currentFile, QColor("gray"));
     }
 
 }

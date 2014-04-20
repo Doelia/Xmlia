@@ -32,6 +32,9 @@ private:
     QIcon openIcon;
     QIcon closeIcon;
 
+    void hide() const;
+    void show() const;
+
 };
 
 #endif // LOGGER_H
