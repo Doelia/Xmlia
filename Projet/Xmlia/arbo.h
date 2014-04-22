@@ -53,7 +53,7 @@ private:
       * @action Remplit le modèle QStandardItemModel à partir d'un QDomNode dom
       *
       */
-    void preOrder(QDomNode* dom, QStandardItemModel *model);
+    void preOrder(QDomNode dom, QStandardItemModel *model);
 
     /**
      * @brief Arbo::getFils
