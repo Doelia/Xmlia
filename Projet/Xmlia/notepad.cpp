@@ -228,7 +228,7 @@ void NotePad::onNodeDelete(QDomNode n)
                 nbFound++;
                 c.setPosition(0);
                 c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber()-1);
-                c.setPosition(c.position() + xml.columnNumber(), QTextCursor::KeepAnchor);
+                c.setPosition(c.position() + xml.columnNumber() - 1, QTextCursor::KeepAnchor);
                 begin = c.position();
                 goToNodeStart(&begin, text->toPlainText());
             }
