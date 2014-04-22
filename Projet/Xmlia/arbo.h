@@ -37,7 +37,7 @@ public slots:
     /** Quand l'utilisateur modifie le nom d'un noeud */
     void onEdit (QStandardItem*);
     /** Quand l'utilisateur supprime un noeud */
-    void onRemoveNove();
+    void onRemoveNode();
     /**********************************************************************/
 
     /***** Action envoyé par le modèle, à appliquer sur l'arbre ***********/

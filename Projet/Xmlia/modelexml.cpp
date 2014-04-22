@@ -86,8 +86,6 @@ int ModeleXml::rowFromNode(QDomNode n)
     return i;
 }
 
-
-
 QString ModeleXml::domToString() const
 {
     return dom->toString();

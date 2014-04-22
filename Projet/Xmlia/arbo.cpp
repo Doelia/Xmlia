@@ -22,14 +22,13 @@ void Arbo::onEdit (QStandardItem* item) {
     }
     else
     {
-        //peut être renommer le fichier dans lequel on ecrit
         this->itemRoot->setText(XmlFileManager::getFileManager()->getCurrentFileName());
     }
 }
 
 
 // Quand l'utilisateur supprimer un noeud
-void Arbo::onRemoveNove() {
+void Arbo::onRemoveNode() {
     QStandardItem* item = this->itemRoot->model()->itemFromIndex(this->getVue()->selectionModel()->currentIndex());
     cout << "Arbo:: Node supprimé par l'utilisateur : " << item->text().toStdString() << endl;
     QDomNode node = this->getNodeFromItem(item);
@@ -105,7 +104,7 @@ QTreeView* Arbo::getVue() {
         vue->setContextMenuPolicy(Qt::ActionsContextMenu);
         QAction* rmove = new QAction("Supprimer le noeud", vue);
         vue->addAction(rmove);
-        connect(rmove, SIGNAL(triggered()), this, SLOT(onRemoveNove()));
+        connect(rmove, SIGNAL(triggered()), this, SLOT(onRemoveNode()));
         this->updateView();
     }
     return this->vue;
@@ -137,6 +136,7 @@ void Arbo::updateView() {
     //on enleve le type de noeud que l'on ne veut pas dans l'arbo
     removeNodeType(&QDomNode::isComment, &n);
     removeNodeType(&QDomNode::isText, &n);
+    removeNodeType(&QDomNode::isProcessingInstruction, &n);
 
     // Construction du modèle arborescent vide
     QStandardItemModel *model = new QStandardItemModel();

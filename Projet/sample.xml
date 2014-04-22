@@ -5,6 +5,8 @@
                 <surname>a</surname>
                 <pd>auniert</pd>
                 <uris>anruiset</uris>
+                <aue/>
+                <anurestuain/>
         </person>
         <!--comment -->
         <person id="2">
@@ -12,6 +14,7 @@
                 <surname>a</surname>
                 <salut>auniert</salut>
                 <uris>anruiset</uris>
+                <narste/>
         </person>
         <person id="3">
                 <firstname>a</firstname>
