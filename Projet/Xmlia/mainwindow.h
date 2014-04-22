@@ -59,8 +59,6 @@ private:
     QWidget *vContainer;
     QSplitter *hSplitter;
 
-    QPushButton* buttonRefresh;
-
     QMenu* fileMenu;
     QMenu* editMenu;
 

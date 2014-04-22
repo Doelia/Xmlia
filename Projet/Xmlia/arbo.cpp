@@ -91,6 +91,7 @@ void Arbo::preOrder(QDomNode* dom, QStandardItemModel* model) {
     this->itemRoot = getFils(*dom);
     //On met le nom de nom de ficher comme nom de racine de l'arbo
     itemRoot->setText(XmlFileManager::getFileManager()->getCurrentFileName());
+
     model->setItem(0, this->itemRoot);
     connect(model, SIGNAL(itemChanged(QStandardItem*)), this, SLOT(onEdit(QStandardItem*)));
 }
@@ -115,10 +116,11 @@ void Arbo::updateView() {
     // Construction du modèle arborescent vide
     QStandardItemModel *model = new QStandardItemModel();
 
+
+
     // Mise en ordre
     this->preOrder(XmlFileManager::getFileManager()->getModele()->getRacine(), model);
 
     // Redéfinition du modèle
     vue->setModel(model);
-
 }

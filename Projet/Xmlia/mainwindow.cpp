@@ -30,9 +30,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     this->vLayout->setSpacing(5);
     this->vContainer = new QWidget();
 
-    this->buttonRefresh = new QPushButton("Reconstruire l'arbre (ctrl+r)");
-    //this->layout->addWidget(this->buttonRefresh, 2, 0);
-
     this->layout->setMargin(5);
     this->layout->activate();
 
@@ -51,7 +48,10 @@ void MainWindow::setArbo(Arbo* arbo)
     this->layout->setSpacing(0);
 
     //this->layout->addWidget(temp, 1, 0, 2, 2);
-    hSplitter->addWidget(arbo);
+    hSplitter->addWidget(temp);
+    QList<int> sizes;
+    sizes.append(this->width() / 7);
+    hSplitter->setSizes(sizes);
 
     cout << "ajoute au layout" << endl;
 
@@ -79,7 +79,6 @@ void MainWindow::setNotePad(NotePad *notepad)
     connect(this->notepad, SIGNAL(update()), arbo, SLOT(updateView())); // Provisoire
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeNameUpdate(QDomNode, QString)), this->notepad, SLOT(onNodeNameUpdate(QDomNode, QString)));
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->notepad, SLOT(onNodeDelete(QDomNode)));
-    connect(this->buttonRefresh, SIGNAL(clicked()), this->notepad, SLOT(onRefreshRequest()));
     connect(refresh, SIGNAL(activated()), this->notepad, SLOT(onRefreshRequest()));
 }
 

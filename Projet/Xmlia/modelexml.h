@@ -13,13 +13,14 @@ class ModeleXml  : public QObject
 private:
     QDomDocument* dom;
     static int rowFromNode(QDomNode n);
+    void removeNodeType(bool (QDomNode::*function)(void) const, QDomNode* dom);
 
 public:
     ModeleXml(QDomDocument* dom);
     virtual ~ModeleXml();
 
     QString domToString() const;
-    QDomNode* getRacine() const;
+    QDomNode* getRacine();
 
     /**
       Provisoir, mise à jour du modèle à partir d'un text

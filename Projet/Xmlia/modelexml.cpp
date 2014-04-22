@@ -14,9 +14,26 @@ ModeleXml::~ModeleXml()
 }
 
 
-QDomNode* ModeleXml::getRacine() const
+QDomNode* ModeleXml::getRacine()
 {
+    removeNodeType(&QDomNode::isComment, dom);
+    removeNodeType(&QDomNode::isText, dom);
     return this->dom;
+}
+
+void ModeleXml::removeNodeType(bool (QDomNode::*function)() const, QDomNode *dom)
+{
+    for (int var = 0; var < dom->childNodes().size(); ++var) {
+        QDomNode n = dom->childNodes().at(var);
+        if((n.*function)())
+        {
+            dom->removeChild(n);
+        }
+        else
+        {
+            removeNodeType(function, &n);
+        }
+    }
 }
 
 void ModeleXml::update(QString s)
@@ -87,6 +104,8 @@ int ModeleXml::rowFromNode(QDomNode n)
     }
     return i;
 }
+
+
 
 QString ModeleXml::domToString() const
 {
