@@ -7,13 +7,14 @@ XmlFileManager::XmlFileManager()
 
 void XmlFileManager::openFile(NotePad *n)
 {
-    QDomDocument *doc = new QDomDocument("document");
+    QDomDocument *doc = new QDomDocument("");
 
     QString error;
     int errorLine;
     int errorColumn;
 
     QFile file(currentFile);
+
     if (!file.open(QIODevice::ReadOnly)){
         // TODO Faire un critical
         cout<< "ERROR 1"<< endl;
@@ -69,4 +70,10 @@ void XmlFileManager::setCurrentFile(QString file)
 QString XmlFileManager::getCurrentFile() const
 {
     return currentFile;
+}
+
+QString XmlFileManager::getCurrentFileName() const
+{
+    QString file = currentFile.split("/").back();
+    return file;
 }

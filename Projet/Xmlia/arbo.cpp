@@ -13,10 +13,18 @@ Arbo::Arbo() {
 // Quand l'utilisateur édite un noeud
 void Arbo::onEdit (QStandardItem* item) {
 
-    QDomNode node = this->getNodeFromItem(item);
-    cout << "Arbo:: Node modifié par l'utilisateur = " << node.nodeName().toStdString() << endl;
+    if(item != this->itemRoot)
+    {
+        QDomNode node = this->getNodeFromItem(item);
+        cout << "Arbo:: Node modifié par l'utilisateur = " << node.nodeName().toStdString() << endl;
 
-    XmlFileManager::getFileManager()->getModele()->updateNodeName(node, item->text());
+        XmlFileManager::getFileManager()->getModele()->updateNodeName(node, item->text());
+    }
+    else
+    {
+        //peut être renommer le fichier dans lequel on ecrit
+        this->itemRoot->setText(XmlFileManager::getFileManager()->getCurrentFileName());
+    }
 }
 
 
@@ -31,10 +39,10 @@ void Arbo::onRemoveNove() {
 
 // Quand le modèle est modifié
 void Arbo::onNodeDelete(QDomNode n)
- {
-       QStandardItem* itemRemoved =  this->getItemFromNode(n);
-       itemRemoved->parent()->removeRow(itemRemoved->row());
- }
+{
+    QStandardItem* itemRemoved =  this->getItemFromNode(n);
+    itemRemoved->parent()->removeRow(itemRemoved->row());
+}
 
 
 QStandardItem* Arbo::getItemFromNode(QDomNode dom) {
@@ -57,10 +65,10 @@ QDomNode Arbo::getNodeFromItem(QStandardItem* item) {
     pile.push(item->row());
     while (item->parent()) {
         item = item->parent();
-         pile.push(item->row());
+        pile.push(item->row());
     }
 
-     pile.pop();
+    pile.pop();
     while (!pile.empty()) {
         curentNode = curentNode.childNodes().at(pile.top());
         pile.pop();
@@ -81,8 +89,10 @@ QStandardItem* Arbo::getFils(QDomNode dom) {
 
 void Arbo::preOrder(QDomNode* dom, QStandardItemModel* model) {
     this->itemRoot = getFils(*dom);
+    //On met le nom de nom de ficher comme nom de racine de l'arbo
+    itemRoot->setText(XmlFileManager::getFileManager()->getCurrentFileName());
     model->setItem(0, this->itemRoot);
-     connect(model, SIGNAL(itemChanged(QStandardItem*)), this, SLOT(onEdit(QStandardItem*)));
+    connect(model, SIGNAL(itemChanged(QStandardItem*)), this, SLOT(onEdit(QStandardItem*)));
 }
 
 // Retourne la vue, la crée si elle nexiste pas
@@ -90,6 +100,7 @@ QTreeView* Arbo::getVue() {
     // Création de la vue
     if (!this->vue) {
         vue = new QTreeView();
+        vue->header()->hide();
         vue->setContextMenuPolicy(Qt::ActionsContextMenu);
         QAction* rmove = new QAction("Supprimer le noeud", vue);
         vue->addAction(rmove);
@@ -101,7 +112,7 @@ QTreeView* Arbo::getVue() {
 
 // Met a jour la vue à partir du modèle
 void Arbo::updateView() {
-     // Construction du modèle arborescent vide
+    // Construction du modèle arborescent vide
     QStandardItemModel *model = new QStandardItemModel();
 
     // Mise en ordre

@@ -24,13 +24,8 @@ NotePad::NotePad()
     text->setStyleSheet("* { border-color: gray; border-style: outset; border-width: 2px;}");
     text->setWordWrapMode(QTextOption::NoWrap);
 
-   /* logger->setFixedHeight(100);
-    logger->setReadOnly(true);
-    logger->hide();*/
-
     grid->addWidget(linesDisplay, 0, 0);
     grid->addWidget(text, 0, 1);
-    //grid->addWidget(logger, 1, 0, 1, 0);
 
     this->view = new QWidget();
     this->view->setLayout(grid);
@@ -258,8 +253,6 @@ void NotePad::onRefreshRequest()
     {
         updateDom();
         emit log("Xml valide", QColor("green"));
-        //logger->setTextColor("green");
-        //logger->append("Xml valide");
     }
     else
     {
@@ -277,11 +270,8 @@ void NotePad::onRefreshRequest()
         text->setTextCursor(c);
         text->ensureCursorVisible();
 
-        /*logger->setTextColor("red");
-        logger->append("Erreur ligne " + QString::number(xml.lineNumber()) + " : " + xml.errorString());*/
         emit log("Erreur ligne " + QString::number(xml.lineNumber()) + " : " + xml.errorString(), QColor("red"));
     }
-   // logger->show();
 }
 
 void NotePad::onScroll(int y)

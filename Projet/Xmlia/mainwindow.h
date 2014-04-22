@@ -10,6 +10,7 @@
 #include <QFileDialog>
 #include <QTextStream>
 #include <QFile>
+#include <QSplitter>
 
 #include "arbo.h"
 #include "modelexml.h"
@@ -32,7 +33,7 @@ public:
     void setNotePad(NotePad *notepad);
     void setIconBar(IconBar *iconbar);
     void setLogger(Logger *logger);
-    
+
 signals:
     void log(QString s, QColor c);
 
@@ -56,6 +57,7 @@ private:
     QGridLayout* layout;
     QVBoxLayout *vLayout;
     QWidget *vContainer;
+    QSplitter *hSplitter;
 
     QPushButton* buttonRefresh;
 

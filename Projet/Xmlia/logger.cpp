@@ -35,6 +35,8 @@ Logger::Logger()
     layout->addWidget(logArea);
     this->setLayout(layout);
 
+
+
     connect(toggleButton, SIGNAL(clicked()), this, SLOT(toggle()));
 }
 

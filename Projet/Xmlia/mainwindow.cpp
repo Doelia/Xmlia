@@ -23,6 +23,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     widgetContainer->setLayout(this->layout);
     this->setCentralWidget(widgetContainer);
 
+    this->hSplitter = new QSplitter(Qt::Horizontal);
+
     this->vLayout = new QVBoxLayout();
     this->vLayout->setMargin(0);
     this->vLayout->setSpacing(5);
@@ -47,7 +49,10 @@ void MainWindow::setArbo(Arbo* arbo)
     cout << "vue recuperee" << endl;
     cout << "ajout au layout" << endl;
     this->layout->setSpacing(0);
-    this->layout->addWidget(temp, 1, 0, 2, 2);
+
+    //this->layout->addWidget(temp, 1, 0, 2, 2);
+    hSplitter->addWidget(arbo);
+
     cout << "ajoute au layout" << endl;
 
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->arbo, SLOT(onNodeDelete(QDomNode)));
@@ -82,6 +87,7 @@ void MainWindow::setIconBar(IconBar *iconbar)
 {
     this->iconbar = iconbar;
     this->layout->addWidget(iconbar, 0, 0);
+    this->layout->addWidget(hSplitter, 1, 0);
     this->iconbar->setFixedHeight(40);
 
     this->iconbar->connectOpen(this);
@@ -97,7 +103,10 @@ void MainWindow::setLogger(Logger *logger)
     vLayout->addWidget(logger);
     vContainer->setLayout(vLayout);
     layout->setHorizontalSpacing(5);
-    layout->addWidget(vContainer, 1, 2, 2, 6);
+
+    //layout->addWidget(vContainer, 1, 2, 2, 6);
+
+    hSplitter->addWidget(vContainer);
 
     QShortcut *toggleLogger = new QShortcut(this);
     toggleLogger->setKey(QKeySequence(Qt::CTRL + Qt::Key_L));

@@ -46,8 +46,20 @@ public:
     ModeleXml *getModele() const;
     static XmlFileManager *getFileManager();
 
+    /**
+      set le ficher courant
+      */
     void setCurrentFile(QString file);
+
+    /**
+      @return le nom complet avec le chemin du ficher courant
+      */
     QString getCurrentFile() const;
+
+    /**
+      @return le nom du ficher sans le path
+      */
+    QString getCurrentFileName() const;
 };
 
 
