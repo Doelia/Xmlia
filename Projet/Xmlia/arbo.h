@@ -45,6 +45,8 @@ public slots:
     /** Suppresion d'un node **/
     void onNodeDelete(QDomNode);
 
+
+
 private:
     QTreeView* vue;
     ModeleXml* modele;
@@ -77,6 +79,7 @@ public:
      * @return Génére une vue si elle n'existe pas encore, et la retourne
      */
     QTreeView* getVue();
+
 
 };
 

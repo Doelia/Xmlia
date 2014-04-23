@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <attribute.h>
 #include <stack>
+#include <QStandardItem>
 
 class ModeleXml  : public QObject
 {
@@ -48,6 +49,22 @@ public:
       Exemple: 0-1-2-0
     */
     static std::stack<int> pathFromRoot(QDomNode n);
+
+    /**
+      @return true si le node est égal à l'item (même fils)
+    */
+    static bool equals(QDomNode n, QStandardItem* i);
+
+
+    /**
+      @return le nombre de fils du node
+    */
+    static int childCount(QStandardItem* n);
+
+    /**
+        Compare le node et l'item et retourne le node qui n'existe pas, null si se sont les même
+     */
+    static QDomNode getMissingDomNode(QDomNode node, QStandardItem* root);
 
     /**
      * @brief NodeFromPath
