@@ -60,6 +60,12 @@ void TextEditor::onScroll(int y)
 
 void TextEditor::addLinesNumber()
 {
+    if(text->document()->blockCount() < 50 && text->document()->blockCount() < linesDisplay->document()->blockCount())
+    {
+        linesDisplay->document()->clear();
+        linesDisplay->setTextColor(Qt::darkGray);
+        linesDisplay->setText("1");
+    }
     while(linesDisplay->document()->blockCount() < text->document()->blockCount())
     {
         linesDisplay->setAlignment(Qt::AlignRight);
