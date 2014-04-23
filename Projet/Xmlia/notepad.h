@@ -13,6 +13,8 @@
 
 #include "texthighlighter.h"
 #include "modelexml.h"
+#include <xmleditor.h>
+#include <dtdeditor.h>
 
 class NotePad : public QWidget
 {
@@ -31,50 +33,29 @@ public:
 public slots:
     void onNodeNameUpdate(QDomNode, QString);
     void onNodeDelete(QDomNode);
+
+    /**
+      met à jour l'arbo et verifie si le xml est valide
+      */
     void onRefreshRequest();
 
 private slots:
-    void onScroll(int);
-    void addLinesNumber();
+    void onLog(QString, QColor);
+    /*void onScroll(int);
+    void addLinesNumber();*/
 
 signals:
     void update();
     void log(QString s, QColor c);
 
 private:
-    int NB_SPACE = 8;
-    bool hasError;
-
-    QTextEdit* text;
-    QTextEdit* linesDisplay;
-    QGridLayout* grid;
-
-    QWidget* view;
-
-    QXmlStreamReader* reader;
-    TextHighLighter* th;
-    int tabNumber;
+    XmlEditor *xmlEditor;
+    DtdEditor *dtdEditor;
+    QTabWidget *view;
 
     QString getStringFromDom() const;
 
     void updateDom();
-
-    void keyPressEvent(QKeyEvent *e);
-    bool eventFilter(QObject *o, QEvent *e);
-
-    QString tabsString(int n) const;
-
-    void indentLineWithBounds(QStringList *list, int line, int upperBound, int lowerBound);
-
-    bool insertCharacterForKeyFiltering(const QString str);
-
-    void addCloseMarkup();
-
-    QDomNode currentNode() const;
-    void updateNodeName(QDomNode node, QString oldName, QString newName);
-
-    QDomNode nodeWithPositionFromNode(QDomNode) const;
-
 };
 
 #endif // NOTEPAD_H

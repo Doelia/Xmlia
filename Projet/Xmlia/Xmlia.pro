@@ -7,7 +7,10 @@ HEADERS += \
     texthighlighter.h \
     notepad.h \
     iconbar.h \
-    logger.h
+    logger.h \
+    xmleditor.h \
+    dtdeditor.h \
+    texteditor.h
 
 SOURCES += \
     mainwindow.cpp \
@@ -19,7 +22,10 @@ SOURCES += \
     texthighlighter.cpp \
     notepad.cpp \
     iconbar.cpp \
-    logger.cpp
+    logger.cpp \
+    xmleditor.cpp \
+    dtdeditor.cpp \
+    texteditor.cpp
 
 QT += widgets
 QT += xml
