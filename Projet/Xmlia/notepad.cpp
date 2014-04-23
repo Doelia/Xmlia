@@ -5,10 +5,12 @@ NotePad::NotePad()
 {
     this->xmlEditor = new XmlEditor();
     this->dtdEditor = new DtdEditor();
-    this->view = new QTabWidget();
+    this->view = new CustomTabWidget();
 
     view->addTab(xmlEditor->getView(), "Xml");
-    view->addTab(dtdEditor->getView(), "DTD");
+    view->addTab(dtdEditor->getView(), "");
+
+    view->disableDTD();
 
     connect(xmlEditor, SIGNAL(log(QString,QColor)), this, SLOT(onLog(QString,QColor)));
     connect(xmlEditor, SIGNAL(update()), this, SLOT(onUpdate()));
@@ -26,6 +28,13 @@ void NotePad::indent()
 void NotePad::setText(QString s)
 {
     xmlEditor->setText(s);
+}
+
+void NotePad::setDtd(QString s)
+{
+    dtdEditor->setText(s);
+    view->enableDTD();
+    xmlEditor->addDtd();
 }
 
 QString NotePad::getText() const
@@ -77,3 +86,60 @@ void NotePad::updateDom()
     emit update();
 }
 
+
+CustomTabWidget::CustomTabWidget() : QTabWidget::QTabWidget()
+{
+    isDtdEnabled = false;
+    new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Tab), this, SLOT(onTabHit()));
+    new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Tab), this, SLOT(onShiftTabHit()));
+    new QShortcut(QKeySequence(Qt::Key_F4), this, SLOT(onToggle()));
+    connect(this, SIGNAL(currentChanged(int)), this, SLOT(onTabChanged()));
+}
+
+void CustomTabWidget::disableDTD()
+{
+    isDtdEnabled = false;
+    this->setTabIcon(1, QIcon::fromTheme("document-open"));
+    this->setTabText(1, "Ajouter une DTD");
+}
+
+void CustomTabWidget::enableDTD()
+{
+    isDtdEnabled = true;
+    this->setTabIcon(1, QIcon(""));
+    this->setTabText(1, "DTD");
+}
+
+void CustomTabWidget::onTabHit()
+{
+    if(isDtdEnabled)
+    {
+        this->setCurrentIndex(1);
+    }
+}
+
+void CustomTabWidget::onShiftTabHit()
+{
+    this->setCurrentIndex(this->currentIndex() - 1);
+}
+
+void CustomTabWidget::onToggle()
+{
+    if(currentIndex() == 0)
+    {
+        if(isDtdEnabled)
+        {
+            this->setCurrentIndex(1);
+        }
+    }
+    else
+    {
+        setCurrentIndex(0);
+    }
+}
+
+void CustomTabWidget::onTabChanged()
+{
+    enableDTD();
+    XmlFileManager::getFileManager()->setActiveTab(currentIndex());
+}

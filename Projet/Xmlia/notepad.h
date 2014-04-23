@@ -17,6 +17,22 @@
 #include <xmleditor.h>
 #include <dtdeditor.h>
 
+class CustomTabWidget : public QTabWidget
+{
+    Q_OBJECT
+public:
+    CustomTabWidget();
+    void disableDTD();
+    void enableDTD();
+private slots:
+    void onShiftTabHit();
+    void onTabHit();
+    void onToggle();
+    void onTabChanged();
+private:
+    bool isDtdEnabled;
+};
+
 class NotePad : public QWidget
 {
     Q_OBJECT
@@ -25,6 +41,7 @@ public:
     NotePad();
     void indent();
     void setText(QString s);
+    void setDtd(QString s);
     QString getText() const;
 
     //QTextEdit *getTextEdit() const;
@@ -43,8 +60,6 @@ public slots:
 private slots:
     void onLog(QString, QColor);
     void onUpdate();
-    /*void onScroll(int);
-    void addLinesNumber();*/
 
 signals:
     void update();
@@ -53,11 +68,12 @@ signals:
 private:
     XmlEditor *xmlEditor;
     DtdEditor *dtdEditor;
-    QTabWidget *view;
+    CustomTabWidget *view;
 
     QString getStringFromDom() const;
 
     void updateDom();
 };
+
 
 #endif // NOTEPAD_H

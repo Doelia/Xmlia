@@ -3,9 +3,23 @@
 XmlFileManager::XmlFileManager()
 {
     this->modele = new ModeleXml(new QDomDocument(""));
+    isDtdActive = false;
 }
 
 void XmlFileManager::openFile(NotePad *n)
+{
+    if(isDtdActive)
+    {
+        openDTD(n);
+    }
+    else
+    {
+        openXML(n);
+    }
+}
+
+
+void XmlFileManager::openXML(NotePad *n)
 {
     QDomDocument *doc = new QDomDocument("");
 
@@ -33,12 +47,27 @@ void XmlFileManager::openFile(NotePad *n)
     n->setText(data);
     file.close();
 
-    emit log("Opened file " + currentFile, QColor("gray"));
+    emit log("Opened file (XML) " + currentFile, QColor("gray"));
+}
+
+void XmlFileManager::openDTD(NotePad *n)
+{
+    QFile file(currentDTD);
+
+    if (!file.open(QIODevice::ReadOnly)){
+        // TODO Faire un critical
+        cout<< "ERROR 1"<< endl;
+    }
+    QString data(file.readAll());
+    n->setDtd(data);
+    file.close();
+
+    emit log("Opened file (DTD) " + currentDTD, QColor("gray"));
 }
 
 void XmlFileManager::saveFile(NotePad *n)
 {
-    QFile file(currentFile);
+    QFile file((isDtdActive?currentDTD:currentFile));
     if (!file.open(QIODevice::WriteOnly)) {
         // error message
     } else {
@@ -46,9 +75,8 @@ void XmlFileManager::saveFile(NotePad *n)
         stream << n->getText();
         stream.flush();
         file.close();
-        emit log("Saved file under " + currentFile, QColor("gray"));
+        emit log("Saved file under " + (isDtdActive?currentDTD:currentFile), QColor("gray"));
     }
-
 }
 
 ModeleXml *XmlFileManager::getModele() const
@@ -64,16 +92,28 @@ XmlFileManager *XmlFileManager::getFileManager()
 
 void XmlFileManager::setCurrentFile(QString file)
 {
-    this->currentFile = file;
+    if(isDtdActive)
+    {
+        this->currentDTD = file;
+    }
+    else
+    {
+        this->currentFile = file;
+    }
 }
 
 QString XmlFileManager::getCurrentFile() const
 {
-    return currentFile;
+    return (isDtdActive?currentDTD:currentFile);
 }
 
 QString XmlFileManager::getCurrentFileName() const
 {
-    QString file = currentFile.split("/").back();
+    QString file = (isDtdActive?currentDTD:currentFile).split("/").back();
     return file;
+}
+
+void XmlFileManager::setActiveTab(bool isDtd)
+{
+    isDtdActive = isDtd;
 }

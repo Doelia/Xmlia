@@ -82,3 +82,4 @@ void TextEditor::resetLinesNumber()
         linesDisplay->append(QString::number(linesDisplay->document()->blockCount() + 1));
     }
 }
+

@@ -71,6 +71,12 @@ void XmlEditor::indent()
     text->setTextCursor(c);
 }
 
+void XmlEditor::addDtd()
+{
+    QString toAppend = QString("<").append("!").append("DOCTYPE /!aue!\ SYSTEM ").append(XmlFileManager::getFileManager()->getCurrentFileName()).append(">");
+    text->document()->setPlainText(text->toPlainText().append(toAppend));
+}
+
 void XmlEditor::indentLineWithBounds(QStringList *list, int line, int upperBound, int lowerBound)
 {
     if(line >= upperBound && line <= lowerBound)

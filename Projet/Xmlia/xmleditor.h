@@ -21,6 +21,7 @@ public:
       indente le texte
       */
     void indent();
+    void addDtd();
 
     void onNodeNameUpdate(QDomNode, QString);
     void onNodeDelete(QDomNode);

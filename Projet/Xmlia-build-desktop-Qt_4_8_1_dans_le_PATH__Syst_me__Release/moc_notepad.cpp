@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'notepad.h'
 **
-** Created: Wed Apr 23 11:55:29 2014
+** Created: Wed Apr 23 14:41:12 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -17,6 +17,87 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
+static const uint qt_meta_data_CustomTabWidget[] = {
+
+ // content:
+       6,       // revision
+       0,       // classname
+       0,    0, // classinfo
+       4,   14, // methods
+       0,    0, // properties
+       0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+       0,       // signalCount
+
+ // slots: signature, parameters, type, tag, flags
+      17,   16,   16,   16, 0x08,
+      33,   16,   16,   16, 0x08,
+      44,   16,   16,   16, 0x08,
+      55,   16,   16,   16, 0x08,
+
+       0        // eod
+};
+
+static const char qt_meta_stringdata_CustomTabWidget[] = {
+    "CustomTabWidget\0\0onShiftTabHit()\0"
+    "onTabHit()\0onToggle()\0onTabChanged()\0"
+};
+
+void CustomTabWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        Q_ASSERT(staticMetaObject.cast(_o));
+        CustomTabWidget *_t = static_cast<CustomTabWidget *>(_o);
+        switch (_id) {
+        case 0: _t->onShiftTabHit(); break;
+        case 1: _t->onTabHit(); break;
+        case 2: _t->onToggle(); break;
+        case 3: _t->onTabChanged(); break;
+        default: ;
+        }
+    }
+    Q_UNUSED(_a);
+}
+
+const QMetaObjectExtraData CustomTabWidget::staticMetaObjectExtraData = {
+    0,  qt_static_metacall 
+};
+
+const QMetaObject CustomTabWidget::staticMetaObject = {
+    { &QTabWidget::staticMetaObject, qt_meta_stringdata_CustomTabWidget,
+      qt_meta_data_CustomTabWidget, &staticMetaObjectExtraData }
+};
+
+#ifdef Q_NO_DATA_RELOCATION
+const QMetaObject &CustomTabWidget::getStaticMetaObject() { return staticMetaObject; }
+#endif //Q_NO_DATA_RELOCATION
+
+const QMetaObject *CustomTabWidget::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
+}
+
+void *CustomTabWidget::qt_metacast(const char *_clname)
+{
+    if (!_clname) return 0;
+    if (!strcmp(_clname, qt_meta_stringdata_CustomTabWidget))
+        return static_cast<void*>(const_cast< CustomTabWidget*>(this));
+    return QTabWidget::qt_metacast(_clname);
+}
+
+int CustomTabWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QTabWidget::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    }
+    return _id;
+}
 static const uint qt_meta_data_NotePad[] = {
 
  // content:

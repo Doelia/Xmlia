@@ -27,6 +27,8 @@ private:
     ModeleXml *modele;
 
     QString currentFile;
+    QString currentDTD;
+    bool isDtdActive;
 
 signals:
     void log(QString s, QColor c);
@@ -41,6 +43,9 @@ public:
         Construit le modèle à partir d'un fichier
     */
     void openFile(NotePad *n);
+
+    void openXML(NotePad *n);
+    void openDTD(NotePad *n);
 
 
     ModeleXml *getModele() const;
@@ -60,6 +65,8 @@ public:
       @return le nom du ficher sans le path
       */
     QString getCurrentFileName() const;
+
+    void setActiveTab(bool isDtd);
 };
 
 

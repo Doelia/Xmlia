@@ -5,7 +5,8 @@
 #include <QGridLayout>
 #include <QWidget>
 #include <QScrollBar>
-
+#include <QTabWidget>
+#include <QShortcut>
 #include <texthighlighter.h>
 
 class TextEditor : public QWidget
