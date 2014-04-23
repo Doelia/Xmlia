@@ -38,7 +38,7 @@ public slots:
     /** Quand l'utilisateur modifie le nom d'un noeud */
     void onEdit (QStandardItem*);
     /** Quand l'utilisateur supprime un noeud */
-    void onRemoveNove();
+    void onRemoveNode();
     /**********************************************************************/
 
     /***** Action envoyé par le modèle, à appliquer sur l'arbre ***********/
@@ -54,7 +54,7 @@ private:
       * @action Remplit le modèle QStandardItemModel à partir d'un QDomNode dom
       *
       */
-    void preOrder(QDomNode* dom, QStandardItemModel *model);
+    void preOrder(QDomNode dom, QStandardItemModel *model);
 
     /**
      * @brief Arbo::getFils

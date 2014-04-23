@@ -21,9 +21,7 @@ QDomNode* ModeleXml::getRacine() const
 
 void ModeleXml::update(QString s)
 {
-    cout << "update" << endl;
     this->dom->setContent(s);
-    cout << dom->childNodes().count() << endl;
 }
 
 void ModeleXml::updateNodeName(QDomNode n, QString newName)

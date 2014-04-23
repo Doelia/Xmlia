@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'arbo.h'
 **
-** Created: Tue Apr 22 10:09:23 2014
+** Created: Wed Apr 23 10:55:45 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -41,7 +41,7 @@ static const uint qt_meta_data_Arbo[] = {
 
 static const char qt_meta_stringdata_Arbo[] = {
     "Arbo\0\0updateView()\0onEdit(QStandardItem*)\0"
-    "onRemoveNove()\0onNodeDelete(QDomNode)\0"
+    "onRemoveNode()\0onNodeDelete(QDomNode)\0"
 };
 
 void Arbo::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -52,7 +52,7 @@ void Arbo::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         switch (_id) {
         case 0: _t->updateView(); break;
         case 1: _t->onEdit((*reinterpret_cast< QStandardItem*(*)>(_a[1]))); break;
-        case 2: _t->onRemoveNove(); break;
+        case 2: _t->onRemoveNode(); break;
         case 3: _t->onNodeDelete((*reinterpret_cast< QDomNode(*)>(_a[1]))); break;
         default: ;
         }

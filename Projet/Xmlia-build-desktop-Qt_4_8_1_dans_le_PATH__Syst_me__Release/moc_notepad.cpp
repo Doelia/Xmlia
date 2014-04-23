@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'notepad.h'
 **
-** Created: Tue Apr 22 10:09:25 2014
+** Created: Wed Apr 23 11:35:44 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_NotePad[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -38,8 +38,7 @@ static const uint qt_meta_data_NotePad[] = {
       44,   42,    8,    8, 0x0a,
       79,    8,    8,    8, 0x0a,
      102,    8,    8,    8, 0x0a,
-     121,    8,    8,    8, 0x08,
-     135,    8,    8,    8, 0x08,
+     121,   42,    8,    8, 0x08,
 
        0        // eod
 };
@@ -48,7 +47,7 @@ static const char qt_meta_stringdata_NotePad[] = {
     "NotePad\0\0update()\0s,c\0log(QString,QColor)\0"
     ",\0onNodeNameUpdate(QDomNode,QString)\0"
     "onNodeDelete(QDomNode)\0onRefreshRequest()\0"
-    "onScroll(int)\0addLinesNumber()\0"
+    "onLog(QString,QColor)\0"
 };
 
 void NotePad::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -62,8 +61,7 @@ void NotePad::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 2: _t->onNodeNameUpdate((*reinterpret_cast< QDomNode(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         case 3: _t->onNodeDelete((*reinterpret_cast< QDomNode(*)>(_a[1]))); break;
         case 4: _t->onRefreshRequest(); break;
-        case 5: _t->onScroll((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 6: _t->addLinesNumber(); break;
+        case 5: _t->onLog((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QColor(*)>(_a[2]))); break;
         default: ;
         }
     }
@@ -101,9 +99,9 @@ int NotePad::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 6;
     }
     return _id;
 }

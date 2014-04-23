@@ -22,14 +22,13 @@ void Arbo::onEdit (QStandardItem* item) {
     }
     else
     {
-        //peut être renommer le fichier dans lequel on ecrit
         this->itemRoot->setText(XmlFileManager::getFileManager()->getCurrentFileName());
     }
 }
 
 
 // Quand l'utilisateur supprimer un noeud
-void Arbo::onRemoveNove() {
+void Arbo::onRemoveNode() {
     QStandardItem* item = this->itemRoot->model()->itemFromIndex(this->getVue()->selectionModel()->currentIndex());
     cout << "Arbo:: Node supprimé par l'utilisateur : " << item->text().toStdString() << endl;
     QDomNode node = this->getNodeFromItem(item);
@@ -87,10 +86,11 @@ QStandardItem* Arbo::getFils(QDomNode dom) {
     return item;
 }
 
-void Arbo::preOrder(QDomNode* dom, QStandardItemModel* model) {
-    this->itemRoot = getFils(*dom);
+void Arbo::preOrder(QDomNode dom, QStandardItemModel* model) {
+    this->itemRoot = getFils(dom);
     //On met le nom de nom de ficher comme nom de racine de l'arbo
     itemRoot->setText(XmlFileManager::getFileManager()->getCurrentFileName());
+
     model->setItem(0, this->itemRoot);
     connect(model, SIGNAL(itemChanged(QStandardItem*)), this, SLOT(onEdit(QStandardItem*)));
 }
@@ -104,7 +104,7 @@ QTreeView* Arbo::getVue() {
         vue->setContextMenuPolicy(Qt::ActionsContextMenu);
         QAction* rmove = new QAction("Supprimer le noeud", vue);
         vue->addAction(rmove);
-        connect(rmove, SIGNAL(triggered()), this, SLOT(onRemoveNove()));
+        connect(rmove, SIGNAL(triggered()), this, SLOT(onRemoveNode()));
         this->updateView();
     }
     return this->vue;
@@ -112,13 +112,38 @@ QTreeView* Arbo::getVue() {
 
 // Met a jour la vue à partir du modèle
 void Arbo::updateView() {
+
+    /**
+      fonction qui enleve un certain type de noeud identifé par le predicat 'function'
+      */
+    std::function<void (bool (QDomNode::*function)() const, QDomNode *dom)> removeNodeType;
+    removeNodeType = [&removeNodeType] (bool (QDomNode::*function)() const, QDomNode *dom)
+    {
+        for (int var = 0; var < dom->childNodes().size(); ++var) {
+            QDomNode n = dom->childNodes().at(var);
+            if((n.*function)())
+            {
+                dom->removeChild(n);
+            }
+            else
+            {
+                removeNodeType(function, &n);
+            }
+        }
+    };
+
+    QDomNode n(*XmlFileManager::getFileManager()->getModele()->getRacine());
+    //on enleve le type de noeud que l'on ne veut pas dans l'arbo
+    removeNodeType(&QDomNode::isComment, &n);
+    removeNodeType(&QDomNode::isText, &n);
+    removeNodeType(&QDomNode::isProcessingInstruction, &n);
+
     // Construction du modèle arborescent vide
     QStandardItemModel *model = new QStandardItemModel();
 
     // Mise en ordre
-    this->preOrder(XmlFileManager::getFileManager()->getModele()->getRacine(), model);
+    this->preOrder(n, model);
 
     // Redéfinition du modèle
     vue->setModel(model);
-
 }

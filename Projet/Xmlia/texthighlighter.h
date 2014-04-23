@@ -24,6 +24,8 @@ public:
     int getTabNumber() const;
     void clearTabNumber();
 
+    void setDocument(QTextDocument *doc);
+
     void setTextColor(int last, int current, QColor c);
 
     bool cComment(int *last, const QString &text, int i);
