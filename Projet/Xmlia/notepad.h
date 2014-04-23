@@ -41,6 +41,7 @@ public slots:
 
 private slots:
     void onLog(QString, QColor);
+    void onUpdate();
     /*void onScroll(int);
     void addLinesNumber();*/
 

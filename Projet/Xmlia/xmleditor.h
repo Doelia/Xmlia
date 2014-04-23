@@ -33,6 +33,9 @@ public:
 private slots:
     void onTextChange();
 
+signals:
+    void update();
+
 private:
     int NB_SPACE = 8;
     int tabNumber;

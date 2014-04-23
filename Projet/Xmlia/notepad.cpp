@@ -11,7 +11,7 @@ NotePad::NotePad()
     view->addTab(dtdEditor->getView(), "DTD");
 
     connect(xmlEditor, SIGNAL(log(QString,QColor)), this, SLOT(onLog(QString,QColor)));
-
+    connect(xmlEditor, SIGNAL(update()), this, SLOT(onUpdate()));
 }
 
 void NotePad::indent()
@@ -59,6 +59,11 @@ void NotePad::onRefreshRequest()
 void NotePad::onLog(QString s, QColor c)
 {
     emit log(s, c);
+}
+
+void NotePad::onUpdate()
+{
+    emit update();
 }
 
 QString NotePad::getStringFromDom() const
