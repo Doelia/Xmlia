@@ -9,7 +9,8 @@
 #include <stack>
 #include <QtXml/QXmlSimpleReader>
 #include "QGridLayout"
-#include <algorithm>
+#include <QScrollBar>
+#include <QTabWidget>
 
 #include "texthighlighter.h"
 #include "modelexml.h"

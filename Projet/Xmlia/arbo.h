@@ -14,6 +14,7 @@
 #include <QAction>
 #include <QTextStream>
 #include <iostream>
+#include <QHeaderView>
 
 #include "modelexml.h"
 
