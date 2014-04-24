@@ -3,7 +3,6 @@
 
 #include <QDomNode>
 #include <QWidget>
-#include <attribute.h>
 #include <stack>
 #include <QStandardItem>
 
@@ -23,29 +22,36 @@ public:
     QDomNode* getRacine() const;
 
     /**
-      Provisoir, mise à jour du modèle à partir d'un text
+      @action Met à jour le modèle à partir d'un texte XML
+      @pr Texte valide
     */
     void update(QString s);
 
     /**
-       Modifie le nom du noeud passé en parametre,
+       @action Modifie le nom du noeud passé en parametre,
        et envoi le signal onNodeNameUpdate
     */
     void updateNodeName(QDomNode n, QString newName);
 
     /**
-      Supprime le noeud et sa sous arborescente
+       @action Modifie le nom du noeud passé en parametre,
+       et envoi le signal onNodeNameUpdate
+    */
+    void insertNode(QDomNode parent, QDomNode node);
+
+    /**
+      @action Supprime le noeud et sa sous arborescente
       et envoi le signal onNodeRemove
     */
     void removeNode(QDomNode dom);
 
     /**
-      Affecte le modèle par le docuement passé en parametre
+      @action Affecte le modèle par le docuement passé en parametre
     */
     void setFromDocument(QDomDocument* doc);
 
     /**
-      Retourne un chemin à partir de la racine, numéroté par le numéro de chaque fis.
+      @return Un chemin à partir de la racine, numéroté par le numéro de chaque fis.
       Exemple: 0-1-2-0
     */
     static std::stack<int> pathFromRoot(QDomNode n);
@@ -62,7 +68,7 @@ public:
     static int childCount(QStandardItem* n);
 
     /**
-        Compare le node et l'item et retourne le node qui n'existe pas, null si se sont les même
+        @return Le parent de l'item en trop non comprit dans dans le modèle XML
      */
     static QDomNode getParentOfExtraItem(QDomNode node, QStandardItem* root);
 
@@ -78,6 +84,7 @@ public:
 signals:
     void onNodeNameUpdate(QDomNode n, QString newName);
     void onNodeDelete(QDomNode n);
+    void onInsertNode(QDomNode parent, QDomNode n);
 
 };
 

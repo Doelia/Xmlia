@@ -113,6 +113,7 @@ void XmlEditor::onNodeNameUpdate(QDomNode n, QString newName)
 
 void XmlEditor::onNodeDelete(QDomNode n)
 {
+    cout << "XmlEditor::onNodeDelete()" << endl;
     auto vequal = [](vector<int> v1, vector<int> v2)->bool
     {
             if(v1.size() == v2.size())
@@ -218,6 +219,8 @@ void XmlEditor::onNodeDelete(QDomNode n)
         }
         xml.readNext();
        }
+
+    cout << "XmlEditor::onNodeDelete() end" << endl;
 }
 
 void XmlEditor::onRefreshRequest()

@@ -26,22 +26,30 @@ void ModeleXml::update(QString s)
 
 void ModeleXml::updateNodeName(QDomNode n, QString newName)
 {
-    cout << "ModeleXml::updateNodeName" << endl;
-    //IMPORTANT : notifier tout le monde de changer avant de changer le modele
+    cout << "ModeleXml::updateNodeName() : emit" << endl;
     emit onNodeNameUpdate(n, newName);
 
-    cout << "ModeleXml::emitNodeNameUpdate()" << endl;
 
     // Mise à jour du modèle
     if (n.isElement()) {
         n.toElement().setTagName(newName);
     }
+
+    cout << "ModeleXml::updateNodeName() : Modèle MAJ OK" << endl;
+}
+
+void ModeleXml::insertNode(QDomNode parent, QDomNode node)
+{
+     cout << "ModeleXml::insertNode() : " << node.nodeName().toStdString() << "in " <<  parent.nodeName().toStdString() << endl;
+     emit onInsertNode(parent, node);
 }
 
 void ModeleXml::removeNode(QDomNode n) {
-    emit onNodeDelete(n);
     cout << "ModeleXml:: Remove " << n.nodeName().toStdString() << endl;
+    emit onNodeDelete(n);
+    cout << "ModeleXml::removeNode : event emited";
     n.parentNode().removeChild(n);
+    cout << "ModeleXml::removeNode() : Modèle MAJ OK" << endl;
 }
 
 void ModeleXml::setFromDocument(QDomDocument* doc)
@@ -107,7 +115,8 @@ QDomNode ModeleXml::getParentOfExtraItem(QDomNode node, QStandardItem* root)
 
 QDomNode ModeleXml::getSameNodeFromItem(QStandardItem* root)
 {
-
+    QDomNode x;
+    return x;
 }
 
 

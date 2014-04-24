@@ -41,19 +41,17 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 void MainWindow::setArbo(Arbo* arbo)
 {
     this->arbo = arbo;
-    cout << "recuperation de la vue" << endl;
+    cout << "MainWindow::SetArbo() : Récuperation de la vue..." << endl;
     QTreeView* temp = this->arbo->getVue();
-    cout << "vue recuperee" << endl;
-    cout << "ajout au layout" << endl;
+    cout << "MainWindow::SetArbo() : Vue récuperée" << endl;
     this->layout->setSpacing(0);
 
-    //this->layout->addWidget(temp, 1, 0, 2, 2);
     hSplitter->addWidget(temp);
     QList<int> sizes;
     sizes.append(this->width() / 7);
     hSplitter->setSizes(sizes);
 
-    cout << "ajoute au layout" << endl;
+    cout << "MainWindow::SetArbo(): Vue ajoutée au layout" << endl;
 
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->arbo, SLOT(onNodeDelete(QDomNode)));
 
