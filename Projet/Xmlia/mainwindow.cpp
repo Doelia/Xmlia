@@ -33,6 +33,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     this->layout->setMargin(5);
     this->layout->activate();
 
+    this->setWindowIcon(QIcon("../assets/icon.ico"));
+
     new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_O), this, SLOT(open()));
     new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_S), this, SLOT(save()));
     new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_S), this, SLOT(saveAs()));
