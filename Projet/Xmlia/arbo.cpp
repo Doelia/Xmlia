@@ -8,24 +8,31 @@ using namespace std;
 
 Arbo::Arbo() {
     this->vue = 0;
+    this->blockSignals(true);
 }
 
-// Quand l'utilisateur édite un noeud
+// Quand l'utilisateur édite ou ajoute un noeud
 void Arbo::onEdit (QStandardItem* item) {
 
     if(item != this->itemRoot) {
-        cout << "Arbo:: onEdit : " << item->text().toStdString() << endl;
+        cout << "Arbo:: itemEdited : " << item->text().toStdString() << endl;
         QDomNode node = this->getNodeFromItem(item);
         cout << "Arbo:: Node modifié par l'utilisateur = " << node.nodeName().toStdString() << endl;
 
         if (!node.isNull()) {
             XmlFileManager::getFileManager()->getModele()->updateNodeName(node, item->text());
-         } else {
-            cout << XmlFileManager::getFileManager()->getModele()->getMissingDomNode(
+         } else { // C'est que c'est une insertion (drag n drop), l'item est en double
+
+            // Récération du node où l'item a été inséré
+            QDomNode parentInsert = XmlFileManager::getFileManager()->getModele()->getParentOfExtraItem(
                         *XmlFileManager::getFileManager()->getModele()->getRacine(),
-                        this->itemRoot)
-                    .nodeName().toStdString() << endl;
-            cout << "/!\ Arbo::onEdit : Node introuvable" << endl;
+                        this->itemRoot);
+
+            cout << "parent de l'item : " << item->parent()->text().toStdString() << endl;
+
+            //XmlFileManager::getFileManager()->insertNode(parentInsert, )->
+
+            cout << "Parent où il a été inséré : " << parentInsert.nodeName().toStdString() << endl;
         }
     }
     else {
@@ -43,11 +50,21 @@ void Arbo::onRemoveNode() {
     XmlFileManager::getFileManager()->getModele()->removeNode(node);
 }
 
+// Quand l'utilisatreur supprime un noeud par drag n drop
+void Arbo::onRowsRemoved(const QModelIndex & i, int x, int y) {
+    QStandardItem* item = this->itemRoot->model()->itemFromIndex(i);
+    item = item->child(x);
+    cout << "Arbo:: Node supprimé par drag n drop : " << item->text().toStdString() << endl;
+    QDomNode node = this->getNodeFromItem(item);
+    XmlFileManager::getFileManager()->getModele()->removeNode(node);
+}
+
 
 // Quand le modèle est modifié
 void Arbo::onNodeDelete(QDomNode n) {
     QStandardItem* itemRemoved =  this->getItemFromNode(n);
-    itemRemoved->parent()->removeRow(itemRemoved->row());
+    cout << "Arbo : Demande de suppression de l'item " << itemRemoved->text().toStdString() << " par le modèle " << endl;
+    //itemRemoved->parent()->removeRow(itemRemoved->row());
 }
 
 
@@ -100,6 +117,7 @@ void Arbo::preOrder(QDomNode dom, QStandardItemModel* model) {
 
     model->setItem(0, this->itemRoot);
     connect(model, SIGNAL(itemChanged(QStandardItem*)), this, SLOT(onEdit(QStandardItem*)));
+    connect(model, SIGNAL(rowsRemoved(const QModelIndex &, int, int)), this, SLOT(onRowsRemoved(const QModelIndex &, int, int)));
 }
 
 // Retourne la vue, la crée si elle nexiste pas
@@ -116,6 +134,7 @@ QTreeView* Arbo::getVue() {
         vue->setAcceptDrops(true);
         vue->setDragDropMode(QAbstractItemView::InternalMove);
         this->updateView();
+
     }
     return this->vue;
 }
@@ -153,6 +172,7 @@ void Arbo::updateView() {
 
     // Mise en ordre
     this->preOrder(n, model);
+   // this->setHeaderItem();
 
     // Redéfinition du modèle
     vue->setModel(model);

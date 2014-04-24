@@ -64,7 +64,7 @@ public:
     /**
         Compare le node et l'item et retourne le node qui n'existe pas, null si se sont les même
      */
-    static QDomNode getMissingDomNode(QDomNode node, QStandardItem* root);
+    static QDomNode getParentOfExtraItem(QDomNode node, QStandardItem* root);
 
     /**
      * @brief NodeFromPath

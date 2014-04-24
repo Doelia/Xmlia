@@ -38,15 +38,11 @@ void ModeleXml::updateNodeName(QDomNode n, QString newName)
     }
 }
 
-void ModeleXml::removeNode(QDomNode n)
-{
+void ModeleXml::removeNode(QDomNode n) {
     emit onNodeDelete(n);
-
-    cout << "Remove " << n.nodeName().toStdString() << endl;
-
+    cout << "ModeleXml:: Remove " << n.nodeName().toStdString() << endl;
     n.parentNode().removeChild(n);
 }
-
 
 void ModeleXml::setFromDocument(QDomDocument* doc)
 {
@@ -86,37 +82,25 @@ int ModeleXml::childCount(QStandardItem* item)
     return i;
 }
 
-QDomNode ModeleXml::getMissingDomNode(QDomNode node, QStandardItem* root)
+// Un item a été inséré, on cherche dans quel parent
+QDomNode ModeleXml::getParentOfExtraItem(QDomNode node, QStandardItem* root)
 {
     QDomNode nullNode;
     nullNode.clear();
 
-    cout << node.nodeName().toStdString() << " VS " << root->text().toStdString() << endl;
-
     if (node.childNodes().length() == 0) {
         return nullNode;
     } else {
-        if (node.childNodes().length() == childCount(root)) {
-            cout << "Même nombre de fils" << endl;
+        if (node.childNodes().length() >= childCount(root)) {
             for (int i=0; i < node.childNodes().length(); i++) {
-                QDomNode n = getMissingDomNode(node.childNodes().at(i), root->child(i));
+                QDomNode n = getParentOfExtraItem(node.childNodes().at(i), root->child(i));
                 if (!n.isNull()) {
                     return n;
                 }
             }
             return nullNode;
-        } else {
-            cout << "Nombre de fils différent" << endl;
-            if (node.childNodes().length() < childCount(root)) {
-                cout << "/!\ Erreur getMissingDomNode : Nombre d'enfants dans le node inférrieur à ceux de l'item" << endl;
-            } else {
-                for (int i=0; i < node.childNodes().length(); i++) {
-                    QDomNode n = node.childNodes().at(i);
-                    if (!equals(n, root->child(i))) {
-                        return n;
-                    }
-                }
-            }
+        } else { // Un item de plus que de node, c'est qu'il a été inséré ici
+            return node;
         }
     }
 }
