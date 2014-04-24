@@ -105,6 +105,12 @@ QDomNode ModeleXml::getParentOfExtraItem(QDomNode node, QStandardItem* root)
     }
 }
 
+QDomNode ModeleXml::getSameNodeFromItem(QStandardItem* root)
+{
+
+}
+
+
 QDomNode ModeleXml::nodeFromPath(std::vector<int> path) const
 {
     QDomNode n = *this->dom;

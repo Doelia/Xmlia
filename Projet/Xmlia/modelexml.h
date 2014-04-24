@@ -66,6 +66,9 @@ public:
      */
     static QDomNode getParentOfExtraItem(QDomNode node, QStandardItem* root);
 
+
+    QDomNode getSameNodeFromItem(QStandardItem* root);
+
     /**
      * @brief NodeFromPath
      * @return QDomNode got from the path
