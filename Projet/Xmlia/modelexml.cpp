@@ -99,7 +99,19 @@ bool ModeleXml::equals(QDomNode n, QStandardItem* i)
     if (n.nodeName().compare(i->text())) {
         return false;
     } else {
-        return true;
+        QDomNodeList children = n.childNodes();
+
+        if (children.count() != i->rowCount()) {
+            return false;
+        }
+        else {
+            int n = 0;
+            while (n < children.count() && equals(children.at(n), i->child(n))) {
+                n++;
+            }
+            cout << "fsdfsd" << n << children.count()<< endl;
+            return (n == children.count());
+        }
     }
 }
 
@@ -138,8 +150,29 @@ QDomNode ModeleXml::getParentOfExtraItem(QDomNode node, QStandardItem* root)
 
 QDomNode ModeleXml::getSameNodeFromItem(QStandardItem* root)
 {
-    QDomNode x;
-    return x;
+    QDomNode xmlRoot = dom->childNodes().at(0).parentNode();
+    return getSameNodeFromItemRecursive(xmlRoot, root);
+}
+
+QDomNode ModeleXml::getSameNodeFromItemRecursive(QDomNode node, QStandardItem* item) {
+    if (equals(node, item)) {
+        return node;
+    }
+    else {
+        int i = 0;
+        QDomNode tmp;
+        while (i < node.childNodes().count() && (tmp = getSameNodeFromItemRecursive(node.childNodes().at(i), item)).isNull()) {
+            i++;
+        }
+        if (i == node.childNodes().count()) {
+            QDomNode nullNode;
+            nullNode.clear();
+            return nullNode;
+        }
+        else {
+            return tmp;
+        }
+    }
 }
 
 

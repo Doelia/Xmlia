@@ -84,6 +84,11 @@ public:
      */
     QDomNode nodeFromPath(std::vector<int>) const;
 
+    /**
+     * @return Un node vide si le node n'est pas là sinon le node correspondant à l'item
+     */
+    QDomNode getSameNodeFromItemRecursive(QDomNode node, QStandardItem* item);
+
 signals:
     void onNodeNameUpdate(QDomNode n, QString newName);
     void onNodeDelete(QDomNode n);

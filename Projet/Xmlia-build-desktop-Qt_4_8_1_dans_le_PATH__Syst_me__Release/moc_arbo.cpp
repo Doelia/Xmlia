@@ -1,7 +1,11 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'arbo.h'
 **
+<<<<<<< HEAD
 ** Created: Thu Apr 24 15:42:58 2014
+=======
+** Created: Thu Apr 24 15:45:05 2014
+>>>>>>> 60b3c65e39b45c21cc28c7d45c19a53c90ce5ff1
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!

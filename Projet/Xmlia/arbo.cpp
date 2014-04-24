@@ -28,11 +28,12 @@ void Arbo::onEdit (QStandardItem* item) {
 
             // Récupération du node où l'item a été inséré
             QDomNode parentInsert = this->getNodeFromItem(item->parent());
-
             cout << "Arbo::onEdit() : Item Parent : " << item->parent()->text().toStdString() << endl;
             cout << "Arbo::onEdit() : Node Parent : " << parentInsert.nodeName().toStdString() << endl;
 
             QDomNode same = XmlFileManager::getFileManager()->getModele()->getSameNodeFromItem(item);
+
+            cout << "Same : " << same.nodeName().toStdString() << endl;
 
             XmlFileManager::getFileManager()->getModele()->insertNode(parentInsert, same);
         }
@@ -41,7 +42,6 @@ void Arbo::onEdit (QStandardItem* item) {
         this->itemRoot->setText(XmlFileManager::getFileManager()->getCurrentFileName());
     }
 }
-
 // Quand l'utilisateur supprimer un noeud
 void Arbo::onRemoveNode() {
     QStandardItem* item = this->itemRoot->model()->itemFromIndex(this->getVue()->selectionModel()->currentIndex());
