@@ -9,6 +9,21 @@
 #include <QShortcut>
 #include <texthighlighter.h>
 #include <QEvent>
+#include <QSourceLocation>
+#include <QAbstractMessageHandler>
+
+using namespace std;
+
+class MessageHandler : public QAbstractMessageHandler
+{
+    Q_OBJECT
+public:
+    MessageHandler();
+    void handleMessage(QtMsgType type, const QString &description, const QUrl &identifier, const QSourceLocation &sourceLocation);
+signals:
+    void log(QString, QColor);
+    void error(int);
+};
 
 class TextEditor : public QWidget
 {
@@ -22,6 +37,7 @@ public:
 
 signals:
     void log(QString s, QColor c);
+    void error(int);
     void cursorInfo(int, int);
 
 protected:
@@ -30,15 +46,17 @@ protected:
     QGridLayout *grid;
     QWidget *view;
     QSyntaxHighlighter *th;
+    MessageHandler *mh;
+    bool hasError;
 
 public slots:
     void onScroll(int);
     void addLinesNumber();
     void resetLinesNumber();
 
-private:
-    bool event(QEvent *e);
-    //void mousePressEvent(QMouseEvent * event);
+protected slots:
+    void onLog(QString, QColor);
+    void onError(int);
 };
 
 #endif // TEXTEDITOR_H

@@ -10,11 +10,11 @@
 #include <QtXmlPatterns/QXmlSchema>
 
 using namespace std;
-#include <texteditor.h>
+
+#include "texteditor.h"
 
 class XmlEditor : public TextEditor
 {
-
     Q_OBJECT
 public:
     XmlEditor();
@@ -43,7 +43,6 @@ signals:
 private:
     int NB_SPACE = 8;
     int tabNumber;
-    bool hasError;
 
     void keyPressEvent(QKeyEvent *e);
     bool eventFilter(QObject *o, QEvent *e);

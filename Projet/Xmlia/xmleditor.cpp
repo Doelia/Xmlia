@@ -9,7 +9,7 @@ XmlEditor::XmlEditor() : TextEditor::TextEditor(new TextHighLighter(0))
     hasError = false;
     this->text->installEventFilter(this);
 
-    connect(this->text, SIGNAL(textChanged()), this, SLOT(onTextChange()));
+    connect(text, SIGNAL(textChanged()), this, SLOT(onTextChange()));
 }
 
 void XmlEditor::indent()
@@ -231,6 +231,7 @@ void XmlEditor::onNodeInsert(QDomNode parent, QDomNode n)
 void XmlEditor::onRefreshRequest()
 {
     //emit un signal si le xml est valide
+    resetLinesNumber();
     QXmlStreamReader xml(text->toPlainText());
     hasError = false;
 
@@ -251,37 +252,22 @@ void XmlEditor::onRefreshRequest()
         schema.load(QString("file://").append(XmlFileManager::getFileManager()->getCurrentSchema()));
 
         if (schema.isValid()) {
-            cout << "valid schema" << endl;
-            QFile file("test.xml");
-            file.open(QIODevice::ReadOnly);
-
+            emit log("Schema XSD valide", QColor("green"));
             QXmlSchemaValidator validator(schema);
-            if (validator.validate(&file, QUrl::fromLocalFile(file.fileName())))
-                cout << "valid" << endl;
-            else
-                cout << "invalid" << endl;
+            validator.setMessageHandler(mh);
+            if (validator.validate(this->getText().toUtf8(), QUrl(XmlFileManager::getFileManager()->getCurrentSchema())))
+            {
+                emit log("Semantique XML valide", QColor("green"));
+            }
         }
         else
         {
-            cout << "invalid schema" << endl;
+            emit log("Schema XSD invalide, est-il manquant ou invalide ?", QColor("orange"));
         }
     }
     else
     {
-        QTextCursor c = linesDisplay->textCursor();
-        c.setPosition(0);
-        c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber() - 1);
-        QTextBlockFormat b;
-        b.setBackground(QColor("red"));
-        c.setBlockFormat(b);
-        linesDisplay->setTextCursor(c);
-
-        c = text->textCursor();
-        c.setPosition(0);
-        c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber() - 1);
-        text->setTextCursor(c);
-        text->ensureCursorVisible();
-
+        emit error(xml.lineNumber() - 1);
         emit log("Erreur ligne " + QString::number(xml.lineNumber()) + " : " + xml.errorString(), QColor("red"));
     }
 }
