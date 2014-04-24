@@ -152,6 +152,6 @@ void CustomTabWidget::onToggle()
 
 void CustomTabWidget::onTabChanged()
 {
-    enableDTD();
+    //enableDTD();
     XmlFileManager::getFileManager()->setActiveTab(currentIndex());
 }

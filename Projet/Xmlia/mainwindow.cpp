@@ -130,7 +130,7 @@ void MainWindow::quit()
 void MainWindow::open()
 {
     QString currentFile = QFileDialog::getOpenFileName(this, tr("Open File"), "",
-                                               tr("Xml Files (*.xml);;Xsd Files (*.xsd);;All Files (*.*)"));
+                                                       tr("Xml Files (*.x*);;All Files (*.*)"));
 
     if(currentFile != "")
     {

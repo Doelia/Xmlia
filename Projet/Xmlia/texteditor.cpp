@@ -17,12 +17,14 @@ TextEditor::TextEditor(QSyntaxHighlighter *s)
     linesDisplay->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     linesDisplay->setTextColor(Qt::darkGray);
-    linesDisplay->setText("1");
+    linesDisplay->setAlignment(Qt::AlignRight);
+    linesDisplay->append("1");
     linesDisplay->setStyleSheet("* { background-color: rgb(200, 200, 200); border-color: gray; border-style: outset; border-width: 2px;}");
     linesDisplay->setFixedWidth(38);
 
     text->setStyleSheet("* { border-color: gray; border-style: outset; border-width: 2px;}");
     text->setWordWrapMode(QTextOption::NoWrap);
+    text->setAcceptRichText(false);
 
     grid->addWidget(linesDisplay, 0, 0);
     grid->addWidget(text, 0, 1);
@@ -33,11 +35,14 @@ TextEditor::TextEditor(QSyntaxHighlighter *s)
     this->th = s;
     this->th->rehighlight();
 
+    mh = new MessageHandler();
+
+    connect(mh, SIGNAL(error(int)), this, SLOT(onError(int)));
+    connect(mh, SIGNAL(log(QString,QColor)), this, SLOT(onLog(QString,QColor)));
     connect(linesDisplay->verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(onScroll(int)));
     connect(text->verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(onScroll(int)));
     connect(text, SIGNAL(textChanged()), this, SLOT(addLinesNumber()));
-
-    this->text->setAcceptRichText(false);
+    connect(this, SIGNAL(error(int)), this, SLOT(onError(int)));
 }
 
 void TextEditor::setText(QString s)
@@ -66,7 +71,8 @@ void TextEditor::addLinesNumber()
     {
         linesDisplay->document()->clear();
         linesDisplay->setTextColor(Qt::darkGray);
-        linesDisplay->setText("1");
+        linesDisplay->setAlignment(Qt::AlignRight);
+        linesDisplay->append("1");
     }
     while(linesDisplay->document()->blockCount() < text->document()->blockCount())
     {
@@ -85,8 +91,42 @@ void TextEditor::resetLinesNumber()
     }
 }
 
-bool TextEditor::event(QEvent *event)
+void TextEditor::onLog(QString s, QColor c)
 {
-    std::cout << "ici" << std::endl;
-    return QWidget::event(event);
+    emit log(s, c);
+}
+
+void TextEditor::onError(int line)
+{
+    QTextCursor c = linesDisplay->textCursor();
+    c.setPosition(0);
+    c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, line);
+    QTextBlockFormat b;
+    b.setBackground(QColor("red"));
+    c.setBlockFormat(b);
+    linesDisplay->setTextCursor(c);
+
+    c = text->textCursor();
+    c.setPosition(0);
+    c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, line);
+    text->setTextCursor(c);
+    text->ensureCursorVisible();
+}
+
+
+MessageHandler::MessageHandler()
+{
+}
+
+void MessageHandler::handleMessage(QtMsgType type, const QString &description, const QUrl &identifier, const QSourceLocation &sourceLocation)
+{
+    QString s(description);
+    s.remove(QRegExp("<html xmlns.*<p>"));
+    s.replace(QRegExp("<span class='XQuery-keyword'>"), "\"");
+    s.replace(QRegExp("<span class='XQuery-data'>"), "\"");
+    s.replace(QRegExp("<span class='XQuery-type'>"), "\"");
+    s.replace("</span>", "\"");
+    s.remove("</p></body></html>");
+    emit log(QString("Erreur ligne ").append(QString::number(sourceLocation.line())).append(" colonne ").append(QString::number(sourceLocation.column())).append("\n").append(s), QColor("red"));
+    emit error(sourceLocation.line() - 1);
 }
