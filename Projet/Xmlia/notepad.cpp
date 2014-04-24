@@ -67,6 +67,11 @@ void NotePad::onNodeDelete(QDomNode n)
     xmlEditor->onNodeDelete(n);
 }
 
+void NotePad::onNodeInsert(QDomNode parent, QDomNode n)
+{
+    xmlEditor->onNodeInsert(parent, n);
+}
+
 void NotePad::onRefreshRequest()
 {
     xmlEditor->onRefreshRequest();
