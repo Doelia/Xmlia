@@ -156,7 +156,7 @@ void Arbo::updateView() {
     QDomNode n(*XmlFileManager::getFileManager()->getModele()->getRacine()); // On apelle le constructeur
     //on enleve le type de noeud que l'on ne veut pas dans l'arbo
     removeNodeType(&QDomNode::isComment, &n);
-    removeNodeType(&QDomNode::isText, &n);
+    //removeNodeType(&QDomNode::isText, &n);
     removeNodeType(&QDomNode::isProcessingInstruction, &n);
 
     // Construction du modèle arborescent vide
