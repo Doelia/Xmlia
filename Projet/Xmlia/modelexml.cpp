@@ -48,7 +48,7 @@ int ModeleXml::countSumChild(QDomNode n)
         int s = 0;
         for (int i = 0; i < n.childNodes().length(); i++)
         {
-            s += countSumChild(n.childNodes().at(i));
+            s += 1 + countSumChild(n.childNodes().at(i));
         }
         return s;
     }
@@ -81,7 +81,6 @@ void ModeleXml::insertNode(QDomNode parent, QDomNode node)
 void ModeleXml::removeNode(QDomNode n) {
     cout << "ModeleXml:: Remove " << n.nodeName().toStdString() << endl;
     emit onNodeDelete(n);
-    cout << "ModeleXml::removeNode : event emited";
     n.parentNode().removeChild(n);
     cout << "ModeleXml::removeNode() : Modèle MAJ OK" << endl;
 }
