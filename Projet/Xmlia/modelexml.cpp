@@ -67,7 +67,7 @@ int ModeleXml::countSumChild(QStandardItem* n)
         int s = 0;
         for (int i = 0; i < childCount(n); i++)
         {
-            s += countSumChild(n->child(i));
+            s += 1+ countSumChild(n->child(i));
         }
         return s;
     }

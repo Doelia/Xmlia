@@ -26,14 +26,19 @@ void Arbo::onEdit (QStandardItem* item) {
             XmlFileManager::getFileManager()->getModele()->updateNodeName(node, item->text());
         } else { // C'est que c'est une insertion (drag n drop), l'item est en double
 
-            // Récupération du node où l'item a été inséré
-            QDomNode parentInsert = this->getNodeFromItem(item->parent());
-            cout << "Arbo::onEdit() : Node Parent : " << parentInsert.nodeName().toStdString() << endl;
+            if (item->parent()) {
+                // Récupération du node où l'item a été inséré
+                QDomNode parentInsert = this->getNodeFromItem(item->parent());
+                cout << "Arbo::onEdit() : Node Parent : " << parentInsert.nodeName().toStdString() << endl;
 
-            QDomNode same = XmlFileManager::getFileManager()->getModele()->getSameNodeFromItem(item);
-            same = same.cloneNode(true);
+                QDomNode same = XmlFileManager::getFileManager()->getModele()->getSameNodeFromItem(item);
 
-            XmlFileManager::getFileManager()->getModele()->insertNode(parentInsert, same); // Modifcation du modèle
+                same = same.cloneNode(true);
+
+                XmlFileManager::getFileManager()->getModele()->insertNode(parentInsert, same); // Modifcation du modèle
+            } else {
+
+            }
         }
     }
     else {
