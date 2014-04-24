@@ -27,6 +27,7 @@ public:
 
     void onNodeNameUpdate(QDomNode, QString);
     void onNodeDelete(QDomNode);
+    void onNodeInsert(QDomNode, QDomNode);
 
     /**
       met à jour l'arbo et verifie si le xml est valide

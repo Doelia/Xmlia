@@ -35,11 +35,11 @@ public slots:
 
 
     /***** Action envoyés par l'utilisateur, à retourner au modèle  *******/
-    /** Quand l'utilisateur modifie le nom d'un noeud */
+    /** Quand l'utilisateur modifie le nom d'un noeud, ou effectue une insertion par un drop */
     void onEdit (QStandardItem*);
     /** Quand l'utilisateur supprime un noeud */
     void onRemoveNode();
-
+    /** Quand un noeud est supprimé par le drag n drop */
     void onRowsRemoved(const QModelIndex &, int, int);
     /**********************************************************************/
 

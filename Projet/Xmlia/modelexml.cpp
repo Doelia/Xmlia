@@ -26,22 +26,29 @@ void ModeleXml::update(QString s)
 
 void ModeleXml::updateNodeName(QDomNode n, QString newName)
 {
-    cout << "ModeleXml::updateNodeName" << endl;
-    //IMPORTANT : notifier tout le monde de changer avant de changer le modele
+    cout << "ModeleXml::updateNodeName() : emit" << endl;
     emit onNodeNameUpdate(n, newName);
-
-    cout << "ModeleXml::emitNodeNameUpdate()" << endl;
 
     // Mise à jour du modèle
     if (n.isElement()) {
         n.toElement().setTagName(newName);
     }
+
+    cout << "ModeleXml::updateNodeName() : Modèle MAJ OK" << endl;
+}
+
+void ModeleXml::insertNode(QDomNode parent, QDomNode node)
+{
+     cout << "ModeleXml::insertNode() : " << node.nodeName().toStdString() << "in " <<  parent.nodeName().toStdString() << endl;
+     emit onNodeInsert(parent, node);
 }
 
 void ModeleXml::removeNode(QDomNode n) {
-    emit onNodeDelete(n);
     cout << "ModeleXml:: Remove " << n.nodeName().toStdString() << endl;
+    emit onNodeDelete(n);
+    cout << "ModeleXml::removeNode : event emited";
     n.parentNode().removeChild(n);
+    cout << "ModeleXml::removeNode() : Modèle MAJ OK" << endl;
 }
 
 void ModeleXml::setFromDocument(QDomDocument* doc)
@@ -78,6 +85,7 @@ bool ModeleXml::equals(QDomNode n, QStandardItem* i)
             while (n < children.count() && equals(children.at(n), i->child(n))) {
                 n++;
             }
+            cout << "fsdfsd" << n << children.count()<< endl;
             return (n == children.count());
         }
     }
@@ -119,22 +127,17 @@ QDomNode ModeleXml::getParentOfExtraItem(QDomNode node, QStandardItem* root)
 QDomNode ModeleXml::getSameNodeFromItem(QStandardItem* root)
 {
     QDomNode xmlRoot = dom->childNodes().at(0).parentNode();
-    if (equals(xmlRoot, root)) {
-        return xmlRoot;
-    }
-    else {
-        parcoursEquals(xmlRoot, root);
-    }
+    return getSameNodeFromItemRecursive(xmlRoot, root);
 }
 
-QDomNode ModeleXml::getSameNodeFromItemRecursive (QDomNode node, QStandardItem* item) const {
+QDomNode ModeleXml::getSameNodeFromItemRecursive(QDomNode node, QStandardItem* item) {
     if (equals(node, item)) {
         return node;
     }
     else {
         int i = 0;
         QDomNode tmp;
-        while (i < node.childNodes().count() && (tmp = parcoursEquals(node.childNodes().at(i), item)).isNull()) {
+        while (i < node.childNodes().count() && (tmp = getSameNodeFromItemRecursive(node.childNodes().at(i), item)).isNull()) {
             i++;
         }
         if (i == node.childNodes().count()) {
@@ -143,10 +146,9 @@ QDomNode ModeleXml::getSameNodeFromItemRecursive (QDomNode node, QStandardItem* 
             return nullNode;
         }
         else {
-            return node.childNodes().at(i);
+            return tmp;
         }
     }
-    return node;
 }
 
 

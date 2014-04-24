@@ -2,7 +2,6 @@ HEADERS += \
     mainwindow.h \
     modelexml.h \
     xmlfilemanager.h \
-    attribute.h \
     arbo.h \
     texthighlighter.h \
     notepad.h \
@@ -17,7 +16,6 @@ SOURCES += \
     modelexml.cpp \
     xmlfilemanager.cpp \
     main.cpp \
-    attribute.cpp \
     arbo.cpp \
     texthighlighter.cpp \
     notepad.cpp \
