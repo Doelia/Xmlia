@@ -4,103 +4,19 @@
 
 XmlEditor::XmlEditor() : TextEditor::TextEditor(new TextHighLighter(0))
 {
-    cout << "XmlEditor::XmlEditor" << endl;
     tabNumber = 0;
     hasError = false;
-    this->text->installEventFilter(this);
+    text->installEventFilter(this);
 
     connect(text, SIGNAL(textChanged()), this, SLOT(onTextChange()));
 }
 
-void XmlEditor::indent()
-{
-    int selectionStart = text->textCursor().selectionStart();
-    int selectionEnd = text->textCursor().selectionEnd();
 
-    tabNumber = 0;
-
-    QTextCursor c = text->textCursor();
-
-    c.setPosition(selectionStart);
-    int upperBound = c.blockNumber();
-    c.movePosition(QTextCursor::StartOfBlock);
-    selectionStart = c.selectionStart();
-
-    c.setPosition(selectionEnd);
-    int lowerBound = c.blockNumber();
-    c.movePosition(QTextCursor::StartOfBlock);
-    selectionEnd = c.selectionEnd();
-
-    QString s = text->toPlainText();
-    QStringList line = s.split("\n");
-
-    QXmlStreamReader xml(this->text->toPlainText());
-
-    int last = 0;
-
-    while(!xml.atEnd())
-    {
-        QXmlStreamReader::TokenType token = xml.readNext();
-
-        for (int var = last; var < xml.lineNumber(); ++var) {
-            indentLineWithBounds(&line, var, upperBound, lowerBound);
-        }
-
-        if(token == QXmlStreamReader::StartElement)
-        {
-            if(last != xml.lineNumber()) {
-                last = xml.lineNumber();
-                indentLineWithBounds(&line, last - 1, upperBound, lowerBound);
-            }
-            tabNumber++;
-        }
-        else if(token == QXmlStreamReader::EndElement)
-        {
-            tabNumber--;
-            last = xml.lineNumber();
-            indentLineWithBounds(&line, last - 1, upperBound, lowerBound);
-        }
-    }
-
-    if(selectionStart < s.length() - 1)
-    {
-        text->setPlainText(line.join("\n"));
-    }
-    c.setPosition(selectionEnd);
-    c.movePosition(QTextCursor::EndOfLine);
-    text->setTextCursor(c);
-}
 
 void XmlEditor::addDtd()
 {
     QString toAppend = QString("<").append("!").append("DOCTYPE /!aue!\ SYSTEM ").append(XmlFileManager::getFileManager()->getCurrentFileName()).append(">");
     text->document()->setPlainText(text->toPlainText().append(toAppend));
-}
-
-void XmlEditor::indentLineWithBounds(QStringList *list, int line, int upperBound, int lowerBound)
-{
-    if(line >= upperBound && line <= lowerBound)
-    {
-        QRegExp regex("^(\\s)*");
-        QString content = list->at(line).split(regex)[1];
-
-        QString res;
-        res.append(tabsString(tabNumber)).append(content);
-
-        list->removeAt(line);
-        list->insert(line, res);
-    }
-}
-
-QString XmlEditor::tabsString(int n) const
-{
-    QString l;
-    for (int i = 0; i < n; i++) {
-        for (int var = 0; var < NB_SPACE; ++var) {
-            l.append(" ");
-        }
-    }
-    return l;
 }
 
 void XmlEditor::onNodeNameUpdate(QDomNode n, QString newName)
@@ -226,6 +142,9 @@ void XmlEditor::onNodeDelete(QDomNode n)
 void XmlEditor::onNodeInsert(QDomNode parent, QDomNode n)
 {
     cout << "XmlEditor:: onNodeInsert()" << endl;
+    cout << "child count : " << n.childNodes().size() << endl;
+    QDomDocument doc = n.toDocument();
+    cout << "doc : " << doc.toString().toStdString() << endl;
 }
 
 void XmlEditor::onRefreshRequest()
@@ -419,6 +338,7 @@ void XmlEditor::addCloseMarkup()
                 toAdd.append(markup).append(">");
                 c.insertText(toAdd);
                 c.setPosition(c.position() -  markup.length() - 3);
+                c.setPosition(c.position() + markup.length() + 3, QTextCursor::KeepAnchor);
                 text->setTextCursor(c);
             }
             return;
@@ -433,8 +353,6 @@ void XmlEditor::addCloseMarkup()
         pos--;
     }
 }
-
-void XmlEditor::keyPressEvent(QKeyEvent *e){}
 
 bool XmlEditor::eventFilter(QObject *o, QEvent *e)
 {
@@ -454,7 +372,7 @@ bool XmlEditor::eventFilter(QObject *o, QEvent *e)
         }
         else if (keyEvent->key() == Qt::Key_Tab)
         {
-            indent();
+            this->indent();
             return true;
         }
         else if (keyEvent->key() == Qt::Key_Control)

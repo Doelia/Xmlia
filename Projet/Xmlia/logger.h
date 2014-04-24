@@ -7,6 +7,7 @@
 #include <QPushButton>
 #include <QIcon>
 #include <QScrollBar>
+#include <QDateTime>
 
 class Logger : public QWidget
 {

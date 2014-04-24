@@ -10,7 +10,13 @@
 #include <texthighlighter.h>
 #include <QEvent>
 #include <QSourceLocation>
+#include <QXmlStreamReader>
 #include <QAbstractMessageHandler>
+#include <QCompleter>
+#include <QTextCursor>
+#include <QKeyEvent>
+#include <QAbstractItemView>
+#include <QRect>
 
 using namespace std;
 
@@ -30,7 +36,7 @@ class TextEditor : public QWidget
     Q_OBJECT
 public:
     TextEditor(QSyntaxHighlighter *s);
-
+    void indent();
     void setText(QString s);
     QString getText() const;
     QWidget* getView() const;
@@ -40,7 +46,10 @@ signals:
     void error(int);
     void cursorInfo(int, int);
 
+ private slots:
+
 protected:
+    int NB_SPACE = 8;
     QTextEdit *text;
     QTextEdit *linesDisplay;
     QGridLayout *grid;
@@ -48,6 +57,17 @@ protected:
     QSyntaxHighlighter *th;
     MessageHandler *mh;
     bool hasError;
+    int tabNumber;
+
+    /**
+      indente le texte sélectionné par l'utilisateur (entre upperBound et lowerBound)
+      */
+    void indentLineWithBounds(QStringList *list, int line, int upperBound, int lowerBound);
+
+    /**
+      @return la ligne indentée de n tab
+      */
+    QString tabsString(int n) const;
 
 public slots:
     void onScroll(int);

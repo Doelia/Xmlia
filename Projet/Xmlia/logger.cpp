@@ -49,8 +49,15 @@ Logger::Logger()
 
 void Logger::log(QString s, QColor c)
 {
+    logArea->setTextColor(QColor("gray"));
+    QDateTime t = QDateTime::currentDateTimeUtc();
+    logArea->append(QString("[").append(t.toString()).append("] "));
+
     logArea->setTextColor(c);
-    logArea->append(s);
+    QTextCursor cursor = logArea->textCursor();
+    cursor.insertText(s);
+
+    logArea->setTextCursor(cursor);
     show();
 }
 

@@ -20,11 +20,15 @@ NotePad::NotePad()
 
 void NotePad::indent()
 {
-    /**
-      appeler le indent du XMlEditor
-      */
-    xmlEditor->indent();
 
+    if(view->currentIndex())
+    {
+        dtdEditor->indent();
+    }
+    else
+    {
+        xmlEditor->indent();
+    }
 }
 
 void NotePad::setText(QString s)

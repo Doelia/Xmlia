@@ -45,6 +45,65 @@ TextEditor::TextEditor(QSyntaxHighlighter *s)
     connect(this, SIGNAL(error(int)), this, SLOT(onError(int)));
 }
 
+void TextEditor::indent()
+{
+    int selectionStart = text->textCursor().selectionStart();
+    int selectionEnd = text->textCursor().selectionEnd();
+
+    tabNumber = 0;
+
+    QTextCursor c = text->textCursor();
+
+    c.setPosition(selectionStart);
+    int upperBound = c.blockNumber();
+    c.movePosition(QTextCursor::StartOfBlock);
+    selectionStart = c.selectionStart();
+
+    c.setPosition(selectionEnd);
+    int lowerBound = c.blockNumber();
+    c.movePosition(QTextCursor::StartOfBlock);
+    selectionEnd = c.selectionEnd();
+
+    QString s = text->toPlainText();
+    QStringList line = s.split("\n");
+
+    QXmlStreamReader xml(this->text->toPlainText());
+
+    int last = 0;
+
+    while(!xml.atEnd())
+    {
+        QXmlStreamReader::TokenType token = xml.readNext();
+
+        for (int var = last; var < xml.lineNumber(); ++var) {
+            indentLineWithBounds(&line, var, upperBound, lowerBound);
+        }
+
+        if(token == QXmlStreamReader::StartElement)
+        {
+            if(last != xml.lineNumber()) {
+                last = xml.lineNumber();
+                indentLineWithBounds(&line, last - 1, upperBound, lowerBound);
+            }
+            tabNumber++;
+        }
+        else if(token == QXmlStreamReader::EndElement)
+        {
+            tabNumber--;
+            last = xml.lineNumber();
+            indentLineWithBounds(&line, last - 1, upperBound, lowerBound);
+        }
+    }
+
+    if(selectionStart < s.length() - 1)
+    {
+        text->setPlainText(line.join("\n"));
+    }
+    c.setPosition(selectionEnd);
+    c.movePosition(QTextCursor::EndOfLine);
+    text->setTextCursor(c);
+}
+
 void TextEditor::setText(QString s)
 {
     text->setText(s);
@@ -113,6 +172,31 @@ void TextEditor::onError(int line)
     text->ensureCursorVisible();
 }
 
+void TextEditor::indentLineWithBounds(QStringList *list, int line, int upperBound, int lowerBound)
+{
+    if(line >= upperBound && line <= lowerBound)
+    {
+        QRegExp regex("^(\\s)*");
+        QString content = list->at(line).split(regex)[1];
+
+        QString res;
+        res.append(tabsString(tabNumber)).append(content);
+
+        list->removeAt(line);
+        list->insert(line, res);
+    }
+}
+
+QString TextEditor::tabsString(int n) const
+{
+    QString l;
+    for (int i = 0; i < n; i++) {
+        for (int var = 0; var < NB_SPACE; ++var) {
+            l.append(" ");
+        }
+    }
+    return l;
+}
 
 MessageHandler::MessageHandler()
 {

@@ -19,10 +19,6 @@ class XmlEditor : public TextEditor
 public:
     XmlEditor();
 
-    /**
-      indente le texte
-      */
-    void indent();
     void addDtd();
 
     void onNodeNameUpdate(QDomNode, QString);
@@ -41,25 +37,11 @@ signals:
     void update();
 
 private:
-    int NB_SPACE = 8;
-    int tabNumber;
-
-    void keyPressEvent(QKeyEvent *e);
     bool eventFilter(QObject *o, QEvent *e);
 
     bool insertCharacterForKeyFiltering(const QString str);
 
     void updateDom();
-
-    /**
-      indente le texte sélectionné par l'utilisateur (entre upperBound et lowerBound)
-      */
-    void indentLineWithBounds(QStringList *list, int line, int upperBound, int lowerBound);
-
-    /**
-      @return la ligne indentée de n tab
-      */
-    QString tabsString(int n) const;
 
     /**
       remplace oldName par newName dans le document
