@@ -37,6 +37,30 @@ void ModeleXml::updateNodeName(QDomNode n, QString newName)
     cout << "ModeleXml::updateNodeName() : Modèle MAJ OK" << endl;
 }
 
+int ModeleXml::countSumChild(QDomNode n) {
+    if (n.childNodes().length() == 0) {
+        return 0;
+    } else {
+        int s = 0;
+        for (int i = 0; i < n.childNodes().length(); i++) {
+            s += countSumChild(n.childNodes().at(i));
+        }
+        return s;
+    }
+}
+
+int ModeleXml::countSumChild(QStandardItem* n) {
+    if (childCount(n) == 0) {
+        return 0;
+    } else {
+        int s = 0;
+        for (int i = 0; i < childCount(n); i++) {
+            s += countSumChild(n->child(i));
+        }
+        return s;
+    }
+}
+
 void ModeleXml::insertNode(QDomNode parent, QDomNode node)
 {
     cout << "ModeleXml::insertNode() : " << node.nodeName().toStdString() << "in " <<  parent.nodeName().toStdString() << endl;

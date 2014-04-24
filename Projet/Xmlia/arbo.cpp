@@ -18,7 +18,10 @@ void Arbo::onEdit (QStandardItem* item) {
         cout << "Arbo:: itemEdited : " << item->text().toStdString() << endl;
         QDomNode node = this->getNodeFromItem(item);
 
-        if (!node.isNull()) {
+        if (    !node.isNull() &&
+                ModeleXml::countSumChild(this->itemRoot) ==
+                ModeleXml::countSumChild(*XmlFileManager::getFileManager()->getModele()->getRacine()))
+        {
             cout << "Arbo:: Nom de node modifié par l'utilisateur = " << node.nodeName().toStdString() << endl;
             XmlFileManager::getFileManager()->getModele()->updateNodeName(node, item->text());
         } else { // C'est que c'est une insertion (drag n drop), l'item est en double
