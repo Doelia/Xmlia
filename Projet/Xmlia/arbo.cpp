@@ -28,51 +28,33 @@ void Arbo::onEdit (QStandardItem* item) {
 
             // Récupération du node où l'item a été inséré
             QDomNode parentInsert = this->getNodeFromItem(item->parent());
-            cout << "Arbo::onEdit() : Item Parent : " << item->parent()->text().toStdString() << endl;
             cout << "Arbo::onEdit() : Node Parent : " << parentInsert.nodeName().toStdString() << endl;
 
             QDomNode same = XmlFileManager::getFileManager()->getModele()->getSameNodeFromItem(item);
-
-            cout << "Same : " << same.nodeName().toStdString() << endl;
-
             same = same.cloneNode(true);
 
-            XmlFileManager::getFileManager()->getModele()->insertNode(parentInsert, same);
+            XmlFileManager::getFileManager()->getModele()->insertNode(parentInsert, same); // Modifcation du modèle
         }
     }
     else {
         this->itemRoot->setText(XmlFileManager::getFileManager()->getCurrentFileName());
     }
 }
-// Quand l'utilisateur supprimer un noeud
+// Quand l'utilisateur supprimer un noeud (clic droit)
 void Arbo::onRemoveNode() {
     QStandardItem* item = this->itemRoot->model()->itemFromIndex(this->getVue()->selectionModel()->currentIndex());
-    cout << "Arbo:: Node supprimé par l'utilisateur : " << item->text().toStdString() << endl;
-    QDomNode node = this->getNodeFromItem(item);
-    XmlFileManager::getFileManager()->getModele()->removeNode(node);
+    item->parent()->removeRow(item->row());
 }
 
 // Quand l'utilisatreur supprime un noeud par drag n drop
 void Arbo::onRowsRemoved(const QModelIndex & i, int x, int y) {
     QStandardItem* item = this->itemRoot->model()->itemFromIndex(i);
-    cout << "Arbo:: Parent de l'item supprimé par drag n drop : " << item->text().toStdString() << endl;
     QDomNode node = this->getNodeFromItem(item);
-    cout << "get " << x << " of " << node.nodeName().toStdString() << endl;
     node = node.childNodes().at(x);
-    cout << "Arbo:: Node supprimé par drag n drop : " << node.nodeName().toStdString() << endl;
-    XmlFileManager::getFileManager()->getModele()->removeNode(node);
+    cout << "Arbo:: Node supprimé par utilisateur : " << node.nodeName().toStdString() << endl;
+    XmlFileManager::getFileManager()->getModele()->removeNode(node); // Modifcation du modèle
 }
 
-
-// Quand le modèle est modifié
-void Arbo::onNodeDeleteByUser(QDomNode n) {
-    cout << "Arbo::onNodeDelete(" << n.nodeName().toStdString() << ")" << endl;
-    QStandardItem* itemRemoved = this->getItemFromNode(n);
-    if (itemRemoved && ModeleXml::equals(n, itemRemoved)) {
-        cout << "Arbo:: Demande de suppression de l'item " << itemRemoved->text().toStdString() << " par le modèle " << endl;
-        itemRemoved->parent()->removeRow(itemRemoved->row());
-    }
-}
 
 QStandardItem* Arbo::getItemFromNode(QDomNode dom) {
     stack<int> pile = XmlFileManager::getFileManager()->getModele()->pathFromRoot(dom);

@@ -53,8 +53,6 @@ void MainWindow::setArbo(Arbo* arbo)
 
     cout << "MainWindow::SetArbo(): Vue ajoutée au layout" << endl;
 
-    connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->arbo, SLOT(onNodeDelete(QDomNode)));
-
 }
 
 void MainWindow::setNotePad(NotePad *notepad)

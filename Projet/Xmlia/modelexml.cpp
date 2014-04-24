@@ -73,7 +73,7 @@ int ModeleXml::countSumChild(QStandardItem* n)
 
 void ModeleXml::insertNode(QDomNode parent, QDomNode node)
 {
-    cout << "ModeleXml::insertNode() : " << node.nodeName().toStdString() << "in " <<  parent.nodeName().toStdString() << endl;
+    cout << "ModeleXml::insertNode() : " << node.nodeName().toStdString() << " in " <<  parent.nodeName().toStdString() << endl;
     emit onNodeInsert(parent, node);
     parent.appendChild(node);
 }

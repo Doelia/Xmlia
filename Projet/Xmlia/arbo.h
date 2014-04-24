@@ -43,10 +43,6 @@ public slots:
     void onRowsRemoved(const QModelIndex &, int, int);
     /**********************************************************************/
 
-    /***** Action envoyé par le modèle, à appliquer sur l'arbre ***********/
-    /** Suppresion d'un node **/
-    void onNodeDelete(QDomNode);
-
 
 private:
     QTreeView* vue;
