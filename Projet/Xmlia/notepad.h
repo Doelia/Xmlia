@@ -42,7 +42,8 @@ public:
     void indent();
     void setText(QString s);
     void setDtd(QString s);
-    QString getText() const;
+    QString getXml() const;
+    QString getSchema() const;
 
     //QTextEdit *getTextEdit() const;
 
@@ -60,10 +61,12 @@ public slots:
 private slots:
     void onLog(QString, QColor);
     void onUpdate();
+    void onCursorInfo(int, int);
 
 signals:
     void update();
     void log(QString s, QColor c);
+    void cursorInfo(int, int);
 
 private:
     XmlEditor *xmlEditor;

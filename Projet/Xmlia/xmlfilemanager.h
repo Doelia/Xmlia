@@ -62,6 +62,11 @@ public:
     QString getCurrentFile() const;
 
     /**
+      @return le nom complet avec le chemin du schema xml
+      */
+    QString getCurrentSchema() const;
+
+    /**
       @return le nom du ficher sans le path
       */
     QString getCurrentFileName() const;

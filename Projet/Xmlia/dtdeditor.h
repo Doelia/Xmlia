@@ -7,6 +7,7 @@ class DtdEditor  : public TextEditor
 {
 public:
     DtdEditor();
+    bool eventFilter(QObject *o, QEvent *e);
 };
 
 #endif // DTDEDITOR_H

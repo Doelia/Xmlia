@@ -7,6 +7,13 @@ Logger::Logger()
     logArea->setReadOnly(true);
     logArea->hide();
 
+    cursorInfo = new QTextEdit();
+    cursorInfo->setFixedHeight(18);
+    cursorInfo->setReadOnly(true);
+    cursorInfo->setFontPointSize(8);
+    cursorInfo->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    fixedScroll = 3;
+
     openIcon = QIcon(QIcon::fromTheme("up"));
     closeIcon = QIcon(QIcon::fromTheme("down"));
 
@@ -28,6 +35,7 @@ Logger::Logger()
 
     container->setStyleSheet("* { background-color: rgb(150, 150, 150); border-color: gray; border-style: outset; border-width: 2px;}");
     hLayout->setAlignment(Qt::AlignRight);
+    hLayout->addWidget(cursorInfo);
     hLayout->addWidget(toggleButton);
     container->setLayout(hLayout);
 
@@ -35,9 +43,8 @@ Logger::Logger()
     layout->addWidget(logArea);
     this->setLayout(layout);
 
-
-
     connect(toggleButton, SIGNAL(clicked()), this, SLOT(toggle()));
+    connect(cursorInfo->verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(disableScroll()));
 }
 
 void Logger::log(QString s, QColor c)
@@ -57,6 +64,16 @@ void Logger::toggle() const
     {
         show();
     }
+}
+
+void Logger::setCursorInfo(int line, int column)
+{
+    cursorInfo->setText(QString("L : ").append(QString(QString::number(line))).append(" C : ").append(QString(QString::number(column))));
+}
+
+void Logger::disableScroll()
+{
+    cursorInfo->verticalScrollBar()->setValue(fixedScroll);
 }
 
 void Logger::hide() const

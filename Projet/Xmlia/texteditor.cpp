@@ -36,6 +36,8 @@ TextEditor::TextEditor(QSyntaxHighlighter *s)
     connect(linesDisplay->verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(onScroll(int)));
     connect(text->verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(onScroll(int)));
     connect(text, SIGNAL(textChanged()), this, SLOT(addLinesNumber()));
+
+    this->text->setAcceptRichText(false);
 }
 
 void TextEditor::setText(QString s)
@@ -83,3 +85,8 @@ void TextEditor::resetLinesNumber()
     }
 }
 
+bool TextEditor::event(QEvent *event)
+{
+    std::cout << "ici" << std::endl;
+    return QWidget::event(event);
+}

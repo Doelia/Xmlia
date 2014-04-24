@@ -14,6 +14,8 @@ NotePad::NotePad()
 
     connect(xmlEditor, SIGNAL(log(QString,QColor)), this, SLOT(onLog(QString,QColor)));
     connect(xmlEditor, SIGNAL(update()), this, SLOT(onUpdate()));
+    connect(xmlEditor, SIGNAL(cursorInfo(int,int)), this, SLOT(onCursorInfo(int,int)));
+    connect(dtdEditor, SIGNAL(cursorInfo(int,int)), this, SLOT(onCursorInfo(int,int)));
 }
 
 void NotePad::indent()
@@ -37,12 +39,17 @@ void NotePad::setDtd(QString s)
     xmlEditor->addDtd();
 }
 
-QString NotePad::getText() const
+QString NotePad::getXml() const
 {
     /**
       retourner le texte de l'onglet actif ?
       */
     return xmlEditor->getText();
+}
+
+QString NotePad::getSchema() const
+{
+    return dtdEditor->getText();
 }
 
 QWidget *NotePad::getView() const
@@ -73,6 +80,11 @@ void NotePad::onLog(QString s, QColor c)
 void NotePad::onUpdate()
 {
     emit update();
+}
+
+void NotePad::onCursorInfo(int line, int column)
+{
+    emit cursorInfo(line, column);
 }
 
 QString NotePad::getStringFromDom() const

@@ -6,6 +6,8 @@
 #include <QDomNode>
 #include <vector>
 #include <stack>
+#include <QtXmlPatterns/QXmlSchemaValidator>
+#include <QtXmlPatterns/QXmlSchema>
 
 using namespace std;
 #include <texteditor.h>

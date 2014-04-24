@@ -237,7 +237,26 @@ void XmlEditor::onRefreshRequest()
     if(!hasError)
     {
         updateDom();
-        emit log("Xml valide", QColor("green"));
+        emit log("Syntaxe XML valide", QColor("green"));
+
+        QXmlSchema schema;
+        schema.load(QString("file://").append(XmlFileManager::getFileManager()->getCurrentSchema()));
+
+        if (schema.isValid()) {
+            cout << "valid schema" << endl;
+            QFile file("test.xml");
+            file.open(QIODevice::ReadOnly);
+
+            QXmlSchemaValidator validator(schema);
+            if (validator.validate(&file, QUrl::fromLocalFile(file.fileName())))
+                cout << "valid" << endl;
+            else
+                cout << "invalid" << endl;
+        }
+        else
+        {
+            cout << "invalid schema" << endl;
+        }
     }
     else
     {
@@ -425,6 +444,7 @@ void XmlEditor::keyPressEvent(QKeyEvent *e){}
 
 bool XmlEditor::eventFilter(QObject *o, QEvent *e)
 {
+    emit cursorInfo(text->textCursor().block().blockNumber(), text->textCursor().positionInBlock());
     QKeyEvent *keyEvent = static_cast<QKeyEvent*>(e);
 
     if (e->type() == QEvent::KeyPress)

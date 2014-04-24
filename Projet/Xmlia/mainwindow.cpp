@@ -114,6 +114,7 @@ void MainWindow::setLogger(Logger *logger)
     connect(notepad, SIGNAL(log(QString,QColor)), this->logger, SLOT(log(QString,QColor)));
     connect(this, SIGNAL(log(QString,QColor)), this->logger, SLOT(log(QString,QColor)));
     connect(XmlFileManager::getFileManager(), SIGNAL(log(QString,QColor)), this->logger, SLOT(log(QString,QColor)));
+    connect(notepad, SIGNAL(cursorInfo(int,int)), this->logger, SLOT(setCursorInfo(int,int)));
 }
 
 void MainWindow::indent()
@@ -129,7 +130,7 @@ void MainWindow::quit()
 void MainWindow::open()
 {
     QString currentFile = QFileDialog::getOpenFileName(this, tr("Open File"), "",
-                                               tr("Xml Files (*.xml);;All Files (*.*)"));
+                                               tr("Xml Files (*.xml);;Xsd Files (*.xsd);;All Files (*.*)"));
 
     if(currentFile != "")
     {

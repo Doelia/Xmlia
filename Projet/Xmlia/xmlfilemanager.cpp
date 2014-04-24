@@ -72,7 +72,11 @@ void XmlFileManager::saveFile(NotePad *n)
         // error message
     } else {
         QTextStream stream(&file);
-        stream << n->getText();
+        if(isDtdActive) {
+            stream << n->getSchema();
+        } else {
+            stream << n->getXml();
+        }
         stream.flush();
         file.close();
         emit log("Saved file under " + (isDtdActive?currentDTD:currentFile), QColor("gray"));
@@ -105,6 +109,11 @@ void XmlFileManager::setCurrentFile(QString file)
 QString XmlFileManager::getCurrentFile() const
 {
     return (isDtdActive?currentDTD:currentFile);
+}
+
+QString XmlFileManager::getCurrentSchema() const
+{
+    return currentDTD;
 }
 
 QString XmlFileManager::getCurrentFileName() const

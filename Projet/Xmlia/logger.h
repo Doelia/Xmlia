@@ -6,6 +6,7 @@
 #include <QGridLayout>
 #include <QPushButton>
 #include <QIcon>
+#include <QScrollBar>
 
 class Logger : public QWidget
 {
@@ -20,11 +21,17 @@ signals:
 public slots:
     void log(QString s, QColor c);
     void toggle() const;
+    void setCursorInfo(int, int);
+
+private slots:
+    void disableScroll();
 
 private:
     QTextEdit *logArea;
+    QTextEdit *cursorInfo;
     QVBoxLayout *layout;
     QPushButton *toggleButton;
+
 
     QHBoxLayout *hLayout;
     QWidget *container;
@@ -34,6 +41,8 @@ private:
 
     void hide() const;
     void show() const;
+
+    int fixedScroll;
 };
 
 #endif // LOGGER_H

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'notepad.h'
 **
-** Created: Wed Apr 23 14:55:38 2014
+** Created: Thu Apr 24 12:50:12 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -104,32 +104,36 @@ static const uint qt_meta_data_NotePad[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       2,       // signalCount
+       3,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
        9,    8,    8,    8, 0x05,
       22,   18,    8,    8, 0x05,
+      44,   42,    8,    8, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      44,   42,    8,    8, 0x0a,
-      79,    8,    8,    8, 0x0a,
-     102,    8,    8,    8, 0x0a,
-     121,   42,    8,    8, 0x08,
-     143,    8,    8,    8, 0x08,
+      64,   42,    8,    8, 0x0a,
+      99,    8,    8,    8, 0x0a,
+     122,    8,    8,    8, 0x0a,
+     141,   42,    8,    8, 0x08,
+     163,    8,    8,    8, 0x08,
+     174,   42,    8,    8, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_NotePad[] = {
     "NotePad\0\0update()\0s,c\0log(QString,QColor)\0"
-    ",\0onNodeNameUpdate(QDomNode,QString)\0"
+    ",\0cursorInfo(int,int)\0"
+    "onNodeNameUpdate(QDomNode,QString)\0"
     "onNodeDelete(QDomNode)\0onRefreshRequest()\0"
     "onLog(QString,QColor)\0onUpdate()\0"
+    "onCursorInfo(int,int)\0"
 };
 
 void NotePad::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -140,11 +144,13 @@ void NotePad::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         switch (_id) {
         case 0: _t->update(); break;
         case 1: _t->log((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QColor(*)>(_a[2]))); break;
-        case 2: _t->onNodeNameUpdate((*reinterpret_cast< QDomNode(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
-        case 3: _t->onNodeDelete((*reinterpret_cast< QDomNode(*)>(_a[1]))); break;
-        case 4: _t->onRefreshRequest(); break;
-        case 5: _t->onLog((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QColor(*)>(_a[2]))); break;
-        case 6: _t->onUpdate(); break;
+        case 2: _t->cursorInfo((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 3: _t->onNodeNameUpdate((*reinterpret_cast< QDomNode(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 4: _t->onNodeDelete((*reinterpret_cast< QDomNode(*)>(_a[1]))); break;
+        case 5: _t->onRefreshRequest(); break;
+        case 6: _t->onLog((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QColor(*)>(_a[2]))); break;
+        case 7: _t->onUpdate(); break;
+        case 8: _t->onCursorInfo((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         default: ;
         }
     }
@@ -182,9 +188,9 @@ int NotePad::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 9;
     }
     return _id;
 }
@@ -200,5 +206,12 @@ void NotePad::log(QString _t1, QColor _t2)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
+}
+
+// SIGNAL 2
+void NotePad::cursorInfo(int _t1, int _t2)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
+    QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 QT_END_MOC_NAMESPACE

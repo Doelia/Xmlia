@@ -29,6 +29,7 @@ SOURCES += \
 
 QT += widgets
 QT += xml
+QT += xmlpatterns
 
 CONFIG += qt
 
