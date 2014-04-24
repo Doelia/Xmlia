@@ -18,55 +18,43 @@ void Arbo::onEdit (QStandardItem* item) {
         cout << "Arbo:: itemEdited : " << item->text().toStdString() << endl;
         QDomNode node = this->getNodeFromItem(item);
 
-        if (!node.isNull()) {
+        if (    !node.isNull() &&
+                ModeleXml::countSumChild(this->itemRoot) ==
+                ModeleXml::countSumChild(*XmlFileManager::getFileManager()->getModele()->getRacine()))
+        {
             cout << "Arbo:: Nom de node modifié par l'utilisateur = " << node.nodeName().toStdString() << endl;
             XmlFileManager::getFileManager()->getModele()->updateNodeName(node, item->text());
         } else { // C'est que c'est une insertion (drag n drop), l'item est en double
 
             // Récupération du node où l'item a été inséré
             QDomNode parentInsert = this->getNodeFromItem(item->parent());
-
-            cout << "Arbo::onEdit() : Item Parent : " << item->parent()->text().toStdString() << endl;
             cout << "Arbo::onEdit() : Node Parent : " << parentInsert.nodeName().toStdString() << endl;
 
             QDomNode same = XmlFileManager::getFileManager()->getModele()->getSameNodeFromItem(item);
+            same = same.cloneNode(true);
 
-            XmlFileManager::getFileManager()->getModele()->insertNode(parentInsert, same);
+            XmlFileManager::getFileManager()->getModele()->insertNode(parentInsert, same); // Modifcation du modèle
         }
     }
     else {
         this->itemRoot->setText(XmlFileManager::getFileManager()->getCurrentFileName());
     }
 }
-
-// Quand l'utilisateur supprimer un noeud
+// Quand l'utilisateur supprimer un noeud (clic droit)
 void Arbo::onRemoveNode() {
     QStandardItem* item = this->itemRoot->model()->itemFromIndex(this->getVue()->selectionModel()->currentIndex());
-    cout << "Arbo:: Node supprimé par l'utilisateur : " << item->text().toStdString() << endl;
-    QDomNode node = this->getNodeFromItem(item);
-    XmlFileManager::getFileManager()->getModele()->removeNode(node);
+    item->parent()->removeRow(item->row());
 }
 
 // Quand l'utilisatreur supprime un noeud par drag n drop
 void Arbo::onRowsRemoved(const QModelIndex & i, int x, int y) {
     QStandardItem* item = this->itemRoot->model()->itemFromIndex(i);
-    cout << "Arbo:: Parent de l'item supprimé par drag n drop : " << item->text().toStdString() << endl;
     QDomNode node = this->getNodeFromItem(item);
     node = node.childNodes().at(x);
-    cout << "Arbo:: Node supprimé par drag n drop : " << node.nodeName().toStdString() << endl;
-    XmlFileManager::getFileManager()->getModele()->removeNode(node);
+    cout << "Arbo:: Node supprimé par utilisateur : " << node.nodeName().toStdString() << endl;
+    XmlFileManager::getFileManager()->getModele()->removeNode(node); // Modifcation du modèle
 }
 
-
-// Quand le modèle est modifié
-void Arbo::onNodeDelete(QDomNode n) {
-    cout << "Arbo::onNodeDelete(" << n.nodeName().toStdString() << ")" << endl;
-    QStandardItem* itemRemoved = this->getItemFromNode(n);
-    if (itemRemoved && ModeleXml::equals(n, itemRemoved)) {
-        cout << "Arbo:: Demande de suppression de l'item " << itemRemoved->text().toStdString() << " par le modèle " << endl;
-        itemRemoved->parent()->removeRow(itemRemoved->row());
-    }
-}
 
 QStandardItem* Arbo::getItemFromNode(QDomNode dom) {
     stack<int> pile = XmlFileManager::getFileManager()->getModele()->pathFromRoot(dom);
@@ -152,6 +140,7 @@ void Arbo::updateView() {
     std::function<void (bool (QDomNode::*function)() const, QDomNode *dom)> removeNodeType;
     removeNodeType = [&removeNodeType] (bool (QDomNode::*function)() const, QDomNode *dom)
     {
+            cout << dom->nodeValue().toStdString() << endl;
         for (int var = 0; var < dom->childNodes().size(); ++var) {
             QDomNode n = dom->childNodes().at(var);
             if((n.*function)())
@@ -165,7 +154,7 @@ void Arbo::updateView() {
         }
     };
 
-    QDomNode n(*XmlFileManager::getFileManager()->getModele()->getRacine()); // On apelle le constructeur
+    QDomNode n = *XmlFileManager::getFileManager()->getModele()->getRacine(); // On apelle le constructeur
     //on enleve le type de noeud que l'on ne veut pas dans l'arbo
     removeNodeType(&QDomNode::isComment, &n);
     removeNodeType(&QDomNode::isText, &n);

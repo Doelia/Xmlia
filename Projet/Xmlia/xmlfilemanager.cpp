@@ -29,13 +29,15 @@ void XmlFileManager::openXML(NotePad *n)
 
     QFile file(currentFile);
 
-    if (!file.open(QIODevice::ReadOnly)){
+    if (!file.open(QIODevice::ReadOnly))
+    {
         // TODO Faire un critical
         cout<< "ERROR 1"<< endl;
     }
     QString data(file.readAll());
 
-    if (!doc->setContent(data, &error, &errorLine, &errorColumn)) {
+    if (!doc->setContent(data, &error, &errorLine, &errorColumn))
+    {
         cout << "error : " << error.toStdString() << " at line " << errorLine << " at column " << errorColumn << endl;
         cout << "ERROR 2" << endl;
     }
@@ -54,7 +56,8 @@ void XmlFileManager::openDTD(NotePad *n)
 {
     QFile file(currentDTD);
 
-    if (!file.open(QIODevice::ReadOnly)){
+    if (!file.open(QIODevice::ReadOnly))
+    {
         // TODO Faire un critical
         cout<< "ERROR 1"<< endl;
     }
@@ -68,9 +71,12 @@ void XmlFileManager::openDTD(NotePad *n)
 void XmlFileManager::saveFile(NotePad *n)
 {
     QFile file((isDtdActive?currentDTD:currentFile));
-    if (!file.open(QIODevice::WriteOnly)) {
+    if (!file.open(QIODevice::WriteOnly))
+    {
         // error message
-    } else {
+    }
+    else
+    {
         QTextStream stream(&file);
         if(isDtdActive) {
             stream << n->getSchema();

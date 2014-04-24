@@ -73,6 +73,9 @@ public:
     static QDomNode getParentOfExtraItem(QDomNode node, QStandardItem* root);
 
 
+    static int countSumChild(QDomNode n);
+    static int countSumChild(QStandardItem* n);
+
     QDomNode getSameNodeFromItem(QStandardItem* root);
 
     /**
@@ -80,6 +83,16 @@ public:
      * @return QDomNode got from the path
      */
     QDomNode nodeFromPath(std::vector<int>) const;
+
+    /**
+     * @return Un node vide si le node n'est pas là sinon le node correspondant à l'item
+     */
+    QDomNode getSameNodeFromItemRecursive(QDomNode node, QStandardItem* item) const;
+
+    /**
+     * @return La racine en QDomNode
+     */
+    QDomNode getNonPointerRoot() const;
 
 signals:
     void onNodeNameUpdate(QDomNode n, QString newName);
