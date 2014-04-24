@@ -73,6 +73,9 @@ public:
     static QDomNode getParentOfExtraItem(QDomNode node, QStandardItem* root);
 
 
+    static int countSumChild(QDomNode n);
+    static int countSumChild(QStandardItem* n);
+
     QDomNode getSameNodeFromItem(QStandardItem* root);
 
     /**
