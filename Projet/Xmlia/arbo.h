@@ -39,6 +39,8 @@ public slots:
     void onEdit (QStandardItem*);
     /** Quand l'utilisateur supprime un noeud */
     void onRemoveNode();
+
+    void onRowsRemoved(const QModelIndex &, int, int);
     /**********************************************************************/
 
     /***** Action envoyé par le modèle, à appliquer sur l'arbre ***********/
