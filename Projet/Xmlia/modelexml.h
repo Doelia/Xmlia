@@ -84,7 +84,12 @@ public:
     /**
      * @return Un node vide si le node n'est pas là sinon le node correspondant à l'item
      */
-    QDomNode getSameNodeFromItemRecursive(QDomNode node, QStandardItem* item);
+    QDomNode getSameNodeFromItemRecursive(QDomNode node, QStandardItem* item) const;
+
+    /**
+     * @return La racine en QDomNode
+     */
+    QDomNode getNonPointerRoot() const;
 
 signals:
     void onNodeNameUpdate(QDomNode n, QString newName);

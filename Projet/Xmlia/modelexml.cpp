@@ -39,8 +39,8 @@ void ModeleXml::updateNodeName(QDomNode n, QString newName)
 
 void ModeleXml::insertNode(QDomNode parent, QDomNode node)
 {
-     cout << "ModeleXml::insertNode() : " << node.nodeName().toStdString() << "in " <<  parent.nodeName().toStdString() << endl;
-     emit onNodeInsert(parent, node);
+    cout << "ModeleXml::insertNode() : " << node.nodeName().toStdString() << "in " <<  parent.nodeName().toStdString() << endl;
+    emit onNodeInsert(parent, node);
 }
 
 void ModeleXml::removeNode(QDomNode n) {
@@ -85,7 +85,6 @@ bool ModeleXml::equals(QDomNode n, QStandardItem* i)
             while (n < children.count() && equals(children.at(n), i->child(n))) {
                 n++;
             }
-            cout << "fsdfsd" << n << children.count()<< endl;
             return (n == children.count());
         }
     }
@@ -126,11 +125,10 @@ QDomNode ModeleXml::getParentOfExtraItem(QDomNode node, QStandardItem* root)
 
 QDomNode ModeleXml::getSameNodeFromItem(QStandardItem* root)
 {
-    QDomNode xmlRoot = dom->childNodes().at(0).parentNode();
-    return getSameNodeFromItemRecursive(xmlRoot, root);
+    return getSameNodeFromItemRecursive(getNonPointerRoot(), root);
 }
 
-QDomNode ModeleXml::getSameNodeFromItemRecursive(QDomNode node, QStandardItem* item) {
+QDomNode ModeleXml::getSameNodeFromItemRecursive(QDomNode node, QStandardItem* item) const {
     if (equals(node, item)) {
         return node;
     }
@@ -178,3 +176,6 @@ QString ModeleXml::domToString() const
     return dom->toString();
 }
 
+QDomNode ModeleXml::getNonPointerRoot() const {
+    return *dom;
+}
