@@ -65,6 +65,7 @@ void ModeleXml::insertNode(QDomNode parent, QDomNode node)
 {
     cout << "ModeleXml::insertNode() : " << node.nodeName().toStdString() << "in " <<  parent.nodeName().toStdString() << endl;
     emit onNodeInsert(parent, node);
+    parent.appendChild(node);
 }
 
 void ModeleXml::removeNode(QDomNode n) {

@@ -35,6 +35,8 @@ void Arbo::onEdit (QStandardItem* item) {
 
             cout << "Same : " << same.nodeName().toStdString() << endl;
 
+            same = same.cloneNode(true);
+
             XmlFileManager::getFileManager()->getModele()->insertNode(parentInsert, same);
         }
     }
@@ -55,6 +57,7 @@ void Arbo::onRowsRemoved(const QModelIndex & i, int x, int y) {
     QStandardItem* item = this->itemRoot->model()->itemFromIndex(i);
     cout << "Arbo:: Parent de l'item supprimé par drag n drop : " << item->text().toStdString() << endl;
     QDomNode node = this->getNodeFromItem(item);
+    cout << "get " << x << " of " << node.nodeName().toStdString() << endl;
     node = node.childNodes().at(x);
     cout << "Arbo:: Node supprimé par drag n drop : " << node.nodeName().toStdString() << endl;
     XmlFileManager::getFileManager()->getModele()->removeNode(node);
@@ -62,7 +65,7 @@ void Arbo::onRowsRemoved(const QModelIndex & i, int x, int y) {
 
 
 // Quand le modèle est modifié
-void Arbo::onNodeDelete(QDomNode n) {
+void Arbo::onNodeDeleteByUser(QDomNode n) {
     cout << "Arbo::onNodeDelete(" << n.nodeName().toStdString() << ")" << endl;
     QStandardItem* itemRemoved = this->getItemFromNode(n);
     if (itemRemoved && ModeleXml::equals(n, itemRemoved)) {

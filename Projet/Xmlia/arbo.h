@@ -48,7 +48,6 @@ public slots:
     void onNodeDelete(QDomNode);
 
 
-
 private:
     QTreeView* vue;
     ModeleXml* modele;

@@ -96,7 +96,8 @@ public:
 
 signals:
     void onNodeNameUpdate(QDomNode n, QString newName);
-    void onNodeDelete(QDomNode n);
+    void onNodeDeleteByUser(QDomNode n);
+    void onNodeDeleteByDrop(QDomNode n);
     void onNodeInsert(QDomNode parent, QDomNode n);
 
 };
