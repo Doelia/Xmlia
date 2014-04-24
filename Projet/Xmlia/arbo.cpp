@@ -27,20 +27,18 @@ void Arbo::onEdit (QStandardItem* item) {
             QDomNode parentInsert = this->getNodeFromItem(item->parent());
 
             cout << "Item Parent : " << item->parent()->text().toStdString() << endl;
-             cout << "Node Parent : " << parentInsert.nodeName().toStdString() << endl;
+            cout << "Node Parent : " << parentInsert.nodeName().toStdString() << endl;
 
-            //QDomNode same = getSameNodeFromItem(item);
+            QDomNode same = XmlFileManager::getFileManager()->getModele()->getSameNodeFromItem(item);
+            cout << "Node same : " << same.nodeName().toStdString() << endl;
 
             //XmlFileManager::getFileManager()->insertNode(parentInsert, )->
-
-
         }
     }
     else {
         this->itemRoot->setText(XmlFileManager::getFileManager()->getCurrentFileName());
     }
 }
-
 
 
 // Quand l'utilisateur supprimer un noeud
