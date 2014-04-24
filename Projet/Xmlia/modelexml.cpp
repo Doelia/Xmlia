@@ -37,24 +37,34 @@ void ModeleXml::updateNodeName(QDomNode n, QString newName)
     cout << "ModeleXml::updateNodeName() : Modèle MAJ OK" << endl;
 }
 
-int ModeleXml::countSumChild(QDomNode n) {
-    if (n.childNodes().length() == 0) {
+int ModeleXml::countSumChild(QDomNode n)
+{
+    if (n.childNodes().length() == 0)
+    {
         return 0;
-    } else {
+    }
+    else
+    {
         int s = 0;
-        for (int i = 0; i < n.childNodes().length(); i++) {
+        for (int i = 0; i < n.childNodes().length(); i++)
+        {
             s += countSumChild(n.childNodes().at(i));
         }
         return s;
     }
 }
 
-int ModeleXml::countSumChild(QStandardItem* n) {
-    if (childCount(n) == 0) {
+int ModeleXml::countSumChild(QStandardItem* n)
+{
+    if (childCount(n) == 0)
+    {
         return 0;
-    } else {
+    }
+    else
+    {
         int s = 0;
-        for (int i = 0; i < childCount(n); i++) {
+        for (int i = 0; i < childCount(n); i++)
+        {
             s += countSumChild(n->child(i));
         }
         return s;
@@ -97,17 +107,22 @@ stack<int> ModeleXml::pathFromRoot(QDomNode n)
 
 bool ModeleXml::equals(QDomNode n, QStandardItem* i)
 {
-    if (n.nodeName().compare(i->text())) {
+    if (n.nodeName().compare(i->text()))
+    {
         return false;
-    } else {
+    }
+    else
+    {
         QDomNodeList children = n.childNodes();
-
-        if (children.count() != i->rowCount()) {
+        if (children.count() != i->rowCount())
+        {
             return false;
         }
-        else {
+        else
+        {
             int n = 0;
-            while (n < children.count() && equals(children.at(n), i->child(n))) {
+            while (n < children.count() && equals(children.at(n), i->child(n)))
+            {
                 n++;
             }
             return (n == children.count());
@@ -131,18 +146,26 @@ QDomNode ModeleXml::getParentOfExtraItem(QDomNode node, QStandardItem* root)
     QDomNode nullNode;
     nullNode.clear();
 
-    if (node.childNodes().length() == 0) {
+    if (node.childNodes().length() == 0)
+    {
         return nullNode;
-    } else {
-        if (node.childNodes().length() >= childCount(root)) {
-            for (int i=0; i < node.childNodes().length(); i++) {
+    }
+    else
+    {
+        if (node.childNodes().length() >= childCount(root))
+        {
+            for (int i=0; i < node.childNodes().length(); i++)
+            {
                 QDomNode n = getParentOfExtraItem(node.childNodes().at(i), root->child(i));
-                if (!n.isNull()) {
+                if (!n.isNull())
+                {
                     return n;
                 }
             }
             return nullNode;
-        } else { // Un item de plus que de node, c'est qu'il a été inséré ici
+        }
+        else
+        { // Un item de plus que de node, c'est qu'il a été inséré ici
             return node;
         }
     }
@@ -153,22 +176,28 @@ QDomNode ModeleXml::getSameNodeFromItem(QStandardItem* root)
     return getSameNodeFromItemRecursive(getNonPointerRoot(), root);
 }
 
-QDomNode ModeleXml::getSameNodeFromItemRecursive(QDomNode node, QStandardItem* item) const {
-    if (equals(node, item)) {
+QDomNode ModeleXml::getSameNodeFromItemRecursive(QDomNode node, QStandardItem* item) const
+{
+    if (equals(node, item))
+    {
         return node;
     }
-    else {
+    else
+    {
         int i = 0;
         QDomNode tmp;
-        while (i < node.childNodes().count() && (tmp = getSameNodeFromItemRecursive(node.childNodes().at(i), item)).isNull()) {
+        while (i < node.childNodes().count() && (tmp = getSameNodeFromItemRecursive(node.childNodes().at(i), item)).isNull())
+        {
             i++;
         }
-        if (i == node.childNodes().count()) {
+        if (i == node.childNodes().count())
+        {
             QDomNode nullNode;
             nullNode.clear();
             return nullNode;
         }
-        else {
+        else
+        {
             return tmp;
         }
     }
@@ -179,7 +208,8 @@ QDomNode ModeleXml::nodeFromPath(std::vector<int> path) const
 {
     QDomNode n = *this->dom;
 
-    for (int var = 0; var < path.size(); ++var) {
+    for (int var = 0; var < path.size(); ++var)
+    {
         n = n.childNodes().at(path[var]);
     }
     return n;
@@ -201,6 +231,7 @@ QString ModeleXml::domToString() const
     return dom->toString();
 }
 
-QDomNode ModeleXml::getNonPointerRoot() const {
+QDomNode ModeleXml::getNonPointerRoot() const
+{
     return *dom;
 }

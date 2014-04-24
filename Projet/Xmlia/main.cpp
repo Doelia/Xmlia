@@ -17,7 +17,8 @@
 
 using namespace std;
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     QApplication app(argc, argv);
 
     // Création de la vue arborescente en passant le pointeur vers le modèle
