@@ -52,6 +52,7 @@ public:
 public slots:
     void onNodeNameUpdate(QDomNode, QString);
     void onNodeDelete(QDomNode);
+    void onNodeInsert(QDomNode parent, QDomNode n);
 
     /**
       met à jour l'arbo et verifie si le xml est valide

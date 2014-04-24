@@ -29,7 +29,6 @@ void ModeleXml::updateNodeName(QDomNode n, QString newName)
     cout << "ModeleXml::updateNodeName() : emit" << endl;
     emit onNodeNameUpdate(n, newName);
 
-
     // Mise à jour du modèle
     if (n.isElement()) {
         n.toElement().setTagName(newName);
@@ -41,7 +40,7 @@ void ModeleXml::updateNodeName(QDomNode n, QString newName)
 void ModeleXml::insertNode(QDomNode parent, QDomNode node)
 {
      cout << "ModeleXml::insertNode() : " << node.nodeName().toStdString() << "in " <<  parent.nodeName().toStdString() << endl;
-     emit onInsertNode(parent, node);
+     emit onNodeInsert(parent, node);
 }
 
 void ModeleXml::removeNode(QDomNode n) {

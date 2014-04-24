@@ -223,6 +223,11 @@ void XmlEditor::onNodeDelete(QDomNode n)
     cout << "XmlEditor::onNodeDelete() end" << endl;
 }
 
+void XmlEditor::onNodeInsert(QDomNode parent, QDomNode n)
+{
+    cout << "XmlEditor:: onNodeInsert()" << endl;
+}
+
 void XmlEditor::onRefreshRequest()
 {
     //emit un signal si le xml est valide

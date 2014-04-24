@@ -32,7 +32,6 @@ void Arbo::onEdit (QStandardItem* item) {
             QDomNode same = XmlFileManager::getFileManager()->getModele()->getSameNodeFromItem(item);
 
             XmlFileManager::getFileManager()->getModele()->insertNode(parentInsert, same);
-
         }
     }
     else {

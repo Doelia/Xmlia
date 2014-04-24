@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'modelexml.h'
 **
-** Created: Thu Apr 24 15:03:23 2014
+** Created: Thu Apr 24 15:12:40 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -42,7 +42,7 @@ static const char qt_meta_stringdata_ModeleXml[] = {
     "ModeleXml\0\0n,newName\0"
     "onNodeNameUpdate(QDomNode,QString)\0n\0"
     "onNodeDelete(QDomNode)\0parent,n\0"
-    "onInsertNode(QDomNode,QDomNode)\0"
+    "onNodeInsert(QDomNode,QDomNode)\0"
 };
 
 void ModeleXml::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -53,7 +53,7 @@ void ModeleXml::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         switch (_id) {
         case 0: _t->onNodeNameUpdate((*reinterpret_cast< QDomNode(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         case 1: _t->onNodeDelete((*reinterpret_cast< QDomNode(*)>(_a[1]))); break;
-        case 2: _t->onInsertNode((*reinterpret_cast< QDomNode(*)>(_a[1])),(*reinterpret_cast< QDomNode(*)>(_a[2]))); break;
+        case 2: _t->onNodeInsert((*reinterpret_cast< QDomNode(*)>(_a[1])),(*reinterpret_cast< QDomNode(*)>(_a[2]))); break;
         default: ;
         }
     }
@@ -113,7 +113,7 @@ void ModeleXml::onNodeDelete(QDomNode _t1)
 }
 
 // SIGNAL 2
-void ModeleXml::onInsertNode(QDomNode _t1, QDomNode _t2)
+void ModeleXml::onNodeInsert(QDomNode _t1, QDomNode _t2)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
