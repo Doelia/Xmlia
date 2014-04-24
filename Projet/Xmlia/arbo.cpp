@@ -30,7 +30,7 @@ void Arbo::onEdit (QStandardItem* item) {
 
             cout << "parent de l'item : " << item->parent()->text().toStdString() << endl;
 
-            XmlFileManager::getFileManager()->insertNode(parentInsert, )->
+            //XmlFileManager::getFileManager()->insertNode(parentInsert, )->
 
             cout << "Parent où il a été inséré : " << parentInsert.nodeName().toStdString() << endl;
         }
