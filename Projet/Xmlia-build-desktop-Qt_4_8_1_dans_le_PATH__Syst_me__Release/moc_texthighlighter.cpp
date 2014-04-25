@@ -1,13 +1,8 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'texthighlighter.h'
 **
-<<<<<<< HEAD
-** Created: Fri Apr 25 10:08:13 2014
+** Created: Fri Apr 25 21:45:28 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
-=======
-** Created: Fri Apr 25 16:37:06 2014
-**      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
->>>>>>> d98ee9313b2e569aa16b7c5edf471630349a7a06
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/

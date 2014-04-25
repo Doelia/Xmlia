@@ -607,10 +607,25 @@ void XmlEditor::insertNodeText()
 
         if(vequal(path, nodePath))
         {
+            QString slash("/");
+            bool isSingle = false;
             c.setPosition(0);
+            cout << "node name on insert : " << xml.name().toString().toStdString() << endl;
             c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber()-1);
-            c.setPosition(c.position() + xml.columnNumber(), QTextCursor::MoveAnchor);
-            c.insertText(savedNodeData);
+            c.setPosition(c.position() + xml.columnNumber() - 1, QTextCursor::MoveAnchor);
+            if(!slash.compare(text->toPlainText().at(c.position() - 1)))
+            {
+                c.setPosition(c.position() - 1, QTextCursor::MoveAnchor);
+                isSingle = true;
+            }
+            c.insertText(QString(">").append(savedNodeData));
+
+            if(isSingle)
+            {
+                c.insertText(QString("</").append(xml.name().toString()));
+            }
+            c.setPosition(c.position() + 1, QTextCursor::KeepAnchor);
+            c.removeSelectedText();
             text->setTextCursor(c);
             return;
         }
