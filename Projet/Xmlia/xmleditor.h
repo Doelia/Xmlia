@@ -40,7 +40,11 @@ signals:
     void update();
 
 private:
+    bool dragnDropHappened;
     QString savedNodeData;
+    stack<int> savedPath;
+
+    void insertNodeText();
 
     bool eventFilter(QObject *o, QEvent *e);
     bool insertCharacterForKeyFiltering(const QString str);
