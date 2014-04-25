@@ -87,6 +87,12 @@ void ModeleXml::removeNode(QDomNode n) {
     cout << "ModeleXml::removeNode() : Modèle MAJ OK" << endl;
 }
 
+void ModeleXml::aboutToBeRemoved(QDomNode n)
+{
+    cout << "ModelXml::aboutToBeRemoved" << endl;
+    emit onAboutToBeRemoved(n);
+}
+
 void ModeleXml::setFromDocument(QDomDocument* doc)
 {
     delete dom;

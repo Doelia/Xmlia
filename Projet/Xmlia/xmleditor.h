@@ -8,6 +8,8 @@
 #include <stack>
 #include <QtXmlPatterns/QXmlSchemaValidator>
 #include <QtXmlPatterns/QXmlSchema>
+#include <QMutex>
+#include <QWaitCondition>
 
 using namespace std;
 
@@ -24,6 +26,7 @@ public:
     void onNodeNameUpdate(QDomNode, QString);
     void onNodeDelete(QDomNode);
     void onNodeInsert(QDomNode, QDomNode);
+    void saveNodeData(QDomNode);
 
     /**
       met à jour l'arbo et verifie si le xml est valide
@@ -37,10 +40,10 @@ signals:
     void update();
 
 private:
+    QString savedNodeData;
+
     bool eventFilter(QObject *o, QEvent *e);
-
     bool insertCharacterForKeyFiltering(const QString str);
-
     void updateDom();
 
     /**

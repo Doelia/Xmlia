@@ -33,7 +33,6 @@ public slots:
      */
     void updateView();
 
-
     /***** Action envoyés par l'utilisateur, à retourner au modèle  *******/
     /** Quand l'utilisateur modifie le nom d'un noeud, ou effectue une insertion par un drop */
     void onEdit (QStandardItem*);
@@ -41,6 +40,7 @@ public slots:
     void onRemoveNode();
     /** Quand un noeud est supprimé par le drag n drop */
     void onRowsRemoved(const QModelIndex &, int, int);
+    void onRowsAboutToBeRemoved(const QModelIndex &, int, int);
     /**********************************************************************/
 
 
@@ -48,6 +48,7 @@ private:
     QTreeView* vue;
     ModeleXml* modele;
     QStandardItem* itemRoot;
+    QStandardItemModel *model;
 
     /**
       * @action Remplit le modèle QStandardItemModel à partir d'un QDomNode dom

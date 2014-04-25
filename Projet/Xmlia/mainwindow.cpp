@@ -77,6 +77,7 @@ void MainWindow::setNotePad(NotePad *notepad)
     connect(this->notepad, SIGNAL(update()), arbo, SLOT(updateView())); // Provisoire
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeNameUpdate(QDomNode, QString)), this->notepad, SLOT(onNodeNameUpdate(QDomNode, QString)));
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->notepad, SLOT(onNodeDelete(QDomNode)));
+    connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onAboutToBeRemoved(QDomNode)), this->notepad, SLOT(onAboutToBeRemoved(QDomNode)));
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeInsert(QDomNode, QDomNode)), this->notepad, SLOT(onNodeInsert(QDomNode, QDomNode)));
     connect(refresh, SIGNAL(activated()), this->notepad, SLOT(onRefreshRequest()));
 }

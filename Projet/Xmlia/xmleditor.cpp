@@ -33,129 +33,305 @@ void XmlEditor::onNodeDelete(QDomNode n)
     cout << "XmlEditor::onNodeDelete()" << endl;
     auto vequal = [](vector<int> v1, vector<int> v2)->bool
     {
-            if(v1.size() == v2.size())
-    {
+        if(v1.size() == v2.size())
+        {
             for (int i = 0; i < v1.size(); ++i) {
-        if(v2[i] != v1[i])
-        {
-            return false;
+                if(v2[i] != v1[i])
+                {
+                    return false;
+                }
+            }
+            return true;
         }
-    }
-    return true;
-}
-return false;
-};
+        return false;
+    };
 
-auto goToNodeStart = [] (int *begin, QString s)->void
-{
+    auto goToNodeStart = [] (int *begin, QString s)->void
+    {
         QString open = "<";
-while(open.compare(s.at(*begin)) != 0)
-{
-    (*begin)--;
-}
-};
+        while(open.compare(s.at(*begin)) != 0)
+        {
+            (*begin)--;
+        }
+    };
 
-stack<int> st = ModeleXml::pathFromRoot(n);
-vector<int> nodePath;
+    stack<int> st = ModeleXml::pathFromRoot(n);
+    vector<int> nodePath;
 
-while(!st.empty())
-{
-    nodePath.push_back(st.top());
-    cout << "" << st.top() << endl;
-    st.pop();
-}
-
-nodePath[0]++;
-vector<int> path;
-path.push_back(0);
-QXmlStreamReader xml(text->toPlainText());
-QXmlStreamReader::TokenType lastToken;
-lastToken = QXmlStreamReader::NoToken;
-QTextCursor c = text->textCursor();
-
-int begin;
-int end;
-int nbFound = 0;
-
-xml.readNext();
-while(!xml.atEnd())
-{
-    if(xml.isStartElement())
+    while(!st.empty())
     {
-        if(lastToken == QXmlStreamReader::StartElement)
-        {
-            path.push_back(0);
-        }
-        else
-        {
-            path[path.size() - 1]++;
-        }
-    }
-    else if(xml.isEndElement())
-    {
-        if(lastToken == QXmlStreamReader::EndElement)
-        {
-            path.pop_back();
-        }
+        nodePath.push_back(st.top());
+        st.pop();
     }
 
-    if(vequal(path, nodePath))
+    nodePath[0]++;
+    vector<int> path;
+    path.push_back(0);
+    QXmlStreamReader xml(text->toPlainText());
+    QXmlStreamReader::TokenType lastToken;
+    lastToken = QXmlStreamReader::NoToken;
+    QTextCursor c = text->textCursor();
+
+    int begin;
+    int end;
+    int nbFound = 0;
+
+    xml.readNext();
+    while(!xml.atEnd())
     {
-        if(nbFound == 0)
+        if(xml.isStartElement())
         {
-            nbFound++;
-            c.setPosition(0);
-            c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber()-1);
-            c.setPosition(c.position() + xml.columnNumber() - 1, QTextCursor::KeepAnchor);
-            begin = c.position();
-            goToNodeStart(&begin, text->toPlainText());
-        }
-        else if (nbFound == 1 && xml.name().size() > 0)
-        {
-            c.setPosition(0);
-            c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber()-1);
-            c.setPosition(c.position() + xml.columnNumber(), QTextCursor::KeepAnchor);
-            end = c.position();
-            c.setPosition(begin, QTextCursor::MoveAnchor);
-            c.setPosition(end, QTextCursor::KeepAnchor);
-            c.removeSelectedText();
-            c.movePosition(QTextCursor::StartOfLine);
-            c.movePosition(QTextCursor::EndOfLine, QTextCursor::KeepAnchor);
-            QRegExp q("\\S+");
-            if(q.indexIn(c.selectedText()) == -1)
+            if(lastToken == QXmlStreamReader::StartElement)
             {
-                c.setPosition(c.position() + 1, QTextCursor::KeepAnchor);
-                c.removeSelectedText();
+                path.push_back(0);
             }
             else
             {
-                c.setPosition(begin);
+                path[path.size() - 1]++;
             }
-            text->setTextCursor(c);
-            return;
         }
-    }
-    if(xml.tokenType() == QXmlStreamReader::StartElement ||
-            xml.tokenType() == QXmlStreamReader::StartDocument ||
-            xml.tokenType() == QXmlStreamReader::EndDocument ||
-            xml.tokenType() == QXmlStreamReader::EndElement)
-    {
-        lastToken = xml.tokenType();
-    }
-    xml.readNext();
-}
+        else if(xml.isEndElement())
+        {
+            if(lastToken == QXmlStreamReader::EndElement)
+            {
+                path.pop_back();
+            }
+        }
 
-cout << "XmlEditor::onNodeDelete() end" << endl;
+        if(vequal(path, nodePath))
+        {
+            if(nbFound == 0)
+            {
+                nbFound++;
+                c.setPosition(0);
+                c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber()-1);
+                c.setPosition(c.position() + xml.columnNumber() - 1, QTextCursor::KeepAnchor);
+                begin = c.position();
+                goToNodeStart(&begin, text->toPlainText());
+            }
+            else if (nbFound == 1 && xml.name().size() > 0)
+            {
+                c.setPosition(0);
+                c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber()-1);
+                c.setPosition(c.position() + xml.columnNumber(), QTextCursor::KeepAnchor);
+                end = c.position();
+                c.setPosition(begin, QTextCursor::MoveAnchor);
+                c.setPosition(end, QTextCursor::KeepAnchor);
+                c.removeSelectedText();
+                c.movePosition(QTextCursor::StartOfLine);
+                c.movePosition(QTextCursor::EndOfLine, QTextCursor::KeepAnchor);
+                QRegExp q("\\S+");
+                if(q.indexIn(c.selectedText()) == -1)
+                {
+                    c.setPosition(c.position() + 1, QTextCursor::KeepAnchor);
+                    c.removeSelectedText();
+                }
+                else
+                {
+                    c.setPosition(begin);
+                }
+                text->setTextCursor(c);
+                return;
+            }
+        }
+        if(xml.tokenType() == QXmlStreamReader::StartElement ||
+                xml.tokenType() == QXmlStreamReader::StartDocument ||
+                xml.tokenType() == QXmlStreamReader::EndDocument ||
+                xml.tokenType() == QXmlStreamReader::EndElement)
+        {
+            lastToken = xml.tokenType();
+        }
+        xml.readNext();
+    }
+
+    cout << "XmlEditor::onNodeDelete() end" << endl;
 }
 
 void XmlEditor::onNodeInsert(QDomNode parent, QDomNode n)
 {
-    cout << "XmlEditor:: onNodeInsert()" << endl;
-    cout << "child count : " << n.childNodes().size() << endl;
-    cout << "child data : " << parent.nodeValue().toStdString() << endl;
-    QDomDocument doc = n.toDocument();
-    cout << "doc : " << doc.toString().toStdString() << endl;
+
+    cout << "XmlEditor::onNodeInsert" << endl;
+
+    auto vequal = [](vector<int> v1, vector<int> v2)->bool
+    {
+        if(v1.size() == v2.size())
+        {
+            for (int i = 0; i < v1.size(); ++i) {
+                if(v2[i] != v1[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    };
+
+    stack<int> st = ModeleXml::pathFromRoot(parent);
+    vector<int> nodePath;
+
+    while(!st.empty())
+    {
+        nodePath.push_back(st.top());
+        st.pop();
+    }
+
+    nodePath[0]++;
+    vector<int> path;
+    path.push_back(0);
+    QXmlStreamReader xml(text->toPlainText());
+    QXmlStreamReader::TokenType lastToken;
+    lastToken = QXmlStreamReader::NoToken;
+    QTextCursor c = text->textCursor();
+
+    xml.readNext();
+    while(!xml.atEnd())
+    {
+        if(xml.isStartElement())
+        {
+            if(lastToken == QXmlStreamReader::StartElement)
+            {
+                path.push_back(0);
+            }
+            else
+            {
+                path[path.size() - 1]++;
+            }
+        }
+        else if(xml.isEndElement())
+        {
+            if(lastToken == QXmlStreamReader::EndElement)
+            {
+                path.pop_back();
+            }
+        }
+
+        if(vequal(path, nodePath))
+        {
+                c.setPosition(0);
+                c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber()-1);
+                c.setPosition(c.position() + xml.columnNumber(), QTextCursor::MoveAnchor);
+                c.insertText(savedNodeData);
+                text->setTextCursor(c);
+                return;
+        }
+        if(xml.tokenType() == QXmlStreamReader::StartElement ||
+                xml.tokenType() == QXmlStreamReader::StartDocument ||
+                xml.tokenType() == QXmlStreamReader::EndDocument ||
+                xml.tokenType() == QXmlStreamReader::EndElement)
+        {
+            lastToken = xml.tokenType();
+        }
+        xml.readNext();
+    }
 }
+
+void XmlEditor::saveNodeData(QDomNode n)
+{
+
+    cout << "XmlEditor::saveNodeData" << endl;
+    auto vequal = [](vector<int> v1, vector<int> v2)->bool
+    {
+        if(v1.size() == v2.size())
+        {
+            for (int i = 0; i < v1.size(); ++i) {
+                if(v2[i] != v1[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    };
+
+    auto goToNodeStart = [] (int *begin, QString s)->void
+    {
+        QString open = "<";
+        while(open.compare(s.at(*begin)) != 0)
+        {
+            (*begin)--;
+        }
+    };
+
+    stack<int> st = ModeleXml::pathFromRoot(n);
+    vector<int> nodePath;
+
+    while(!st.empty())
+    {
+        nodePath.push_back(st.top());
+        st.pop();
+    }
+
+    nodePath[0]++;
+    vector<int> path;
+    path.push_back(0);
+    QXmlStreamReader xml(text->toPlainText());
+    QXmlStreamReader::TokenType lastToken;
+    lastToken = QXmlStreamReader::NoToken;
+    QTextCursor c = text->textCursor();
+
+    int begin;
+    int end;
+    int nbFound = 0;
+
+    xml.readNext();
+    while(!xml.atEnd())
+    {
+        if(xml.isStartElement())
+        {
+            if(lastToken == QXmlStreamReader::StartElement)
+            {
+                path.push_back(0);
+            }
+            else
+            {
+                path[path.size() - 1]++;
+            }
+        }
+        else if(xml.isEndElement())
+        {
+            if(lastToken == QXmlStreamReader::EndElement)
+            {
+                path.pop_back();
+            }
+        }
+
+        if(vequal(path, nodePath))
+        {
+            if(nbFound == 0)
+            {
+                nbFound++;
+                c.setPosition(0);
+                c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber()-1);
+                c.setPosition(c.position() + xml.columnNumber() - 1, QTextCursor::KeepAnchor);
+                begin = c.position();
+                goToNodeStart(&begin, text->toPlainText());
+            }
+            else if (nbFound == 1 && xml.name().size() > 0)
+            {
+                c.setPosition(0);
+                c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber()-1);
+                c.setPosition(c.position() + xml.columnNumber(), QTextCursor::KeepAnchor);
+                end = c.position();
+                c.setPosition(begin, QTextCursor::MoveAnchor);
+                c.setPosition(end, QTextCursor::KeepAnchor);
+                savedNodeData = c.selectedText();
+                cout << "data : " << savedNodeData.toStdString() << endl;
+                return;
+            }
+        }
+        if(xml.tokenType() == QXmlStreamReader::StartElement ||
+                xml.tokenType() == QXmlStreamReader::StartDocument ||
+                xml.tokenType() == QXmlStreamReader::EndDocument ||
+                xml.tokenType() == QXmlStreamReader::EndElement)
+        {
+            lastToken = xml.tokenType();
+        }
+        xml.readNext();
+    }
+}
+
 
 void XmlEditor::onRefreshRequest()
 {
@@ -207,122 +383,121 @@ void XmlEditor::updateNodeName(QDomNode n, QString oldName, QString newName)
 {
     auto vequal = [](vector<int> v1, vector<int> v2)->bool
     {
-            if(v1.size() == v2.size())
-    {
+        if(v1.size() == v2.size())
+        {
             for (int i = 0; i < v1.size(); ++i) {
-        if(v2[i] != v1[i])
-        {
-            return false;
+                if(v2[i] != v1[i])
+                {
+                    return false;
+                }
+            }
+            return true;
         }
-    }
-    return true;
-}
-return false;
-};
+        return false;
+    };
 
-auto goToNodeStart = [] (int *begin, QString s)->void
-{
+    auto goToNodeStart = [] (int *begin, QString s)->void
+    {
         QString open = "<";
-while(open.compare(s.at(*begin)) != 0)
-{
-    (*begin)--;
-}
-};
+        while(open.compare(s.at(*begin)) != 0)
+        {
+            (*begin)--;
+        }
+    };
 
-stack<int> st = ModeleXml::pathFromRoot(n);
-vector<int> nodePath;
+    stack<int> st = ModeleXml::pathFromRoot(n);
+    vector<int> nodePath;
 
-while(!st.empty())
-{
-    nodePath.push_back(st.top());
-    cout << "" << st.top() << endl;
-    st.pop();
-}
-
-nodePath[0]++;
-vector<int> path;
-path.push_back(0);
-QXmlStreamReader xml(text->toPlainText());
-QXmlStreamReader::TokenType lastToken;
-lastToken = QXmlStreamReader::NoToken;
-QTextCursor c = text->textCursor();
-
-int begin;
-int end;
-int nbFound = 0;
-
-xml.readNext();
-while(!xml.atEnd())
-{
-    if(xml.isStartElement())
+    while(!st.empty())
     {
-        if(lastToken == QXmlStreamReader::StartElement)
-        {
-            path.push_back(0);
-        }
-        else
-        {
-            path[path.size() - 1]++;
-        }
-    }
-    else if(xml.isEndElement())
-    {
-        if(lastToken == QXmlStreamReader::EndElement)
-        {
-            path.pop_back();
-        }
+        nodePath.push_back(st.top());
+        st.pop();
     }
 
-    if(vequal(path, nodePath))
+    nodePath[0]++;
+    vector<int> path;
+    path.push_back(0);
+    QXmlStreamReader xml(text->toPlainText());
+    QXmlStreamReader::TokenType lastToken;
+    lastToken = QXmlStreamReader::NoToken;
+    QTextCursor c = text->textCursor();
+
+    int begin;
+    int end;
+    int nbFound = 0;
+
+    xml.readNext();
+    while(!xml.atEnd())
     {
-        if(nbFound == 0)
+        if(xml.isStartElement())
         {
-            nbFound++;
-            c.setPosition(0);
-            c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber()-1);
-            c.setPosition(c.position() + xml.columnNumber() - oldName.size() - 2, QTextCursor::MoveAnchor);
-            c.setPosition(c.position() + oldName.size() + 1, QTextCursor::KeepAnchor);
-            begin = c.selectionStart();
-            goToNodeStart(&begin, text->toPlainText());
-            end = c.selectionEnd();
-
-        }
-        else if (nbFound == 1 && xml.name().size() > 0)
-        {
-            c.setPosition(0);
-            c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber()-1);
-            c.setPosition(c.position() + xml.columnNumber() - oldName.size() - 2, QTextCursor::MoveAnchor);
-            c.setPosition(c.position() + oldName.size() + 1, QTextCursor::KeepAnchor);
-
-            QString t = c.selectedText();
-
-            if(c.position() > end)
+            if(lastToken == QXmlStreamReader::StartElement)
             {
+                path.push_back(0);
+            }
+            else
+            {
+                path[path.size() - 1]++;
+            }
+        }
+        else if(xml.isEndElement())
+        {
+            if(lastToken == QXmlStreamReader::EndElement)
+            {
+                path.pop_back();
+            }
+        }
+
+        if(vequal(path, nodePath))
+        {
+            if(nbFound == 0)
+            {
+                nbFound++;
+                c.setPosition(0);
+                c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber()-1);
+                c.setPosition(c.position() + xml.columnNumber() - oldName.size() - 2, QTextCursor::MoveAnchor);
+                c.setPosition(c.position() + oldName.size() + 1, QTextCursor::KeepAnchor);
+                begin = c.selectionStart();
+                goToNodeStart(&begin, text->toPlainText());
+                end = c.selectionEnd();
+
+            }
+            else if (nbFound == 1 && xml.name().size() > 0)
+            {
+                c.setPosition(0);
+                c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber()-1);
+                c.setPosition(c.position() + xml.columnNumber() - oldName.size() - 2, QTextCursor::MoveAnchor);
+                c.setPosition(c.position() + oldName.size() + 1, QTextCursor::KeepAnchor);
+
+                QString t = c.selectedText();
+
+                if(c.position() > end)
+                {
+                    t.replace(oldName, newName);
+                    c.removeSelectedText();
+                    c.insertText(t);
+                }
+
+                c.setPosition(begin);
+                c.setPosition(end, QTextCursor::KeepAnchor);
+                t = c.selectedText();
                 t.replace(oldName, newName);
                 c.removeSelectedText();
                 c.insertText(t);
+
+                text->setTextCursor(c);
+                return;
             }
-
-            c.setPosition(begin);
-            c.setPosition(end, QTextCursor::KeepAnchor);
-            t = c.selectedText();
-            t.replace(oldName, newName);
-            c.removeSelectedText();
-            c.insertText(t);
-
-            text->setTextCursor(c);
-            return;
         }
+        if(xml.tokenType() == QXmlStreamReader::StartElement ||
+                xml.tokenType() == QXmlStreamReader::StartDocument ||
+                xml.tokenType() == QXmlStreamReader::EndDocument ||
+                xml.tokenType() == QXmlStreamReader::EndElement)
+        {
+            lastToken = xml.tokenType();
+        }
+        xml.readNext();
     }
-    if(xml.tokenType() == QXmlStreamReader::StartElement ||
-            xml.tokenType() == QXmlStreamReader::StartDocument ||
-            xml.tokenType() == QXmlStreamReader::EndDocument ||
-            xml.tokenType() == QXmlStreamReader::EndElement)
-    {
-        lastToken = xml.tokenType();
-    }
-    xml.readNext();
-}
 }
 
 void XmlEditor::updateDom()

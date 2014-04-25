@@ -45,6 +45,8 @@ public:
     */
     void removeNode(QDomNode dom);
 
+    void aboutToBeRemoved(QDomNode);
+
     /**
       @action Affecte le modèle par le docuement passé en parametre
     */
@@ -98,6 +100,7 @@ signals:
     void onNodeNameUpdate(QDomNode n, QString newName);
     void onNodeDelete(QDomNode n);
     void onNodeInsert(QDomNode parent, QDomNode n);
+    void onAboutToBeRemoved(QDomNode);
 
 };
 

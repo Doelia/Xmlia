@@ -9,6 +9,11 @@ using namespace std;
 Arbo::Arbo() {
     this->vue = 0;
     this->blockSignals(true);
+    this->model = new QStandardItemModel;
+
+    connect(model, SIGNAL(itemChanged(QStandardItem*)), this, SLOT(onEdit(QStandardItem*)));
+    connect(model, SIGNAL(rowsAboutToBeRemoved(const QModelIndex &, int, int)), this, SLOT(onRowsAboutToBeRemoved(QModelIndex,int,int)));
+    connect(model, SIGNAL(rowsRemoved(const QModelIndex &, int, int)), this, SLOT(onRowsRemoved(const QModelIndex &, int, int)));
 }
 
 // Quand l'utilisateur édite ou ajoute un noeud
@@ -53,11 +58,21 @@ void Arbo::onRemoveNode() {
 
 // Quand l'utilisatreur supprime un noeud par drag n drop
 void Arbo::onRowsRemoved(const QModelIndex & i, int x, int y) {
+    cout << "Arbo::onRemoved" << endl;
     QStandardItem* item = this->itemRoot->model()->itemFromIndex(i);
     QDomNode node = this->getNodeFromItem(item);
     node = node.childNodes().at(x);
     cout << "Arbo:: Node supprimé par utilisateur : " << node.nodeName().toStdString() << endl;
     XmlFileManager::getFileManager()->getModele()->removeNode(node); // Modifcation du modèle
+}
+
+void Arbo::onRowsAboutToBeRemoved(const QModelIndex &i , int x, int y)
+{
+    cout << "Arbo::onRowsAboutToBeRemoved" << endl;
+    QStandardItem* item = this->itemRoot->model()->itemFromIndex(i);
+    QDomNode node = this->getNodeFromItem(item);
+    node = node.childNodes().at(x);
+    XmlFileManager::getFileManager()->getModele()->aboutToBeRemoved(node);
 }
 
 
@@ -108,13 +123,12 @@ QStandardItem* Arbo::getFils(QDomNode dom) {
 }
 
 void Arbo::preOrder(QDomNode dom, QStandardItemModel* model) {
+    model->clear();
     this->itemRoot = getFils(dom);
     //On met le nom de nom de ficher comme nom de racine de l'arbo
     itemRoot->setText(XmlFileManager::getFileManager()->getCurrentFileName());
 
     model->setItem(0, this->itemRoot);
-    connect(model, SIGNAL(itemChanged(QStandardItem*)), this, SLOT(onEdit(QStandardItem*)));
-    connect(model, SIGNAL(rowsRemoved(const QModelIndex &, int, int)), this, SLOT(onRowsRemoved(const QModelIndex &, int, int)));
 }
 
 // Retourne la vue, la crée si elle nexiste pas
@@ -145,7 +159,6 @@ void Arbo::updateView() {
     std::function<void (bool (QDomNode::*function)() const, QDomNode *dom)> removeNodeType;
     removeNodeType = [&removeNodeType] (bool (QDomNode::*function)() const, QDomNode *dom)
     {
-            cout << dom->nodeValue().toStdString() << endl;
         for (int var = 0; var < dom->childNodes().size(); ++var) {
             QDomNode n = dom->childNodes().at(var);
             if((n.*function)())
@@ -166,11 +179,10 @@ void Arbo::updateView() {
     removeNodeType(&QDomNode::isProcessingInstruction, &n);
 
     // Construction du modèle arborescent vide
-    QStandardItemModel *model = new QStandardItemModel();
 
     // Mise en ordre
     this->preOrder(n, model);
-   // this->setHeaderItem();
+    // this->setHeaderItem();
 
     // Redéfinition du modèle
     vue->setModel(model);
