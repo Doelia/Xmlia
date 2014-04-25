@@ -20,7 +20,8 @@ void Arbo::onEdit (QStandardItem* item) {
 
         if (    !node.isNull() &&
                 ModeleXml::countSumChild(this->itemRoot) ==
-                ModeleXml::countSumChild(*XmlFileManager::getFileManager()->getModele()->getRacine()))
+                ModeleXml::countSumChild(*XmlFileManager::getFileManager()->getModele()->getRacine()) &&
+                !node.isDocument())
         {
             cout << "Arbo:: Nom de node modifié par l'utilisateur = " << node.nodeName().toStdString() << endl;
             XmlFileManager::getFileManager()->getModele()->updateNodeName(node, item->text());
@@ -32,12 +33,22 @@ void Arbo::onEdit (QStandardItem* item) {
                 cout << "Arbo::onEdit() : Node Parent : " << parentInsert.nodeName().toStdString() << endl;
 
                 QDomNode same = XmlFileManager::getFileManager()->getModele()->getSameNodeFromItem(item);
+                if (!same.isNull())
+                {
+                    same = same.cloneNode(true);
+                    XmlFileManager::getFileManager()->getModele()->insertNode(parentInsert, same); // Modifcation du modèle
+                }
+                else
+                {
+                    //Cas bug à tester
+                    cout << "Arbo::onEdit BUG : same est null" << endl;
+                    updateView();
+                }
 
-                same = same.cloneNode(true);
-
-                XmlFileManager::getFileManager()->getModele()->insertNode(parentInsert, same); // Modifcation du modèle
             } else {
-
+                //Quand on droppe un elem en tant que nouvelle racine
+                cout << "Arbo::onEdit BUG : Parent non existant" << endl;
+                updateView();
             }
         }
     }
@@ -55,9 +66,17 @@ void Arbo::onRemoveNode() {
 void Arbo::onRowsRemoved(const QModelIndex & i, int x, int y) {
     QStandardItem* item = this->itemRoot->model()->itemFromIndex(i);
     QDomNode node = this->getNodeFromItem(item);
-    node = node.childNodes().at(x);
-    cout << "Arbo:: Node supprimé par utilisateur : " << node.nodeName().toStdString() << endl;
-    XmlFileManager::getFileManager()->getModele()->removeNode(node); // Modifcation du modèle
+    if (!node.isNull())
+    {
+        node = node.childNodes().at(x);
+        cout << "Arbo:: Node supprimé par utilisateur : " << node.nodeName().toStdString() << endl;
+        XmlFileManager::getFileManager()->getModele()->removeNode(node); // Modifcation du modèle
+    }
+    else
+    {
+        cout << "Arbo::onRowsRemoved BUG : Le node à supprimer est nul" << endl;
+        updateView();
+    }
 }
 
 
