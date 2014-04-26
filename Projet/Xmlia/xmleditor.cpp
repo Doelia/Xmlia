@@ -8,6 +8,8 @@ XmlEditor::XmlEditor() : TextEditor::TextEditor(new TextHighLighter(0))
     hasError = false;
     text->installEventFilter(this);
 
+    completer = new QCompleter();
+
     connect(text, SIGNAL(textChanged()), this, SLOT(onTextChange()));
 }
 
@@ -610,7 +612,6 @@ void XmlEditor::insertNodeText()
             QString slash("/");
             bool isSingle = false;
             c.setPosition(0);
-            cout << "node name on insert : " << xml.name().toString().toStdString() << endl;
             c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber()-1);
             c.setPosition(c.position() + xml.columnNumber() - 1, QTextCursor::MoveAnchor);
             if(!slash.compare(text->toPlainText().at(c.position() - 1)))

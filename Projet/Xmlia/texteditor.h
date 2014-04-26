@@ -17,6 +17,7 @@
 #include <QKeyEvent>
 #include <QAbstractItemView>
 #include <QRect>
+#include <QCompleter>
 
 using namespace std;
 
@@ -58,6 +59,12 @@ protected:
     MessageHandler *mh;
     bool hasError;
     int tabNumber;
+    QCompleter *completer;
+    bool antiRecursion;
+
+    QString textUnderCursor() const;
+    bool insertCompletion();
+    void removeCompletion();
 
     /**
       indente le texte sélectionné par l'utilisateur (entre upperBound et lowerBound)
@@ -77,6 +84,7 @@ public slots:
 protected slots:
     void onLog(QString, QColor);
     void onError(int);
+    void popupCompletion();
 };
 
 #endif // TEXTEDITOR_H

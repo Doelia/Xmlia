@@ -37,11 +37,16 @@ TextEditor::TextEditor(QSyntaxHighlighter *s)
 
     mh = new MessageHandler();
 
+    antiRecursion = false;
+
+    setFocusPolicy(Qt::StrongFocus);
+
     connect(mh, SIGNAL(error(int)), this, SLOT(onError(int)));
     connect(mh, SIGNAL(log(QString,QColor)), this, SLOT(onLog(QString,QColor)));
     connect(linesDisplay->verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(onScroll(int)));
     connect(text->verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(onScroll(int)));
     connect(text, SIGNAL(textChanged()), this, SLOT(addLinesNumber()));
+    connect(text, SIGNAL(textChanged()), this, SLOT(popupCompletion()));
     connect(this, SIGNAL(error(int)), this, SLOT(onError(int)));
 }
 
@@ -172,6 +177,27 @@ void TextEditor::onError(int line)
     text->ensureCursorVisible();
 }
 
+void TextEditor::popupCompletion()
+{
+    if(!antiRecursion)
+    {
+        completer->setCompletionPrefix(textUnderCursor());
+        QString completion = completer->currentCompletion();
+        QString currentWord = textUnderCursor();
+
+        if(currentWord.size() > 0 && currentWord.size() < completion.size())
+        {
+            QTextCursor cursor = text->textCursor();
+            int pos = cursor.position();
+            cursor.movePosition(QTextCursor::EndOfWord, QTextCursor::KeepAnchor);
+            cursor.insertText(completion.right(completion.size() - currentWord.size()));
+            cursor.setPosition(pos, QTextCursor::KeepAnchor);
+            text->setTextCursor(cursor);
+        }
+    }
+    antiRecursion = !antiRecursion;
+}
+
 void TextEditor::indentLineWithBounds(QStringList *list, int line, int upperBound, int lowerBound)
 {
     if(line >= upperBound && line <= lowerBound)
@@ -198,9 +224,39 @@ QString TextEditor::tabsString(int n) const
     return l;
 }
 
-MessageHandler::MessageHandler()
+QString TextEditor::textUnderCursor() const
 {
+    QTextCursor c = text->textCursor();
+    c.select(QTextCursor::WordUnderCursor);
+    return c.selectedText();
 }
+
+bool TextEditor::insertCompletion()
+{
+    QTextCursor cursor = text->textCursor();
+    int pos = cursor.position();
+    cursor.movePosition(QTextCursor::EndOfWord);
+    if(pos != cursor.position())
+    {
+        text->setTextCursor(cursor);
+        return true;
+    }
+    return false;
+}
+
+void TextEditor::removeCompletion()
+{
+    if(completer->currentCompletion().size() > 0)
+    {
+        QTextCursor cursor = text->textCursor();
+        antiRecursion = true;
+        cursor.removeSelectedText();
+        text->setTextCursor(cursor);
+        antiRecursion = true;
+    }
+}
+
+MessageHandler::MessageHandler(){}
 
 void MessageHandler::handleMessage(QtMsgType type, const QString &description, const QUrl &identifier, const QSourceLocation &sourceLocation)
 {
