@@ -34,6 +34,7 @@ void NotePad::indent()
 void NotePad::setText(QString s)
 {
     xmlEditor->setText(s);
+    XmlFileManager::getFileManager()->setCurrentSchema(xmlEditor->extractSchemaUrl(), this);
 }
 
 void NotePad::setDtd(QString s)

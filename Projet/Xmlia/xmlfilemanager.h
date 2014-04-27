@@ -57,9 +57,21 @@ public:
     void setCurrentFile(QString file);
 
     /**
+      set le ficher courant
+      */
+    void setCurrentSchema(QString xsd, NotePad *n);
+
+    /**
       @return le nom complet avec le chemin du ficher courant
       */
     QString getCurrentFile() const;
+
+    /**
+     * @brief getCurrentFilePath
+     * @return le path vers le fichier xml chargé
+     */
+
+    QString getCurrentFilePath() const;
 
     /**
       @return le nom complet avec le chemin du schema xml

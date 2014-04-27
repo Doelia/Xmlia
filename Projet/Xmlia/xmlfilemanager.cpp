@@ -34,22 +34,25 @@ void XmlFileManager::openXML(NotePad *n)
         // TODO Faire un critical
         cout<< "ERROR 1"<< endl;
     }
-    QString data(file.readAll());
-
-    if (!doc->setContent(data, &error, &errorLine, &errorColumn))
-    {
-        cout << "error : " << error.toStdString() << " at line " << errorLine << " at column " << errorColumn << endl;
-        cout << "ERROR 2" << endl;
-    }
     else
     {
-        this->modele->setFromDocument(doc);
+        QString data(file.readAll());
+
+        if (!doc->setContent(data, &error, &errorLine, &errorColumn))
+        {
+            cout << "error : " << error.toStdString() << " at line " << errorLine << " at column " << errorColumn << endl;
+            cout << "ERROR 2" << endl;
+        }
+        else
+        {
+            this->modele->setFromDocument(doc);
+        }
+
+        n->setText(data);
+        file.close();
+
+        emit log("Opened file (XML) " + currentFile, QColor("gray"));
     }
-
-    n->setText(data);
-    file.close();
-
-    emit log("Opened file (XML) " + currentFile, QColor("gray"));
 }
 
 void XmlFileManager::openDTD(NotePad *n)
@@ -58,14 +61,16 @@ void XmlFileManager::openDTD(NotePad *n)
 
     if (!file.open(QIODevice::ReadOnly))
     {
-        // TODO Faire un critical
-        cout<< "ERROR 1"<< endl;
+        emit log("Linked Schema not found : " + currentDTD, QColor("red"));
     }
-    QString data(file.readAll());
-    n->setDtd(data);
-    file.close();
+    else
+    {
+        QString data(file.readAll());
+        n->setDtd(data);
+        file.close();
 
-    emit log("Opened file (DTD) " + currentDTD, QColor("gray"));
+        emit log("Opened file (DTD) " + currentDTD, QColor("gray"));
+    }
 }
 
 void XmlFileManager::saveFile(NotePad *n)
@@ -112,9 +117,23 @@ void XmlFileManager::setCurrentFile(QString file)
     }
 }
 
+void XmlFileManager::setCurrentSchema(QString xsd, NotePad *n)
+{
+    cout << "url : " << xsd.toStdString() << endl;
+    currentDTD = xsd;
+    openDTD(n);
+}
+
 QString XmlFileManager::getCurrentFile() const
 {
     return (isDtdActive?currentDTD:currentFile);
+}
+
+QString XmlFileManager::getCurrentFilePath() const
+{
+    QStringList l = currentFile.split("/");
+    l.removeLast();
+    return l.join("/");
 }
 
 QString XmlFileManager::getCurrentSchema() const

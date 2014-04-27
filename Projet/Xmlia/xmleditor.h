@@ -28,6 +28,7 @@ public:
     void onNodeInsert(QDomNode, QDomNode);
     void saveNodeData(QDomNode);
 
+    QString extractSchemaUrl();
     /**
       met à jour l'arbo et verifie si le xml est valide
       */
@@ -56,6 +57,7 @@ private:
     void updateNodeName(QDomNode node, QString oldName, QString newName);
 
     void addCloseMarkup();
+
 };
 
 #endif // XMLEDITOR_H

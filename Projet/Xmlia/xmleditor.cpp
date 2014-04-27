@@ -13,9 +13,6 @@ XmlEditor::XmlEditor() : TextEditor::TextEditor(new TextHighLighter(0))
     connect(text, SIGNAL(textChanged()), this, SLOT(onTextChange()));
 }
 
-
-
-
 void XmlEditor::addDtd()
 {
     QString toAppend = QString("<").append("!").append("DOCTYPE /!aue!\ SYSTEM ").append(XmlFileManager::getFileManager()->getCurrentFileName()).append(">");
@@ -277,6 +274,7 @@ void XmlEditor::onRefreshRequest()
     QXmlStreamReader xml(text->toPlainText());
     hasError = false;
 
+
     while(!xml.atEnd())
     {
         xml.readNext();
@@ -292,7 +290,7 @@ void XmlEditor::onRefreshRequest()
         emit log("Syntaxe XML valide", QColor("green"));
 
         QXmlSchema schema;
-        schema.load(QString("file://").append(XmlFileManager::getFileManager()->getCurrentSchema()));
+        schema.load(QString("file://").append(extractSchemaUrl()));
 
         if (schema.isValid())
         {
@@ -483,6 +481,24 @@ void XmlEditor::addCloseMarkup()
         }
         pos--;
     }
+}
+
+QString XmlEditor::extractSchemaUrl()
+{
+    QString s(text->toPlainText());
+    QStringList l(s.split("xsi:noNamespaceSchemaLocation=\""));
+    if(l.size() > 1)
+    {
+        s = l.at(1).split("\"").at(0);
+        return XmlFileManager::getFileManager()->getCurrentFilePath().append("/").append(s);
+    }
+
+    l = s.split("xsi:SchemaLocation=\"");
+    if(l.size() > 1)
+    {
+        emit log("Cannot process http requests yet, XML will not be checked", QColor("orange"));
+    }
+    return "";
 }
 
 bool XmlEditor::eventFilter(QObject *o, QEvent *e)
