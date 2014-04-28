@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'notepad.h'
 **
-** Created: Mon Apr 28 19:30:55 2014
+** Created: Mon Apr 28 21:24:29 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -117,26 +117,26 @@ static const uint qt_meta_data_NotePad[] = {
       44,   42,    8,    8, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      64,   42,    8,    8, 0x0a,
-      99,    8,    8,    8, 0x0a,
-     131,  122,    8,    8, 0x0a,
-     163,    8,    8,    8, 0x0a,
-     192,    8,    8,    8, 0x0a,
-     211,   42,    8,    8, 0x08,
-     233,    8,    8,    8, 0x08,
-     244,   42,    8,    8, 0x08,
+      68,   64,    8,    8, 0x0a,
+     105,  103,    8,    8, 0x0a,
+     137,  128,    8,    8, 0x0a,
+     169,  103,    8,    8, 0x0a,
+     198,    8,    8,    8, 0x0a,
+     223,   42,    8,    8, 0x08,
+     245,    8,    8,    8, 0x08,
+     256,   42,    8,    8, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_NotePad[] = {
     "NotePad\0\0update()\0s,c\0log(QString,QColor)\0"
-    ",\0cursorInfo(int,int)\0"
-    "onNodeNameUpdate(QDomNode,QString)\0"
+    ",\0cursorInfo(int,int)\0n,s\0"
+    "onNodeNameUpdate(QDomNode,QString)\0n\0"
     "onNodeDelete(QDomNode)\0parent,n\0"
     "onNodeInsert(QDomNode,QDomNode)\0"
     "onAboutToBeRemoved(QDomNode)\0"
-    "onRefreshRequest()\0onLog(QString,QColor)\0"
+    "validateAndRefreshTree()\0onLog(QString,QColor)\0"
     "onUpdate()\0onCursorInfo(int,int)\0"
 };
 
@@ -153,7 +153,7 @@ void NotePad::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 4: _t->onNodeDelete((*reinterpret_cast< QDomNode(*)>(_a[1]))); break;
         case 5: _t->onNodeInsert((*reinterpret_cast< QDomNode(*)>(_a[1])),(*reinterpret_cast< QDomNode(*)>(_a[2]))); break;
         case 6: _t->onAboutToBeRemoved((*reinterpret_cast< QDomNode(*)>(_a[1]))); break;
-        case 7: _t->onRefreshRequest(); break;
+        case 7: _t->validateAndRefreshTree(); break;
         case 8: _t->onLog((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QColor(*)>(_a[2]))); break;
         case 9: _t->onUpdate(); break;
         case 10: _t->onCursorInfo((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;

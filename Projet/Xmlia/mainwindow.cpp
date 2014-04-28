@@ -94,7 +94,7 @@ void MainWindow::setNotePad(NotePad *notepad)
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onAboutToBeRemoved(QDomNode)), this->notepad, SLOT(onAboutToBeRemoved(QDomNode)));
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeInsert(QDomNode, QDomNode)), this->notepad, SLOT(onNodeInsert(QDomNode, QDomNode)));
     connect(refresh, SIGNAL(activated()), this, SLOT(save()));
-    connect(refresh, SIGNAL(activated()), this->notepad, SLOT(onRefreshRequest()));
+    connect(refresh, SIGNAL(activated()), this->notepad, SLOT(validateAndRefreshTree()));
 }
 
 void MainWindow::setIconBar(IconBar *iconbar)

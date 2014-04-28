@@ -53,7 +53,7 @@ void IconBar::connectIndent(QObject *o)
 
 void IconBar::connectBuild(QObject *o, QObject *o1)
 {
-    connect(build, SIGNAL(clicked()), o, SLOT(onRefreshRequest()));
+    connect(build, SIGNAL(clicked()), o, SLOT(validateAndRefreshTree()));
     connect(build, SIGNAL(clicked()), o1, SLOT(save()));
 }
 
