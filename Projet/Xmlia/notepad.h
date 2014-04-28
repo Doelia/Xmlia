@@ -82,9 +82,18 @@ private:
     DtdEditor *dtdEditor;
     CustomTabWidget *view;
 
+    bool dragndropHappened;
+    stack<int> savedPath;
+
     QString getStringFromDom() const;
 
     void updateDom();
+
+    /**
+     * @brief isPathGreater
+     * @return true if s1 is greater than s2
+     */
+    bool isPathGreater(stack<int> s1, stack<int> s2) const;
 };
 
 

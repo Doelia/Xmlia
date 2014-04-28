@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <persons>
         <person1 id="1">
-                <firstname>a</firstname>
-                <surname>a</surname>
-                <pd>auniert</pd>
-                <uris></uris>
-                <aue/>
-                <anurestuain/>
+                <anurestuain><aue><uris><pd>auniert</pd></uris></aue></anurestuain>
         </person1>
         <!--comment -->
         <person2 id="2">

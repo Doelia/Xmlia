@@ -12,6 +12,8 @@ NotePad::NotePad()
     view->setTabEnabled(1, false);
     view->disableDTD();
 
+    dragndropHappened = false;
+
     connect(xmlEditor, SIGNAL(log(QString,QColor)), this, SLOT(onLog(QString,QColor)));
     connect(xmlEditor, SIGNAL(update()), this, SLOT(onUpdate()));
     connect(xmlEditor, SIGNAL(cursorInfo(int,int)), this, SLOT(onCursorInfo(int,int)));
@@ -110,20 +112,39 @@ void NotePad::onNodeNameUpdate(QDomNode n, QString newName)
 
 void NotePad::onNodeDelete(QDomNode n)
 {
-    xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::onNodeDelete);
+    if(dragndropHappened)
+    {
+        dragndropHappened = false;
+        if(isPathGreater(savedPath, ModeleXml::pathFromRoot(n)))
+        {
+            xmlEditor->setSavedPath(savedPath);
+            xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::insertNodeText);
+            xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::onNodeDelete);
+        }
+        else
+        {
+            xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::onNodeDelete);
+            xmlEditor->setSavedPath(savedPath);
+            xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::insertNodeText);
+        }
+    }
+    else
+    {
+        xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::onNodeDelete);
+    }
     //xmlEditor->onNodeDelete(n);
 }
 
 void NotePad::onNodeInsert(QDomNode parent, QDomNode n)
 {
-    xmlEditor->onNodeInsert(parent, n);
+    dragndropHappened = true;
+    savedPath = ModeleXml::pathFromRoot(parent);
 }
 
 void NotePad::onAboutToBeRemoved(QDomNode n)
 {
-    cout << "NotePad::onAboutToBeRemoved" << endl;
-    //xmlEditor->saveNodeData(n);
     xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::saveNodeData);
+    //xmlEditor->saveNodeData(n);
 }
 
 void NotePad::onRefreshRequest()
@@ -158,6 +179,31 @@ void NotePad::updateDom()
 {
     XmlFileManager::getFileManager()->getModele()->update(xmlEditor->getText());
     emit update();
+}
+
+bool NotePad::isPathGreater(stack<int> s1, stack<int> s2) const
+{
+    if(s1.size() > s2.size())
+    {
+        return false;
+    }
+    if(s1.size() < s2.size())
+    {
+        return true;
+    }
+    while(true)
+    {
+        if(s1.top() > s2.top())
+        {
+            return true;
+        }
+        if(s1.top() < s2.top())
+        {
+            return false;
+        }
+        s1.pop();
+        s2.pop();
+    }
 }
 
 

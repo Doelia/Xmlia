@@ -23,10 +23,9 @@ public:
     void removeSchema();
 
     bool onNodeNameUpdate(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml);
-    //void onNodeDelete(QDomNode);
     bool onNodeDelete(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml);
-    void onNodeInsert(QDomNode, QDomNode);
     bool saveNodeData(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml);
+    bool insertNodeText(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml);
 
     void parseDom(QDomNode &target, QString oldName, QString newName, bool (XmlEditor::*function)
                   (int *nbFound, int *begin, int *end, QTextCursor *c, QString oldname, QString newname, QXmlStreamReader *xml));
@@ -37,6 +36,8 @@ public:
       */
     bool onRefreshRequest();
 
+    void setSavedPath(stack<int> path);
+
 private slots:
     void onTextChange();
 
@@ -44,11 +45,9 @@ signals:
     void update();
 
 private:
-    bool dragnDropHappened;
     QString savedNodeData;
     stack<int> savedPath;
 
-    void insertNodeText();
 
     bool eventFilter(QObject *o, QEvent *e);
     bool insertCharacterForKeyFiltering(const QString str);
