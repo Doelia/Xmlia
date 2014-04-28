@@ -18,19 +18,45 @@ class TextHighLighter : public QSyntaxHighlighter
 public:
     TextHighLighter(QTextDocument* doc);
     void highlightBlock(const QString &text);
-    
-    void incrementTabNumber();
-    void decrementTabNumber();
-    int getTabNumber() const;
-    void clearTabNumber();
 
     void setDocument(QTextDocument *doc);
 
     void setTextColor(int last, int current, QColor c);
 
+    /**
+     * @brief cComment
+     * @param last
+     * @param text
+     * @param i
+     * @return true si un commentaire a ete colore
+     */
     bool cComment(int *last, const QString &text, int i);
+
+    /**
+     * @brief cQuote
+     * @param last
+     * @param text
+     * @param i
+     * @return true si un texte entre quote a ete colore
+     */
     bool cQuote(int *last, const QString &text, int i);
+
+    /**
+     * @brief cTag
+     * @param last
+     * @param text
+     * @param i
+     * @return true si une balise a ete coloree
+     */
     bool cTag(int *last, const QString &text, int i);
+
+    /**
+     * @brief cInTagAttr
+     * @param last
+     * @param text
+     * @param i
+     * @return true si un attribut a ete colore
+     */
     bool cInTagAttr(int *last, const QString &text, int i);
 
 signals:

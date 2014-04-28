@@ -37,9 +37,27 @@ class TextEditor : public QWidget
     Q_OBJECT
 public:
     TextEditor(QSyntaxHighlighter *s);
+    /**
+     * @brief indent indente le texte
+     */
     void indent();
+
+    /**
+     * @brief setText set le texte du document de s
+     * @param s
+     */
     void setText(QString s);
+
+    /**
+     * @brief getText
+     * @return le texte du document
+     */
     QString getText() const;
+
+    /**
+     * @brief getView
+     * @return le widget de vue pour l'affichage
+     */
     QWidget* getView() const;
 
 signals:
@@ -62,13 +80,30 @@ protected:
     QCompleter *completer;
     bool antiRecursion;
 
+    /**
+     * @brief textUnderCursor
+     * @return le mot sous le curseur pour l'autocompletion
+     */
     QString textUnderCursor() const;
+
+    /**
+     * @brief insertCompletion
+     * @return true si la completion a ete inseree
+     */
     bool insertCompletion();
+
+    /**
+     * @brief removeCompletion efface la completion courante
+     */
     void removeCompletion();
 
     /**
-      indente le texte sélectionné par l'utilisateur (entre upperBound et lowerBound)
-      */
+     * @brief indentLineWithBounds indent le texte entre upperBound et lowerBound
+     * @param list
+     * @param line
+     * @param upperBound
+     * @param lowerBound
+     */
     void indentLineWithBounds(QStringList *list, int line, int upperBound, int lowerBound);
 
     /**

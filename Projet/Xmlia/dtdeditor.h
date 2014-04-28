@@ -8,6 +8,11 @@ class DtdEditor  : public TextEditor
 public:
     DtdEditor();
     bool eventFilter(QObject *o, QEvent *e);
+
+    /**
+     * @brief genSchema genere le schema xsd en fonction des elements
+     * deja presents dans le fichier xml
+     */
     void genSchema(QList<QString>);
 };
 

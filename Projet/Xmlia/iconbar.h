@@ -11,6 +11,9 @@ class IconBar : public QWidget
 public:
     explicit IconBar(QWidget *parent = 0);
 
+    /*
+     * connecte les boutons à l'action correspondante
+     */
     void connectOpen(QObject*);
     void connectSave(QObject*);
     void connectSaveAs(QObject*);
@@ -30,6 +33,11 @@ private:
 
     QHBoxLayout *layout;
 
+    /**
+     * @brief createButton cree un bouton avec pour image path
+     * @param path
+     * @return
+     */
     QPushButton *createButton(QString path) const;
 };
 
