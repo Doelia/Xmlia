@@ -17,6 +17,7 @@ void XmlEditor::addDtd()
 {
     //TODO  enlever l'ancien lien
 
+    this->removeSchema();
     if(extractSchemaUrl().size() == 0)
     {
         QXmlStreamReader xml(text->toPlainText());
@@ -39,6 +40,15 @@ void XmlEditor::addDtd()
             xml.readNext();
         }
     }
+}
+
+void XmlEditor::removeSchema()
+{
+    QString s(text->toPlainText());
+    QRegExp r("\n*xmlns:xsi.*=\".*\.xsd\"\n*");
+    s.remove(r);
+    //s.remove(XmlFileManager::getFileManager()->getSchemaName().append("\""));
+    text->setText(s);
 }
 
 void XmlEditor::onNodeNameUpdate(QDomNode n, QString newName)
@@ -290,7 +300,7 @@ while(!xml.atEnd())
 }
 
 
-void XmlEditor::onRefreshRequest()
+bool XmlEditor::onRefreshRequest()
 {
     //emit un signal si le xml est valide
     resetLinesNumber();
@@ -322,6 +332,7 @@ void XmlEditor::onRefreshRequest()
         if(url.size() > 1)
         {
             XmlFileManager::getFileManager()->setCurrentSchema(url);
+            XmlFileManager::getFileManager()->openDTD();
             schema.load(QString("file://").append(url));
             if (schema.isValid())
             {
@@ -332,9 +343,10 @@ void XmlEditor::onRefreshRequest()
                 if (validator.validate(this->getText().toUtf8(), QUrl(XmlFileManager::getFileManager()->getCurrentSchema())))
                 {
                     emit log("Semantique XML valide", QColor("green"));
-                    return;
+                    return true;
                 }
             }
+            return true;
         }
         emit log("Schema XSD invalide, est-il manquant ou invalide ?", QColor("orange"));
     }
@@ -343,6 +355,7 @@ void XmlEditor::onRefreshRequest()
         emit error(xml.lineNumber() - 1);
         emit log("Erreur ligne " + QString::number(xml.lineNumber()) + " : " + xml.errorString(), QColor("red"));
     }
+    return false;
 }
 
 void XmlEditor::updateNodeName(QDomNode n, QString oldName, QString newName)

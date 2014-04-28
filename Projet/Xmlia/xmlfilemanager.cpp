@@ -37,6 +37,7 @@ void XmlFileManager::openXML()
     }
     else
     {
+        emit log("Opened file (XML) " + currentFile, QColor("gray"));
         QString data(file.readAll());
 
         if (!doc->setContent(data, &error, &errorLine, &errorColumn))
@@ -52,7 +53,6 @@ void XmlFileManager::openXML()
         notepad->setText(data);
         file.close();
 
-        emit log("Opened file (XML) " + currentFile, QColor("gray"));
     }
 }
 
