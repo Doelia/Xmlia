@@ -7,7 +7,9 @@ XmlEditor::XmlEditor() : TextEditor::TextEditor(new TextHighLighter(0))
     tabNumber = 0;
     hasError = false;
     text->installEventFilter(this);
-    completer = new QCompleter();
+    QStringList l;
+    l << "xml" << "root";
+    completer = new QCompleter(l);
     text->setText("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<root>\n</root>");
 
     connect(text, SIGNAL(textChanged()), this, SLOT(onTextChange()));
