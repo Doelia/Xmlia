@@ -14,12 +14,12 @@ DtdEditor::DtdEditor() : TextEditor::TextEditor(new TextHighLighter(0))
 
 bool DtdEditor::eventFilter(QObject *o, QEvent *e)
 {
-    emit cursorInfo(text->textCursor().block().blockNumber(), text->textCursor().positionInBlock());
 
     QKeyEvent *keyEvent = static_cast<QKeyEvent*>(e);
 
     if (e->type() == QEvent::KeyPress)
     {
+        emit cursorInfo(text->textCursor().block().blockNumber(), text->textCursor().positionInBlock());
         if (keyEvent->key() == Qt::Key_Return || keyEvent->key() == Qt::Key_Enter || keyEvent->key() == Qt::Key_Right || keyEvent->key() == Qt::Key_Tab)
         {
             cout << textUnderCursor().toStdString() << endl;
@@ -33,6 +33,10 @@ bool DtdEditor::eventFilter(QObject *o, QEvent *e)
                 removeCompletion();
             }
         }
+    }
+    else if (e->type() == 199)
+    {
+        emit cursorInfo(text->textCursor().block().blockNumber(), text->textCursor().positionInBlock());
     }
     return false;
 }
