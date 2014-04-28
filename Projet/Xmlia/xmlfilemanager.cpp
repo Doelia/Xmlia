@@ -18,7 +18,6 @@ void XmlFileManager::openFile()
     }
 }
 
-
 void XmlFileManager::openXML()
 {
     QDomDocument *doc = new QDomDocument("");

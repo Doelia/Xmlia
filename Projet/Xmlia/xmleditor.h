@@ -50,6 +50,12 @@ private:
     bool insertCharacterForKeyFiltering(const QString str);
     void updateDom();
 
+    void parseDom(QDomNode target, QString newName, void (XmlEditor::*function)() const);
+
+    int goToNodeStart(int, QString);
+    bool cmpVectors(vector<int>, vector<int>);
+    void moveCursorToLineAndColumn(QTextCursor* c, int line, int column, bool keepAnchor);
+
     /**
       remplace oldName par newName dans le document
       */
