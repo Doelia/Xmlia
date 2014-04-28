@@ -386,11 +386,13 @@ QString XmlEditor::extractSchemaUrl()
 
 bool XmlEditor::eventFilter(QObject *o, QEvent *e)
 {
-    emit cursorInfo(text->textCursor().block().blockNumber(), text->textCursor().positionInBlock());
     QKeyEvent *keyEvent = static_cast<QKeyEvent*>(e);
+
+    cout << e->type() << endl;
 
     if (e->type() == QEvent::KeyPress)
     {
+        emit cursorInfo(text->textCursor().block().blockNumber(), text->textCursor().positionInBlock());
         if (keyEvent->key() == Qt::Key_Return || keyEvent->key() == Qt::Key_Enter)
         {
             return insertCharacterForKeyFiltering("\n");
@@ -409,6 +411,11 @@ bool XmlEditor::eventFilter(QObject *o, QEvent *e)
         {
             //currentNode();
         }
+    }
+
+    else if(e->type() == 199)
+    {
+        emit cursorInfo(text->textCursor().block().blockNumber(), text->textCursor().positionInBlock());
     }
     return false;
 }

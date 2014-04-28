@@ -167,6 +167,7 @@ void NotePad::onUpdate()
 
 void NotePad::onCursorInfo(int line, int column)
 {
+    cout << "test " << endl;
     emit cursorInfo(line, column);
 }
 
