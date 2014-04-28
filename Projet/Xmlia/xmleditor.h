@@ -8,8 +8,6 @@
 #include <stack>
 #include <QtXmlPatterns/QXmlSchemaValidator>
 #include <QtXmlPatterns/QXmlSchema>
-#include <QMutex>
-#include <QWaitCondition>
 
 using namespace std;
 

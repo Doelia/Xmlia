@@ -43,7 +43,7 @@ void IconBar::connectSave(QObject * o)
 
 void IconBar::connectSaveAs(QObject * o)
 {
-    connect(saveAs, SIGNAL(clicked()), o, SLOT(saveAs()));
+    connect(saveAs, SIGNAL(clicked()), o, SLOT(saveXmlAs()));
 }
 
 void IconBar::connectIndent(QObject *o)
@@ -51,9 +51,10 @@ void IconBar::connectIndent(QObject *o)
     connect(indent, SIGNAL(clicked()), o, SLOT(indent()));
 }
 
-void IconBar::connectBuild(QObject *o)
+void IconBar::connectBuild(QObject *o, QObject *o1)
 {
     connect(build, SIGNAL(clicked()), o, SLOT(onRefreshRequest()));
+    connect(build, SIGNAL(clicked()), o1, SLOT(save()));
 }
 
 QPushButton *IconBar::createButton(QString name) const

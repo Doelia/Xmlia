@@ -24,13 +24,14 @@ public:
     CustomTabWidget();
     void disableDTD();
     void enableDTD();
+    bool isDtdEnabled() const;
 private slots:
     void onShiftTabHit();
     void onTabHit();
     void onToggle();
     void onTabChanged();
 private:
-    bool isDtdEnabled;
+    bool dtdEnabled;
 };
 
 class NotePad : public QWidget
@@ -45,6 +46,9 @@ public:
     QString getXml() const;
     QString getSchema() const;
     bool hasSchema() const;
+    void genSchema();
+    void disableSchema();
+    bool isDtdEnabled() const;
 
     //QTextEdit *getTextEdit() const;
 

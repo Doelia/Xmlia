@@ -8,8 +8,8 @@ NotePad::NotePad()
     this->view = new CustomTabWidget();
 
     view->addTab(xmlEditor->getView(), "Xml");
-    view->addTab(dtdEditor->getView(), "");
-
+    view->addTab(dtdEditor->getView(), "Schema");
+    view->setTabEnabled(1, false);
     view->disableDTD();
 
     connect(xmlEditor, SIGNAL(log(QString,QColor)), this, SLOT(onLog(QString,QColor)));
@@ -42,7 +42,6 @@ void NotePad::setDtd(QString s)
 {
     dtdEditor->setText(s);
     view->enableDTD();
-    xmlEditor->addDtd();
 }
 
 QString NotePad::getXml() const
@@ -61,6 +60,31 @@ QString NotePad::getSchema() const
 bool NotePad::hasSchema() const
 {
     return (dtdEditor->getText().size() > 1);
+}
+
+void NotePad::genSchema()
+{
+    QHash <QString, int> h;
+    QXmlStreamReader xml(xmlEditor->getText());
+
+    while(!xml.atEnd())
+    {
+        h.insert(xml.name().toString(), 0);
+        xml.readNext();
+    }
+    xmlEditor->addDtd();
+    dtdEditor->genSchema(h.keys());
+    view->enableDTD();
+}
+
+void NotePad::disableSchema()
+{
+    view->disableDTD();
+}
+
+bool NotePad::isDtdEnabled() const
+{
+    return view->isDtdEnabled();
 }
 
 QWidget *NotePad::getView() const
@@ -123,7 +147,7 @@ void NotePad::updateDom()
 
 CustomTabWidget::CustomTabWidget() : QTabWidget::QTabWidget()
 {
-    isDtdEnabled = false;
+    dtdEnabled = false;
     new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Tab), this, SLOT(onTabHit()));
     new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Tab), this, SLOT(onShiftTabHit()));
     new QShortcut(QKeySequence(Qt::Key_F4), this, SLOT(onToggle()));
@@ -132,21 +156,24 @@ CustomTabWidget::CustomTabWidget() : QTabWidget::QTabWidget()
 
 void CustomTabWidget::disableDTD()
 {
-    isDtdEnabled = false;
-    this->setTabIcon(1, QIcon::fromTheme("document-open"));
-    this->setTabText(1, "Ajouter une DTD");
+    dtdEnabled = false;
+    setTabEnabled(1, false);
 }
 
 void CustomTabWidget::enableDTD()
 {
-    isDtdEnabled = true;
-    this->setTabIcon(1, QIcon(""));
-    this->setTabText(1, "DTD");
+    dtdEnabled = true;
+    setTabEnabled(1, true);
+}
+
+bool CustomTabWidget::isDtdEnabled() const
+{
+    return dtdEnabled;
 }
 
 void CustomTabWidget::onTabHit()
 {
-    if(isDtdEnabled)
+    if(dtdEnabled)
     {
         this->setCurrentIndex(1);
     }
@@ -161,7 +188,7 @@ void CustomTabWidget::onToggle()
 {
     if(currentIndex() == 0)
     {
-        if(isDtdEnabled)
+        if(dtdEnabled)
         {
             this->setCurrentIndex(1);
         }

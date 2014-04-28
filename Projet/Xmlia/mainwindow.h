@@ -42,8 +42,13 @@ private slots:
     /*** Barre de menu **/
     void quit();
     void open();
+    void openSchema();
+    void genSchema();
+    void deleteSchema();
+
     void save();
-    void saveAs();
+    void saveXmlAs();
+    void saveSchemaAs();
     void indent();
 
 public slots:
@@ -61,8 +66,12 @@ private:
 
     QMenu* fileMenu;
     QMenu* editMenu;
+    QMenu* schemaMenu;
 
     QAction* openAction;
+    QAction* openSchemaAction;
+    QAction* genSchemaAction;
+    QAction* deleteSchemaAction;
     QAction* saveAction;
     QAction* exitAction;
     QAction* textChangedAction;

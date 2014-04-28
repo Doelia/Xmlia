@@ -4,7 +4,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
     resize(800, 600);
     //
-    openAction = new QAction(tr("&Open"), this);
+    openAction = new QAction(tr("&Open XML file"), this);
+    openSchemaAction = new QAction(tr("&Load schema file"), this);
+    genSchemaAction = new QAction(tr("&Generate schema file"), this);
+    deleteSchemaAction = new QAction(tr("&Delete schema"), this);
+    indentAction = new QAction(tr("&Indent"), this);
     saveAction = new QAction(tr("&Save"), this);
     exitAction = new QAction(tr("E&xit"), this);
 
@@ -14,7 +18,19 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     fileMenu->addSeparator();
     fileMenu->addAction(exitAction);
 
+    editMenu = menuBar()->addMenu(tr("&Edit"));
+    editMenu->addAction(indentAction);
+
+    schemaMenu = menuBar()->addMenu(tr("&Schema"));
+    schemaMenu->addAction(openSchemaAction);
+    schemaMenu->addAction(genSchemaAction);
+    schemaMenu->addAction(deleteSchemaAction);
+
     connect(openAction, SIGNAL(triggered()), this, SLOT(open()));
+    connect(openSchemaAction, SIGNAL(triggered()), this, SLOT(openSchema()));
+    connect(genSchemaAction, SIGNAL(triggered()), this, SLOT(genSchema()));
+    connect(deleteSchemaAction, SIGNAL(triggered()), this, SLOT(deleteSchema()));
+
     connect(saveAction, SIGNAL(triggered()), this, SLOT(save()));
     connect(exitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
 
@@ -37,7 +53,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
     new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_O), this, SLOT(open()));
     new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_S), this, SLOT(save()));
-    new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_S), this, SLOT(saveAs()));
+    new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_S), this, SLOT(saveXmlAs()));
 }
 
 void MainWindow::setArbo(Arbo* arbo)
@@ -62,13 +78,9 @@ void MainWindow::setNotePad(NotePad *notepad)
     this->notepad = notepad;
     vLayout->addWidget(notepad->getView(), 4);
 
-    indentAction = new QAction(tr("&Indent"), this);
 
     connect(indentAction, SIGNAL(triggered()), this, SLOT(indent()));
     new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_I), this, SLOT(indent()));
-
-    editMenu = menuBar()->addMenu(tr("&Edit"));
-    editMenu->addAction(indentAction);
 
     QShortcut *refresh = new QShortcut(this);
     refresh->setKey(QKeySequence(Qt::CTRL + Qt::Key_R));
@@ -81,6 +93,7 @@ void MainWindow::setNotePad(NotePad *notepad)
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeDelete(QDomNode)), this->notepad, SLOT(onNodeDelete(QDomNode)));
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onAboutToBeRemoved(QDomNode)), this->notepad, SLOT(onAboutToBeRemoved(QDomNode)));
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeInsert(QDomNode, QDomNode)), this->notepad, SLOT(onNodeInsert(QDomNode, QDomNode)));
+    connect(refresh, SIGNAL(activated()), this, SLOT(save()));
     connect(refresh, SIGNAL(activated()), this->notepad, SLOT(onRefreshRequest()));
 }
 
@@ -95,7 +108,7 @@ void MainWindow::setIconBar(IconBar *iconbar)
     this->iconbar->connectSave(this);
     this->iconbar->connectSaveAs(this);
     this->iconbar->connectIndent(this);
-    this->iconbar->connectBuild(this->notepad);
+    this->iconbar->connectBuild(this->notepad, this);
 }
 
 void MainWindow::setLogger(Logger *logger)
@@ -132,31 +145,63 @@ void MainWindow::quit()
 void MainWindow::open()
 {
     QString currentFile = QFileDialog::getOpenFileName(this, tr("Open File"), "",
-                                                       tr("Xml Files (*.x*);;All Files (*.*)"));
+                                                       tr("Xml Files (*.xml)"));
 
     if(currentFile != "")
     {
         XmlFileManager::getFileManager()->setCurrentFile(currentFile);
-        XmlFileManager::getFileManager()->openFile();
-
-        //this->notepad->setText(XmlFileManager::getFileManager()->getModele()->domToString());
+        XmlFileManager::getFileManager()->openXML();
         this->arbo->updateView();
     }
 
 }
+
+void MainWindow::openSchema()
+{
+    QString currentFile = QFileDialog::getOpenFileName(this, tr("Open File"), "",
+                                                       tr("Xsd Files (*.xsd)"));
+
+    if(currentFile != "")
+    {
+        XmlFileManager::getFileManager()->setCurrentSchema(currentFile);
+        XmlFileManager::getFileManager()->openDTD();
+    }
+}
+
+void MainWindow::genSchema()
+{
+    XmlFileManager::getFileManager()->genSchema();
+}
+
+void MainWindow::deleteSchema()
+{
+}
+
 void MainWindow::save()
 {
     if(XmlFileManager::getFileManager()->getCurrentFile() != "")
     {
-        XmlFileManager::getFileManager()->saveFile();
+        XmlFileManager::getFileManager()->saveXml();
     }
     else
     {
-        saveAs();
+        saveXmlAs();
+    }
+
+    if(notepad->isDtdEnabled())
+    {
+        if(XmlFileManager::getFileManager()->getCurrentFile() != "")
+        {
+            XmlFileManager::getFileManager()->saveSchema();
+        }
+        else
+        {
+            saveSchemaAs();
+        }
     }
 }
 
-void MainWindow::saveAs()
+void MainWindow::saveXmlAs()
 {
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "",
                                                     tr("Xml Files (*.xml)"));
@@ -164,6 +209,18 @@ void MainWindow::saveAs()
     if (fileName != "")
     {
         XmlFileManager::getFileManager()->setCurrentFile(fileName);
+        save();
+    }
+}
+
+void MainWindow::saveSchemaAs()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "",
+                                                    tr("Xml Files (*.xml)"));
+
+    if (fileName != "")
+    {
+        XmlFileManager::getFileManager()->setCurrentSchema(fileName);
         save();
     }
 }

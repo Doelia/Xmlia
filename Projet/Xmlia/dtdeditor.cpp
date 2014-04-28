@@ -36,3 +36,19 @@ bool DtdEditor::eventFilter(QObject *o, QEvent *e)
     }
     return false;
 }
+
+void DtdEditor::genSchema(QList<QString> l)
+{
+    text->setText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
+    text->append("<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">");
+    l.removeFirst();
+
+    for(QString s : l)
+    {
+        QString toAppend("<xs:element name=\"");
+        toAppend.append(s).append("\"/>");
+        text->append(toAppend);
+    }
+    text->append("</xs:schema>");
+    indent();
+}

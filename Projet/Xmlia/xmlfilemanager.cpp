@@ -23,6 +23,7 @@ void XmlFileManager::openXML()
 {
     QDomDocument *doc = new QDomDocument("");
 
+    notepad->disableSchema();
     QString error;
     int errorLine;
     int errorColumn;
@@ -76,9 +77,18 @@ void XmlFileManager::openDTD()
     }
 }
 
-void XmlFileManager::saveFile()
+void XmlFileManager::genSchema()
 {
-    QFile file((isDtdActive?currentDTD:currentFile));
+    QString fileName(getCurrentFileName().split(".").first());
+    currentDTD = getCurrentFilePath().append("/").append(fileName).append(".xsd");
+    cout << "current dtd : " << currentDTD.toStdString() << endl;
+    notepad->genSchema();
+    saveSchema();
+}
+
+void XmlFileManager::saveFile(QString f, bool isDtd)
+{
+    QFile file(f);
     if (!file.open(QIODevice::WriteOnly))
     {
         // error message
@@ -86,15 +96,25 @@ void XmlFileManager::saveFile()
     else
     {
         QTextStream stream(&file);
-        if(isDtdActive) {
+        if(isDtd) {
             stream << notepad->getSchema();
         } else {
             stream << notepad->getXml();
         }
         stream.flush();
         file.close();
-        emit log("Saved file under " + (isDtdActive?currentDTD:currentFile), QColor("gray"));
+        emit log("Saved file under " + f, QColor("gray"));
     }
+}
+
+void XmlFileManager::saveSchema()
+{
+    saveFile(currentDTD, true);
+}
+
+void XmlFileManager::saveXml()
+{
+    saveFile(currentFile, false);
 }
 
 ModeleXml *XmlFileManager::getModele() const
@@ -110,14 +130,7 @@ XmlFileManager *XmlFileManager::getFileManager()
 
 void XmlFileManager::setCurrentFile(QString file)
 {
-    if(isDtdActive)
-    {
-        this->currentDTD = file;
-    }
-    else
-    {
-        this->currentFile = file;
-    }
+    this->currentFile = file;
 }
 
 void XmlFileManager::setCurrentSchema(QString xsd)

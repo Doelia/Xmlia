@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Mon Apr 28 09:59:16 2014
+** Created: Mon Apr 28 13:02:33 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -37,15 +37,21 @@ static const uint qt_meta_data_MainWindow[] = {
       36,   11,   11,   11, 0x08,
       43,   11,   11,   11, 0x08,
       50,   11,   11,   11, 0x08,
-      57,   11,   11,   11, 0x08,
-      66,   11,   11,   11, 0x08,
+      63,   11,   11,   11, 0x08,
+      75,   11,   11,   11, 0x08,
+      90,   11,   11,   11, 0x08,
+      97,   11,   11,   11, 0x08,
+     109,   11,   11,   11, 0x08,
+     124,   11,   11,   11, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_MainWindow[] = {
     "MainWindow\0\0s,c\0log(QString,QColor)\0"
-    "quit()\0open()\0save()\0saveAs()\0indent()\0"
+    "quit()\0open()\0openSchema()\0genSchema()\0"
+    "deleteSchema()\0save()\0saveXmlAs()\0"
+    "saveSchemaAs()\0indent()\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -57,9 +63,13 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->log((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QColor(*)>(_a[2]))); break;
         case 1: _t->quit(); break;
         case 2: _t->open(); break;
-        case 3: _t->save(); break;
-        case 4: _t->saveAs(); break;
-        case 5: _t->indent(); break;
+        case 3: _t->openSchema(); break;
+        case 4: _t->genSchema(); break;
+        case 5: _t->deleteSchema(); break;
+        case 6: _t->save(); break;
+        case 7: _t->saveXmlAs(); break;
+        case 8: _t->saveSchemaAs(); break;
+        case 9: _t->indent(); break;
         default: ;
         }
     }
@@ -97,9 +107,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 10;
     }
     return _id;
 }

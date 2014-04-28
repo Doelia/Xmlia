@@ -8,6 +8,7 @@ class DtdEditor  : public TextEditor
 public:
     DtdEditor();
     bool eventFilter(QObject *o, QEvent *e);
+    void genSchema(QList<QString>);
 };
 
 #endif // DTDEDITOR_H

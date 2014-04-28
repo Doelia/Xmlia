@@ -15,7 +15,7 @@ public:
     void connectSave(QObject*);
     void connectSaveAs(QObject*);
     void connectIndent(QObject*);
-    void connectBuild(QObject*);
+    void connectBuild(QObject*, QObject*);
     
 signals:
     

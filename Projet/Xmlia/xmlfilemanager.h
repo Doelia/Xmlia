@@ -38,16 +38,22 @@ public:
     /**
         Enregistre le modèle dans un fichier .xml
     */
-    void saveFile();
+    void saveFile(QString file, bool isDtd);
+
+    void saveSchema();
+    void saveXml();
 
     /**
         Construit le modèle à partir d'un fichier
     */
     void openFile();
-
     void openXML();
     void openDTD();
 
+    /**
+      genere et sauvegarde un schema xsd du meme nom que le fichier xml ouvert
+      */
+    void genSchema();
 
     ModeleXml *getModele() const;
     static XmlFileManager *getFileManager();
