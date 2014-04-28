@@ -1,0 +1,61 @@
+\chapter{Organisation du projet}
+
+  \section{Organisation du travail}
+
+    \subsection{Réunions de travail}
+Une réunion hebdomadaire était tenue tous les mardis, d'abord à 13h15, rapidement décalée à 11h20. Certaines réunions exceptionnelles ont pû être rajoutées le jeudi.
+
+    \subsection{Répartition des tâches}
+Les tâches étaient assignées au dévouement ou, si certaines tâches n'étaient pas assignées et que des personnes ne s'étaient pas dévouées, par l'encadrant.
+
+    \subsection{Planification du développement}
+On peut analyser la méthode de développement utilisée de la manière suivante :
+\begin{itemize}
+	\item analyse globale du problème~;
+	\item analyse des structures de données nécessaires à la résolution du problème~;
+	\item implémentation des structures et de leurs fonctions associées~;
+	\item analyse en profondeur du problème et écriture des algorithmes nécessaires à sa résolution~;
+	\item implémentation des algorithmes en s'appuyant sur les structures déjà implémentées~;
+	\item construction de l'application finale à partir des briques logicielles implémentées.
+\end{itemize}
+
+    \subsection{Élection d’un chef de projet}
+Aucun chef de projet n'a été élu, les décisions ont été prises lors des réunions, où tout le monde pouvait faire des propositions qui étaient alors débattues.
+Le groupe de travail était suffisamment restreint pour qu'un tel système fonctionne.
+
+    \subsection{Gestion du groupe d’étudiants}
+La gestion du groupe s'est faite par courriel, lors des réunions et lors de rencontres hors du cadre du projet.
+Elle s'est avérée compliquée et de nombreux problèmes de communication et tout particulièrement de non comunication et d'absentéisme sont apparus et ont retardé le projet.
+
+  \section{Choix des outils de développement}
+
+    \subsection{Choix du langage}
+Le langage initialement proposé par notre encadrant était le C. Ce langage étant le mieux connu de toute l'équipe, il avait alors un avantage subjectif mais réel.
+
+Il s'avère que le C répondait en outre assez bien aux besoins du projet, qui n'a nécessité que des structures de données assez simples.
+
+La question posée a été celle de la version du langage à utiliser : C89 ou C99 ?
+Au final le C89 a été choisi, afin de forcer l'équipe à utiliser un langage plus strict.
+
+    \subsection{Choix de l'éditeur}
+Le C étant un langage permettant un choix extrêmement souple d'éditeurs, il a été décidé de ne pas associer le projet à un éditeur particulier et de favoriser l'utilisation d'outils simples.
+Ainsi le choix d'un simple éditeur de texte et d'un émulateur de terminal a été fait par la majorité, sinon la totalité, des membres de l'équipe.
+
+    \subsection{Choix du compilateur}
+GCC est le compilateur C utilisé par tous à la faculté, de plus certains membres de l'équipe sont attachés aux outils GNU, ainsi son choix a été fait sans se poser de questions particulières.
+
+Le choix a été fait sur le tard d'en activer les options \verb|--ansi| et \verb|--pedantic| pour plus de rigueur dans le code.
+
+    \subsection{Choix du débogueur}
+Pour des raisons similaires à celles du choix du compilateur, GDB a été choisi pour nos besoins de déboguage.
+
+    \subsection{Choix du gestionnaire de projet et du gestionnaire de versions}
+Le service informatique de la faculté a mis à disposition des étudiants et professeurs un service d'hébergement et de gestion de projet utilisant GitLab aux alentours du démarrage du projet.
+Il a rapidement été décidé de l'adopter, ainsi Git a été choisi comme gestionnaire de version car c'est celui utilisé par GitLab.
+
+    \subsection{Choix des outils d'analyse}
+Aucun outil d'analyse n'a été utilisé.
+
+    \subsection{Choix des outils de documentation}
+Concernant la documentation du code, Doxygen a été proposé par notre encadrant et a été accepté par les membres de l'équipe.
+Quant au rapport, le choix de \LaTeX a été fait car il permet de modulariser et de simplifier le travail à plusieurs sur un document par rapport à des outils de traitement de texte plus classiques utilisant un format de fichier binaire et monolithique.
