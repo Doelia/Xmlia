@@ -104,12 +104,14 @@ QWidget *NotePad::getView() const
 
 void NotePad::onNodeNameUpdate(QDomNode n, QString newName)
 {
-    xmlEditor->onNodeNameUpdate(n, newName);
+    xmlEditor->parseDom(n, n.nodeName(), QString(newName), &XmlEditor::onNodeNameUpdate);
+    //xmlEditor->onNodeNameUpdate(n, newName);
 }
 
 void NotePad::onNodeDelete(QDomNode n)
 {
-    xmlEditor->onNodeDelete(n);
+    xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::onNodeDelete);
+    //xmlEditor->onNodeDelete(n);
 }
 
 void NotePad::onNodeInsert(QDomNode parent, QDomNode n)
@@ -120,7 +122,8 @@ void NotePad::onNodeInsert(QDomNode parent, QDomNode n)
 void NotePad::onAboutToBeRemoved(QDomNode n)
 {
     cout << "NotePad::onAboutToBeRemoved" << endl;
-    xmlEditor->saveNodeData(n);
+    //xmlEditor->saveNodeData(n);
+    xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::saveNodeData);
 }
 
 void NotePad::onRefreshRequest()

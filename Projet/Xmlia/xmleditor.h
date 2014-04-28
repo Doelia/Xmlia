@@ -22,10 +22,14 @@ public:
     void addDtd();
     void removeSchema();
 
-    void onNodeNameUpdate(QDomNode, QString);
-    void onNodeDelete(QDomNode);
+    bool onNodeNameUpdate(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml);
+    //void onNodeDelete(QDomNode);
+    bool onNodeDelete(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml);
     void onNodeInsert(QDomNode, QDomNode);
-    void saveNodeData(QDomNode);
+    bool saveNodeData(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml);
+
+    void parseDom(QDomNode &target, QString oldName, QString newName, bool (XmlEditor::*function)
+                  (int *nbFound, int *begin, int *end, QTextCursor *c, QString oldname, QString newname, QXmlStreamReader *xml));
 
     QString extractSchemaUrl();
     /**
@@ -50,16 +54,10 @@ private:
     bool insertCharacterForKeyFiltering(const QString str);
     void updateDom();
 
-    void parseDom(QDomNode target, QString newName, void (XmlEditor::*function)() const);
 
     int goToNodeStart(int, QString);
     bool cmpVectors(vector<int>, vector<int>);
     void moveCursorToLineAndColumn(QTextCursor* c, int line, int column, bool keepAnchor);
-
-    /**
-      remplace oldName par newName dans le document
-      */
-    void updateNodeName(QDomNode node, QString oldName, QString newName);
 
     void addCloseMarkup();
 
