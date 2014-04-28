@@ -45,9 +45,7 @@ void XmlEditor::addDtd()
 void XmlEditor::removeSchema()
 {
     QString s(text->toPlainText());
-    s.remove("xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"");
-    QRegExp r("xsi:noNamespaceSchemaLocation=\".*\.xsd\"");
-    cout << "to remove : " << s.split(r).at(0).toStdString() << endl;
+    QRegExp r("\n*xmlns:xsi.*=\".*\.xsd\"\n*");
     s.remove(r);
     //s.remove(XmlFileManager::getFileManager()->getSchemaName().append("\""));
     text->setText(s);
