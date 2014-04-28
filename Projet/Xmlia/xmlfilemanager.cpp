@@ -165,6 +165,16 @@ QString XmlFileManager::getCurrentFileName() const
     return file;
 }
 
+QString XmlFileManager::getSchemaName() const
+{
+    return currentDTD.split("/").back();
+}
+
+QString XmlFileManager::getXmlName() const
+{
+    return currentFile.split("/").back();
+}
+
 void XmlFileManager::setActiveTab(bool isDtd)
 {
     isDtdActive = isDtd;

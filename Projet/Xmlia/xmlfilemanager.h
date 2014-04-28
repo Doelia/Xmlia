@@ -90,6 +90,9 @@ public:
       */
     QString getCurrentFileName() const;
 
+    QString getSchemaName() const;
+    QString getXmlName() const;
+
     /**
       set l'onglet actif
       0 : editeur xml

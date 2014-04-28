@@ -30,7 +30,7 @@ void XmlEditor::addDtd()
                 c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, xml.lineNumber()-1);
                 c.setPosition(c.position() + xml.columnNumber() - 1);
                 QString link("\nxmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\nxsi:noNamespaceSchemaLocation=\"");
-                link.append(XmlFileManager::getFileManager()->getCurrentFileName()).append("\"");
+                link.append(XmlFileManager::getFileManager()->getSchemaName()).append("\"");
                 c.insertText(link);
                 text->setTextCursor(c);
                 emit log(QString("Linked xml file to : "+ XmlFileManager::getFileManager()->getCurrentFileName()), QColor("black"));

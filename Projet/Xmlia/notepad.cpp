@@ -35,7 +35,6 @@ void NotePad::setText(QString s)
 {
     xmlEditor->setText(s);
     xmlEditor->onRefreshRequest();
-    //XmlFileManager::getFileManager()->setCurrentSchema(xmlEditor->extractSchemaUrl());
 }
 
 void NotePad::setDtd(QString s)
