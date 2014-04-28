@@ -1,0 +1,33 @@
+Ajouter une tâche : ajoutez une ligne indentée sous le fichier à traiter.
+Assigner une tâche : ajouter le nom de la personne qui doit la traiter entre parenthèses après.
+
+CONSEIL LaTeX :
+N'utiliser les retours à la ligne ( \\ ) que si nécessaire.
+Il vaut mieux y préférer les débuts de nouveau paragraphe (double saut de ligne)
+
+compte-rendu.tex
+  Vérifier que tout est complet (Tous)
+  
+introduction.tex
+  Vérifier que tout est complet (Tous)
+  
+organisation-projet.tex
+  Vérifier que tout est complet (Tous)
+  
+analyse-projet.tex
+  Remplir (Ambroise)
+  
+structures.tex
+  Remplir (Chloé)
+  
+solveur.tex
+  Vérifier que tout est complet (Tous)
+
+manuel-utilisation.tex
+  Vérifier que tout est complet (Tous)
+  
+perspectives-conclusion.tex
+  Vérifier que tout est complet (Tous)
+
+annexes
+  Vérifier que tout est complet (Tous)

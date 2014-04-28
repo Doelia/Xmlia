@@ -1,0 +1,65 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1.1}{G\351n\351ralit\351s}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Le sujet}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.2.1}{Principe du Link-Pix}{section.1.2}% 4
+\BOOKMARK [2][-]{subsection.1.2.2}{Sujet}{section.1.2}% 5
+\BOOKMARK [1][-]{section.1.3}{Cahier des charges}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.3.1}{Fonctionnalit\351s}{section.1.3}% 7
+\BOOKMARK [2][-]{subsection.1.3.2}{Contraintes}{section.1.3}% 8
+\BOOKMARK [0][-]{chapter.2}{Organisation du projet}{}% 9
+\BOOKMARK [1][-]{section.2.1}{Organisation du travail}{chapter.2}% 10
+\BOOKMARK [2][-]{subsection.2.1.1}{R\351unions de travail}{section.2.1}% 11
+\BOOKMARK [2][-]{subsection.2.1.2}{R\351partition des t\342ches}{section.2.1}% 12
+\BOOKMARK [2][-]{subsection.2.1.3}{Planification du d\351veloppement}{section.2.1}% 13
+\BOOKMARK [2][-]{subsection.2.1.4}{\311lection d\220un chef de projet}{section.2.1}% 14
+\BOOKMARK [2][-]{subsection.2.1.5}{Gestion du groupe d\220\351tudiants}{section.2.1}% 15
+\BOOKMARK [1][-]{section.2.2}{Choix des outils de d\351veloppement}{chapter.2}% 16
+\BOOKMARK [2][-]{subsection.2.2.1}{Choix du langage}{section.2.2}% 17
+\BOOKMARK [2][-]{subsection.2.2.2}{Choix de l'\351diteur}{section.2.2}% 18
+\BOOKMARK [2][-]{subsection.2.2.3}{Choix du compilateur}{section.2.2}% 19
+\BOOKMARK [2][-]{subsection.2.2.4}{Choix du d\351bogueur}{section.2.2}% 20
+\BOOKMARK [2][-]{subsection.2.2.5}{Choix du gestionnaire de projet et du gestionnaire de versions}{section.2.2}% 21
+\BOOKMARK [2][-]{subsection.2.2.6}{Choix des outils d'analyse}{section.2.2}% 22
+\BOOKMARK [2][-]{subsection.2.2.7}{Choix des outils de documentation}{section.2.2}% 23
+\BOOKMARK [0][-]{chapter.3}{Analyse du projet}{}% 24
+\BOOKMARK [1][-]{section.3.1}{Calcul des couples d'indices }{chapter.3}% 25
+\BOOKMARK [2][-]{subsection.3.1.1}{Calcul des ensembles de voisins}{section.3.1}% 26
+\BOOKMARK [2][-]{subsection.3.1.2}{Formation des couples}{section.3.1}% 27
+\BOOKMARK [2][-]{subsection.3.1.3}{Test de l'existence d'un chemin entre deux cases}{section.3.1}% 28
+\BOOKMARK [1][-]{section.3.2}{Calcul du chemin entre un couple d'indices}{chapter.3}% 29
+\BOOKMARK [1][-]{section.3.3}{Encha\356nement des traitements}{chapter.3}% 30
+\BOOKMARK [0][-]{chapter.4}{D\351finition des structures}{}% 31
+\BOOKMARK [1][-]{section.4.1}{Les structures}{chapter.4}% 32
+\BOOKMARK [2][-]{subsection.4.1.1}{Les listes chain\351es}{section.4.1}% 33
+\BOOKMARK [2][-]{subsection.4.1.2}{Un tableau de voisins}{section.4.1}% 34
+\BOOKMARK [0][-]{chapter.5}{R\351solution du puzzle Link-Pix}{}% 35
+\BOOKMARK [1][-]{section.5.1}{De sous-probl\350me en sous-probl\350me}{chapter.5}% 36
+\BOOKMARK [2][-]{subsection.5.1.1}{Modification des voisins}{section.5.1}% 37
+\BOOKMARK [2][-]{subsection.5.1.2}{Existence d'un chemin}{section.5.1}% 38
+\BOOKMARK [2][-]{subsection.5.1.3}{Construction du d\351but d'un chemin}{section.5.1}% 39
+\BOOKMARK [1][-]{section.5.2}{Solveur}{chapter.5}% 40
+\BOOKMARK [2][-]{subsection.5.2.1}{Boucle principale}{section.5.2}% 41
+\BOOKMARK [2][-]{subsection.5.2.2}{Tamisage}{section.5.2}% 42
+\BOOKMARK [2][-]{subsection.5.2.3}{Construction}{section.5.2}% 43
+\BOOKMARK [0][-]{chapter.6}{Manuel d\220utilisation}{}% 44
+\BOOKMARK [1][-]{section.6.1}{Compilation du programme}{chapter.6}% 45
+\BOOKMARK [1][-]{section.6.2}{D\351marrage du programme}{chapter.6}% 46
+\BOOKMARK [1][-]{section.6.3}{Ouverture d'un puzzle}{chapter.6}% 47
+\BOOKMARK [1][-]{section.6.4}{R\351solution du puzzle}{chapter.6}% 48
+\BOOKMARK [2][-]{subsection.6.4.1}{Fonctionnalit\351s de l'interface graphique}{section.6.4}% 49
+\BOOKMARK [2][-]{subsection.6.4.2}{L\351gende des couleurs}{section.6.4}% 50
+\BOOKMARK [0][-]{chapter.7}{Perspectives et conclusions}{}% 51
+\BOOKMARK [1][-]{section.7.1}{Perspectives}{chapter.7}% 52
+\BOOKMARK [1][-]{section.7.2}{Conclusions}{chapter.7}% 53
+\BOOKMARK [2][-]{subsection.7.2.1}{Fonctionnement de l\220application}{section.7.2}% 54
+\BOOKMARK [3][-]{subsubsection.7.2.1.1}{G\351n\351ralit\351s}{subsection.7.2.1}% 55
+\BOOKMARK [3][-]{subsubsection.7.2.1.2}{Choix des outils}{subsection.7.2.1}% 56
+\BOOKMARK [2][-]{subsection.7.2.2}{Fonctionnement du groupe de travail}{section.7.2}% 57
+\BOOKMARK [0][-]{appendix.A}{Documents d\220analyse}{}% 58
+\BOOKMARK [0][-]{appendix.B}{Manuel d\220utilisation}{}% 59
+\BOOKMARK [1][-]{section.B.1}{Compilation du programme}{appendix.B}% 60
+\BOOKMARK [1][-]{section.B.2}{D\351marrage du programme}{appendix.B}% 61
+\BOOKMARK [1][-]{section.B.3}{Ouverture d'un puzzle}{appendix.B}% 62
+\BOOKMARK [1][-]{section.B.4}{R\351solution du puzzle}{appendix.B}% 63
+\BOOKMARK [2][-]{subsection.B.4.1}{Fonctionnalit\351s de l'interface graphique}{section.B.4}% 64
+\BOOKMARK [2][-]{subsection.B.4.2}{L\351gende des couleurs}{section.B.4}% 65
