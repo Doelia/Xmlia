@@ -76,9 +76,20 @@ void NotePad::genSchema()
     view->enableDTD();
 }
 
+void NotePad::loadSchema()
+{
+    xmlEditor->addDtd();
+}
+
 void NotePad::disableSchema()
 {
     view->disableDTD();
+}
+
+void NotePad::deleteSchema()
+{
+    view->disableDTD();
+    xmlEditor->removeSchema();
 }
 
 bool NotePad::isDtdEnabled() const
@@ -114,7 +125,10 @@ void NotePad::onAboutToBeRemoved(QDomNode n)
 
 void NotePad::onRefreshRequest()
 {
-    xmlEditor->onRefreshRequest();
+    if(xmlEditor->onRefreshRequest())
+    {
+        view->enableDTD();
+    }
 }
 
 void NotePad::onLog(QString s, QColor c)

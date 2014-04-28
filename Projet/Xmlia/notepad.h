@@ -47,7 +47,9 @@ public:
     QString getSchema() const;
     bool hasSchema() const;
     void genSchema();
+    void loadSchema();
     void disableSchema();
+    void deleteSchema();
     bool isDtdEnabled() const;
 
     //QTextEdit *getTextEdit() const;

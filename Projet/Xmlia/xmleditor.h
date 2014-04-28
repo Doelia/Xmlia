@@ -20,6 +20,7 @@ public:
     XmlEditor();
 
     void addDtd();
+    void removeSchema();
 
     void onNodeNameUpdate(QDomNode, QString);
     void onNodeDelete(QDomNode);
@@ -30,7 +31,7 @@ public:
     /**
       met à jour l'arbo et verifie si le xml est valide
       */
-    void onRefreshRequest();
+    bool onRefreshRequest();
 
 private slots:
     void onTextChange();

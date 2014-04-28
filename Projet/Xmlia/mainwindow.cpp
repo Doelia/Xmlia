@@ -165,6 +165,7 @@ void MainWindow::openSchema()
     {
         XmlFileManager::getFileManager()->setCurrentSchema(currentFile);
         XmlFileManager::getFileManager()->openDTD();
+        notepad->loadSchema();
     }
 }
 
@@ -176,6 +177,8 @@ void MainWindow::genSchema()
 
 void MainWindow::deleteSchema()
 {
+    notepad->deleteSchema();
+    XmlFileManager::getFileManager()->setCurrentSchema("");
 }
 
 void MainWindow::save()
