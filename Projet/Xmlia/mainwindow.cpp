@@ -170,6 +170,7 @@ void MainWindow::openSchema()
 
 void MainWindow::genSchema()
 {
+    save();
     XmlFileManager::getFileManager()->genSchema();
 }
 
@@ -190,7 +191,7 @@ void MainWindow::save()
 
     if(notepad->isDtdEnabled())
     {
-        if(XmlFileManager::getFileManager()->getCurrentFile() != "")
+        if(XmlFileManager::getFileManager()->getCurrentSchema() != "")
         {
             XmlFileManager::getFileManager()->saveSchema();
         }
