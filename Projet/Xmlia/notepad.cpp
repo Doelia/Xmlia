@@ -34,7 +34,8 @@ void NotePad::indent()
 void NotePad::setText(QString s)
 {
     xmlEditor->setText(s);
-    XmlFileManager::getFileManager()->setCurrentSchema(xmlEditor->extractSchemaUrl(), this);
+    xmlEditor->onRefreshRequest();
+    //XmlFileManager::getFileManager()->setCurrentSchema(xmlEditor->extractSchemaUrl());
 }
 
 void NotePad::setDtd(QString s)
@@ -55,6 +56,11 @@ QString NotePad::getXml() const
 QString NotePad::getSchema() const
 {
     return dtdEditor->getText();
+}
+
+bool NotePad::hasSchema() const
+{
+    return (dtdEditor->getText().size() > 1);
 }
 
 QWidget *NotePad::getView() const

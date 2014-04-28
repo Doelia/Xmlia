@@ -44,6 +44,7 @@ public:
     void setDtd(QString s);
     QString getXml() const;
     QString getSchema() const;
+    bool hasSchema() const;
 
     //QTextEdit *getTextEdit() const;
 

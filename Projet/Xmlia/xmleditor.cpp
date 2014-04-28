@@ -15,8 +15,8 @@ XmlEditor::XmlEditor() : TextEditor::TextEditor(new TextHighLighter(0))
 
 void XmlEditor::addDtd()
 {
-    QString toAppend = QString("<").append("!").append("DOCTYPE /!aue!\ SYSTEM ").append(XmlFileManager::getFileManager()->getCurrentFileName()).append(">");
-    text->document()->setPlainText(text->toPlainText().append(toAppend));
+    //QString toAppend = QString("<").append("!").append("DOCTYPE /!aue!\ SYSTEM ").append(XmlFileManager::getFileManager()->getCurrentFileName()).append(">");
+    //text->document()->setPlainText(text->toPlainText().append(toAppend));
 }
 
 void XmlEditor::onNodeNameUpdate(QDomNode n, QString newName)
@@ -290,22 +290,30 @@ void XmlEditor::onRefreshRequest()
         emit log("Syntaxe XML valide", QColor("green"));
 
         QXmlSchema schema;
-        schema.load(QString("file://").append(extractSchemaUrl()));
+        QString url(extractSchemaUrl());
 
-        if (schema.isValid())
+
+        cout << "url extracted : " << url.toStdString() << endl;
+
+        //si le xml contient une url valide vers un schema
+        if(url.size() > 1)
         {
-            emit log("Schema XSD valide", QColor("green"));
-            QXmlSchemaValidator validator(schema);
-            validator.setMessageHandler(mh);
-            if (validator.validate(this->getText().toUtf8(), QUrl(XmlFileManager::getFileManager()->getCurrentSchema())))
+            XmlFileManager::getFileManager()->setCurrentSchema(url);
+            schema.load(QString("file://").append(url));
+            if (schema.isValid())
             {
-                emit log("Semantique XML valide", QColor("green"));
+                cout << "schema valide" << endl;
+                emit log("Schema XSD valide", QColor("green"));
+                QXmlSchemaValidator validator(schema);
+                validator.setMessageHandler(mh);
+                if (validator.validate(this->getText().toUtf8(), QUrl(XmlFileManager::getFileManager()->getCurrentSchema())))
+                {
+                    emit log("Semantique XML valide", QColor("green"));
+                    return;
+                }
             }
         }
-        else
-        {
-            emit log("Schema XSD invalide, est-il manquant ou invalide ?", QColor("orange"));
-        }
+        emit log("Schema XSD invalide, est-il manquant ou invalide ?", QColor("orange"));
     }
     else
     {

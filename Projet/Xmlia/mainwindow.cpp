@@ -73,6 +73,8 @@ void MainWindow::setNotePad(NotePad *notepad)
     QShortcut *refresh = new QShortcut(this);
     refresh->setKey(QKeySequence(Qt::CTRL + Qt::Key_R));
 
+    XmlFileManager::getFileManager()->setNotePad(notepad);
+
     // Signaux
     connect(this->notepad, SIGNAL(update()), arbo, SLOT(updateView())); // Provisoire
     connect(XmlFileManager::getFileManager()->getModele(), SIGNAL(onNodeNameUpdate(QDomNode, QString)), this->notepad, SLOT(onNodeNameUpdate(QDomNode, QString)));
@@ -135,7 +137,7 @@ void MainWindow::open()
     if(currentFile != "")
     {
         XmlFileManager::getFileManager()->setCurrentFile(currentFile);
-        XmlFileManager::getFileManager()->openFile(notepad);
+        XmlFileManager::getFileManager()->openFile();
 
         //this->notepad->setText(XmlFileManager::getFileManager()->getModele()->domToString());
         this->arbo->updateView();
@@ -146,7 +148,7 @@ void MainWindow::save()
 {
     if(XmlFileManager::getFileManager()->getCurrentFile() != "")
     {
-        XmlFileManager::getFileManager()->saveFile(notepad);
+        XmlFileManager::getFileManager()->saveFile();
     }
     else
     {

@@ -25,6 +25,7 @@ class XmlFileManager : public QObject
 private:
     XmlFileManager();
     ModeleXml *modele;
+    NotePad *notepad;
 
     QString currentFile;
     QString currentDTD;
@@ -37,15 +38,15 @@ public:
     /**
         Enregistre le modèle dans un fichier .xml
     */
-    void saveFile(NotePad *n);
+    void saveFile();
 
     /**
         Construit le modèle à partir d'un fichier
     */
-    void openFile(NotePad *n);
+    void openFile();
 
-    void openXML(NotePad *n);
-    void openDTD(NotePad *n);
+    void openXML();
+    void openDTD();
 
 
     ModeleXml *getModele() const;
@@ -57,9 +58,9 @@ public:
     void setCurrentFile(QString file);
 
     /**
-      set le ficher courant
+      set le schema courant et notifie les editeurs de texte
       */
-    void setCurrentSchema(QString xsd, NotePad *n);
+    void setCurrentSchema(QString xsd);
 
     /**
       @return le nom complet avec le chemin du ficher courant
@@ -83,7 +84,14 @@ public:
       */
     QString getCurrentFileName() const;
 
+    /**
+      set l'onglet actif
+      0 : editeur xml
+      1 : editeur schema
+      */
     void setActiveTab(bool isDtd);
+
+    void setNotePad(NotePad *notepad);
 };
 
 

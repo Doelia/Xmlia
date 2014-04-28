@@ -6,20 +6,20 @@ XmlFileManager::XmlFileManager()
     isDtdActive = false;
 }
 
-void XmlFileManager::openFile(NotePad *n)
+void XmlFileManager::openFile()
 {
     if(isDtdActive)
     {
-        openDTD(n);
+        openDTD();
     }
     else
     {
-        openXML(n);
+        openXML();
     }
 }
 
 
-void XmlFileManager::openXML(NotePad *n)
+void XmlFileManager::openXML()
 {
     QDomDocument *doc = new QDomDocument("");
 
@@ -48,32 +48,35 @@ void XmlFileManager::openXML(NotePad *n)
             this->modele->setFromDocument(doc);
         }
 
-        n->setText(data);
+        notepad->setText(data);
         file.close();
 
         emit log("Opened file (XML) " + currentFile, QColor("gray"));
     }
 }
 
-void XmlFileManager::openDTD(NotePad *n)
+void XmlFileManager::openDTD()
 {
-    QFile file(currentDTD);
-
-    if (!file.open(QIODevice::ReadOnly))
+    if(currentDTD.size() > 1)
     {
-        emit log("Linked Schema not found : " + currentDTD, QColor("red"));
-    }
-    else
-    {
-        QString data(file.readAll());
-        n->setDtd(data);
-        file.close();
+        QFile file(currentDTD);
 
-        emit log("Opened file (DTD) " + currentDTD, QColor("gray"));
+        if (!file.open(QIODevice::ReadOnly))
+        {
+            emit log("Linked Schema not found : " + currentDTD, QColor("red"));
+        }
+        else
+        {
+            QString data(file.readAll());
+            notepad->setDtd(data);
+            file.close();
+
+            emit log("Opened file (DTD) " + currentDTD, QColor("gray"));
+        }
     }
 }
 
-void XmlFileManager::saveFile(NotePad *n)
+void XmlFileManager::saveFile()
 {
     QFile file((isDtdActive?currentDTD:currentFile));
     if (!file.open(QIODevice::WriteOnly))
@@ -84,9 +87,9 @@ void XmlFileManager::saveFile(NotePad *n)
     {
         QTextStream stream(&file);
         if(isDtdActive) {
-            stream << n->getSchema();
+            stream << notepad->getSchema();
         } else {
-            stream << n->getXml();
+            stream << notepad->getXml();
         }
         stream.flush();
         file.close();
@@ -117,11 +120,13 @@ void XmlFileManager::setCurrentFile(QString file)
     }
 }
 
-void XmlFileManager::setCurrentSchema(QString xsd, NotePad *n)
+void XmlFileManager::setCurrentSchema(QString xsd)
 {
-    cout << "url : " << xsd.toStdString() << endl;
     currentDTD = xsd;
-    openDTD(n);
+    if(!notepad->hasSchema())
+    {
+        openDTD();
+    }
 }
 
 QString XmlFileManager::getCurrentFile() const
@@ -150,4 +155,9 @@ QString XmlFileManager::getCurrentFileName() const
 void XmlFileManager::setActiveTab(bool isDtd)
 {
     isDtdActive = isDtd;
+}
+
+void XmlFileManager::setNotePad(NotePad *notepad)
+{
+    this->notepad = notepad;
 }
