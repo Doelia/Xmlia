@@ -1,0 +1,10 @@
+\select@language {french}
+\contentsline {chapter}{\numberline {1}Introduction}{3}
+\contentsline {chapter}{\numberline {2}Organisation du projet}{4}
+\contentsline {section}{\numberline {2.1}Organisation du travail}{4}
+\contentsline {subsection}{\numberline {2.1.1}Commmunication}{4}
+\contentsline {subsection}{\numberline {2.1.2}R\IeC {\'e}partition des t\IeC {\^a}ches}{4}
+\contentsline {section}{\numberline {2.2}Outils de d\IeC {\'e}veloppement}{4}
+\contentsline {subsection}{\numberline {2.2.1}Langage et librarie}{4}
+\contentsline {subsection}{\numberline {2.2.2}IDE}{4}
+\contentsline {subsection}{\numberline {2.2.3}Gestionnaire de projet}{4}
