@@ -36,7 +36,7 @@ void NotePad::indent()
 void NotePad::setText(QString s)
 {
     xmlEditor->setText(s);
-    xmlEditor->onRefreshRequest();
+    xmlEditor->validateAndRefreshTree();
 }
 
 void NotePad::setDtd(QString s)
@@ -106,7 +106,7 @@ QWidget *NotePad::getView() const
 
 void NotePad::onNodeNameUpdate(QDomNode n, QString newName)
 {
-    xmlEditor->parseDom(n, n.nodeName(), QString(newName), &XmlEditor::onNodeNameUpdate);
+    xmlEditor->parseDom(n, n.nodeName(), QString(newName), &XmlEditor::updateNodeName);
     //xmlEditor->onNodeNameUpdate(n, newName);
 }
 
@@ -119,18 +119,18 @@ void NotePad::onNodeDelete(QDomNode n)
         {
             xmlEditor->setSavedPath(savedPath);
             xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::insertNodeText);
-            xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::onNodeDelete);
+            xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::deleteNode);
         }
         else
         {
-            xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::onNodeDelete);
+            xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::deleteNode);
             xmlEditor->setSavedPath(savedPath);
             xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::insertNodeText);
         }
     }
     else
     {
-        xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::onNodeDelete);
+        xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::deleteNode);
     }
     //xmlEditor->onNodeDelete(n);
 }
@@ -147,9 +147,9 @@ void NotePad::onAboutToBeRemoved(QDomNode n)
     //xmlEditor->saveNodeData(n);
 }
 
-void NotePad::onRefreshRequest()
+void NotePad::validateAndRefreshTree()
 {
-    if(xmlEditor->onRefreshRequest())
+    if(xmlEditor->validateAndRefreshTree())
     {
         view->enableDTD();
     }

@@ -25,29 +25,6 @@ void TextHighLighter::highlightBlock(const QString &text)
     }
 }
 
-void TextHighLighter::incrementTabNumber()
-{
-    tabNumber++;
-}
-
-void TextHighLighter::decrementTabNumber()
-{
-    if(tabNumber > 0)
-    {
-        tabNumber--;
-    }
-}
-
-int TextHighLighter::getTabNumber() const
-{
-    return tabNumber;
-}
-
-void TextHighLighter::clearTabNumber()
-{
-    tabNumber = 0;
-}
-
 void TextHighLighter::setTextColor(int last, int current, QColor c)
 {
     setFormat(last, current - last, c);

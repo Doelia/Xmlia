@@ -46,7 +46,7 @@ void XmlEditor::removeSchema()
     text->setText(s);
 }
 
-bool XmlEditor::onNodeNameUpdate(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml)
+bool XmlEditor::updateNodeName(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml)
 {
     if(*nbFound == 0)
     {
@@ -85,7 +85,7 @@ bool XmlEditor::onNodeNameUpdate(int *nbFound, int *begin, int *end, QTextCursor
     return false;
 }
 
-bool XmlEditor::onNodeDelete(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml)
+bool XmlEditor::deleteNode(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml)
 {
     if(*nbFound == 0)
     {
@@ -145,7 +145,7 @@ bool XmlEditor::saveNodeData(int *nbFound, int *begin, int *end, QTextCursor *c,
 }
 
 
-bool XmlEditor::onRefreshRequest()
+bool XmlEditor::validateAndRefreshTree()
 {
     //emit un signal si le xml est valide
     resetLinesNumber();
