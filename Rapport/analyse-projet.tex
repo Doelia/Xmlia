@@ -1,8 +1,25 @@
 \chapter{Analyse du projet}
 	\section{Contexte}
+	De nos jours, le langage Extensible Markup Language ou XML est utilisé à des fins de stockage de données dont la forme est complexe (par exemple, un arbre). Ces données peuvent alors être organisées ou non selon un schéma qui va définir le format des données contenues dans le fichier XML.
+	
+	Généralement, les fichiers XML sont soit générés par un programme quelconque, dans le but d'être lus par un autre programme, XML faisant office de plateforme commune. Mais le plus souvent ce sont des éditeurs de texte basiques qui sont utilisés pour créer de toute pièce un document XML, avec des fonctionnalités propre à un éditeur de texte, sans fonctionnalités spécialement prévues pour XML.
+	
+	C'est dans ce contexte que des solutions logicielles d'éditeur XML ont vu le jour : un éditeur de texte qui possède des fonctionnalités permettant une écriture d'un fichier XML beaucoup plus rapide et efficace, le tout avec un contrôle des erreurs. Plusieurs solutions sont déjà proposées, certaines étant payantes (OxygenXML) et d'autres sont gratuites et open source (Xerlin). L'objectif est ici de fournir une solution similaire aux autres logiciels.
 	
 	\section{Analyse des besoins fonctionnels}
+	L'objectif du projet est de développer un éditeur XML multi-vues avec différentes fonctionnalités.
+	
+	Les fonctionnalités liées à un éditeur de texte simple devront être présentes : la possibilité de saisir manuellement au clavier l'intégralité du fichier, la création et la sauvegarde du fichier à manipuler ainsi que l'ouverture d'un fichier déjà existant dans le but de le modifier.
+	
+	Des fonctionnalités d'éditeur de texte avancées seront aussi présentes : coloration syntaxique et indentation automatique du code permettant ainsi une lisibilité claire des fichiers manipulés et une autocomplétion du code écrit permettant un gain de temps au cours de la frappe.
+
+	Pour finir, l'éditeur proposera des fonctionnalités spécifiques au langage XML : validation syntaxique du fichier, vue arborescente du fichier XML avec possibilité de modification des données via cette vue et ajout d'un schéma sur lequel la validation se basera.
+	
+	TODO : FAIRE UN SCHEMA D'INTERFACE
 	
 	\section{Analyse des besoins non fonctionnels}
 		\subsection{Spécifications techniques}
+		Le programme devra permettre de créer des fichiers XML structurés avec un respect des normes de balisage et, s'il est défini, du schéma de données. De plus, les données saisies ou modifiées à l'aide de l'éditeur doivent rester exploitables, sans corruption possible du fichier original. Pour terminer, l'éditeur aura à répondre dans des durées acceptables et de manière stable, dans la mesure où la taille et la complexité des données restent raisonnables.
+		
 		\subsection{Contraintes ergonomiques}
+		En termes d'ergonomie, l'utilisateur, dans la mesure où il connaît déjà le principe de XML et de son système de balisage, devra pouvoir prendre en main le logiciel en de brefs délais, avec un un système d'icônes clair et des textes explicatifs, dans la mesure où il est en possession du manuel d'utilisation. De plus, un utilisateur avancé saura augmenter sa productivité en utilisant les raccourcis clavier disponibles, et ainsi gagner du temps au niveau de la transition souris/clavier, qui n'aurait donc plus lieu d'être.
