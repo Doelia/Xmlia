@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.21)  22 MAY 2014 12:10
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.21)  22 MAY 2014 12:16
 entering extended mode
 **main.tex
 (D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\main.tex
@@ -566,17 +566,16 @@ Chapitre 1.
 Chapitre 2.
 [4
 
-]) (D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\rapport-technique.tex
-[5]
+]) (D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\rapport-activite.tex [5]
 Chapitre 3.
-) (D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\rapport-activite.tex [6
+) (D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\rapport-technique.tex [6
 
 ]
+[7]
 Chapitre 4.
-) (D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\manuel-utilisation.tex [7
+) (D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\manuel-utilisation.tex [8
 
 ]
-[8]
 Chapitre 5.
 ) (D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\conclusion.tex [9
 
@@ -603,9 +602,9 @@ n\ec\dpi600\ecrm1095.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
 r\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts
 \pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\Beny\AppData\Local\MiKTeX\
 2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk>
-Output written on main.pdf (12 pages, 114440 bytes).
+Output written on main.pdf (12 pages, 114169 bytes).
 PDF statistics:
- 343 PDF objects out of 1000 (max. 8388607)
+ 342 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
