@@ -3,13 +3,12 @@
 DtdEditor::DtdEditor() : TextEditor::TextEditor(new TextHighLighter(0))
 {
     this->text->installEventFilter(this);
-    QStringList l;
-    l << "element" << "attribute" << "schema"
+    wordsForCompletion << "element" << "attribute" << "schema"
       << "complexType" << "sequence" << "name"
       << "string" << "positiveInteger" << "decimal"
       << "minOccurs" << "maxOccurs" << "unbounded"
       << "required" << "version" << "encoding";
-    completer = new QCompleter(l);
+    completer = new QCompleter(wordsForCompletion);
 }
 
 bool DtdEditor::eventFilter(QObject *o, QEvent *e)
@@ -20,7 +19,7 @@ bool DtdEditor::eventFilter(QObject *o, QEvent *e)
     if (e->type() == QEvent::KeyPress)
     {
         emit cursorInfo(text->textCursor().block().blockNumber(), text->textCursor().positionInBlock());
-        if (keyEvent->key() == Qt::Key_Return || keyEvent->key() == Qt::Key_Enter || keyEvent->key() == Qt::Key_Right || keyEvent->key() == Qt::Key_Tab)
+        if (keyEvent->key() == Qt::Key_Right || keyEvent->key() == Qt::Key_Tab)
         {
             cout << textUnderCursor().toStdString() << endl;
 
@@ -29,6 +28,10 @@ bool DtdEditor::eventFilter(QObject *o, QEvent *e)
         else
         {
             if(keyEvent->key() == Qt::Key_Backspace)
+            {
+                removeCompletion();
+            }
+            if(keyEvent->key() == Qt::Key_Enter || keyEvent->key() == Qt::Key_Return)
             {
                 removeCompletion();
             }

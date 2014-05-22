@@ -4,7 +4,7 @@
 #include <QVBoxLayout>
 #include <QDirModel>
 #include <QTreeView>
-#include <QFile>
+#include <QFile> 
 #include <QDomDocument>
 #include <QStandardItemModel>
 

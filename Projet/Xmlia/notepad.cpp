@@ -117,12 +117,14 @@ void NotePad::onNodeDelete(QDomNode n)
         dragndropHappened = false;
         if(isPathGreater(savedPath, ModeleXml::pathFromRoot(n)))
         {
+            //cout << "is greater" << endl;
             xmlEditor->setSavedPath(savedPath);
             xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::insertNodeText);
             xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::deleteNode);
         }
         else
         {
+            cout << "is lower" << endl;
             xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::deleteNode);
             xmlEditor->setSavedPath(savedPath);
             xmlEditor->parseDom(n, n.nodeName(), QString(""), &XmlEditor::insertNodeText);
@@ -153,6 +155,10 @@ void NotePad::validateAndRefreshTree()
     {
         view->enableDTD();
     }
+    dtdEditor->parseEditorForWordCompletion(xmlEditor);
+    dtdEditor->parseEditorForWordCompletion(dtdEditor);
+    xmlEditor->parseEditorForWordCompletion(dtdEditor);
+    xmlEditor->parseEditorForWordCompletion(xmlEditor);
 }
 
 void NotePad::onLog(QString s, QColor c)
@@ -184,11 +190,11 @@ void NotePad::updateDom()
 
 bool NotePad::isPathGreater(stack<int> s1, stack<int> s2) const
 {
-    if(s1.size() > s2.size())
+    if(s1.size() < s2.size())
     {
         return false;
     }
-    if(s1.size() < s2.size())
+    if(s1.size() > s2.size())
     {
         return true;
     }

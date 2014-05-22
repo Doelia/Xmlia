@@ -89,6 +89,7 @@ bool XmlEditor::updateNodeName(int *nbFound, int *begin, int *end, QTextCursor *
 
 bool XmlEditor::deleteNode(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml)
 {
+    cout << "oldname : " << oldName.toStdString() << endl;
     if(*nbFound == 0)
     {
         moveCursorToLineAndColumn(c, xml->lineNumber() - 1, xml->columnNumber() - 1, true);
@@ -388,13 +389,12 @@ bool XmlEditor::eventFilter(QObject *o, QEvent *e)
 {
     QKeyEvent *keyEvent = static_cast<QKeyEvent*>(e);
 
-    cout << e->type() << endl;
-
     if (e->type() == QEvent::KeyPress)
     {
         emit cursorInfo(text->textCursor().block().blockNumber(), text->textCursor().positionInBlock());
         if (keyEvent->key() == Qt::Key_Return || keyEvent->key() == Qt::Key_Enter)
         {
+            removeCompletion();
             return insertCharacterForKeyFiltering("\n");
         }
         else if (keyEvent->key() == Qt::Key_Greater)
@@ -410,6 +410,16 @@ bool XmlEditor::eventFilter(QObject *o, QEvent *e)
         else if (keyEvent->key() == Qt::Key_Control)
         {
             //currentNode();
+        }
+        if (keyEvent->key() == Qt::Key_Right || keyEvent->key() == Qt::Key_Tab)
+        {
+            cout << textUnderCursor().toStdString() << endl;
+
+            return insertCompletion();
+        }
+        else if(keyEvent->key() == Qt::Key_Backspace)
+        {
+            removeCompletion();
         }
     }
 
