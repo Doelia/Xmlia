@@ -43,6 +43,7 @@ void NotePad::setDtd(QString s)
 {
     dtdEditor->setText(s);
     view->enableDTD();
+    addCompletion();
 }
 
 QString NotePad::getXml() const
@@ -107,7 +108,6 @@ QWidget *NotePad::getView() const
 void NotePad::onNodeNameUpdate(QDomNode n, QString newName)
 {
     xmlEditor->parseDom(n, n.nodeName(), QString(newName), &XmlEditor::updateNodeName);
-    //xmlEditor->onNodeNameUpdate(n, newName);
 }
 
 void NotePad::onNodeDelete(QDomNode n)
@@ -155,10 +155,7 @@ void NotePad::validateAndRefreshTree()
     {
         view->enableDTD();
     }
-    dtdEditor->parseEditorForWordCompletion(xmlEditor);
-    dtdEditor->parseEditorForWordCompletion(dtdEditor);
-    xmlEditor->parseEditorForWordCompletion(dtdEditor);
-    xmlEditor->parseEditorForWordCompletion(xmlEditor);
+    addCompletion();
 }
 
 void NotePad::onLog(QString s, QColor c)
@@ -188,6 +185,14 @@ void NotePad::updateDom()
     emit update();
 }
 
+void NotePad::addCompletion()
+{
+    dtdEditor->parseEditorForWordCompletion(xmlEditor);
+    dtdEditor->parseEditorForWordCompletion(dtdEditor);
+    xmlEditor->parseEditorForWordCompletion(dtdEditor);
+    xmlEditor->parseEditorForWordCompletion(xmlEditor);
+}
+
 bool NotePad::isPathGreater(stack<int> s1, stack<int> s2) const
 {
     if(s1.size() < s2.size())
@@ -212,7 +217,6 @@ bool NotePad::isPathGreater(stack<int> s1, stack<int> s2) const
         s2.pop();
     }
 }
-
 
 CustomTabWidget::CustomTabWidget() : QTabWidget::QTabWidget()
 {

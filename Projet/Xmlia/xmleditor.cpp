@@ -222,9 +222,9 @@ void XmlEditor::parseDom(QDomNode &target, QString oldName, QString newName,
                                                      int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml))
 {
     stack<int> st;
+    //si on a un chemin sauvegardé en cas de déplacement de node dans l'arbo
     if(!savedPath.empty())
     {
-        cout << "going to replace" << endl;
         st = savedPath;
         savedPath = stack<int>();
     }
@@ -260,10 +260,13 @@ void XmlEditor::parseDom(QDomNode &target, QString oldName, QString newName,
         {
             if(lastToken == QXmlStreamReader::StartElement)
             {
+                //on empile si on a deux balises ouvrantes de suite
                 path.push_back(0);
             }
             else
             {
+                //si la balise précédante n'est pas ouvrante
+                //c'est qu'on a atteint le fils suivant
                 path[path.size() - 1]++;
             }
         }
@@ -271,14 +274,19 @@ void XmlEditor::parseDom(QDomNode &target, QString oldName, QString newName,
         {
             if(lastToken == QXmlStreamReader::EndElement)
             {
+                //on dépile si c'est une balise fermante
                 path.pop_back();
             }
         }
 
         if(cmpVectors(path, nodePath))
         {
+            //si le chemin du node courant est le même que celui du sommet passé en paramètre
             if((this->*function)(&nbFound, &begin, &end, &c, oldName, newName, &xml))
             {
+                //on appelle la fonction passée en paramètre
+                //elle traitera le node avec des effets de bord
+                //on arrete le parcours de l'arbre
                 return;
             }
         }
@@ -287,6 +295,7 @@ void XmlEditor::parseDom(QDomNode &target, QString oldName, QString newName,
                 xml.tokenType() == QXmlStreamReader::EndDocument ||
                 xml.tokenType() == QXmlStreamReader::EndElement)
         {
+            //on ne s'interesse qu'aux noeuds ouvrants et fermants pour le parcours de l'arbre
             lastToken = xml.tokenType();
         }
         xml.readNext();

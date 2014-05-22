@@ -6,24 +6,24 @@
 \contentsline {section}{\numberline {2.3}Analyse des besoins non fonctionnels}{5}
 \contentsline {subsection}{\numberline {2.3.1}Sp\IeC {\'e}cifications techniques}{5}
 \contentsline {subsection}{\numberline {2.3.2}Contraintes ergonomiques}{5}
-\contentsline {chapter}{\numberline {3}Rapport technique}{6}
-\contentsline {section}{\numberline {3.1}Conception}{6}
-\contentsline {section}{\numberline {3.2}Architecture de l'application}{6}
-\contentsline {subsection}{\numberline {3.2.1}Le mod\IeC {\`e}le}{6}
-\contentsline {subsection}{\numberline {3.2.2}L'arborescence}{6}
-\contentsline {subsection}{\numberline {3.2.3}L'\IeC {\'e}diteur de texte}{6}
-\contentsline {subsubsection}{La classe TextEditor}{6}
-\contentsline {subsection}{\numberline {3.2.4}Le logger}{7}
-\contentsline {section}{\numberline {3.3}R\IeC {\'e}sultat}{7}
-\contentsline {chapter}{\numberline {4}Rapport d'activit\IeC {\'e}}{8}
-\contentsline {section}{\numberline {4.1}Organisation du travail}{8}
-\contentsline {subsection}{\numberline {4.1.1}Commmunication}{8}
-\contentsline {subsection}{\numberline {4.1.2}R\IeC {\'e}partition des t\IeC {\^a}ches}{8}
-\contentsline {section}{\numberline {4.2}Outils de d\IeC {\'e}veloppement}{8}
-\contentsline {subsection}{\numberline {4.2.1}Langage et biblioth\IeC {\`e}ques}{8}
-\contentsline {subsection}{\numberline {4.2.2}IDE}{8}
-\contentsline {subsection}{\numberline {4.2.3}Gestionnaire de projet}{9}
-\contentsline {chapter}{\numberline {5}Manuel d'utilisation}{10}
-\contentsline {chapter}{\numberline {6}Perspectives et conclusions}{11}
-\contentsline {section}{\numberline {6.1}Perspectives}{11}
-\contentsline {section}{\numberline {6.2}Conclusions}{11}
+\contentsline {chapter}{\numberline {3}Rapport d'activit\IeC {\'e}}{6}
+\contentsline {section}{\numberline {3.1}Organisation du travail}{6}
+\contentsline {subsection}{\numberline {3.1.1}Commmunication}{6}
+\contentsline {subsection}{\numberline {3.1.2}R\IeC {\'e}partition des t\IeC {\^a}ches}{6}
+\contentsline {section}{\numberline {3.2}Outils de d\IeC {\'e}veloppement}{6}
+\contentsline {subsection}{\numberline {3.2.1}Langage et biblioth\IeC {\`e}ques}{6}
+\contentsline {subsection}{\numberline {3.2.2}IDE}{6}
+\contentsline {subsection}{\numberline {3.2.3}Gestionnaire de projet}{7}
+\contentsline {chapter}{\numberline {4}Rapport technique}{9}
+\contentsline {section}{\numberline {4.1}Conception}{9}
+\contentsline {section}{\numberline {4.2}Architecture de l'application}{9}
+\contentsline {subsection}{\numberline {4.2.1}Le mod\IeC {\`e}le}{9}
+\contentsline {subsection}{\numberline {4.2.2}L'arborescence}{9}
+\contentsline {subsection}{\numberline {4.2.3}L'\IeC {\'e}diteur de texte}{9}
+\contentsline {subsubsection}{La classe TextEditor}{9}
+\contentsline {subsection}{\numberline {4.2.4}Le logger}{10}
+\contentsline {section}{\numberline {4.3}R\IeC {\'e}sultat}{10}
+\contentsline {chapter}{\numberline {5}Manuel d'utilisation}{11}
+\contentsline {chapter}{\numberline {6}Perspectives et conclusions}{12}
+\contentsline {section}{\numberline {6.1}Perspectives}{12}
+\contentsline {section}{\numberline {6.2}Conclusions}{12}

@@ -174,6 +174,8 @@ private:
 
     void updateDom();
 
+    void addCompletion();
+
     /**
      * @brief isPathGreater
      * @return true if s1 is greater than s2
