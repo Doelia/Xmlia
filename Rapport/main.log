@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.21)  22 MAY 2014 12:16
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.21)  22 MAY 2014 14:51
 entering extended mode
 **main.tex
 (D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\main.tex
@@ -502,28 +502,28 @@ Package: dirtree 2012/12/11 v0.32 package wrapper for dirtree
 File: dirtree.tex 2012/12/11 v0.32 `dirtree' (jcc)
 )
 (D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\main.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 19.
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Info: Redefining \degres on input line 18.
-LaTeX Info: Redefining \dots on input line 18.
-LaTeX Info: Redefining \up on input line 18.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Info: Redefining \degres on input line 19.
+LaTeX Info: Redefining \dots on input line 19.
+LaTeX Info: Redefining \up on input line 19.
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -540,11 +540,11 @@ LaTeX Info: Redefining \up on input line 18.
 \everyMPtoPDFconversion=\toks18
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 19.
+(Font)              <12> on input line 20.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 19.
+(Font)              <8> on input line 20.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 19.
+(Font)              <6> on input line 20.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [1] [1
@@ -568,43 +568,58 @@ Chapitre 2.
 
 ]) (D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\rapport-activite.tex [5]
 Chapitre 3.
-) (D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\rapport-technique.tex [6
+[6
 
-]
-[7]
+] <images/bitbucket-exemple-issue.png, id=35, 753.5653pt x 354.57469pt>
+File: images/bitbucket-exemple-issue.png Graphic file (type png)
+
+<use images/bitbucket-exemple-issue.png>
+Package pdftex.def Info: images/bitbucket-exemple-issue.png used on input line 
+34.
+(pdftex.def)             Requested size: 376.78172pt x 177.28691pt.
+)
+(D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\rapport-technique.tex [7] [8 <D:/B
+ordel/Rapport_Projet_2014/xmlia/Rapport/images/bitbucket-exemple-issue.png>]
 Chapitre 4.
-) (D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\manuel-utilisation.tex [8
+) (D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\manuel-utilisation.tex [9
 
 ]
 Chapitre 5.
-) (D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\conclusion.tex [9
+) (D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\conclusion.tex [10
 
 ]
 Chapitre 6.
-) [10
+) (D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\table-figures.tex [11
 
-] (D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\main.aux) ) 
+]
+(D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\main.lof)
+\tf@lof=\write4
+) [12
+
+]
+(D:\Bordel\Rapport_Projet_2014\xmlia\Rapport\main.aux) ) 
 Here is how much of TeX's memory you used:
- 2904 strings out of 493921
- 38225 string characters out of 3144879
- 90447 words of memory out of 3000000
- 6151 multiletter control sequences out of 15000+200000
- 15791 words of font info for 37 fonts, out of 3000000 for 9000
+ 2919 strings out of 493921
+ 38686 string characters out of 3144879
+ 91447 words of memory out of 3000000
+ 6156 multiletter control sequences out of 15000+200000
+ 16467 words of font info for 38 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,6n,24p,703b,191s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Beny\AppDa
-ta\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\B
-eny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C
-:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx20
-74.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi6
-00\ecbx2488.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappe
-n\ec\dpi600\ecrm1095.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
-r\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts
-\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\Beny\AppData\Local\MiKTeX\
-2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk>
-Output written on main.pdf (12 pages, 114169 bytes).
+ 27i,7n,24p,1674b,220s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\Beny\AppData
+\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1095.pk> <C:\Users\Ben
+y\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\
+Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440
+.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
+\ecbx2074.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
+ec\dpi600\ecbx2488.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\
+jknappen\ec\dpi600\ecrm1095.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\p
+k\ljfour\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.
+9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\Beny\AppData\Local\
+MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk>
+Output written on main.pdf (14 pages, 148634 bytes).
 PDF statistics:
- 342 PDF objects out of 1000 (max. 8388607)
+ 364 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
