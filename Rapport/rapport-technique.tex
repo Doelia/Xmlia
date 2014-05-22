@@ -8,12 +8,95 @@
 \subsection{L'arborescence}
 
 \subsection{L'éditeur de texte}
+L'éditeur de texte est une sous classe de QTextEdit, qui fournit toutes les fonctionnalités basiques d'une éditeur de texte riche, telles que la sélection de texte, la copie, l'annulation etc. On peut intégrer plusieurs fonctionnalités à un QTextEdit comme par exemple la coloration syntaxique. Nous parlerons dans un premier temps des fonctionnalités propres à notre éditeur de texte, puis nous verrons plus en détail chacune de ses implémentations, à savoir l'éditeur XML et l'éditeur de schéma.
+
+\paragraph{}
+Qt propose un QCompleter, il ne peut cependant pas s'intégrer et proposer l'auto-completion dans un QTextEdit. Même s'il ne s'intègre pas dans un QTextEdit, le QCompleter peut tout de même proposer une suggestion si on lui fourni un début de mot. On peut donc récupérer le mot sous le curseur, le donner au QCompleter et insérer le mot complété dans notre éditeur de texte. Cela se fait de la manière suivante :
+
+\begin{lstlisting}
+  //on donne le mot sous le curseur au QCompleter
+  completer->setCompletionPrefix(textUnderCursor());
+  //on recupere le mot propose
+  QString completion = completer->currentCompletion();
+  QString currentWord = textUnderCursor();
+
+  //si un mot est sous le curseur et qu'il n'est pas deja complete
+  if(currentWord.size() > 0 && currentWord.size() < completion.size())
+  {
+    QTextCursor cursor = text->textCursor();
+    //sauvegarde de la position actuelle du curseur
+    int pos = cursor.position();
+    //deplacement jusqu'a la fin du mot
+    while(word.indexIn(cursor.selectedText()) == 0)
+    {
+      cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor);
+    }
+    //insertion de la partie qui n'est pas deja ecrite
+    cursor.insertText(completion.right(completion.size() - currentWord.size()));
+    //le curseur est replace a sa posision originelle
+    cursor.setPosition(pos, QTextCursor::KeepAnchor);
+    text->setTextCursor(cursor);
+\end{lstlisting}
+
+Il n'est pas possible d'intégrer directement l'auto-completion, mais on peut en revanche facilement lié un colorateur syntaxique à un QTextEdit. Qt propose une classe abstraite QSyntaxHighLighter qu'il faut implémenter en y indiquand nos règles de coloration. Le QTextEdit appelle automatiquement la méthode \textit{highlightBlock} du QSyntaxHighLighter dans laquelle on aura indiqé nos règles.
+
+\begin{lstlisting}
+  void TextHighLighter::highlightBlock(const QString &text)
+  {
+    setCurrentBlockState(previousBlockState());
+    //l'ordre est important
+    //il ne faut pas appliquer de coloration a l'interieur
+    //il faut donc colorer les commentaires en premier
+    for (int i = 0; i < text.length(); ++i)
+    {
+      //colore les commentaires
+      if(cComment(last, text, i));
+      //colore le texte entre quotes
+      else if(cQuote(last, text, i));
+      //colore les attributs
+      else if(cInMarkupAttr(last, text, i));
+      //colore les balises
+      else if(cMarkup(last, text, i));
+    }
+  }
+\end{lstlisting}
+
+Voici par exemple la méthode qui permet de colorer les commentaires :
+\begin{lstlisting}
+  bool TextHighLighter::cComment(int &last, const QString &text, int i)
+  {
+    //si on se trouve deja dans un commentaire
+    if(currentBlockState() == COMMENT_STATE)
+    {
+      //si on trouve la fin du commentaire
+      if (text.mid(i, 3) == "-->")
+      {
+        //on colore entre last et la fin du commentaire
+        setTextColor(last, i + 4, Qt::gray);
+        setCurrentBlockState(DEFAULT_STATE);
+      }
+      setTextColor(last, i + 1, Qt::gray);
+      return true;
+    }
+    //si on trouve le debut d'un commentaire
+    else if (text.mid(i, 4) == "<!--")
+    {
+      //on sauvegarde la position du debut de commentaire
+      last = i;
+      //on marque que l'on est dans un commentaire
+      setCurrentBlockState(COMMENT_STATE);
+      return true;
+    }
+    return false;
+  }
+\end{lstlisting}
+
+\paragraph{}
 L'éditeur de texte est décomposé en deux parties, l'éditeur de schéma et d'éditeur XML. Ce sont en réalité des spécialisation de la classe TextEditor.
 \subsubsection{La classe TextEditor}
 C'est ici que sont toutes les méthodes servant à l'édition du texte en général, telle que l'insertion de texte, l'indentation ou la coloration.
 Nous avons fait le choix de représenter les données de l'éditeur de texte simplement par une QString, pas de référence vers la position d'un noeud ou d'information supplémentaire comme sa taille ou la délimitation de son contenu.
 Un noeud étant identifé par son chemin depuis la racine, il faut reconstruire l'arborescence XML à partir de la QString. Cela se fait à travers la classe QXmlStreamReader qui s'utilise de la manière suivante :
-\lstset{language=C++, inputencoding=utf8}
 \begin{lstlisting}
   QXmlStreamReader xml(text->toPlainText());
   while(!xml.atEnd())
@@ -28,6 +111,7 @@ Un noeud étant identifé par son chemin depuis la racine, il faut reconstruire 
     }
   }
 \end{lstlisting}
+
 On utilise une structure de pile lors de parcours de l'arborescence. On empile l'indice du sommet lorsque l'on rencontre une balise ouvrante et on dépile lorsque l'on rencontre une balise fermante.
 On parvient ainsi à se déplacer et à se repérer dans la QString.
 
@@ -65,6 +149,47 @@ Fin Tant Que
 \end{verbatim}
 
 Cette méthode de parcours de l'arbre est appelée lorsqu'un noeud est inséré, déplacé ou supprimé dans l'arborescence. Elle est utlisée de la manière suivante :
+
+\begin{lstlisting}
+  //methode appelee lorsque l'utilisateur renomme un noeud dans l'arborescence
+  //on passe en parametre un pointeur de fonction
+  xmlEditor->parseDom(n, n.nodeName(), QString(newName), &XmlEditor::updateNodeName);
+\end{lstlisting}
+
+Voici l'implémentation de l'appel de fonction dans le pseudo code du parcours de document :
+\begin{lstlisting}
+  
+  if(cmpVectors(path, nodePath))
+  {
+    //si le chemin du node courant est le meme que celui
+    //du sommet passe en parametre
+    if((this->*function)(nbFound, begin, end, c, oldName, newName, xml))
+    {
+      //on appelle la fonction passee en parametre
+      //elle traitera le node avec des effets de bord
+      //on arrete le parcours de l'arbre si la fonction retourne true
+      return;
+    }
+  }
+\end{lstlisting}
+
+Voici le prototype de la fonction \textit{parseDom} avec la fonction qu'elle prend en paramètre et les fonctions de manipulation de noeud qu'elle peut prendre en paramètre.
+
+\begin{lstlisting}
+  //parse le dom jusqu'a trouver le node target
+  void parseDom(QDomNode &target, QString oldName, QString newName, bool (XmlEditor::*function)
+  (int &nbFound, int &begin, int &end, QTextCursor &c, QString oldname, QString newname, QXmlStreamReader &xml));
+  
+  //remplace le nom de la balise oldName par newName
+  bool updateNodeName(int &nbFound, int &begin, int &end, QTextCursor &c, QString oldName, QString newName, QXmlStreamReader &xml);
+  //supprime le noeud
+  bool deleteNode(int &nbFound, int &begin, int &end, QTextCursor &c, QString oldName, QString newName, QXmlStreamReader &xml);
+  //sauvegarde les donnees du noeud dans le cas d'un deplacement
+  bool saveNodeData(int &nbFound, int &begin, int &end, QTextCursor &c, QString oldName, QString newName, QXmlStreamReader &xml);
+  //insere un noeud
+  bool insertNodeText(int &nbFound, int &begin, int &end, QTextCursor &c, QString oldName, QString newName, QXmlStreamReader &xml);
+\end{lstlisting}
+Ces fonctions manipulent le texte à travert un QTextCursor qui permet de naviguer dans un QTextEdit. Un QTextCursor permet notamment de se déplacer de mot en mot, d'aller à la fin de la ligne ou d'aller à la ligne suivante. Un outil donc indispensable dans la manipulation du texte.
 
 
 \subsection{Le logger}

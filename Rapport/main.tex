@@ -7,7 +7,22 @@
 \usepackage{vmargin}
 \usepackage{dirtree}
 \usepackage{listings}
-\usepackage{color}
+\usepackage{xcolor}
+
+\lstset{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=c++,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{purple!40!black},
+  commentstyle=\itshape\color{green!40!black},
+  identifierstyle=\color{black},
+  stringstyle=\color{blue},
+  morekeywords={QXmlStreamReader, QString, QTextCursor, QSyntaxHighLighter},
+}
 
 \title {Projet Xmlia}
 \author {

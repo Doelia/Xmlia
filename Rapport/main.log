@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.22)  22 MAY 2014 15:43
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.22)  22 MAY 2014 19:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -513,38 +513,56 @@ File: listings.cfg 2013/06/27 1.5pre1 listings configuration
 ))
 Package: listings 2013/07/10 1.5 (Carsten Heinz)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package color Info: Driver file: pdftex.def on input line 130.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
-No file main.aux.
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2013/07/10 1.5 (Carsten Heinz)
+) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 35.
+
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Info: Redefining \degres on input line 20.
-LaTeX Info: Redefining \dots on input line 20.
-LaTeX Info: Redefining \up on input line 20.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Info: Redefining \degres on input line 35.
+LaTeX Info: Redefining \dots on input line 35.
+LaTeX Info: Redefining \up on input line 35.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -609,20 +627,23 @@ e
 ))
 \c@lstlisting=\count111
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 21.
+(Font)              <12> on input line 36.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 21.
+(Font)              <8> on input line 36.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 21.
+(Font)              <6> on input line 36.
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [1] [1
 
-]
-No file main.toc.
+] (./main.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 4.
+)
 \tf@toc=\write3
 \openout3 = `main.toc'.
+
 
 (./introduction.tex [2
 
@@ -632,86 +653,84 @@ Chapitre 1.
 
 ]
 Chapitre 2.
-<images/analyse-maquette.png, id=24, 642.4pt x 401.5pt>
+(./figure-oxygen1.tex [4
+
+]
+<images/analyse-oxygen1.png, id=28, 712.91344pt x 568.37344pt>
+File: images/analyse-oxygen1.png Graphic file (type png)
+
+<use images/analyse-oxygen1.png>
+Package pdftex.def Info: images/analyse-oxygen1.png used on input line 6.
+(pdftex.def)             Requested size: 356.45584pt x 284.18602pt.
+ [5 <./images/analyse-oxygen1.png>])
+<images/analyse-maquette.png, id=34, 642.4pt x 401.5pt>
 File: images/analyse-maquette.png Graphic file (type png)
 
 <use images/analyse-maquette.png>
-Package pdftex.def Info: images/analyse-maquette.png used on input line 22.
+Package pdftex.def Info: images/analyse-maquette.png used on input line 33.
 (pdftex.def)             Requested size: 321.19922pt x 200.7495pt.
- [4
+) (./rapport-activite.tex [6
 
-]) (./rapport-activite.tex [5 <./images/analyse-maquette.png>]
+] [7 <./images/analyse-maquette.png>]
 Chapitre 3.
-[6
+[8
 
-] <images/bitbucket-exemple-issue.png, id=40, 753.5653pt x 354.57469pt>
+] <images/bitbucket-exemple-issue.png, id=47, 753.5653pt x 354.57469pt>
 File: images/bitbucket-exemple-issue.png Graphic file (type png)
 
 <use images/bitbucket-exemple-issue.png>
 Package pdftex.def Info: images/bitbucket-exemple-issue.png used on input line 
 39.
 (pdftex.def)             Requested size: 376.78172pt x 177.28691pt.
-) (./rapport-technique.tex [7] [8 <./images/bitbucket-exemple-issue.png>]
+) (./rapport-technique.tex [9] [10 <./images/bitbucket-exemple-issue.png>]
 Chapitre 4.
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2013/07/10 1.5 (Carsten Heinz)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
-)
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 18.
- [9
-
-]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 36.
-
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 16.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-))
-(./manuel-utilisation.tex [10]
+)
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 20.
+ [11
+
+] [12] [13])
+(./manuel-utilisation.tex [14] [15]
 Chapitre 5.
-) (./conclusion.tex [11
+) (./conclusion.tex [16
 
 ]
 Chapitre 6.
-) (./table-figures.tex [12
+) (./table-figures.tex [17
 
 ] (./main.lof)
 \tf@lof=\write4
 \openout4 = `main.lof'.
 
-) [13
+) [18
 
 ] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 5288 strings out of 495002
- 71355 string characters out of 6180262
- 147913 words of memory out of 5000000
- 8390 multiletter control sequences out of 15000+600000
- 17470 words of font info for 40 fonts, out of 8000000 for 9000
+ 5867 strings out of 495002
+ 78018 string characters out of 6180262
+ 314827 words of memory out of 5000000
+ 8958 multiletter control sequences out of 15000+600000
+ 18863 words of font info for 43 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,7n,58p,1674b,1486s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,7n,58p,1674b,1744s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600
-pk> </tmp/texfonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/noe/.texmf-var/
-fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </tmp/texfonts/pk/ljfour/jknappen/e
-c/eccc1095.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.60
-0pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/n
-oe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </tmp/texfonts/pk/ljf
-our/jknappen/ec/ecrm1095.600pk> </tmp/texfonts/pk/ljfour/jknappen/ec/ecbx1095.6
-00pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/
-noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (15 pages, 157608 bytes).
+pk> </tmp/texfonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </tmp/texfonts/pk/ljfo
+ur/jknappen/ec/ectt0900.600pk> </tmp/texfonts/pk/ljfour/jknappen/ec/ecit0900.60
+0pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </tmp/te
+xfonts/pk/ljfour/jknappen/ec/eccc1095.600pk> </home/noe/.texmf-var/fonts/pk/ljf
+our/jknappen/ec/ecbx1440.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/
+ec/ecbx2074.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.6
+00pk> </tmp/texfonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </tmp/texfonts/pk/lj
+four/jknappen/ec/ecbx1095.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen
+/ec/ecrm1200.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.
+600pk>
+Output written on main.pdf (20 pages, 394644 bytes).
 PDF statistics:
- 428 PDF objects out of 1000 (max. 8388607)
- 83 compressed objects within 1 object stream
+ 568 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

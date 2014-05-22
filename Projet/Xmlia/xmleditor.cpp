@@ -27,7 +27,7 @@ void XmlEditor::addDtd()
         {
             if(xml.isStartElement())
             {
-                moveCursorToLineAndColumn(&c, xml.lineNumber() - 1, xml.columnNumber() - 1, false);
+                moveCursorToLineAndColumn(c, xml.lineNumber() - 1, xml.columnNumber() - 1, false);
                 QString link("\nxmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\nxsi:noNamespaceSchemaLocation=\"");
                 link.append(XmlFileManager::getFileManager()->getSchemaName()).append("\"");
                 c.insertText(link);
@@ -48,99 +48,99 @@ void XmlEditor::removeSchema()
     text->setText(s);
 }
 
-bool XmlEditor::updateNodeName(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml)
+bool XmlEditor::updateNodeName(int &nbFound, int &begin, int &end, QTextCursor &c, QString oldName, QString newName, QXmlStreamReader &xml)
 {
-    if(*nbFound == 0)
+    if(nbFound == 0)
     {
-        (*nbFound)++;
-        moveCursorToLineAndColumn(c, xml->lineNumber() - 1, xml->columnNumber() - oldName.size() - 2, false);
-        c->setPosition(c->position() + oldName.size() + 1, QTextCursor::KeepAnchor);
-        *begin = c->selectionStart();
-        *begin = goToNodeStart(*begin, text->toPlainText());
-        *end = c->selectionEnd();
+        nbFound++;
+        moveCursorToLineAndColumn(c, xml.lineNumber() - 1, xml.columnNumber() - oldName.size() - 2, false);
+        c.setPosition(c.position() + oldName.size() + 1, QTextCursor::KeepAnchor);
+        begin = c.selectionStart();
+        begin = goToNodeStart(begin, text->toPlainText());
+        end = c.selectionEnd();
         return false;
     }
-    else if (*nbFound == 1 && xml->name().size() > 0)
+    else if (nbFound == 1 && xml.name().size() > 0)
     {
-        moveCursorToLineAndColumn(c, xml->lineNumber() - 1, xml->columnNumber() - oldName.size() - 2, false);
-        c->setPosition(c->position() + oldName.size() + 1, QTextCursor::KeepAnchor);
+        moveCursorToLineAndColumn(c, xml.lineNumber() - 1, xml.columnNumber() - oldName.size() - 2, false);
+        c.setPosition(c.position() + oldName.size() + 1, QTextCursor::KeepAnchor);
 
-        QString t = c->selectedText();
+        QString t = c.selectedText();
 
-        if(c->position() > *end)
+        if(c.position() > end)
         {
             t.replace(oldName, newName);
-            c->removeSelectedText();
-            c->insertText(t);
+            c.removeSelectedText();
+            c.insertText(t);
         }
 
-        c->setPosition(*begin);
-        c->setPosition(*end, QTextCursor::KeepAnchor);
-        t = c->selectedText();
+        c.setPosition(begin);
+        c.setPosition(end, QTextCursor::KeepAnchor);
+        t = c.selectedText();
         t.replace(oldName, newName);
-        c->removeSelectedText();
-        c->insertText(t);
+        c.removeSelectedText();
+        c.insertText(t);
 
-        text->setTextCursor(*c);
+        text->setTextCursor(c);
         return true;
     }
     return false;
 }
 
-bool XmlEditor::deleteNode(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml)
+bool XmlEditor::deleteNode(int &nbFound, int &begin, int &end, QTextCursor &c, QString oldName, QString newName, QXmlStreamReader &xml)
 {
     cout << "oldname : " << oldName.toStdString() << endl;
-    if(*nbFound == 0)
+    if(nbFound == 0)
     {
-        moveCursorToLineAndColumn(c, xml->lineNumber() - 1, xml->columnNumber() - 1, true);
-        *begin = c->position();
-        *begin = goToNodeStart(*begin, text->toPlainText());
-        (*nbFound)++;
+        moveCursorToLineAndColumn(c, xml.lineNumber() - 1, xml.columnNumber() - 1, true);
+        begin = c.position();
+        begin = goToNodeStart(begin, text->toPlainText());
+        nbFound++;
         return false;
 
     }
-    else if (*nbFound == 1 && xml->name().size() > 0)
+    else if (nbFound == 1 && xml.name().size() > 0)
     {
-        moveCursorToLineAndColumn(c, xml->lineNumber() - 1, xml->columnNumber(), true);
-        *end = c->position();
-        c->setPosition(*begin, QTextCursor::MoveAnchor);
-        c->setPosition(*end, QTextCursor::KeepAnchor);
-        c->removeSelectedText();
-        c->movePosition(QTextCursor::StartOfLine);
-        c->movePosition(QTextCursor::EndOfLine, QTextCursor::KeepAnchor);
+        moveCursorToLineAndColumn(c, xml.lineNumber() - 1, xml.columnNumber(), true);
+        end = c.position();
+        c.setPosition(begin, QTextCursor::MoveAnchor);
+        c.setPosition(end, QTextCursor::KeepAnchor);
+        c.removeSelectedText();
+        c.movePosition(QTextCursor::StartOfLine);
+        c.movePosition(QTextCursor::EndOfLine, QTextCursor::KeepAnchor);
         QRegExp q("\\S+");
-        if(q.indexIn(c->selectedText()) == -1)
+        if(q.indexIn(c.selectedText()) == -1)
         {
-            c->setPosition(c->position() + 1, QTextCursor::KeepAnchor);
-            c->removeSelectedText();
+            c.setPosition(c.position() + 1, QTextCursor::KeepAnchor);
+            c.removeSelectedText();
         }
         else
         {
-            c->setPosition(*begin);
+            c.setPosition(begin);
         }
-        text->setTextCursor(*c);
+        text->setTextCursor(c);
         return true;
     }
     return false;
 }
 
-bool XmlEditor::saveNodeData(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml)
+bool XmlEditor::saveNodeData(int &nbFound, int &begin, int &end, QTextCursor &c, QString oldName, QString newName, QXmlStreamReader &xml)
 {
-    if(*nbFound == 0)
+    if(nbFound == 0)
     {
-        (*nbFound)++;
-        moveCursorToLineAndColumn(c, xml->lineNumber() - 1, xml->columnNumber() - 1, false);
-        *begin = c->position();
-        *begin = goToNodeStart(*begin, text->toPlainText());
+        nbFound++;
+        moveCursorToLineAndColumn(c, xml.lineNumber() - 1, xml.columnNumber() - 1, false);
+        begin = c.position();
+        begin = goToNodeStart(begin, text->toPlainText());
         return false;
     }
-    else if (*nbFound == 1 && xml->name().size() > 0)
+    else if (nbFound == 1 && xml.name().size() > 0)
     {
-        moveCursorToLineAndColumn(c, xml->lineNumber() - 1, xml->columnNumber(), true);
-        *end = c->position();
-        c->setPosition(*begin, QTextCursor::MoveAnchor);
-        c->setPosition(*end, QTextCursor::KeepAnchor);
-        savedNodeData = c->selectedText();
+        moveCursorToLineAndColumn(c, xml.lineNumber() - 1, xml.columnNumber(), true);
+        end = c.position();
+        c.setPosition(begin, QTextCursor::MoveAnchor);
+        c.setPosition(end, QTextCursor::KeepAnchor);
+        savedNodeData = c.selectedText();
         cout << "data : " << savedNodeData.toStdString() << endl;
         return true;
     }
@@ -218,8 +218,8 @@ void XmlEditor::updateDom()
 }
 
 void XmlEditor::parseDom(QDomNode &target, QString oldName, QString newName,
-                         bool (XmlEditor::*function)(int *nbFound, int *begin,
-                                                     int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml))
+                         bool (XmlEditor::*function)(int &nbFound, int &begin,
+                                                     int &end, QTextCursor &c, QString oldName, QString newName, QXmlStreamReader &xml))
 {
     stack<int> st;
     //si on a un chemin sauvegardé en cas de déplacement de node dans l'arbo
@@ -282,7 +282,7 @@ void XmlEditor::parseDom(QDomNode &target, QString oldName, QString newName,
         if(cmpVectors(path, nodePath))
         {
             //si le chemin du node courant est le même que celui du sommet passé en paramètre
-            if((this->*function)(&nbFound, &begin, &end, &c, oldName, newName, &xml))
+            if((this->*function)(nbFound, begin, end, c, oldName, newName, xml))
             {
                 //on appelle la fonction passée en paramètre
                 //elle traitera le node avec des effets de bord
@@ -327,11 +327,11 @@ bool XmlEditor::cmpVectors(vector<int> v1, vector<int> v2)
     return false;
 }
 
-void XmlEditor::moveCursorToLineAndColumn(QTextCursor *c, int line, int column, bool keepAnchor)
+void XmlEditor::moveCursorToLineAndColumn(QTextCursor &c, int line, int column, bool keepAnchor)
 {
-    c->setPosition(0);
-    c->movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, line);
-    c->setPosition(c->position() + column, (keepAnchor)?(QTextCursor::KeepAnchor):(QTextCursor::MoveAnchor));
+    c.setPosition(0);
+    c.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, line);
+    c.setPosition(c.position() + column, (keepAnchor)?(QTextCursor::KeepAnchor):(QTextCursor::MoveAnchor));
 }
 
 void XmlEditor::addCloseMarkup()
@@ -476,25 +476,25 @@ void XmlEditor::onTextChange()
 }
 
 
-bool XmlEditor::insertNodeText(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml)
+bool XmlEditor::insertNodeText(int &nbFound, int &begin, int &end, QTextCursor &c, QString oldName, QString newName, QXmlStreamReader &xml)
 {
     cout << "inserting : " << savedNodeData.toStdString() << endl;
     QString slash("/");
     bool isSingle = false;
-    moveCursorToLineAndColumn(c, xml->lineNumber() - 1, xml->columnNumber() - 1, false);
-    if(!slash.compare(text->toPlainText().at(c->position() - 1)))
+    moveCursorToLineAndColumn(c, xml.lineNumber() - 1, xml.columnNumber() - 1, false);
+    if(!slash.compare(text->toPlainText().at(c.position() - 1)))
     {
-        c->setPosition(c->position() - 1, QTextCursor::MoveAnchor);
+        c.setPosition(c.position() - 1, QTextCursor::MoveAnchor);
         isSingle = true;
     }
-    c->insertText(QString(">").append(savedNodeData));
+    c.insertText(QString(">").append(savedNodeData));
 
     if(isSingle)
     {
-        c->insertText(QString("</").append(xml->name().toString()));
+        c.insertText(QString("</").append(xml.name().toString()));
     }
-    c->setPosition(c->position() + 1, QTextCursor::KeepAnchor);
-    c->removeSelectedText();
-    text->setTextCursor(*c);
+    c.setPosition(c.position() + 1, QTextCursor::KeepAnchor);
+    c.removeSelectedText();
+    text->setTextCursor(c);
     return true;
 }

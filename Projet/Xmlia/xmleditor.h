@@ -29,13 +29,18 @@ public:
      */
     void removeSchema();
 
-    bool updateNodeName(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml);
-    bool deleteNode(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml);
-    bool saveNodeData(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml);
-    bool insertNodeText(int *nbFound, int *begin, int *end, QTextCursor *c, QString oldName, QString newName, QXmlStreamReader *xml);
+    //remplace le nom de la balise oldName par newName
+    bool updateNodeName(int &nbFound, int &begin, int &end, QTextCursor &c, QString oldName, QString newName, QXmlStreamReader &xml);
+    //supprime le noeud
+    bool deleteNode(int &nbFound, int &begin, int &end, QTextCursor &c, QString oldName, QString newName, QXmlStreamReader &xml);
+    //sauvegarde les donnees du noeud dans le cas d'un deplacement
+    bool saveNodeData(int &nbFound, int &begin, int &end, QTextCursor &c, QString oldName, QString newName, QXmlStreamReader &xml);
+    //insere un noeud
+    bool insertNodeText(int &nbFound, int &begin, int &end, QTextCursor &c, QString oldName, QString newName, QXmlStreamReader &xml);
 
+    //parse le dom jusqu'a trouver le node target
     void parseDom(QDomNode &target, QString oldName, QString newName, bool (XmlEditor::*function)
-                  (int *nbFound, int *begin, int *end, QTextCursor *c, QString oldname, QString newname, QXmlStreamReader *xml));
+                  (int &nbFound, int &begin, int &end, QTextCursor &c, QString oldname, QString newname, QXmlStreamReader &xml));
 
     /**
      * @brief extractSchemaUrl
@@ -98,7 +103,7 @@ private:
      * @param column
      * @param keepAnchor
      */
-    void moveCursorToLineAndColumn(QTextCursor* c, int line, int column, bool keepAnchor);
+    void moveCursorToLineAndColumn(QTextCursor& c, int line, int column, bool keepAnchor);
 
     /**
      * @brief addCloseMarkup ferme une balise

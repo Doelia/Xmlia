@@ -30,7 +30,7 @@ public:
      * @param i
      * @return true si un commentaire a ete colore
      */
-    bool cComment(int *last, const QString &text, int i);
+    bool cComment(int &last, const QString &text, int i);
 
     /**
      * @brief cQuote
@@ -39,7 +39,7 @@ public:
      * @param i
      * @return true si un texte entre quote a ete colore
      */
-    bool cQuote(int *last, const QString &text, int i);
+    bool cQuote(int &last, const QString &text, int i);
 
     /**
      * @brief cTag
@@ -48,7 +48,7 @@ public:
      * @param i
      * @return true si une balise a ete coloree
      */
-    bool cTag(int *last, const QString &text, int i);
+    bool cMarkup(int &last, const QString &text, int i);
 
     /**
      * @brief cInTagAttr
@@ -57,7 +57,7 @@ public:
      * @param i
      * @return true si un attribut a ete colore
      */
-    bool cInTagAttr(int *last, const QString &text, int i);
+    bool cInMarkupAttr(int &last, const QString &text, int i);
 
 signals:
     
