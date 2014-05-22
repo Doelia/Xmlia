@@ -10,7 +10,7 @@
 \subsection{L'éditeur de texte}
 L'éditeur de texte est décomposé en deux parties, l'éditeur de schéma et d'éditeur XML. Ce sont en réalité des spécialisation de la classe TextEditor.
 \subsubsection{La classe TextEditor}
-C'est ici que sont toutes les méthodes servant a l'édition du texte en général, telle que l'insertion de texte, l'indentation ou la coloration.
+C'est ici que sont toutes les méthodes servant à l'édition du texte en général, telle que l'insertion de texte, l'indentation ou la coloration.
 Nous avons fait le choix de représenter les données de l'éditeur de texte simplement par une QString, pas de référence vers la position d'un noeud ou d'information supplémentaire comme sa taille ou la délimitation de son contenu.
 Un noeud étant identifé par son chemin depuis la racine, il faut reconstruire l'arborescence XML à partir de la QString. Cela se fait à travers la classe QXmlStreamReader qui s'utilise de la manière suivante :
 \lstset{language=C++, inputencoding=utf8}
@@ -63,9 +63,10 @@ Tant que l'on a pas parcouru tout l'arbre
     Aller à la balise suivante
 Fin Tant Que
 \end{verbatim}
- 
 
-La quasi totalité des méthodes modifiant le texte le font en le parcourant. Que ce soit l'indentation, l'insertion ou la suppression de noeud ou la validation syntaxique, il faut à chaque fois parcourir l'arbre XML. 
+Cette méthode de parcours de l'arbre est appelée lorsqu'un noeud est inséré, déplacé ou supprimé dans l'arborescence. Elle est utlisée de la manière suivante :
+
+
 \subsection{Le logger}
 
 \section{Résultat}
