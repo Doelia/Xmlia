@@ -1,8 +1,8 @@
 \chapter{Analyse du projet}
 	\section{Contexte}
-	De nos jours, le langage Extensible Markup Language ou XML est utilisé à des fins de stockage de données dont la forme est complexe (par exemple, un arbre). Ces données peuvent alors être organisées ou non selon un schéma qui va définir le format des données contenues dans le fichier XML.
-	
-	Généralement, les fichiers XML sont soit générés par un programme quelconque, dans le but d'être lus par un autre programme, XML faisant office de plateforme commune. Mais le plus souvent ce sont des éditeurs de texte basiques qui sont utilisés pour créer de toute pièce un document XML, avec des fonctionnalités propre à un éditeur de texte, sans fonctionnalités spécialement prévues pour XML.
+	Le langage Extensible Markup Language ou XML est utilisé à des fins de stockage de données, et est structuré par un schéma qui lui est associé, il permet de definir la structure et le type de contenu du document, en plus de permettre de verifier la validité du document.
+
+	Généralement, les fichiers XML sont générés par un programme quelconque dans le but d'échanger des données ou de les stocker, XML faisant office de plateforme commune. Mais on peut également utiliser un éditeur de texte basique pour créer de toute pièce un document XML, avec des fonctionnalités propre à un éditeur de texte, sans fonctionnalités spécialement prévues pour XML.
 	
 	C'est dans ce contexte que des solutions logicielles d'éditeur XML ont vu le jour : un éditeur de texte qui possède des fonctionnalités permettant une écriture d'un fichier XML beaucoup plus rapide et efficace, le tout avec un contrôle des erreurs. Plusieurs solutions sont déjà proposées, certaines étant payantes (OxygenXML) et d'autres sont gratuites et open source (Xerlin). L'objectif est ici de fournir une solution similaire aux autres logiciels.
 	
@@ -19,7 +19,8 @@
 	
 	\section{Analyse des besoins non fonctionnels}
 		\subsection{Spécifications techniques}
-		Le programme devra permettre de créer des fichiers XML structurés avec un respect des normes de balisage et, s'il est défini, du schéma de données. De plus, les données saisies ou modifiées à l'aide de l'éditeur doivent rester exploitables, sans corruption possible du fichier original. Pour terminer, l'éditeur aura à répondre dans des durées acceptables et de manière stable, dans la mesure où la taille et la complexité des données restent raisonnables.
+		Le programme devra permettre de créer des fichiers XML structurés avec un respect des normes de balisage et, s'il est défini, du schéma de données. De plus, les données saisies ou modifiées à l'aide de l'éditeur doivent rester exploitables, sans corruption du fichier original. Pour terminer, l'éditeur aura à répondre dans des durées acceptables et de manière stable, dans la mesure où la taille et la complexité des données restent raisonnables.
 		
 		\subsection{Contraintes ergonomiques}
-		En termes d'ergonomie, l'utilisateur, dans la mesure où il connaît déjà le principe de XML et de son système de balisage, devra pouvoir prendre en main le logiciel en de brefs délais, avec un un système d'icônes clair et des textes explicatifs, dans la mesure où il est en possession du manuel d'utilisation. De plus, un utilisateur avancé saura augmenter sa productivité en utilisant les raccourcis clavier disponibles, et ainsi gagner du temps au niveau de la transition souris/clavier, qui n'aurait donc plus lieu d'être.
+                Le logiciel devra être suffisamment simple pour qu'un utilisateur connaissant déjà le fonctionnement du XML puisse l'utiliser sans être bloqué par une courbe d'apprentissage trop élevée. On utilisera pour cela des icônes claires et des textes explicatifs.
+                Un utilisateur avancé pourra augmenter sa productivité en utilisant les raccourcis clavier disponibles et pourra gagner de temps en réduisant les transitions souris/clavier.

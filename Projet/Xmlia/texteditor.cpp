@@ -48,6 +48,8 @@ TextEditor::TextEditor(QSyntaxHighlighter *s)
     connect(text, SIGNAL(textChanged()), this, SLOT(addLinesNumber()));
     connect(text, SIGNAL(textChanged()), this, SLOT(popupCompletion()));
     connect(this, SIGNAL(error(int)), this, SLOT(onError(int)));
+
+    word.setPattern("[a-zA-Z]+");
 }
 
 void TextEditor::indent()
@@ -124,6 +126,25 @@ QWidget *TextEditor::getView() const
     return this->view;
 }
 
+void TextEditor::parseEditorForWordCompletion(TextEditor *t)
+{
+    QRegExp rx(":|/|<|>| |=|\"");
+    QStringList l = t->text->toPlainText().split(rx, QString::SkipEmptyParts);
+    for(QString s : l)
+    {
+        if(word.indexIn(s) >= 0)
+        {
+            cout << s.toStdString() << endl;
+            if(!wordsForCompletion.contains(s))
+            {
+                wordsForCompletion << s;
+            }
+        }
+    }
+    delete completer;
+    completer = new QCompleter(wordsForCompletion);
+}
+
 void TextEditor::onScroll(int y)
 {
     linesDisplay->verticalScrollBar()->setValue(text->verticalScrollBar()->value());
@@ -189,7 +210,12 @@ void TextEditor::popupCompletion()
         {
             QTextCursor cursor = text->textCursor();
             int pos = cursor.position();
-            cursor.movePosition(QTextCursor::EndOfWord, QTextCursor::KeepAnchor);
+
+            while(word.indexIn(cursor.selectedText()) == 0)
+            {
+                cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor);
+            }
+
             cursor.insertText(completion.right(completion.size() - currentWord.size()));
             cursor.setPosition(pos, QTextCursor::KeepAnchor);
             text->setTextCursor(cursor);
@@ -227,7 +253,10 @@ QString TextEditor::tabsString(int n) const
 QString TextEditor::textUnderCursor() const
 {
     QTextCursor c = text->textCursor();
+    c.movePosition(QTextCursor::Left);
     c.select(QTextCursor::WordUnderCursor);
+    QString s = c.selectedText();
+    cout << "under cursor : " << s.toStdString() << endl;
     return c.selectedText();
 }
 

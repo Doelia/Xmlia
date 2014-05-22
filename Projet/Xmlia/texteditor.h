@@ -18,6 +18,7 @@
 #include <QAbstractItemView>
 #include <QRect>
 #include <QCompleter>
+#include <QRegExp>
 
 using namespace std;
 
@@ -60,6 +61,12 @@ public:
      */
     QWidget* getView() const;
 
+    /**
+     * @brief parseStringForCompletion adds each word of the string to the word completion list
+     * @param s
+     */
+    void parseEditorForWordCompletion(TextEditor* t);
+
 signals:
     void log(QString s, QColor c);
     void error(int);
@@ -79,6 +86,8 @@ protected:
     int tabNumber;
     QCompleter *completer;
     bool antiRecursion;
+    QRegExp word;
+    QStringList wordsForCompletion;
 
     /**
      * @brief textUnderCursor
@@ -110,6 +119,7 @@ protected:
       @return la ligne indentée de n tab
       */
     QString tabsString(int n) const;
+
 
 public slots:
     void onScroll(int);

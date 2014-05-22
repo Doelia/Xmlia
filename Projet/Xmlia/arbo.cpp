@@ -94,6 +94,7 @@ void Arbo::onRowsAboutToBeRemoved(const QModelIndex &i , int x, int y)
     cout << "****************************" << endl;
     cout << "Arbo::onRowsAboutToBeRemoved" << endl;
     cout << "****************************" << endl;
+    cout << "column : " << y << endl;
     QStandardItem* item = this->itemRoot->model()->itemFromIndex(i);
     QDomNode node = this->getNodeFromItem(item);
     node = node.childNodes().at(x);
