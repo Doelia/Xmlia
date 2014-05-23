@@ -25,7 +25,7 @@ public:
     /**
      * @brief disableDTD desactive l'onglet schema
      */
-    void disableDTD();
+    void disableSchema();
 
     /**
      * @brief enableDTD active l'onglet schema
@@ -164,7 +164,7 @@ signals:
 
 private:
     XmlEditor *xmlEditor;
-    DtdEditor *dtdEditor;
+    DtdEditor *schemaEditor;
     CustomTabWidget *view;
 
     bool dragndropHappened;

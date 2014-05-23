@@ -173,9 +173,6 @@ bool XmlEditor::validateAndRefreshTree()
         QXmlSchema schema;
         QString url(extractSchemaUrl());
 
-
-        cout << "url extracted : " << url.toStdString() << endl;
-
         //si le xml contient une url valide vers un schema
         if(url.size() > 1)
         {
@@ -184,7 +181,6 @@ bool XmlEditor::validateAndRefreshTree()
             schema.load(QString("file://").append(url));
             if (schema.isValid())
             {
-                cout << "schema valide" << endl;
                 emit log("Schema XSD valide", QColor("green"));
                 QXmlSchemaValidator validator(schema);
                 validator.setMessageHandler(mh);

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.22)  23 MAY 2014 12:06
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.22)  23 MAY 2014 16:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -693,26 +693,26 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
  [11
 
 ] [12] [13]
-[14] [15]) (./manuel-utilisation.tex [16]
+[14] [15] [16] [17]) (./manuel-utilisation.tex [18]
 Chapitre 5.
-) (./conclusion.tex [17
+) (./conclusion.tex [19
 
 ]
 Chapitre 6.
-) (./table-figures.tex [18
+) (./table-figures.tex [20
 
 ] (./main.lof)
 \tf@lof=\write4
 \openout4 = `main.lof'.
 
-) [19
+) [21
 
 ] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 5927 strings out of 495002
- 78766 string characters out of 6180262
+ 6013 strings out of 495002
+ 79826 string characters out of 6180262
  334877 words of memory out of 5000000
- 9018 multiletter control sequences out of 15000+600000
+ 9104 multiletter control sequences out of 15000+600000
  18863 words of font info for 43 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  38i,7n,58p,1674b,1746s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -727,10 +727,10 @@ ec/ecbx2074.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.6
 four/jknappen/ec/ecbx1095.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen
 /ec/ecrm1200.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.
 600pk>
-Output written on main.pdf (21 pages, 408004 bytes).
+Output written on main.pdf (23 pages, 419770 bytes).
 PDF statistics:
- 593 PDF objects out of 1000 (max. 8388607)
- 101 compressed objects within 2 object streams
+ 609 PDF objects out of 1000 (max. 8388607)
+ 105 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

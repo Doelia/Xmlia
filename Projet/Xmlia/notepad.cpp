@@ -4,20 +4,20 @@
 NotePad::NotePad()
 {
     this->xmlEditor = new XmlEditor();
-    this->dtdEditor = new DtdEditor();
+    this->schemaEditor = new DtdEditor();
     this->view = new CustomTabWidget();
 
     view->addTab(xmlEditor->getView(), "Xml");
-    view->addTab(dtdEditor->getView(), "Schema");
+    view->addTab(schemaEditor->getView(), "Schema");
     view->setTabEnabled(1, false);
-    view->disableDTD();
+    view->disableSchema();
 
     dragndropHappened = false;
 
     connect(xmlEditor, SIGNAL(log(QString,QColor)), this, SLOT(onLog(QString,QColor)));
     connect(xmlEditor, SIGNAL(update()), this, SLOT(onUpdate()));
     connect(xmlEditor, SIGNAL(cursorInfo(int,int)), this, SLOT(onCursorInfo(int,int)));
-    connect(dtdEditor, SIGNAL(cursorInfo(int,int)), this, SLOT(onCursorInfo(int,int)));
+    connect(schemaEditor, SIGNAL(cursorInfo(int,int)), this, SLOT(onCursorInfo(int,int)));
 }
 
 void NotePad::indent()
@@ -25,7 +25,7 @@ void NotePad::indent()
 
     if(view->currentIndex())
     {
-        dtdEditor->indent();
+        schemaEditor->indent();
     }
     else
     {
@@ -41,7 +41,7 @@ void NotePad::setText(QString s)
 
 void NotePad::setDtd(QString s)
 {
-    dtdEditor->setText(s);
+    schemaEditor->setText(s);
     view->enableDTD();
     addCompletion();
 }
@@ -56,12 +56,12 @@ QString NotePad::getXml() const
 
 QString NotePad::getSchema() const
 {
-    return dtdEditor->getText();
+    return schemaEditor->getText();
 }
 
 bool NotePad::hasSchema() const
 {
-    return (dtdEditor->getText().size() > 1);
+    return (schemaEditor->getText().size() > 1);
 }
 
 void NotePad::genSchema()
@@ -75,7 +75,7 @@ void NotePad::genSchema()
         xml.readNext();
     }
     xmlEditor->addDtd();
-    dtdEditor->genSchema(h.keys());
+    schemaEditor->genSchema(h.keys());
     view->enableDTD();
 }
 
@@ -86,12 +86,12 @@ void NotePad::loadSchema()
 
 void NotePad::disableSchema()
 {
-    view->disableDTD();
+    view->disableSchema();
 }
 
 void NotePad::deleteSchema()
 {
-    view->disableDTD();
+    view->disableSchema();
     xmlEditor->removeSchema();
 }
 
@@ -187,9 +187,9 @@ void NotePad::updateDom()
 
 void NotePad::addCompletion()
 {
-    dtdEditor->parseEditorForWordCompletion(xmlEditor);
-    dtdEditor->parseEditorForWordCompletion(dtdEditor);
-    xmlEditor->parseEditorForWordCompletion(dtdEditor);
+    schemaEditor->parseEditorForWordCompletion(xmlEditor);
+    schemaEditor->parseEditorForWordCompletion(schemaEditor);
+    xmlEditor->parseEditorForWordCompletion(schemaEditor);
     xmlEditor->parseEditorForWordCompletion(xmlEditor);
 }
 
@@ -227,7 +227,7 @@ CustomTabWidget::CustomTabWidget() : QTabWidget::QTabWidget()
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(onTabChanged()));
 }
 
-void CustomTabWidget::disableDTD()
+void CustomTabWidget::disableSchema()
 {
     dtdEnabled = false;
     setTabEnabled(1, false);

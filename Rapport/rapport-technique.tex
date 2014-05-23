@@ -152,7 +152,7 @@ Tant que l'on a pas parcouru tout l'arbre
 Fin Tant Que
 \end{verbatim}
 
-Cette méthode de parcours de l'arbre est appelée lorsqu'un noeud est inséré, déplacé ou supprimé dans l'arborescence. Elle est utlisée de la manière suivante :
+Cette méthode de parcours de l'arbre est appelée lorsqu'un noeud est inséré, déplacé ou supprimé dans l'arborescence. Elle est utilisée de la manière suivante :
 
 \begin{lstlisting}
   //methode appelee lorsque l'utilisateur renomme un noeud dans l'arborescence
@@ -164,7 +164,8 @@ Voici l'implémentation de l'appel de fonction dans le pseudo code du parcours d
 \begin{lstlisting}
   
   //si le chemin du node courant est le meme que celui
-  //du sommet passe en parametreif(cmpVectors(path, nodePath))
+  //du sommet passe en parametre
+  if(cmpVectors(path, nodePath))
   {
     //on appelle la fonction passee en parametre
     //elle traitera le node avec des effets de bord
@@ -230,7 +231,7 @@ Il est intéressant de noter que l'on utilise une fois de plus la classe QXmlStr
   }
 \end{lstlisting}
 
-En plus de créer et supprimer un lien vers un schéma, il pourrait être intéressant de l'extraire, pour la validation par exemple. Cela se fait une fois de plus grâce à une expression régulière. Il est intéressant de noter dans l'exemple suivant que nous ne gérons que les liens locaux vers un schéma et pas les lien vers un schéma distant.
+En plus de créer et supprimer un lien vers un schéma, il est également possible de l'extraire, pour la validation par exemple. Cela se fait une fois de plus grâce à une expression régulière. Il est intéressant de noter dans l'exemple suivant que nous ne gérons que les liens locaux vers un schéma et pas les lien vers un schéma distant.
 \begin{lstlisting}
   QString s(text->toPlainText());
   //split du document pour se placer directement a l'endroit du lien
@@ -247,16 +248,48 @@ En plus de créer et supprimer un lien vers un schéma, il pourrait être intér
   l = s.split("xsi:SchemaLocation=\"");
   if(l.size() > 1)
   {
-    //on notifie qu'on ne les gere pas encore s'il existe
+    //on notifie qu'on ne le gere pas encore s'il existe
     emit log("Cannot process http requests yet, XML will not be checked", QColor("orange"));
   }
   return "";
 \end{lstlisting}
 \subsubsection{La classe SchemaEditor}
-La classe SchemaEditor ne rajoute pas vraiment de fonctionnalités à la classe TextEditor mise à part la génération de schéma à partir d'un document XML. Elle fonctionne de manière très simple, les balises sont extraites du document XML et sont ajoutées au schéma.
+La classe SchemaEditor ne rajoute pas vraiment de fonctionnalités à la classe TextEditor mise à part la génération de schéma à partir d'un document XML. Elle fonctionne de manière très simple, les balises sont extraites du document XML et sont ajoutées au schéma. L'extraction des balises se fait à nouveau grâce à la classe QXmlStreamReader, on parcourt le document et ajoute chaque balise dans une liste si elle n'est pas déjà présente
+
+\begin{lstlisting}
+  while(!xml.atEnd())
+  {
+    //on utilise une hashmap pour simplifier la non duplication
+    h.insert(xml.name().toString(), 0);
+    xml.readNext();
+  }
+  //on appelle la methode de generation de schema
+  schemaEditor->genSchema(h.keys());
+\end{lstlisting}
+Voici l'implémentation de la méthode de génération de schéma, on peut remarquer qu'elle est assez basique et laisse à l'utilisateur le soin de compléter la valeur et le type de chaque élément.
+\begin{lstlisting}
+  void DtdEditor::genSchema(QList<QString> l)
+  {
+    //ajout des meta data
+    text->setText("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
+    text->append("<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">");
+
+    //ajout de chaque element
+    for(QString s : l)
+    {
+      QString toAppend("<xs:element name=\"");
+      toAppend.append(s).append("\"/>");
+      text->append(toAppend);
+    }
+    text->append("</xs:schema>");
+    indent();
+  }
+
+\end{lstlisting}
 
 \subsubsection{La validation}
-On peut utiliser la classe QXmlStreamReader pour la validation syntaxique, elle permet en effet de détecter une erreur de syntaxe et de nous indiquer la ligne.
+Parlons maintenant de la validation syntaxique et sémantique. La validation syntaxique se fait très simplement à l'aide du QXmlStreamReader, qui permet de détecter une erreur et d'indiquer la ligne, ainsi que le type de l'erreur.
+
 \begin{lstlisting}
   while(!xml.atEnd())
   {
@@ -270,7 +303,87 @@ On peut utiliser la classe QXmlStreamReader pour la validation syntaxique, elle 
   }
 \end{lstlisting}
 
+Pour la validation sémantique, qui ne peut se faire que si un schéma est rattaché au document XML, on doit passer par une autre classe de Qt, le QXmlSchemaValidator et sa méthode validate. Nous l'utilisons le la manière suivante :
+\begin{lstlisting}
+  QXmlSchema schema;
+  //extraction de l'url du schema dans le document XML
+  QString url(extractSchemaUrl());
 
+  //si le xml contient une url valide vers un schema
+  if(url.size() > 1)
+  {
+    schema.load(QString("file://").append(url));
+    //on verifie au passage la validite du schema en lui meme
+    if (schema.isValid())
+    {
+      emit log("Schema XSD valide", QColor("green"));
+      QXmlSchemaValidator validator(schema);
+      validator.setMessageHandler(mh);
+      if (validator.validate(this->getText().toUtf8(), QUrl(XmlFileManager::getFileManager()->getCurrentSchema())))
+      {
+        //notification que la semantique est valide
+        emit log("Semantique XML valide", QColor("green"));
+      }
+    }
+    return true;
+  }
+  //si le schema n'a pas pu etre trouve
+  emit log("Schema XSD invalide, est-il manquant ou invalide ?", QColor("orange"));
+\end{lstlisting}
 \subsection{Le logger}
+Le logger est la partie que reçoit tous les messages pour les afficher à l'utilisateur. Il repose fortement sur le principe de signaux et de slots de Qt. Le fonctionnement est les suivant : Qt propose de connecter un objet émetteur, qui enverra des messages avec la macro \textit{emit} sur le slot d'un objet receveur, qui est en réalité une fonction qui sera appelée au moment du \textit{emit}. Voici par exemple le fonctionnement de l'envoi de messages à afficher :
+
+\paragraph{}
+Tout d'abord l'interface de notre Logger, pour montrer que les slots ne sont rien d'autres que des fonctions.
+\begin{lstlisting}
+  class Logger : public QWidget
+  {
+    Q_OBJECT
+    public:
+    explicit Logger();
+    
+    signals:
+    //les signaux, il n'y en a aucun dans notre Logger
+    
+    public slots:
+    //notre slot log qui affichera dans la zone de texte la QString de la couleur QColor
+    void log(QString s, QColor c);
+
+    private slots:
+    //slots prives, on ne pourra connecter que des signaux de la classe sur des slots de cette meme classe
+
+    private:
+    //attributs prives
+  };
+\end{lstlisting}
+On connecte les objets entre eux grâce à la fonction \textit{connect(sender, signal, receiver, slot)} de Qt.
+\begin{lstlisting}
+  //on connecte l'editeur de texte avec le logger sur le slot log
+  connect(notepad, SIGNAL(log(QString,QColor)), logger, SLOT(log(QString,QColor)));
+\end{lstlisting}
+
+Et lorsque qu'il y aura un \textit{emit} du signal \textit{log}, la fonction correspondante, dans notre cas \textit{log} sera appelée.
+
+\begin{lstlisting}
+  //l'emission du signal dans la methode de validation semantique
+  emit log("Semantique XML valide", QColor("green"));
+  //appelera automatiquement
+  void Logger::log(QString s, QColor c)
+  {
+    //changement de la couleur d'affichage en la couleur desiree
+    logArea->setTextColor(c);
+    QTextCursor cursor = logArea->textCursor();
+    //insertion du texte dans le QTextEdit qui sert de zone d'affichage au logger
+    cursor.insertText(s);
+
+    logArea->setTextCursor(cursor);
+    //affichage du Logger s'il etait masque
+    show();
+  }
+\end{lstlisting}
+Ce système de signal/slot est énormément utilisé pour faire communiquer nos widgets les uns avec les autres, et permet d'une part de les séparer, c'est à dire que l'arborescence ne possède pas de pointeur vers l'éditeur de texte et inversement, mais également de ne pas avoir non plus de pointeur vers le contrôleur, une fois que les connexions sont faites dans le contrôleur, nos widgets peuvent communiquer de manière totalement indépendante.
+
+\subsection{Le gestionnaire de fichiers}
+
 
 \section{Résultat}
