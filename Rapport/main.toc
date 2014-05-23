@@ -21,12 +21,15 @@
 \contentsline {subsection}{\numberline {4.2.1}Le mod\IeC {\`e}le}{11}
 \contentsline {subsection}{\numberline {4.2.2}L'arborescence}{11}
 \contentsline {subsection}{\numberline {4.2.3}L'\IeC {\'e}diteur de texte}{11}
+\contentsline {subsubsection}{La classe TextEditor}{11}
 \contentsline {paragraph}{}{11}
-\contentsline {paragraph}{}{13}
-\contentsline {subsubsection}{La classe TextEditor}{13}
-\contentsline {subsection}{\numberline {4.2.4}Le logger}{15}
-\contentsline {section}{\numberline {4.3}R\IeC {\'e}sultat}{15}
-\contentsline {chapter}{\numberline {5}Manuel d'utilisation}{16}
-\contentsline {chapter}{\numberline {6}Perspectives et conclusions}{17}
-\contentsline {section}{\numberline {6.1}Perspectives}{17}
-\contentsline {section}{\numberline {6.2}Conclusions}{17}
+\contentsline {subsubsection}{La classe XmlEditor}{13}
+\contentsline {paragraph}{}{15}
+\contentsline {subsubsection}{La classe SchemaEditor}{16}
+\contentsline {subsubsection}{La validation}{16}
+\contentsline {subsection}{\numberline {4.2.4}Le logger}{16}
+\contentsline {section}{\numberline {4.3}R\IeC {\'e}sultat}{16}
+\contentsline {chapter}{\numberline {5}Manuel d'utilisation}{17}
+\contentsline {chapter}{\numberline {6}Perspectives et conclusions}{18}
+\contentsline {section}{\numberline {6.1}Perspectives}{18}
+\contentsline {section}{\numberline {6.2}Conclusions}{18}

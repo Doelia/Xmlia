@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.22)  22 MAY 2014 19:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.22)  23 MAY 2014 12:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -684,38 +684,38 @@ Package pdftex.def Info: images/bitbucket-exemple-issue.png used on input line
 (pdftex.def)             Requested size: 376.78172pt x 177.28691pt.
 ) (./rapport-technique.tex [9] [10 <./images/bitbucket-exemple-issue.png>]
 Chapitre 4.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 16.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 19.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 20.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 23.
  [11
 
-] [12] [13])
-(./manuel-utilisation.tex [14] [15]
+] [12] [13]
+[14] [15]) (./manuel-utilisation.tex [16]
 Chapitre 5.
-) (./conclusion.tex [16
+) (./conclusion.tex [17
 
 ]
 Chapitre 6.
-) (./table-figures.tex [17
+) (./table-figures.tex [18
 
 ] (./main.lof)
 \tf@lof=\write4
 \openout4 = `main.lof'.
 
-) [18
+) [19
 
 ] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 5867 strings out of 495002
- 78018 string characters out of 6180262
- 314827 words of memory out of 5000000
- 8958 multiletter control sequences out of 15000+600000
+ 5927 strings out of 495002
+ 78766 string characters out of 6180262
+ 334877 words of memory out of 5000000
+ 9018 multiletter control sequences out of 15000+600000
  18863 words of font info for 43 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,7n,58p,1674b,1744s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,7n,58p,1674b,1746s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600
 pk> </tmp/texfonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </tmp/texfonts/pk/ljfo
 ur/jknappen/ec/ectt0900.600pk> </tmp/texfonts/pk/ljfour/jknappen/ec/ecit0900.60
@@ -727,10 +727,10 @@ ec/ecbx2074.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.6
 four/jknappen/ec/ecbx1095.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen
 /ec/ecrm1200.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.
 600pk>
-Output written on main.pdf (20 pages, 394644 bytes).
+Output written on main.pdf (21 pages, 408004 bytes).
 PDF statistics:
- 568 PDF objects out of 1000 (max. 8388607)
- 99 compressed objects within 1 object stream
+ 593 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

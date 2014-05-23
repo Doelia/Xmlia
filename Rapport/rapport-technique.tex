@@ -8,7 +8,10 @@
 \subsection{L'arborescence}
 
 \subsection{L'éditeur de texte}
-L'éditeur de texte est une sous classe de QTextEdit, qui fournit toutes les fonctionnalités basiques d'une éditeur de texte riche, telles que la sélection de texte, la copie, l'annulation etc. On peut intégrer plusieurs fonctionnalités à un QTextEdit comme par exemple la coloration syntaxique. Nous parlerons dans un premier temps des fonctionnalités propres à notre éditeur de texte, puis nous verrons plus en détail chacune de ses implémentations, à savoir l'éditeur XML et l'éditeur de schéma.
+
+L'éditeur de texte est décomposé en deux parties, l'éditeur de schéma et d'éditeur XML. Ce sont en réalité des spécialisation de la classe TextEditor, mais parlons d'abord de l'éditeur de texte en général.
+\subsubsection{La classe TextEditor}
+C'est ici que sont toutes les méthodes servant à l'édition du texte en général, telle que l'insertion de texte, l'indentation ou la coloration. L'éditeur de texte est une sous classe de QTextEdit, qui fournit toutes les fonctionnalités basiques d'une éditeur de texte riche, telles que la sélection de texte, la copie, l'annulation etc. On peut intégrer plusieurs fonctionnalités à un QTextEdit comme par exemple la coloration syntaxique. Nous parlerons dans un premier temps des fonctionnalités propres à notre éditeur de texte, puis nous verrons plus en détail chacune de ses implémentations, à savoir l'éditeur XML et l'éditeur de schéma.
 
 \paragraph{}
 Qt propose un QCompleter, il ne peut cependant pas s'intégrer et proposer l'auto-completion dans un QTextEdit. Même s'il ne s'intègre pas dans un QTextEdit, le QCompleter peut tout de même proposer une suggestion si on lui fourni un début de mot. On peut donc récupérer le mot sous le curseur, le donner au QCompleter et insérer le mot complété dans notre éditeur de texte. Cela se fait de la manière suivante :
@@ -38,7 +41,7 @@ Qt propose un QCompleter, il ne peut cependant pas s'intégrer et proposer l'aut
     text->setTextCursor(cursor);
 \end{lstlisting}
 
-Il n'est pas possible d'intégrer directement l'auto-completion, mais on peut en revanche facilement lié un colorateur syntaxique à un QTextEdit. Qt propose une classe abstraite QSyntaxHighLighter qu'il faut implémenter en y indiquand nos règles de coloration. Le QTextEdit appelle automatiquement la méthode \textit{highlightBlock} du QSyntaxHighLighter dans laquelle on aura indiqé nos règles.
+Il n'est pas possible d'intégrer directement l'auto-completion, mais on peut en revanche facilement lier un colorateur syntaxique à un QTextEdit. Qt propose une classe abstraite QSyntaxHighLighter qu'il faut implémenter en y indiquant nos règles de coloration. Le QTextEdit appelle automatiquement la méthode \textit{highlightBlock} du QSyntaxHighLighter dans laquelle on aura indiqué nos règles.
 
 \begin{lstlisting}
   void TextHighLighter::highlightBlock(const QString &text)
@@ -91,20 +94,21 @@ Voici par exemple la méthode qui permet de colorer les commentaires :
   }
 \end{lstlisting}
 
-\paragraph{}
-L'éditeur de texte est décomposé en deux parties, l'éditeur de schéma et d'éditeur XML. Ce sont en réalité des spécialisation de la classe TextEditor.
-\subsubsection{La classe TextEditor}
-C'est ici que sont toutes les méthodes servant à l'édition du texte en général, telle que l'insertion de texte, l'indentation ou la coloration.
-Nous avons fait le choix de représenter les données de l'éditeur de texte simplement par une QString, pas de référence vers la position d'un noeud ou d'information supplémentaire comme sa taille ou la délimitation de son contenu.
-Un noeud étant identifé par son chemin depuis la racine, il faut reconstruire l'arborescence XML à partir de la QString. Cela se fait à travers la classe QXmlStreamReader qui s'utilise de la manière suivante :
+\subsubsection{La classe XmlEditor}
+
+C'est donc une sous classe de TextEditor. Nous avons fait le choix de représenter les données de l'éditeur de texte simplement par une QString, pas de référence vers la position d'un noeud ou d'information supplémentaire comme sa taille ou la délimitation de son contenu.
+Un noeud étant identifié par son chemin depuis la racine, il faut reconstruire l'arborescence XML à partir de la QString. Cela se fait à travers la classe QXmlStreamReader qui s'utilise de la manière suivante :
 \begin{lstlisting}
+  //creation d'un QXmlStreamReader affecte du texte du QTextEdit
   QXmlStreamReader xml(text->toPlainText());
   while(!xml.atEnd())
   {
+    //detection d'une balise ouvrante
     if(xml.isStartElement())
     {
       //traitement
     }
+    //detection d'une balise fermante
     else if(xml.isEndElement())
     {
       //traitement
@@ -159,14 +163,13 @@ Cette méthode de parcours de l'arbre est appelée lorsqu'un noeud est inséré,
 Voici l'implémentation de l'appel de fonction dans le pseudo code du parcours de document :
 \begin{lstlisting}
   
-  if(cmpVectors(path, nodePath))
+  //si le chemin du node courant est le meme que celui
+  //du sommet passe en parametreif(cmpVectors(path, nodePath))
   {
-    //si le chemin du node courant est le meme que celui
-    //du sommet passe en parametre
+    //on appelle la fonction passee en parametre
+    //elle traitera le node avec des effets de bord
     if((this->*function)(nbFound, begin, end, c, oldName, newName, xml))
     {
-      //on appelle la fonction passee en parametre
-      //elle traitera le node avec des effets de bord
       //on arrete le parcours de l'arbre si la fonction retourne true
       return;
     }
@@ -189,7 +192,83 @@ Voici le prototype de la fonction \textit{parseDom} avec la fonction qu'elle pre
   //insere un noeud
   bool insertNodeText(int &nbFound, int &begin, int &end, QTextCursor &c, QString oldName, QString newName, QXmlStreamReader &xml);
 \end{lstlisting}
-Ces fonctions manipulent le texte à travert un QTextCursor qui permet de naviguer dans un QTextEdit. Un QTextCursor permet notamment de se déplacer de mot en mot, d'aller à la fin de la ligne ou d'aller à la ligne suivante. Un outil donc indispensable dans la manipulation du texte.
+Ces fonctions manipulent le texte à travers un QTextCursor qui permet de naviguer dans un QTextEdit. Un QTextCursor permet notamment de se déplacer de mot en mot, d'aller à la fin de la ligne ou d'aller à la ligne suivante. Un outil donc indispensable dans la manipulation du texte.
+
+\paragraph{}
+La liaison vers un schéma se fait à l'aide d'expressions régulières. Le XML étant standardisé, les données auront toujours la même forme, une expression régulière semble donc le plus simple pour trouver une information dans du texte.
+
+\begin{lstlisting}
+  void XmlEditor::removeSchema()
+  {
+    QString s(text->toPlainText());
+    //regex du lien vers un schema
+    QRegExp r("\n*xmlns:xsi.*=\".*\.xsd\"\n*");
+    suppression de la regex dans le texte
+    s.remove(r);
+    text->setText(s);
+  }
+\end{lstlisting}
+
+Il est intéressant de noter que l'on utilise une fois de plus la classe QXmlStreamReader pour se déplacer dans l'arborescence XML. Le lien vers le schéma se trouve dans la balise racine, le plus simple pour la trouver est donc de parcourir le document jusqu'à la trouver.
+\begin{lstlisting}
+  while(!xml.atEnd())
+  {
+    //lorsque l'on trouve la premiere balise ouvrante
+    if(xml.isStartElement())
+    {
+      //on deplace le curseur jusqu'a la position de la fin de cette balise
+      moveCursorToLineAndColumn(c, xml.lineNumber() - 1, xml.columnNumber() - 1, false);
+      //construction du lien vers le schema
+      QString link("\nxmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\nxsi:noNamespaceSchemaLocation=\"");
+      link.append(XmlFileManager::getFileManager()->getSchemaName()).append("\"");
+      //insertion du lien dans le document
+      c.insertText(link);
+      text->setTextCursor(c);
+      return;
+    }
+    xml.readNext();
+  }
+\end{lstlisting}
+
+En plus de créer et supprimer un lien vers un schéma, il pourrait être intéressant de l'extraire, pour la validation par exemple. Cela se fait une fois de plus grâce à une expression régulière. Il est intéressant de noter dans l'exemple suivant que nous ne gérons que les liens locaux vers un schéma et pas les lien vers un schéma distant.
+\begin{lstlisting}
+  QString s(text->toPlainText());
+  //split du document pour se placer directement a l'endroit du lien
+  QStringList l(s.split("xsi:noNamespaceSchemaLocation=\""));
+  //si un lien est present dans le document
+  if(l.size() > 1)
+  {
+    //split selon le caractere " pour ne garder que le lien
+    s = l.at(1).split("\"").at(0);
+    //on retourne le chemin courant du fichier XML auquel on concatene le lien que l'on vient de trouver
+    return XmlFileManager::getFileManager()->getCurrentFilePath().append("/").append(s);
+  }
+  //on cherche s'il n'y a pas de lien distant
+  l = s.split("xsi:SchemaLocation=\"");
+  if(l.size() > 1)
+  {
+    //on notifie qu'on ne les gere pas encore s'il existe
+    emit log("Cannot process http requests yet, XML will not be checked", QColor("orange"));
+  }
+  return "";
+\end{lstlisting}
+\subsubsection{La classe SchemaEditor}
+La classe SchemaEditor ne rajoute pas vraiment de fonctionnalités à la classe TextEditor mise à part la génération de schéma à partir d'un document XML. Elle fonctionne de manière très simple, les balises sont extraites du document XML et sont ajoutées au schéma.
+
+\subsubsection{La validation}
+On peut utiliser la classe QXmlStreamReader pour la validation syntaxique, elle permet en effet de détecter une erreur de syntaxe et de nous indiquer la ligne.
+\begin{lstlisting}
+  while(!xml.atEnd())
+  {
+    xml.readNext();
+    //si le parseur XML rencontre une erreur
+    if(xml.hasError())
+    {
+      //affichage de la ligne de l'erreur avec son type
+      emit log("Erreur ligne " + QString::number(xml.lineNumber()) + " : " + xml.errorString(), QColor("red"));
+    }
+  }
+\end{lstlisting}
 
 
 \subsection{Le logger}
