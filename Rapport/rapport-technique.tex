@@ -19,19 +19,19 @@ La librairie Qt se décompose en plusieurs parties :
 
 \paragraph{}
 Le principe est de générer un unique modèle qui sera affiché par les différentes vues.
-Les évènements déclenchés sur les différentes vues par l'utilisateur sont traités pour modifier le modèle, puis la vue est rafraichie.
+Les évènements déclenchés sur les différentes vues par l'utilisateur sont traités pour modifier le modèle, puis la vue est rafraîchie.
 La partie \emph{contrôleur} est intégrée aux classes de la vue car le système de slots/signaux que propose Qt est propre et peu encombrant.
 
 \subsection{Modèle de classe}
-Toutes les classes héritent de celles de Qt. La librairie impose que toutes les vues doivent hériter du type de vue de Qt voulu (vue arborescente, editeur de texte, bouton...), qui héritent elles-même de la classe QWidget.
+Toutes les classes héritent de celles de Qt. La librairie impose que toutes les vues doivent hériter du type de vue de Qt voulu (vue arborescente, éditeur de texte, bouton...), qui héritent elles-mêmes de la classe QWidget.
 Le programme se compose ainsi des classes principales suivantes :
 \begin{itemize}
 \item \emph{MainWindow}, contenant des pointeurs vers toutes les vues ainsi que la barre de menu et celle des boutons ;
 \item \emph{ModeleXml}, contenant les données de l'arbre XML à jour et toutes les méthodes nécessaire à sa modification ;
 \item \emph{Notepad}, la vue des éditeurs de texte (XML et Schéma) ;
-\item \emph{Arbo}, la vue de l'arboresence ;
+\item \emph{Arbo}, la vue de l'arborescence ;
 \item \emph{Logger}, la vue du logger ;
-\item Et un grand nombre de sous-classes conçues au fil de la phase de développement dans un soucis de clareté du code.
+\item Et un grand nombre de sous-classes conçues au fil de la phase de développement dans un soucis de clarté du code.
 \end{itemize}
 
 \paragraph{}
@@ -45,8 +45,6 @@ L'organisation de l'architecture se résume dans le diagramme de classe \ref{dia
 \end{minipage}
 \end{figure}
 
-
-
 \section{Architecture de l'application}
 \subsection{Le modèle}
 
@@ -54,7 +52,7 @@ L'organisation de l'architecture se résume dans le diagramme de classe \ref{dia
 
 Le programme est composé d'un et d'un seul modèle représentant le fichier XML arborescent.
 Il contient les informations sur tous les noeud de la structure XML (Nom, valeur, attributs).
-L'accès à l'arborscence XML se fait à partir d'un unique attribut noeud parent de type \emph{QDomDocument}, 
+L'accès à l'arborescence XML se fait à partir d'un unique attribut noeud parent de type \emph{QDomDocument}, 
 
 \paragraph{}
 Au lancement du programme, un dom vide est est généré. Il est redéfinit à l'ouverture d'un fichier de façon automatique grâce à une simple méthode de Qt de la façon suivante.
@@ -104,7 +102,7 @@ void removeNode(QDomNode dom);
 Toutes ces méthodes publiques sont appelés par les différentes vues.
 Elles modifient directement la structure XML du modèle, puis notifient les changements par un signal.
 Cet ensemble est minimal mais suffisant et permet de modifier à souhait l'arbre.
-Par exemple une procédure de déplacement d'un noeud pourra être scriptée par une insertion/suppresion.
+Par exemple une procédure de déplacement d'un noeud pourra être scriptée par une insertion/suppression.
 
 \subsubsection{Aspect algorithmique}
 Toute la subtilité technique de la classe du modèle repose sur la modification propre et optimisée de l'arborescence.
@@ -126,8 +124,8 @@ stack<int> ModeleXml::pathFromRoot(QDomNode n)
 
 \subsection{La vue arborescence}
 
-La classe de la vue arborsecente encapsule la classe QTreeView de Qt permetant de générer une interface arborsence
-intéractive avec toutes les options nécessaires (Renommage, suppresion, glisser/déposer...).
+La classe de la vue arborescente encapsule la classe QTreeView de Qt permettant de générer une interface arborescence
+interactive avec toutes les options nécessaires (Renommage, suppression, glisser/déposer...).
 
 \begin{figure}[h!]
 \begin{minipage}[b]{\linewidth}
@@ -141,10 +139,10 @@ intéractive avec toutes les options nécessaires (Renommage, suppresion, glisse
 
 
 La difficulté technique dans cette partie du programme est en rapport avec le modèle nécessaire à la construction de la vue :
-Il n'est pas compatible avec le modèle que nous avons conçu. Si le modèle utilise des objets de type QDomNode, QTreeView utilise des objets de type QStandardItem. Une grande partie de la programmation de la vue arborsecente à donc été de réaliser des convertions pour communiquer avec le modèle.
+Il n'est pas compatible avec le modèle que nous avons conçu. Si le modèle utilise des objets de type QDomNode, QTreeView utilise des objets de type QStandardItem. Une grande partie de la programmation de la vue arborescente à donc été de réaliser des conversions pour communiquer avec le modèle.
 \paragraph{}
 
-La classe est donc composée de tout un tas de méthodes utilitaires permettants ces convertions. Quelques exemples de signatures :
+La classe est donc composée de tout un tas de méthodes utilitaires permettant ces conversions. Quelques exemples de signatures :
 \begin{itemize}
 \item QStandardItem* getItemFromNode(QDomNode dom);
 \item QDomNode getNodeFromItem(QStandardItem* item);
@@ -152,28 +150,28 @@ La classe est donc composée de tout un tas de méthodes utilitaires permettants
 \item void preOrder(QDomNode dom, QStandardItemModel *model); // Construit une arborescence de QStandardItem à partir d'une arborescence QDomNode.
 \end{itemize}
 
-La méthode de convertion reste cependant toujours la même, on passe d'un type à un autre en parcourant les structures en se basant
+La méthode de conversion reste cependant toujours la même, on passe d'un type à un autre en parcourant les structures en se basant
 sur une pile de parcours en largeur en utilisant les numéros des sommets, qui sont les même quelque soit le type d'arborescence.
 
-\subsubsection{La gestion des évenements}
+\subsubsection{La gestion des évènements}
 
-La vue arborescence est modifiée par les évenements quand l'éditeur de texte effectue des modifications.
-Pour des raisons pratiques, la vue arborscente est regénérée uniquement lors de la validation synthaxique et non tout au long de
+La vue arborescence est modifiée par les évènements quand l'éditeur de texte effectue des modifications.
+Pour des raisons pratiques, la vue arborescente est regénérée uniquement lors de la validation syntaxique et non tout au long de
 l'édition textuelle. Il n'est tout simplement pas possible de générer une arborescente d'un dom non valide.
-La gestion des évenements entrant et donc très simple, il suffit d'apeller la méthode de reconstruction de la vue à partir du modèle.
+La gestion des évènements entrant et donc très simple, il suffit d'appeler la méthode de reconstruction de la vue à partir du modèle.
 \paragraph{}
 
-Pour ce qui est des évenements sortants (Les évenements déclanchés par l'utilisateur lorsqu'il modifie l'arbre), la programmation
+Pour ce qui est des évènements sortants (Les évènements déclenches par l'utilisateur lorsqu'il modifie l'arbre), la programmation
 est plus complexe. La liste des possibilités de l'utilisateur est la suivante :
 
 \begin{itemize}
 \item Renommage d'un noeud
-\item Suppresion d'un noeud
-\item Glisser/déposé d'un noeud
+\item Suppression d'un noeud
+\item Glisser/déposer d'un noeud
 \end{itemize}
 
 \paragraph{}
-Le renommage et la suppresion est triviale. Le renommage étant effectué instannément sur la vue, il suffit d'envoyer le signal de modification au modèle. La suppresion est légèrement plus compliqué car l'option n'est pas implémentée directement par Qt. Un simple menu contextuel a été ajouté, puis les méthodes utilitaires permettent d'effectuer simplement l'action.
+Le renommage et la suppression est triviale. Le renommage étant effectué instantanément sur la vue, il suffit d'envoyer le signal de modification au modèle. La suppression est légèrement plus compliqué car l'option n'est pas implémentée directement par Qt. Un simple menu contextuel a été ajouté, puis les méthodes utilitaires permettent d'effectuer simplement l'action.
 
 \begin{lstlisting}
 // Lorsque l'utilisateur supprime un noeud (clic droit)
@@ -184,7 +182,7 @@ void Arbo::onRemoveNode() {
 \end{lstlisting}
 
 \paragraph{}
-Ce qui déclanche automatiquement un évenement par Qt :
+Ce qui déclenche automatiquement un évènement par Qt :
 \begin{lstlisting}
 void Arbo::onRowsAboutToBeRemoved(const QModelIndex &i , int x, int y)
 {
@@ -196,12 +194,12 @@ void Arbo::onRowsAboutToBeRemoved(const QModelIndex &i , int x, int y)
 \end{lstlisting}
 
 \paragraph{}
-Le glisser déposé nécessite davantage de programmation. Aucun évenement "Glisser/déposé" n'est envoyé par Qt, mais deux évenements apellés indépendaments : Ajout d'un noeud, puis suppresion d'un noeud. C'est source de beaucoup de problèmes de conflits.
+Le glisser déposer nécessite davantage de programmation. Aucun évènement "Glisser/déposer" n'est envoyé par Qt, mais deux évènements appelés indépendamment : Ajout d'un noeud, puis suppression d'un noeud. C'est source de beaucoup de problèmes et de conflits.
 
 \paragraph{}
-De plus, l'évenement d'ajout de noeud déclanché lors du déposé est ambigüe. Il est appelé sous la forme d'un évenement d'édition avec comme parametre unique le parent dans lequel le noeud à été déposé : Le noeud inséré n'est pas passé en parametre.
-Il est donc nécessaire de parcourir l'abre afin de trouver le noeud présent en double (l'ancien n'a pas encore été supprimé à cet instant). Une fois trouvé, un signal d'ajout de noeud est finalement envoyé au modèle pour repercurter les modifications à l'éditeur de texte.
-Par contre, l'évenement de suppresion est le même que celui utilisé plus haut pour la suppresion manuelle d'un noeud.
+De plus, l'évènement d'ajout de noeud déclenche lors du déposer est ambiguë. Il est appelé sous la forme d'un évènement d'édition avec comme parametre unique le parent dans lequel le noeud à été déposé : Le noeud inséré n'est pas passé en paramètre.
+Il est donc nécessaire de parcourir l'arbre afin de trouver le noeud présent en double (l'ancien n'a pas encore été supprimé à cet instant). Une fois trouvé, un signal d'ajout de noeud est finalement envoyé au modèle pour répercuter les modifications à l'éditeur de texte.
+Par contre, l'évènement de suppression est le même que celui utilisé plus haut pour la suppression manuelle d'un noeud.
 
 
 \subsection{L'éditeur de texte}
@@ -211,7 +209,7 @@ L'éditeur de texte est décomposé en deux parties, l'éditeur de schéma et l'
 C'est ici que sont toutes les méthodes servant à l'édition du texte en général, telles que l'insertion de texte, l'indentation ou la coloration. L'éditeur de texte est une sous-classe de QTextEdit, qui fournit toutes les fonctionnalités basiques d'une éditeur de texte riche, telles que la sélection de texte, la copie, l'annulation etc. On peut intégrer plusieurs fonctionnalités à un QTextEdit comme par exemple la coloration syntaxique. Nous parlerons dans un premier temps des fonctionnalités propres à notre éditeur de texte, puis nous verrons plus en détail chacune de ses implémentations, à savoir l'éditeur XML et l'éditeur de schéma.
 
 \paragraph{}
-Qt propose un QCompleter, il ne peut cependant pas s'intégrer et proposer l'autocomplétion dans un QTextEdit. Même s'il ne s'intègre pas dans un QTextEdit, le QCompleter peut tout de même proposer une suggestion si on lui fournit un début de mot. On peut donc récupérer le mot sous le curseur, le donner au QCompleter et insérer le mot complété dans notre éditeur de texte. Cela se fait de la manière suivante :
+Qt propose un QCompleter, il ne peut cependant pas s'intégrer et proposer l'auto-completion dans un QTextEdit. Même s'il ne s'intègre pas dans un QTextEdit, le QCompleter peut tout de même proposer une suggestion si on lui fournit un début de mot. On peut donc récupérer le mot sous le curseur, le donner au QCompleter et insérer le mot complété dans notre éditeur de texte. Cela se fait de la manière suivante :
 
 \begin{lstlisting}
   //on donne le mot sous le curseur au QCompleter
@@ -604,22 +602,35 @@ Nous avons obtenus un éditeur pleinement fonctionnel apportant un lot suffisant
   \item Coloration synthaxique
   \item Auto-complétion
   \end{itemize}
-\item Validation synthaxique
+\item Validation syntaxique
 \item Gestion d'un schéma
   \begin{itemize}
   \item Edition du schéma
   \item Génération automatique d'un schéma à partir du XML
-  \item Validation synthaxique avec prise en compte du schéma
+  \item Validation syntaxique avec prise en compte du schéma
   \end{itemize}
-\item Vue arborescente avec répércution sur la vue de l'éditeur
+\item Vue arborescente avec répercussion sur la vue de l'éditeur
   \begin{itemize}
   \item Renommage d'un noeud
-  \item Suppresion d'un noeud
-  \item Glissé / Déposé d'un noeud
+  \item Suppression d'un noeud
+  \item Glisser / Déposer d'un noeud
   \end{itemize}
 \item Logger
 \end{itemize}
 
 \subsection{Captures}
 
-
+\begin{figure}[h!]
+\begin{minipage}[b]{\linewidth}
+\centering \includegraphics[scale=0.3]{images/final.png}
+\caption{Rendu final de l'éditeur}
+\label{final}
+\end{minipage}
+\end{figure}
+\begin{figure}[h!]
+\begin{minipage}[b]{\linewidth}
+\centering \includegraphics[scale=0.3]{images/final_xsd.png}
+\caption{Rendu final de l'éditeur}
+\label{final_xsd}
+\end{minipage}
+\end{figure}

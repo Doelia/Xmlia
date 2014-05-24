@@ -1,100 +1,100 @@
 \select@language {french}
-\contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}
-\contentsline {paragraph}{}{5}{section*.4}
-\contentsline {paragraph}{}{5}{section*.5}
-\contentsline {paragraph}{}{5}{section*.6}
-\contentsline {chapter}{\numberline {2}Analyse du projet}{6}{chapter.2}
-\contentsline {section}{\numberline {2.1}Contexte}{6}{section.2.1}
-\contentsline {paragraph}{}{6}{section*.7}
-\contentsline {paragraph}{}{6}{section*.8}
-\contentsline {section}{\numberline {2.2}Analyse de l'existant}{6}{section.2.2}
-\contentsline {paragraph}{}{6}{section*.9}
-\contentsline {paragraph}{}{6}{section*.10}
-\contentsline {section}{\numberline {2.3}Analyse des besoins fonctionnels}{7}{section.2.3}
-\contentsline {paragraph}{}{7}{section*.11}
-\contentsline {paragraph}{}{8}{section*.12}
-\contentsline {paragraph}{}{8}{section*.13}
-\contentsline {paragraph}{}{8}{section*.14}
-\contentsline {section}{\numberline {2.4}Analyse des besoins non fonctionnels}{9}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Sp\IeC {\'e}cifications techniques}{9}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Contraintes ergonomiques}{9}{subsection.2.4.2}
-\contentsline {chapter}{\numberline {3}Rapport d'activit\IeC {\'e}}{10}{chapter.3}
-\contentsline {section}{\numberline {3.1}Organisation du travail}{10}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Communication}{10}{subsection.3.1.1}
-\contentsline {paragraph}{}{10}{section*.15}
-\contentsline {paragraph}{}{10}{section*.16}
-\contentsline {paragraph}{}{10}{section*.17}
-\contentsline {paragraph}{}{10}{section*.18}
-\contentsline {subsection}{\numberline {3.1.2}R\IeC {\'e}partition des t\IeC {\^a}ches}{10}{subsection.3.1.2}
-\contentsline {paragraph}{}{11}{section*.19}
-\contentsline {subsection}{\numberline {3.1.3}Apprentissage d'une nouvelle API}{11}{subsection.3.1.3}
-\contentsline {paragraph}{}{11}{section*.20}
-\contentsline {paragraph}{}{11}{section*.21}
-\contentsline {section}{\numberline {3.2}Outils de d\IeC {\'e}veloppement}{11}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Langage et biblioth\IeC {\`e}ques}{11}{subsection.3.2.1}
-\contentsline {paragraph}{}{11}{section*.22}
-\contentsline {paragraph}{}{11}{figure.3.3}
-\contentsline {paragraph}{}{11}{section*.25}
-\contentsline {subsection}{\numberline {3.2.2}IDE}{12}{subsection.3.2.2}
-\contentsline {paragraph}{}{12}{section*.26}
-\contentsline {paragraph}{}{12}{section*.27}
-\contentsline {subsection}{\numberline {3.2.3}Gestionnaire de projet}{13}{subsection.3.2.3}
-\contentsline {paragraph}{}{13}{section*.28}
-\contentsline {paragraph}{}{13}{section*.29}
-\contentsline {paragraph}{}{13}{section*.30}
-\contentsline {chapter}{\numberline {4}Rapport technique}{15}{chapter.4}
-\contentsline {section}{\numberline {4.1}Conception}{15}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}L'architecture de Qt}{15}{subsection.4.1.1}
-\contentsline {paragraph}{}{15}{section*.31}
-\contentsline {paragraph}{}{15}{section*.32}
-\contentsline {subsection}{\numberline {4.1.2}Mod\IeC {\`e}le de classe}{15}{subsection.4.1.2}
-\contentsline {paragraph}{}{16}{section*.33}
-\contentsline {section}{\numberline {4.2}Architecture de l'application}{17}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Le mod\IeC {\`e}le}{17}{subsection.4.2.1}
-\contentsline {subsubsection}{Structure XML}{17}{section*.34}
-\contentsline {paragraph}{}{17}{section*.35}
-\contentsline {subsubsection}{Modification}{17}{section*.36}
-\contentsline {subsubsection}{Aspect algorithmique}{18}{section*.37}
-\contentsline {subsection}{\numberline {4.2.2}La vue arborescence}{18}{subsection.4.2.2}
-\contentsline {subsubsection}{Un mod\IeC {\`e}le non compatible}{18}{section*.38}
-\contentsline {paragraph}{}{18}{section*.39}
-\contentsline {subsubsection}{La gestion des \IeC {\'e}venements}{19}{section*.40}
-\contentsline {paragraph}{}{19}{section*.41}
-\contentsline {paragraph}{}{19}{section*.42}
-\contentsline {paragraph}{}{19}{section*.43}
-\contentsline {paragraph}{}{19}{section*.44}
-\contentsline {paragraph}{}{20}{section*.45}
-\contentsline {subsection}{\numberline {4.2.3}L'\IeC {\'e}diteur de texte}{20}{subsection.4.2.3}
-\contentsline {subsubsection}{La classe TextEditor}{20}{section*.46}
-\contentsline {paragraph}{}{20}{section*.47}
-\contentsline {paragraph}{}{21}{section*.48}
-\contentsline {paragraph}{}{21}{section*.49}
-\contentsline {paragraph}{}{21}{section*.50}
-\contentsline {subsubsection}{La classe XmlEditor}{22}{section*.51}
-\contentsline {paragraph}{}{22}{section*.52}
-\contentsline {paragraph}{}{23}{section*.53}
-\contentsline {paragraph}{}{23}{section*.54}
-\contentsline {paragraph}{}{24}{section*.55}
-\contentsline {paragraph}{}{24}{section*.56}
-\contentsline {paragraph}{}{24}{section*.57}
-\contentsline {paragraph}{}{24}{section*.58}
-\contentsline {paragraph}{}{25}{section*.59}
-\contentsline {subsubsection}{La classe SchemaEditor}{25}{section*.60}
-\contentsline {paragraph}{}{25}{section*.61}
-\contentsline {paragraph}{}{26}{section*.62}
-\contentsline {subsubsection}{La validation}{26}{section*.63}
-\contentsline {paragraph}{}{26}{section*.64}
-\contentsline {paragraph}{}{26}{section*.65}
-\contentsline {subsection}{\numberline {4.2.4}Le logger}{26}{subsection.4.2.4}
-\contentsline {paragraph}{}{27}{section*.66}
-\contentsline {paragraph}{}{27}{section*.67}
-\contentsline {paragraph}{}{27}{section*.68}
-\contentsline {paragraph}{}{28}{section*.69}
-\contentsline {subsection}{\numberline {4.2.5}Le gestionnaire de fichiers}{28}{subsection.4.2.5}
-\contentsline {paragraph}{}{28}{section*.70}
-\contentsline {section}{\numberline {4.3}R\IeC {\'e}sultat}{28}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Fonctionnalit\IeC {\'e}s pr\IeC {\'e}sentes}{28}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Captures}{28}{subsection.4.3.2}
+\contentsline {chapter}{\numberline {1}Introduction}{4}{chapter.1}
+\contentsline {paragraph}{}{4}{section*.4}
+\contentsline {paragraph}{}{4}{section*.5}
+\contentsline {paragraph}{}{4}{section*.6}
+\contentsline {chapter}{\numberline {2}Analyse du projet}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Contexte}{5}{section.2.1}
+\contentsline {paragraph}{}{5}{section*.7}
+\contentsline {paragraph}{}{5}{section*.8}
+\contentsline {section}{\numberline {2.2}Analyse de l'existant}{5}{section.2.2}
+\contentsline {paragraph}{}{5}{section*.9}
+\contentsline {paragraph}{}{5}{section*.10}
+\contentsline {section}{\numberline {2.3}Analyse des besoins fonctionnels}{6}{section.2.3}
+\contentsline {paragraph}{}{6}{section*.11}
+\contentsline {paragraph}{}{7}{section*.12}
+\contentsline {paragraph}{}{7}{section*.13}
+\contentsline {paragraph}{}{7}{section*.14}
+\contentsline {section}{\numberline {2.4}Analyse des besoins non fonctionnels}{8}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Sp\IeC {\'e}cifications techniques}{8}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Contraintes ergonomiques}{8}{subsection.2.4.2}
+\contentsline {chapter}{\numberline {3}Rapport d'activit\IeC {\'e}}{9}{chapter.3}
+\contentsline {section}{\numberline {3.1}Organisation du travail}{9}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Communication}{9}{subsection.3.1.1}
+\contentsline {paragraph}{}{9}{section*.15}
+\contentsline {paragraph}{}{9}{section*.16}
+\contentsline {paragraph}{}{9}{section*.17}
+\contentsline {paragraph}{}{9}{section*.18}
+\contentsline {subsection}{\numberline {3.1.2}R\IeC {\'e}partition des t\IeC {\^a}ches}{9}{subsection.3.1.2}
+\contentsline {paragraph}{}{10}{section*.19}
+\contentsline {subsection}{\numberline {3.1.3}Apprentissage d'une nouvelle API}{10}{subsection.3.1.3}
+\contentsline {paragraph}{}{10}{section*.20}
+\contentsline {paragraph}{}{10}{section*.21}
+\contentsline {section}{\numberline {3.2}Outils de d\IeC {\'e}veloppement}{10}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Langage et biblioth\IeC {\`e}ques}{10}{subsection.3.2.1}
+\contentsline {paragraph}{}{10}{section*.22}
+\contentsline {paragraph}{}{10}{figure.3.3}
+\contentsline {paragraph}{}{10}{section*.25}
+\contentsline {subsection}{\numberline {3.2.2}IDE}{11}{subsection.3.2.2}
+\contentsline {paragraph}{}{11}{section*.26}
+\contentsline {paragraph}{}{11}{section*.27}
+\contentsline {subsection}{\numberline {3.2.3}Gestionnaire de projet}{12}{subsection.3.2.3}
+\contentsline {paragraph}{}{12}{section*.28}
+\contentsline {paragraph}{}{12}{section*.29}
+\contentsline {paragraph}{}{12}{section*.30}
+\contentsline {chapter}{\numberline {4}Rapport technique}{14}{chapter.4}
+\contentsline {section}{\numberline {4.1}Conception}{14}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}L'architecture de Qt}{14}{subsection.4.1.1}
+\contentsline {paragraph}{}{14}{section*.31}
+\contentsline {paragraph}{}{14}{section*.32}
+\contentsline {subsection}{\numberline {4.1.2}Mod\IeC {\`e}le de classe}{14}{subsection.4.1.2}
+\contentsline {paragraph}{}{15}{section*.33}
+\contentsline {section}{\numberline {4.2}Architecture de l'application}{16}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Le mod\IeC {\`e}le}{16}{subsection.4.2.1}
+\contentsline {subsubsection}{Structure XML}{16}{section*.34}
+\contentsline {paragraph}{}{16}{section*.35}
+\contentsline {subsubsection}{Modification}{16}{section*.36}
+\contentsline {subsubsection}{Aspect algorithmique}{17}{section*.37}
+\contentsline {subsection}{\numberline {4.2.2}La vue arborescence}{17}{subsection.4.2.2}
+\contentsline {subsubsection}{Un mod\IeC {\`e}le non compatible}{17}{section*.38}
+\contentsline {paragraph}{}{17}{section*.39}
+\contentsline {subsubsection}{La gestion des \IeC {\'e}v\IeC {\`e}nements}{18}{section*.40}
+\contentsline {paragraph}{}{18}{section*.41}
+\contentsline {paragraph}{}{18}{section*.42}
+\contentsline {paragraph}{}{18}{section*.43}
+\contentsline {paragraph}{}{18}{section*.44}
+\contentsline {paragraph}{}{19}{section*.45}
+\contentsline {subsection}{\numberline {4.2.3}L'\IeC {\'e}diteur de texte}{19}{subsection.4.2.3}
+\contentsline {subsubsection}{La classe TextEditor}{19}{section*.46}
+\contentsline {paragraph}{}{19}{section*.47}
+\contentsline {paragraph}{}{20}{section*.48}
+\contentsline {paragraph}{}{20}{section*.49}
+\contentsline {paragraph}{}{20}{section*.50}
+\contentsline {subsubsection}{La classe XmlEditor}{21}{section*.51}
+\contentsline {paragraph}{}{21}{section*.52}
+\contentsline {paragraph}{}{22}{section*.53}
+\contentsline {paragraph}{}{22}{section*.54}
+\contentsline {paragraph}{}{23}{section*.55}
+\contentsline {paragraph}{}{23}{section*.56}
+\contentsline {paragraph}{}{23}{section*.57}
+\contentsline {paragraph}{}{23}{section*.58}
+\contentsline {paragraph}{}{24}{section*.59}
+\contentsline {subsubsection}{La classe SchemaEditor}{24}{section*.60}
+\contentsline {paragraph}{}{24}{section*.61}
+\contentsline {paragraph}{}{25}{section*.62}
+\contentsline {subsubsection}{La validation}{25}{section*.63}
+\contentsline {paragraph}{}{25}{section*.64}
+\contentsline {paragraph}{}{25}{section*.65}
+\contentsline {subsection}{\numberline {4.2.4}Le logger}{25}{subsection.4.2.4}
+\contentsline {paragraph}{}{26}{section*.66}
+\contentsline {paragraph}{}{26}{section*.67}
+\contentsline {paragraph}{}{26}{section*.68}
+\contentsline {paragraph}{}{27}{section*.69}
+\contentsline {subsection}{\numberline {4.2.5}Le gestionnaire de fichiers}{27}{subsection.4.2.5}
+\contentsline {paragraph}{}{27}{section*.70}
+\contentsline {section}{\numberline {4.3}R\IeC {\'e}sultat}{27}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Fonctionnalit\IeC {\'e}s pr\IeC {\'e}sentes}{27}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Captures}{27}{subsection.4.3.2}
 \contentsline {chapter}{\numberline {5}Manuel d'utilisation}{29}{chapter.5}
 \contentsline {chapter}{\numberline {6}Perspectives et conclusions}{30}{chapter.6}
 \contentsline {section}{\numberline {6.1}Perspectives}{30}{section.6.1}
@@ -110,4 +110,5 @@
 \contentsline {paragraph}{}{31}{section*.76}
 \contentsline {paragraph}{}{31}{section*.77}
 \contentsline {chapter}{\numberline {7}Annexes}{32}{chapter.7}
-\contentsline {section}{\numberline {7.1}Historique des commits}{32}{section.7.1}
+\contentsline {section}{\numberline {7.1}Code annexe}{32}{section.7.1}
+\contentsline {section}{\numberline {7.2}Historique des commits}{32}{section.7.2}
