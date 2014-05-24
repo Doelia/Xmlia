@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.21)  24 MAY 2014 19:07
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.21)  24 MAY 2014 19:13
 entering extended mode
 **main.tex
 (C:\Users\Beny\xmlia\Rapport\main.tex
@@ -552,7 +552,7 @@ File: lstlang1.sty 2014/03/04 1.5c listings language file
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
 File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
 )
-(C:\Users\Beny\xmlia\Rapport\main.aux)
+No file main.aux.
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
 LaTeX Font Info:    ... okay on input line 35.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
@@ -567,7 +567,6 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
 LaTeX Font Info:    ... okay on input line 35.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 35.
-
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
@@ -602,21 +601,25 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [1] [1
 
 ]
-(C:\Users\Beny\xmlia\Rapport\main.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 7.
-)
+No file main.toc.
 \tf@toc=\write3
+(C:\Users\Beny\xmlia\Rapport\table-figures.tex [2
 
-(C:\Users\Beny\xmlia\Rapport\introduction.tex [2
+]
+No file main.lof.
+\tf@lof=\write4
+) (C:\Users\Beny\xmlia\Rapport\introduction.tex [3
 
 ]
 Chapitre 1.
-) (C:\Users\Beny\xmlia\Rapport\analyse-projet.tex [3
+) (C:\Users\Beny\xmlia\Rapport\analyse-projet.tex [4
 
 ]
 Chapitre 2.
-<images/analyse-oxygen1.png, id=23, 712.91344pt x 568.37344pt>
+
+LaTeX Warning: Reference `oxygen' on page 5 undefined on input line 18.
+
+<images/analyse-oxygen1.png, id=26, 712.91344pt x 568.37344pt>
 File: images/analyse-oxygen1.png Graphic file (type png)
 
 <use images/analyse-oxygen1.png>
@@ -626,25 +629,35 @@ Package pdftex.def Info: images/analyse-oxygen1.png used on input line 24.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4
+[5
 
-] <images/analyse-diag-fichier.png, id=28, 335.00156pt x 249.18094pt>
+]
+
+LaTeX Warning: Reference `diagfichier' on page 6 undefined on input line 34.
+
+<images/analyse-diag-fichier.png, id=32, 335.00156pt x 249.18094pt>
 File: images/analyse-diag-fichier.png Graphic file (type png)
 
 <use images/analyse-diag-fichier.png>
 Package pdftex.def Info: images/analyse-diag-fichier.png used on input line 38.
 
 (pdftex.def)             Requested size: 167.50037pt x 124.59015pt.
- [5 <C:/Users/Beny/xmlia/Rapport/images/analyse-oxygen1.png> <C:/Users/Beny/xml
-ia/Rapport/images/analyse-diag-fichier.png>] <images/analyse-diag-arbo.png, id=
-36, 295.85532pt x 308.65312pt>
+ [6 <C:/Users/Beny/xmlia/Rapport/images/analyse-oxygen1.png> <C:/Users/Beny/xml
+ia/Rapport/images/analyse-diag-fichier.png>]
+
+LaTeX Warning: Reference `diagarbo' on page 7 undefined on input line 47.
+
+
+LaTeX Warning: Reference `diagediteur' on page 7 undefined on input line 47.
+
+<images/analyse-diag-arbo.png, id=39, 295.85532pt x 308.65312pt>
 File: images/analyse-diag-arbo.png Graphic file (type png)
 
 <use images/analyse-diag-arbo.png>
 Package pdftex.def Info: images/analyse-diag-arbo.png used on input line 51.
 (pdftex.def)             Requested size: 147.92729pt x 154.32617pt.
 
-<images/analyse-diag-editeur.png, id=37, 362.10281pt x 309.40594pt>
+<images/analyse-diag-editeur.png, id=40, 362.10281pt x 309.40594pt>
 File: images/analyse-diag-editeur.png Graphic file (type png)
 
 <use images/analyse-diag-editeur.png>
@@ -652,7 +665,11 @@ Package pdftex.def Info: images/analyse-diag-editeur.png used on input line 59.
 
 (pdftex.def)             Requested size: 181.05095pt x 154.70259pt.
 
-<images/analyse-maquette.png, id=38, 642.4pt x 401.5pt>
+
+LaTeX Warning: Reference `maquette_interface' on page 7 undefined on input line
+ 66.
+
+<images/analyse-maquette.png, id=41, 642.4pt x 401.5pt>
 File: images/analyse-maquette.png Graphic file (type png)
 
 <use images/analyse-maquette.png>
@@ -662,28 +679,41 @@ Package pdftex.def Info: images/analyse-maquette.png used on input line 70.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6 <C:/Users/Beny/xmlia/Rapport/images/analyse-diag-arbo.png> <C:/Users/Beny/xm
+[7 <C:/Users/Beny/xmlia/Rapport/images/analyse-diag-arbo.png> <C:/Users/Beny/xm
 lia/Rapport/images/analyse-diag-editeur.png>])
-(C:\Users\Beny\xmlia\Rapport\rapport-activite.tex [7 <C:/Users/Beny/xmlia/Rappo
+(C:\Users\Beny\xmlia\Rapport\rapport-activite.tex [8 <C:/Users/Beny/xmlia/Rappo
 rt/images/analyse-maquette.png>]
 Chapitre 3.
-[8
+[9
 
-] <images/apparence_linux.png, id=51, 803.0pt x 182.6825pt>
+]
+
+LaTeX Warning: Reference `apparence_linux' on page 10 undefined on input line 4
+0.
+
+
+LaTeX Warning: Reference `apparence_mac' on page 10 undefined on input line 40.
+
+
+
+LaTeX Warning: Reference `apparence_windows' on page 10 undefined on input line
+ 40.
+
+<images/apparence_linux.png, id=54, 803.0pt x 182.6825pt>
 File: images/apparence_linux.png Graphic file (type png)
 
 <use images/apparence_linux.png>
 Package pdftex.def Info: images/apparence_linux.png used on input line 44.
 (pdftex.def)             Requested size: 401.49902pt x 91.34102pt.
 
-<images/apparence_macos.png, id=52, 803.0pt x 182.6825pt>
+<images/apparence_macos.png, id=55, 803.0pt x 182.6825pt>
 File: images/apparence_macos.png Graphic file (type png)
 
 <use images/apparence_macos.png>
 Package pdftex.def Info: images/apparence_macos.png used on input line 50.
 (pdftex.def)             Requested size: 401.49902pt x 91.34102pt.
 
-<images/apparence_windows.png, id=53, 609.02531pt x 137.01187pt>
+<images/apparence_windows.png, id=56, 609.02531pt x 137.01187pt>
 File: images/apparence_windows.png Graphic file (type png)
 
 <use images/apparence_windows.png>
@@ -693,10 +723,14 @@ Package pdftex.def Info: images/apparence_windows.png used on input line 56.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[9] [10 <C:/Users/Beny/xmlia/Rapport/images/apparence_linux.png> <C:/Users/Beny
-/xmlia/Rapport/images/apparence_macos.png (PNG copy)> <C:/Users/Beny/xmlia/Rapp
-ort/images/apparence_windows.png>]
-<images/bitbucket-exemple-issue.png, id=61, 753.5653pt x 354.57469pt>
+[10] [11 <C:/Users/Beny/xmlia/Rapport/images/apparence_linux.png> <C:/Users/Ben
+y/xmlia/Rapport/images/apparence_macos.png (PNG copy)> <C:/Users/Beny/xmlia/Rap
+port/images/apparence_windows.png>]
+
+LaTeX Warning: Reference `ticket_Bitbucket' on page 12 undefined on input line 
+81.
+
+<images/bitbucket-exemple-issue.png, id=65, 753.5653pt x 354.57469pt>
 File: images/bitbucket-exemple-issue.png Graphic file (type png)
 
 <use images/bitbucket-exemple-issue.png>
@@ -707,74 +741,78 @@ Package pdftex.def Info: images/bitbucket-exemple-issue.png used on input line
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (C:\Users\Beny\xmlia\Rapport\rapport-technique.tex [11] [12 <C:/Users/Beny/xm
+) (C:\Users\Beny\xmlia\Rapport\rapport-technique.tex [12] [13 <C:/Users/Beny/xm
 lia/Rapport/images/bitbucket-exemple-issue.png>]
 Chapitre 4.
-<images/classes.png, id=69, 932.48375pt x 1470.49374pt>
+
+LaTeX Warning: Reference `diag_classe' on page 14 undefined on input line 38.
+
+<images/classes.png, id=72, 932.48375pt x 1470.49374pt>
 File: images/classes.png Graphic file (type png)
 
 <use images/classes.png>
 Package pdftex.def Info: images/classes.png used on input line 42.
 (pdftex.def)             Requested size: 372.9869pt x 588.18709pt.
- [13
+ [14
 
-] [14 <C:/Users/Beny/xmlia/Rapport/images/classes.png>]
+] [15 <C:/Users/Beny/xmlia/Rapport/images/classes.png>]
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 62.
  ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 65.
- [15]
-<images/arbo.png, id=82, 371.3875pt x 241.90375pt>
+ [16]
+<images/arbo.png, id=85, 371.3875pt x 241.90375pt>
 File: images/arbo.png Graphic file (type png)
  <use images/arbo.png>
 Package pdftex.def Info: images/arbo.png used on input line 134.
 (pdftex.def)             Requested size: 185.69328pt x 120.95157pt.
 
-[16 <C:/Users/Beny/xmlia/Rapport/images/arbo.png>] [17] [18] [19] [20] [21]
-[22] [23] [24] [25]) (C:\Users\Beny\xmlia\Rapport\manuel-utilisation.tex
-[26]
+[17 <C:/Users/Beny/xmlia/Rapport/images/arbo.png>] [18] [19] [20] [21] [22]
+[23] [24] [25] [26]) (C:\Users\Beny\xmlia\Rapport\manuel-utilisation.tex
+[27]
 Chapitre 5.
-) (C:\Users\Beny\xmlia\Rapport\conclusion.tex [27
+) (C:\Users\Beny\xmlia\Rapport\conclusion.tex [28
 
 ]
 Chapitre 6.
-) (C:\Users\Beny\xmlia\Rapport\table-figures.tex [28
-
-]
-(C:\Users\Beny\xmlia\Rapport\main.lof)
-\tf@lof=\write4
 ) [29
 
-]
-(C:\Users\Beny\xmlia\Rapport\main.aux) ) 
+] (C:\Users\Beny\xmlia\Rapport\main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 5632 strings out of 493921
- 74317 string characters out of 3144879
- 326759 words of memory out of 3000000
- 8825 multiletter control sequences out of 15000+200000
- 18863 words of font info for 43 fonts, out of 3000000 for 9000
+ 5621 strings out of 493921
+ 74024 string characters out of 3144879
+ 310759 words of memory out of 3000000
+ 8820 multiletter control sequences out of 15000+200000
+ 18247 words of font info for 41 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  33i,9n,58p,1681b,1632s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Beny\AppData\Local\MiKTeX\2.
-9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1095.pk> <C:\Users\Beny\AppData\Local\
-MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecit0900.pk> <C:\Users\Beny\AppDa
-ta\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt0900.pk> <C:\Users\B
-eny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1095.pk> <C
-:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx12
-00.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi6
-00\eccc1095.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappe
-n\ec\dpi600\ecbx1440.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
-r\jknappen\ec\dpi600\ecbx2074.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts
-\pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk> <C:\Users\Beny\AppData\Local\MiKTeX\
-2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1095.pk> <C:\Users\Beny\AppData\Loca
-l\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\Beny\App
-Data\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users
-\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk>
-Output written on main.pdf (31 pages, 668507 bytes).
+ <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\e
+ctt1095.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
+\dpi600\ecit0900.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jk
+nappen\ec\dpi600\ectt0900.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\
+ljfour\jknappen\ec\dpi600\ecti1095.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\
+fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\Beny\AppData\Local\Mi
+KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1095.pk> <C:\Users\Beny\AppData
+\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\Ben
+y\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx2074.pk> <C:\
+Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx2488
+.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
+\ecrm1095.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
+ec\dpi600\ecbx1095.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\
+jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\p
+k\ljfour\jknappen\ec\dpi600\ecrm1728.pk>
+Output written on main.pdf (31 pages, 664496 bytes).
 PDF statistics:
- 684 PDF objects out of 1000 (max. 8388607)
+ 672 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
