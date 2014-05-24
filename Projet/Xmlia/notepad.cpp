@@ -1,3 +1,7 @@
+/*===============================================
+ * nom : notepad.cpp         projet : xmlia
+ *=============================================*/
+
 #include "notepad.h"
 #include "xmlfilemanager.h"
 

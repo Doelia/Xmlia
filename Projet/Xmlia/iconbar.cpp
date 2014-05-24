@@ -1,3 +1,7 @@
+/*===============================================
+ * nom : iconbar.cpp         projet : xmlia
+ *=============================================*/
+
 #include "iconbar.h"
 
 IconBar::IconBar(QWidget *parent) :

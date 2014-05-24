@@ -1,3 +1,7 @@
+/*===============================================
+ * nom : xmleditor.cpp         projet : xmlia
+ *=============================================*/
+
 #include "xmleditor.h"
 #include "modelexml.h"
 #include "xmlfilemanager.h"

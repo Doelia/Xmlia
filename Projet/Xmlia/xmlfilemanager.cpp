@@ -1,3 +1,7 @@
+/*===============================================
+ * nom : xmlfilemanager.cpp         projet : xmlia
+ *=============================================*/
+
 #include "xmlfilemanager.h"
 
 XmlFileManager::XmlFileManager()

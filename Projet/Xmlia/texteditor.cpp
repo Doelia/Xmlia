@@ -1,3 +1,7 @@
+/*===============================================
+ * nom : texteditor.cpp         projet : xmlia
+ *=============================================*/
+
 #include "texteditor.h"
 
 TextEditor::TextEditor(QSyntaxHighlighter *s)

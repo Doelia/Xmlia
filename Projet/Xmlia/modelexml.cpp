@@ -1,3 +1,7 @@
+/*===============================================
+ * nom : modelexml.cpp         projet : xmlia
+ *=============================================*/
+
 #include "modelexml.h"
 #include <iostream>
 #include "xmlfilemanager.h"

@@ -1,3 +1,7 @@
+/*===============================================
+ * nom : texthighlighter.cpp         projet : xmlia
+ *=============================================*/
+
 #include "texthighlighter.h"
 
 using namespace std;
