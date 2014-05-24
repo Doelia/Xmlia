@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.5.24)  24 MAY 2014 16:24
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.5.24)  24 MAY 2014 17:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -664,36 +664,59 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [4
 
-] <images/analyse-maquette.png, id=29, 642.4pt x 401.5pt>
+] <images/analyse-diag-fichier.png, id=29, 335.00156pt x 249.18094pt>
+File: images/analyse-diag-fichier.png Graphic file (type png)
+
+<use images/analyse-diag-fichier.png>
+Package pdftex.def Info: images/analyse-diag-fichier.png used on input line 38.
+
+(pdftex.def)             Requested size: 167.50037pt x 124.59015pt.
+ [5 <./images/analyse-oxygen1.png> <./images/analyse-diag-fichier.png>]
+<images/analyse-diag-arbo.png, id=37, 295.85532pt x 308.65312pt>
+File: images/analyse-diag-arbo.png Graphic file (type png)
+
+<use images/analyse-diag-arbo.png>
+Package pdftex.def Info: images/analyse-diag-arbo.png used on input line 51.
+(pdftex.def)             Requested size: 147.92729pt x 154.32617pt.
+
+<images/analyse-diag-editeur.png, id=38, 362.10281pt x 309.40594pt>
+File: images/analyse-diag-editeur.png Graphic file (type png)
+
+<use images/analyse-diag-editeur.png>
+Package pdftex.def Info: images/analyse-diag-editeur.png used on input line 59.
+
+(pdftex.def)             Requested size: 181.05095pt x 154.70259pt.
+
+<images/analyse-maquette.png, id=39, 642.4pt x 401.5pt>
 File: images/analyse-maquette.png Graphic file (type png)
 
 <use images/analyse-maquette.png>
-Package pdftex.def Info: images/analyse-maquette.png used on input line 44.
+Package pdftex.def Info: images/analyse-maquette.png used on input line 70.
 (pdftex.def)             Requested size: 321.19922pt x 200.7495pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[5 <./images/analyse-oxygen1.png>]) (./rapport-activite.tex [6 <./images/analys
-e-maquette.png>]
+[6 <./images/analyse-diag-arbo.png> <./images/analyse-diag-editeur.png>])
+(./rapport-activite.tex [7 <./images/analyse-maquette.png>]
 Chapitre 3.
-[7
+[8
 
-] <images/apparence_linux.png, id=44, 803.0pt x 182.6825pt>
+] <images/apparence_linux.png, id=52, 803.0pt x 182.6825pt>
 File: images/apparence_linux.png Graphic file (type png)
 
 <use images/apparence_linux.png>
 Package pdftex.def Info: images/apparence_linux.png used on input line 45.
 (pdftex.def)             Requested size: 401.49902pt x 91.34102pt.
 
-<images/apparence_macos.png, id=45, 803.0pt x 182.6825pt>
+<images/apparence_macos.png, id=53, 803.0pt x 182.6825pt>
 File: images/apparence_macos.png Graphic file (type png)
 
 <use images/apparence_macos.png>
 Package pdftex.def Info: images/apparence_macos.png used on input line 51.
 (pdftex.def)             Requested size: 401.49902pt x 91.34102pt.
 
-<images/apparence_windows.png, id=46, 609.02531pt x 137.01187pt>
+<images/apparence_windows.png, id=54, 609.02531pt x 137.01187pt>
 File: images/apparence_windows.png Graphic file (type png)
 
 <use images/apparence_windows.png>
@@ -703,9 +726,9 @@ Package pdftex.def Info: images/apparence_windows.png used on input line 57.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[8] [9 <./images/apparence_linux.png> <./images/apparence_macos.png (PNG copy)>
- <./images/apparence_windows.png>]
-<images/bitbucket-exemple-issue.png, id=54, 753.5653pt x 354.57469pt>
+[9] [10 <./images/apparence_linux.png> <./images/apparence_macos.png (PNG copy)
+> <./images/apparence_windows.png>]
+<images/bitbucket-exemple-issue.png, id=62, 753.5653pt x 354.57469pt>
 File: images/bitbucket-exemple-issue.png Graphic file (type png)
 
 <use images/bitbucket-exemple-issue.png>
@@ -716,45 +739,52 @@ Package pdftex.def Info: images/bitbucket-exemple-issue.png used on input line
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./rapport-technique.tex [10] [11 <./images/bitbucket-exemple-issue.png>]
+) (./rapport-technique.tex [11] [12 <./images/bitbucket-exemple-issue.png>]
 Chapitre 4.
-[12
+[13
 
-] <images/classes.png, id=66, 932.48375pt x 1470.49374pt>
+] <images/classes.png, id=74, 932.48375pt x 1470.49374pt>
 File: images/classes.png Graphic file (type png)
 
 <use images/classes.png>
 Package pdftex.def Info: images/classes.png used on input line 44.
 (pdftex.def)             Requested size: 372.9869pt x 588.18709pt.
- [13 <./images/classes.png>]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 61.
+ [14 <./images/classes.png>]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 58.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 65.
- [14] [15]
-[16] [17] [18] [19] [20] [21]) (./manuel-utilisation.tex [22]
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 61.
+ [15]
+<images/arbo.png, id=83, 371.3875pt x 241.90375pt>
+File: images/arbo.png Graphic file (type png)
+ <use images/arbo.png>
+Package pdftex.def Info: images/arbo.png used on input line 130.
+(pdftex.def)             Requested size: 185.69328pt x 120.95157pt.
+
+[16 <./images/arbo.png>] [17] [18] [19] [20] [21] [22] [23])
+(./manuel-utilisation.tex [24]
 Chapitre 5.
-) (./conclusion.tex [23
+) (./conclusion.tex [25
 
 ]
 Chapitre 6.
-) (./table-figures.tex [24
+) (./table-figures.tex [26
 
 ] (./main.lof)
 \tf@lof=\write4
 \openout4 = `main.lof'.
 
-) [25
+) [27
 
 ] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 6038 strings out of 493315
- 80997 string characters out of 6137904
- 318027 words of memory out of 5000000
- 9364 multiletter control sequences out of 15000+600000
+ 6115 strings out of 493315
+ 82274 string characters out of 6137904
+ 312027 words of memory out of 5000000
+ 9437 multiletter control sequences out of 15000+600000
  18863 words of font info for 43 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,9n,58p,1667b,1634s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -772,10 +802,10 @@ r/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/
 local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/lo
 cal/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/loca
 l/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on main.pdf (27 pages, 622988 bytes).
+Output written on main.pdf (29 pages, 737577 bytes).
 PDF statistics:
- 155 PDF objects out of 1000 (max. 8388607)
- 102 compressed objects within 2 object streams
+ 167 PDF objects out of 1000 (max. 8388607)
+ 106 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

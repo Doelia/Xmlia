@@ -46,8 +46,93 @@ L'organisation de l'architecture se résume dans le diagramme de classe qui suit
 \section{Architecture de l'application}
 \subsection{Le modèle}
 
+\subsubsection{Structure XML}
 
-\subsection{L'arborescence}
+Le programme est composé d'un et d'un seul modèle représentant le fichier XML arborescent.
+Il contient les informations sur tous les noeud de la structure XML (Nom, valeur, attributs).
+L'accès à l'arborscence XML se fait à partir d'un unique attribut noeud parent de type \emph{QDomDocument}, 
+
+\paragraph{}
+Au lancement du programme, un dom vide est est généré. Il est redéfinit à l'ouverture d'un fichier de façon automatique grâce à une simple méthode de Qt de la façon suivante.
+
+\begin{lstlisting}
+QFile file(currentFile);
+
+if (file.open(QIODevice::ReadOnly))
+{
+    QString data(file.readAll());
+
+    if (doc->setContent(data, &error, &errorLine, &errorColumn))
+    {
+        // Definition du dom a partir du texte du fichier
+        this->modele->setFromDocument(doc);
+    }
+
+    notepad->setText(data);
+}
+\end{lstlisting}
+
+\subsubsection{Modification}
+
+Le modèle implémente toutes les méthodes nécessaires à la modification du dom. On les retrouve clairement dans le fichier entête de la classe.
+
+
+\begin{lstlisting}
+/**
+   @action Modifie le nom du noeud passe en parametre,
+   et envoi le signal onNodeNameUpdate
+*/
+void updateNodeName(QDomNode n, QString newName);
+
+/**
+   @action Insere un noeud dans le parent indique,
+  et envoi le signal onNodeInsert
+*/
+void insertNode(QDomNode parent, QDomNode node);
+
+/**
+  @action Supprime le noeud et sa sous arborescente
+  et envoi le signal onNodeRemove
+*/
+void removeNode(QDomNode dom);
+\end{lstlisting}
+
+Toutes ces méthodes publiques sont appelés par les différentes vues.
+Elles modifient directement la structure XML du modèle, puis notifient les changements par un signal.
+Cet ensemble est minimal mais suffisant et permet de modifier à souhait l'arbre.
+Par exemple une procédure de déplacement d'un noeud pourra être scriptée par une insertion/suppresion.
+
+\subsubsection{Aspect algorithmique}
+Toute la subtilité technique de la classe du modèle repose sur la modification propre et optimisée de l'arborescence.
+Différents algorithmes de parcours d'arbres ont été utilisés pour y parvenir. Voici par exemple une méthode utilitaire permettant de récupérer la pile représentant le parcours à effectuer en largeur à partir du noeud voulu.
+
+\begin{lstlisting}
+stack<int> ModeleXml::pathFromRoot(QDomNode n)
+{
+    stack<int> s;
+    while(!n.parentNode().isNull())
+    {
+        s.push(rowFromNode(n)); // On recupere la position du noeud en largeur
+        n = n.parentNode();
+    }
+
+    return s;
+}
+\end{lstlisting}
+
+\subsection{La vue arborescence}
+
+La classe de la vue arborsecente encapsule la classe QTreeView de Qt permetant de générer une interface arborsence
+intéractive avec toutes les options nécessaires (Renommage, suppresion, glisser/déposer...).
+
+\begin{figure}[h!]
+\begin{minipage}[b]{\linewidth}
+\centering \includegraphics[scale=0.5]{images/arbo.png}
+\caption{Vue arborescente de Qt}
+\label{arbo}
+\end{minipage}
+\end{figure}
+
 
 \subsection{L'éditeur de texte}
 
