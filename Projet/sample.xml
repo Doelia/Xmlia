@@ -12,8 +12,7 @@
         <person id="2">
                 <surname>a</surname>
                 <salut>auniert</salut>
-                <uris>anruiset</uris>
-                <narste/>
+                <uris>anruiset<narste/></uris>
         </person>
         <person id="3">
                 <firstname>a</firstname>

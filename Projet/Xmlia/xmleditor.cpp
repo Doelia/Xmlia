@@ -418,8 +418,6 @@ bool XmlEditor::eventFilter(QObject *o, QEvent *e)
         }
         if (keyEvent->key() == Qt::Key_Right || keyEvent->key() == Qt::Key_Tab)
         {
-            cout << textUnderCursor().toStdString() << endl;
-
             return insertCompletion();
         }
         else if(keyEvent->key() == Qt::Key_Backspace)
@@ -474,23 +472,35 @@ void XmlEditor::onTextChange()
 
 bool XmlEditor::insertNodeText(int &nbFound, int &begin, int &end, QTextCursor &c, QString oldName, QString newName, QXmlStreamReader &xml)
 {
-    cout << "inserting : " << savedNodeData.toStdString() << endl;
-    QString slash("/");
-    bool isSingle = false;
-    moveCursorToLineAndColumn(c, xml.lineNumber() - 1, xml.columnNumber() - 1, false);
-    if(!slash.compare(text->toPlainText().at(c.position() - 1)))
+    if(nbFound == 2)
     {
-        c.setPosition(c.position() - 1, QTextCursor::MoveAnchor);
-        isSingle = true;
-    }
-    c.insertText(QString(">").append(savedNodeData));
+        cout << "inserting : " << savedNodeData.toStdString() << endl;
+        QString slash("/");
+        bool isSingle = false;
+        moveCursorToLineAndColumn(c, xml.lineNumber() - 1, xml.columnNumber() - 1, false);
 
-    if(isSingle)
-    {
-        c.insertText(QString("</").append(xml.name().toString()));
+        int pos = goToNodeStart(c.position(), text->toPlainText());
+
+        c.setPosition(pos);
+
+        if(!slash.compare(text->toPlainText().at(c.position() - 1)))
+        {
+            c.setPosition(c.position() - 1, QTextCursor::MoveAnchor);
+            isSingle = true;
+        }
+        c.insertText(savedNodeData.append("<"));
+
+        if(isSingle)
+        {
+            c.insertText(QString("</").append(xml.name().toString()));
+        }
+        c.setPosition(c.position() + 1, QTextCursor::KeepAnchor);
+        c.removeSelectedText();
+        text->setTextCursor(c);
+        return true;
     }
-    c.setPosition(c.position() + 1, QTextCursor::KeepAnchor);
-    c.removeSelectedText();
-    text->setTextCursor(c);
-    return true;
+    else {
+        nbFound++;
+        return false;
+    }
 }

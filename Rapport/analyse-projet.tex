@@ -31,11 +31,37 @@ La figure \ref{oxygen} expose par exemple une vue spéciale du document sous for
 \section{Analyse des besoins fonctionnels}
 L'objectif du projet est de développer un éditeur XML multi-vues avec différentes fonctionnalités.
 \paragraph{}
-Les fonctionnalités liées à un éditeur de texte simple devront être présentes : la possibilité de saisir manuellement au clavier l'intégralité du fichier, la création et la sauvegarde du fichier à manipuler ainsi que l'ouverture d'un fichier déjà existant dans le but de le modifier.
+Les fonctionnalités liées à un éditeur de texte simple devront être présentes : la possibilité de saisir manuellement au clavier l'intégralité du fichier, la création et la sauvegarde du fichier à manipuler ainsi que l'ouverture d'un fichier déjà existant dans le but de le modifier. La figure \ref{diagfichier} présente les différents cas d'utilisation de l'application pour ce qui est de la gestion de fichiers brute.
+
+\begin{figure}[h!]
+\begin{minipage}[b]{\linewidth}
+\centering \includegraphics[scale=0.5]{images/analyse-diag-fichier.png}
+\caption{Diagramme des cas d'utilisation côté gestion des fichiers}
+\label{diagfichier}
+\end{minipage}
+\end{figure}
+
 \paragraph{}
 Des fonctionnalités d'éditeur de texte avancées seront aussi présentes : coloration syntaxique et indentation automatique du code permettant ainsi une lisibilité claire des fichiers manipulés et une autocomplétion du code écrit permettant un gain de temps au cours de la frappe.
 \paragraph{}
-Pour finir, l'éditeur proposera des fonctionnalités spécifiques au langage XML : validation syntaxique du fichier, vue arborescente du fichier XML avec possibilité de modification des données via cette vue et ajout d'un schéma sur lequel la validation se basera.
+Pour finir, l'éditeur proposera des fonctionnalités spécifiques au langage XML : validation syntaxique du fichier, vue arborescente du fichier XML avec possibilité de modification des données via cette vue et ajout d'un schéma sur lequel la validation se basera. Les différentes actions réalisables via la vue arborescente sont exposées dans la figure \ref{diagarbo}. Les actions liées à l'éditeur de texte même et à la vérification syntaxique sont elles décrites sur la figure \ref{diagediteur}.
+
+\begin{figure}[h!]
+\begin{minipage}[b]{\linewidth}
+\centering \includegraphics[scale=0.5]{images/analyse-diag-arbo.png}
+\caption{Diagramme des cas d'utilisation de la vue arborescente}
+\label{diagarbo}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{minipage}[b]{\linewidth}
+\centering \includegraphics[scale=0.5]{images/analyse-diag-editeur.png}
+\caption{Diagramme des cas d'utilisation de l'éditeur de texte}
+\label{diagediteur}
+\end{minipage}
+\end{figure}
+
 \paragraph{}	
 La figure \ref{maquette_interface} expose la maquette d'interface de l'éditeur avec chacune des parties annoncées : à gauche la vue arborescente affichant chaque nœud de l'arbre formé par les données, à droite l'éditeur de texte avec toutes ses fonctionnalités associées et en haut la barre d'outils avec la gestion de fichiers (nouveau fichier, ouvrir, sauvegarder) ainsi que la gestion du schéma.
 
