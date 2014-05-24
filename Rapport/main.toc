@@ -96,4 +96,7 @@
 \contentsline {chapter}{\numberline {5}Manuel d'utilisation}{27}
 \contentsline {chapter}{\numberline {6}Perspectives et conclusions}{28}
 \contentsline {section}{\numberline {6.1}Perspectives}{28}
+\contentsline {paragraph}{}{28}
+\contentsline {paragraph}{}{28}
+\contentsline {paragraph}{}{28}
 \contentsline {section}{\numberline {6.2}Conclusions}{28}
