@@ -8,7 +8,10 @@
 \usepackage{dirtree}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{float}
 \usepackage{hyperref}
+\usepackage{fancyhdr}
 
 \lstset{
   belowcaptionskip=1\baselineskip,
@@ -24,19 +27,44 @@
   stringstyle=\color{blue},
   morekeywords={QXmlStreamReader, QString, QTextCursor, QSyntaxHighLighter, QRegExp, XmlFileManager, QFile, QIODevice, QDomNode, QDomDocument, stack, ModeleXml, QStandardItem, QStandardItemModel, QModelIndex},
 }
+\pagestyle{fancy}
+\renewcommand\headrulewidth{1pt}
+\fancyhead[L]{}
+\fancyhead[R]{\leftmark}
 
 \title {Projet Xmlia}
 \author {
-BOIVIN Benoit\\
-LE PHILIPPE Noé\\
-KEGBA-SANGO-SANGO Ulrich-Chancelin\\
-WOUTERS Stéphane
+\bsc{BOIVIN} Benoit\\
+\bsc{LE PHILIPPE} Noé\\
+\bsc{KEGBA-SANGO-SANGO} Ulrich-Chancelin\\
+\bsc{WOUTERS} Stéphane
 }
+\date{Second semestre de licence 3}
 
 \begin{document}
 
-\maketitle
-
+\makeatletter
+\begin{titlepage}
+  \centering
+  \vspace{1cm}
+     \includegraphics[width=0.3\textwidth]{images/logo_um2.png}\\
+    \vspace{1cm}
+      {\large\textbf{	\@date\\
+       Rapport de projet}}\\
+    \vfill
+       {\LARGE \textbf{\@title}} \\
+    \vspace{2em}
+        {\large \@author} \\
+    \vfill
+    Sous la direction de\\
+    {\textbf{Michel Meynard}} \\
+    \vfill
+       {\textbf{Pour l'obtention de la licence 3 informatique}} \\
+       Année universitaire 2013-2014 \\
+\end{titlepage}
+%\maketitle
+\makeatother
+\thispagestyle{empty}
 \begin{abstract}
 Ce rapport est le compte rendu du projet Xmlia, exécuté par les auteurs et proposé par Michel Meynard pour l’unité d’enseignement GLIN405 Projet Informatique du sixième semestre du parcours Licence Informatique de la Faculté de Sciences de Montpellier en 2013-2014.
 \end{abstract}
