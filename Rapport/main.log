@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.5.24)  25 MAY 2014 00:57
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.5.24)  25 MAY 2014 01:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -694,32 +694,33 @@ File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
 (/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-) (./main.aux)
+)
+No file main.aux.
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 48.
- (/usr/local/texlive/2013/texmf-dist/tex/latex/base/ts1cmr.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 49.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Info: Redefining \degres on input line 48.
-LaTeX Info: Redefining \dots on input line 48.
-LaTeX Info: Redefining \up on input line 48.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Info: Redefining \degres on input line 49.
+LaTeX Info: Redefining \dots on input line 49.
+LaTeX Info: Redefining \up on input line 49.
 
 (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -751,7 +752,7 @@ e
 ))
 \c@lstlisting=\count122
 \AtBeginShipoutBox=\box31
-Package hyperref Info: Link coloring OFF on input line 48.
+Package hyperref Info: Link coloring OFF on input line 49.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -761,9 +762,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count123
 )
-LaTeX Info: Redefining \ref on input line 48.
-LaTeX Info: Redefining \pageref on input line 48.
-LaTeX Info: Redefining \nameref on input line 48.
+LaTeX Info: Redefining \ref on input line 49.
+LaTeX Info: Redefining \pageref on input line 49.
+LaTeX Info: Redefining \nameref on input line 49.
 
 (./main.out) (./main.out)
 \@outlinefile=\write3
@@ -774,7 +775,7 @@ LaTeX Info: Redefining \nameref on input line 48.
 File: images/logo_um2.png Graphic file (type png)
 
 <use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 54.
+Package pdftex.def Info: images/logo_um2.png used on input line 55.
 (pdftex.def)             Requested size: 128.23076pt x 78.69728pt.
  [1
 
@@ -783,42 +784,32 @@ s/logo_um2.png>]pdfTeX warning (ext4): destination with the same identifier (na
 me{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.77 \tableofcontents
+l.78 \tableofcontents
                       [1
 
-] (./main.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 7.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 7.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 7.
- [2
-
-])
+]
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- (./table-figures.tex
+ (./table-figures.tex [2
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[3] (./main.lof)
+]
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
-) (./introduction.tex [4
+) (./introduction.tex
+[3
 
 ]
 Chapitre 1.
-) (./analyse-projet.tex [5
+) (./analyse-projet.tex [4
 
 ]
 Chapitre 2.
-<images/analyse-oxygen1.png, id=322, 712.91344pt x 568.37344pt>
+
+LaTeX Warning: Reference `oxygen' on page 5 undefined on input line 18.
+
+<images/analyse-oxygen1.png, id=230, 712.91344pt x 568.37344pt>
 File: images/analyse-oxygen1.png Graphic file (type png)
 
 <use images/analyse-oxygen1.png>
@@ -828,24 +819,41 @@ Package pdftex.def Info: images/analyse-oxygen1.png used on input line 24.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6
+[5
 
-] <images/analyse-diag-fichier.png, id=334, 335.00156pt x 249.18094pt>
+]
+
+LaTeX Warning: Reference `diagfichier' on page 6 undefined on input line 34.
+
+<images/analyse-diag-fichier.png, id=240, 335.00156pt x 249.18094pt>
 File: images/analyse-diag-fichier.png Graphic file (type png)
 
 <use images/analyse-diag-fichier.png>
 Package pdftex.def Info: images/analyse-diag-fichier.png used on input line 38.
 
 (pdftex.def)             Requested size: 167.50037pt x 124.59015pt.
- [7 <./images/analyse-oxygen1.png> <./images/analyse-diag-fichier.png>]
-<images/analyse-diag-arbo.png, id=345, 295.85532pt x 308.65312pt>
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[6 <./images/analyse-oxygen1.png> <./images/analyse-diag-fichier.png>]
+
+LaTeX Warning: Reference `diagarbo' on page 7 undefined on input line 47.
+
+
+LaTeX Warning: Reference `diagediteur' on page 7 undefined on input line 47.
+
+<images/analyse-diag-arbo.png, id=251, 295.85532pt x 308.65312pt>
 File: images/analyse-diag-arbo.png Graphic file (type png)
 
 <use images/analyse-diag-arbo.png>
 Package pdftex.def Info: images/analyse-diag-arbo.png used on input line 51.
 (pdftex.def)             Requested size: 147.92729pt x 154.32617pt.
 
-<images/analyse-diag-editeur.png, id=346, 362.10281pt x 309.40594pt>
+<images/analyse-diag-editeur.png, id=252, 362.10281pt x 309.40594pt>
 File: images/analyse-diag-editeur.png Graphic file (type png)
 
 <use images/analyse-diag-editeur.png>
@@ -853,7 +861,11 @@ Package pdftex.def Info: images/analyse-diag-editeur.png used on input line 59.
 
 (pdftex.def)             Requested size: 181.05095pt x 154.70259pt.
 
-<images/analyse-maquette.png, id=348, 642.4pt x 401.5pt>
+
+LaTeX Warning: Reference `maquette_interface' on page 7 undefined on input line
+ 66.
+
+<images/analyse-maquette.png, id=253, 642.4pt x 401.5pt>
 File: images/analyse-maquette.png Graphic file (type png)
 
 <use images/analyse-maquette.png>
@@ -863,26 +875,39 @@ Package pdftex.def Info: images/analyse-maquette.png used on input line 70.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[8 <./images/analyse-diag-arbo.png> <./images/analyse-diag-editeur.png>])
-(./rapport-activite.tex [9 <./images/analyse-maquette.png>]
+[7 <./images/analyse-diag-arbo.png> <./images/analyse-diag-editeur.png>])
+(./rapport-activite.tex [8 <./images/analyse-maquette.png>]
 Chapitre 3.
-[10
+[9
 
-] <images/apparence_linux.png, id=373, 803.0pt x 182.6825pt>
+]
+
+LaTeX Warning: Reference `apparence_linux' on page 10 undefined on input line 4
+0.
+
+
+LaTeX Warning: Reference `apparence_mac' on page 10 undefined on input line 40.
+
+
+
+LaTeX Warning: Reference `apparence_windows' on page 10 undefined on input line
+ 40.
+
+<images/apparence_linux.png, id=278, 803.0pt x 182.6825pt>
 File: images/apparence_linux.png Graphic file (type png)
 
 <use images/apparence_linux.png>
 Package pdftex.def Info: images/apparence_linux.png used on input line 44.
 (pdftex.def)             Requested size: 401.49902pt x 91.34102pt.
 
-<images/apparence_macos.png, id=374, 803.0pt x 182.6825pt>
+<images/apparence_macos.png, id=279, 803.0pt x 182.6825pt>
 File: images/apparence_macos.png Graphic file (type png)
 
 <use images/apparence_macos.png>
 Package pdftex.def Info: images/apparence_macos.png used on input line 50.
 (pdftex.def)             Requested size: 401.49902pt x 91.34102pt.
 
-<images/apparence_windows.png, id=375, 609.02531pt x 137.01187pt>
+<images/apparence_windows.png, id=280, 609.02531pt x 137.01187pt>
 File: images/apparence_windows.png Graphic file (type png)
 
 <use images/apparence_windows.png>
@@ -892,15 +917,19 @@ Package pdftex.def Info: images/apparence_windows.png used on input line 56.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[11pdfTeX warning (ext4): destination with the same identifier (name{section*.2
+[10pdfTeX warning (ext4): destination with the same identifier (name{section*.2
 2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.67 \paragraph
-               {}] [12 <./images/apparence_linux.png> <./images/apparence_macos
+               {}] [11 <./images/apparence_linux.png> <./images/apparence_macos
 .png (PNG copy)> <./images/apparence_windows.png>]
-<images/bitbucket-exemple-issue.png, id=396, 753.5653pt x 354.57469pt>
+
+LaTeX Warning: Reference `ticket_Bitbucket' on page 12 undefined on input line 
+81.
+
+<images/bitbucket-exemple-issue.png, id=300, 753.5653pt x 354.57469pt>
 File: images/bitbucket-exemple-issue.png Graphic file (type png)
 
 <use images/bitbucket-exemple-issue.png>
@@ -911,17 +940,20 @@ Package pdftex.def Info: images/bitbucket-exemple-issue.png used on input line
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./rapport-technique.tex [13] [14 <./images/bitbucket-exemple-issue.png>]
+) (./rapport-technique.tex [12] [13 <./images/bitbucket-exemple-issue.png>]
 Chapitre 4.
-<images/classes.png, id=409, 932.48375pt x 1470.49374pt>
+
+LaTeX Warning: Reference `diag_classe' on page 14 undefined on input line 38.
+
+<images/classes.png, id=314, 932.48375pt x 1470.49374pt>
 File: images/classes.png Graphic file (type png)
 
 <use images/classes.png>
 Package pdftex.def Info: images/classes.png used on input line 42.
 (pdftex.def)             Requested size: 372.9869pt x 588.18709pt.
- [15
+ [14
 
-] [16 <./images/classes.png>]
+] [15 <./images/classes.png>]
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 61.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/t1cmtt.fd
@@ -935,32 +967,41 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
-) [17]
+) [16]
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 )
-<images/arbo.png, id=465, 371.3875pt x 241.90375pt>
+<images/arbo.png, id=371, 371.3875pt x 241.90375pt>
 File: images/arbo.png Graphic file (type png)
  <use images/arbo.png>
 Package pdftex.def Info: images/arbo.png used on input line 133.
 (pdftex.def)             Requested size: 185.69328pt x 120.95157pt.
 
-[18 <./images/arbo.png>]
+[17 <./images/arbo.png>]
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 )
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2008/03/30 v1.1d Input encoding file
+) [18]
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 ) [19]
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2008/03/30 v1.1d Input encoding file
 ) [20]
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2008/03/30 v1.1d Input encoding file
+) [21]
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 )
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
-) [21]
+)
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 ) [22]
@@ -978,9 +1019,6 @@ File: latin1.def 2008/03/30 v1.1d Input encoding file
 )
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2008/03/30 v1.1d Input encoding file
 ) [24]
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
@@ -993,17 +1031,11 @@ File: latin1.def 2008/03/30 v1.1d Input encoding file
 )
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2008/03/30 v1.1d Input encoding file
 ) [26]
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2008/03/30 v1.1d Input encoding file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2008/03/30 v1.1d Input encoding file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2008/03/30 v1.1d Input encoding file
-) [27]
-<images/final.png, id=835, 1305.87875pt x 750.805pt>
+<images/final.png, id=743, 1305.87875pt x 750.805pt>
 File: images/final.png Graphic file (type png)
  <use images/final.png>
 Package pdftex.def Info: images/final.png used on input line 628.
@@ -1012,7 +1044,7 @@ Package pdftex.def Info: images/final.png used on input line 628.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/final_xsd.png, id=836, 1305.87875pt x 750.805pt>
+<images/final_xsd.png, id=744, 1305.87875pt x 750.805pt>
 File: images/final_xsd.png Graphic file (type png)
 
 <use images/final_xsd.png>
@@ -1022,22 +1054,22 @@ Package pdftex.def Info: images/final_xsd.png used on input line 635.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./manuel-utilisation.tex [28] [29 <./images/final.png> <./images/final_xsd.p
+) (./manuel-utilisation.tex [27] [28 <./images/final.png> <./images/final_xsd.p
 ng>]
 Chapitre 5.
-[30
+[29
 
-] <images/help1.png, id=856, 980.66376pt x 681.54625pt>
+] <images/help1.png, id=764, 980.66376pt x 681.54625pt>
 File: images/help1.png Graphic file (type png)
 
 <use images/help1.png>
 Package pdftex.def Info: images/help1.png used on input line 57.
 (pdftex.def)             Requested size: 450.0pt x 312.7351pt.
-) (./conclusion.tex [31 <./images/help1.png>]
+) (./conclusion.tex [30 <./images/help1.png>]
 Chapitre 6.
-[32
+[31
 
-]) [33]
+]) [32]
 Chapitre 7.
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
@@ -1048,134 +1080,139 @@ File: se-utf8.def 2011/12/02 v1.10 stringenc: UTF-8
 (/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/se-iso-8859-1.def
 File: se-iso-8859-1.def 2011/12/02 v1.10 stringenc: ISO-8859-1
 )
-[34
+[33
 
-] [35] (/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+] [34] (/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 )
-[36] [37] [38] [39]
+[35] [36] [37] [38]
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
-) [40] [41]
+) [39] [40]
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
-) [42] [43]
-[44] [45]
+) [41] [42]
+[43] [44]
 Overfull \hbox (0.70674pt too wide) in paragraph at lines 237--238
 [][][] 
  []
 
-[46] [47] [48] [49] [50] <images/c1.png, id=1882, 1080.035pt x 953.5625pt>
+[45] [46] [47] [48] [49] <images/c1.png, id=1792, 1080.035pt x 953.5625pt>
 File: images/c1.png Graphic file (type png)
 
 <use images/c1.png>
-Package pdftex.def Info: images/c1.png used on input line 105.
+Package pdftex.def Info: images/c1.png used on input line 106.
 (pdftex.def)             Requested size: 550.0pt x 485.59749pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/c2.png, id=1883, 1054.94125pt x 954.56625pt>
+<images/c2.png, id=1793, 1054.94125pt x 954.56625pt>
 File: images/c2.png Graphic file (type png)
  <use images/c2.png>
-Package pdftex.def Info: images/c2.png used on input line 110.
+Package pdftex.def Info: images/c2.png used on input line 111.
 (pdftex.def)             Requested size: 550.0pt x 497.65907pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/c3.png, id=1884, 1078.0275pt x 932.48375pt>
+<images/c3.png, id=1794, 1078.0275pt x 932.48375pt>
 File: images/c3.png Graphic file (type png)
  <use images/c3.png>
-Package pdftex.def Info: images/c3.png used on input line 115.
+Package pdftex.def Info: images/c3.png used on input line 116.
 (pdftex.def)             Requested size: 550.0pt x 475.74539pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/c4.png, id=1885, 1075.01625pt x 958.58125pt>
+<images/c4.png, id=1795, 1075.01625pt x 958.58125pt>
 File: images/c4.png Graphic file (type png)
  <use images/c4.png>
-Package pdftex.def Info: images/c4.png used on input line 120.
+Package pdftex.def Info: images/c4.png used on input line 121.
 (pdftex.def)             Requested size: 550.0pt x 490.43504pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/c5.png, id=1886, 1066.98625pt x 929.4725pt>
+<images/c5.png, id=1796, 1066.98625pt x 929.4725pt>
 File: images/c5.png Graphic file (type png)
  <use images/c5.png>
-Package pdftex.def Info: images/c5.png used on input line 125.
+Package pdftex.def Info: images/c5.png used on input line 126.
 (pdftex.def)             Requested size: 550.0pt x 479.13045pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/c6.png, id=1887, 1067.99pt x 432.61626pt>
+<images/c6.png, id=1797, 1067.99pt x 432.61626pt>
 File: images/c6.png Graphic file (type png)
  <use images/c6.png>
-Package pdftex.def Info: images/c6.png used on input line 130.
+Package pdftex.def Info: images/c6.png used on input line 131.
 (pdftex.def)             Requested size: 550.0pt x 222.79655pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[51] [52 <./images/c1.png>] [53 <./images/c2.png>] [54 <./images/c3.png>]
-[55 <./images/c4.png>] [56 <./images/c5.png>] [57 <./images/c6.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 141--142
+[50] [51 <./images/c1.png>] [52 <./images/c2.png>] [53 <./images/c3.png>]
+[54 <./images/c4.png>] [55 <./images/c5.png>] [56 <./images/c6.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 146--147
+Underfull \hbox (badness 10000) in paragraph at lines 147--148
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 156.
-[58
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2008/03/30 v1.1d Input encoding file
+) [57
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 156.
- (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 156.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 156.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 153.
+ [58]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 153.
+
+(./main.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 153.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 153.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D916FB5260557EA1A9E4DB3BB65C04EB;3131.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 156.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 153.
  ) 
 Here is how much of TeX's memory you used:
- 11949 strings out of 493315
- 173993 string characters out of 6137904
- 629471 words of memory out of 5000000
- 13647 multiletter control sequences out of 15000+600000
- 19402 words of font info for 42 fonts, out of 8000000 for 9000
+ 12020 strings out of 493315
+ 175175 string characters out of 6137904
+ 628859 words of memory out of 5000000
+ 13671 multiletter control sequences out of 15000+600000
+ 16963 words of font info for 34 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  39i,12n,58p,1682b,2354s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{section*.24} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.23} has been referenced but does not exist
-, replaced by a fixed one
-
-{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</
-usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></us
-r/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/
-local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/lo
-cal/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/loca
-l/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/
-texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/te
-xlive/2013/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texl
-ive/2013/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texliv
-e/2013/texmf-dist/fonts/type1/public/cm-super/sfit0900.pfb></usr/local/texlive/
-2013/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/20
-13/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2013
-/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2013/t
-exmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2013/tex
-mf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on main.pdf (59 pages, 2005219 bytes).
+{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></
+usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></us
+r/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/
+local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/lo
+cal/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/loca
+l/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/
+texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/te
+xlive/2013/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texl
+ive/2013/texmf-dist/fonts/type1/public/cm-super/sfit0900.pfb></usr/local/texliv
+e/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/
+2013/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/20
+13/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2013
+/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2013/t
+exmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on main.pdf (59 pages, 2003228 bytes).
 PDF statistics:
- 2334 PDF objects out of 2487 (max. 8388607)
- 2201 compressed objects within 23 object streams
- 1501 named destinations out of 1728 (max. 500000)
+ 2325 PDF objects out of 2487 (max. 8388607)
+ 2193 compressed objects within 22 object streams
+ 1558 named destinations out of 1728 (max. 500000)
  482 words of extra memory for PDF output out of 10000 (max. 10000000)
 
