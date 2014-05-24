@@ -1,25 +1,14 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.22)  24 MAY 2014 14:59
-=======
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.21)  24 MAY 2014 15:53
->>>>>>> 57f01c033ca1827d93c9453b81f8ca31d47c35a3
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.22)  24 MAY 2014 16:26
 entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
 **main.tex
-(C:\Users\Beny\xmlia\Rapport\main.tex
+(./main.tex
 LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
-abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
-croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
-ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
- lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
-german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
-ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
-an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
-ishmax, welsh, loaded.
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\report.cls"
+Babel <3.9f> and hyphenation patterns for 4 languages loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size11.clo"
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -35,54 +24,48 @@ File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("D:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.sty"
-Package: babel 2008/07/08 v3.8m The Babel package
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2013/05/16 v3.9f The Babel package
 
-*************************************
-* Local config file bblopts.cfg used
-*
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
-File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
-)
-("D:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\frenchb.ldf"
-Language: frenchb 2009/03/16 v2.3d French support from the babel system
+(/usr/share/texlive/texmf-dist/tex/generic/babel-french/frenchb.ldf
+Language: frenchb 2013/07/06 v2.6e French support from the babel system
 
-("D:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.def"
-File: babel.def 2008/07/08 v3.8m Babel common definitions
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2013/05/16 v3.9f Babel common definitions
 \babel@savecnt=\count88
 \U@D=\dimen103
 )
-Package babel Info: Making : an active character on input line 120.
-Package babel Info: Making ; an active character on input line 121.
-Package babel Info: Making ! an active character on input line 122.
-Package babel Info: Making ? an active character on input line 123.
+\FB@interchartokenstateORI=\count89
+Package babel Info: Making : an active character on input line 240.
+Package babel Info: Making ; an active character on input line 241.
+Package babel Info: Making ! an active character on input line 242.
+Package babel Info: Making ? an active character on input line 243.
 \FB@Mht=\dimen104
-\std@mcc=\count89
-\dec@mcc=\count90
+\std@mcc=\count90
+\dec@mcc=\count91
+\listindentFB=\skip43
+\labelwidthFB=\skip44
+\leftmarginFB=\skip45
 \parindentFFN=\dimen105
-
-*************************************
-* Local config file frenchb.cfg used
-*
-("D:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\frenchb.cfg")))
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\carlisle\scalefnt.sty")
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+))
+(/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks15
 \inpenc@posthook=\toks16
 
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
 File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -232,7 +215,7 @@ File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
 File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -263,7 +246,7 @@ File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
 File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -287,42 +270,42 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
-File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("D:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-("D:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count91
+\Gread@gobject=\count92
 ))
 \Gin@req@height=\dimen106
 \Gin@req@width=\dimen107
 )
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1enc.def"
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\textcomp.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -337,12 +320,12 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
 
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1enc.def"
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 Now handling font encoding TS1 ...
 ... processing UTF-8 mapping file for font encoding TS1
 
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1enc.dfu"
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.dfu
 File: ts1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A2 (decimal 162)
    defining Unicode char U+00A3 (decimal 163)
@@ -477,16 +460,16 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 )
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\ieeepes\vmargin.sty"
-Package: vmargin 1999/06/01
+(/usr/share/texlive/texmf-dist/tex/latex/vmargin/vmargin.sty
+Package: vmargin 2004/07/15 V2.5 set document margins (VK)
 
-Package `vmargin', V2.2, <1999/06/01>
+Package: vmargin 2004/07/15 V2.5 set document margins (VK)
 \PaperWidth=\dimen108
 \PaperHeight=\dimen109
-) ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\dirtree\dirtree.sty"
+) (/usr/share/texlive/texmf-dist/tex/generic/dirtree/dirtree.sty
 Package: dirtree 2012/12/11 v0.32 package wrapper for dirtree
 
-("D:\Program Files (x86)\MiKTeX 2.9\tex\generic\dirtree\dirtree.tex"
+(/usr/share/texlive/texmf-dist/tex/generic/dirtree/dirtree.tex
 `dirtree' v0.32, 2012/12/11 (jcc)
 \DT@offset=\dimen110
 \DT@width=\dimen111
@@ -495,45 +478,45 @@ Package: dirtree 2012/12/11 v0.32 package wrapper for dirtree
 \DT@rulewidth=\dimen114
 \DT@dotwidth=\dimen115
 \DTbaselineskip=\dimen116
-\DT@counti=\count92
-\DT@countii=\count93
-\DT@countiii=\count94
-\DT@countiv=\count95
+\DT@counti=\count93
+\DT@countii=\count94
+\DT@countiii=\count95
+\DT@countiv=\count96
 \DT@indent=\dimen117
 \DT@parskip=\dimen118
 \DT@baselineskip=\dimen119
 )
 File: dirtree.tex 2012/12/11 v0.32 `dirtree' (jcc)
 )
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.sty"
-\lst@mode=\count96
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count97
 \lst@gtempboxa=\box26
 \lst@token=\toks17
-\lst@length=\count97
+\lst@length=\count98
 \lst@currlwidth=\dimen120
-\lst@column=\count98
-\lst@pos=\count99
+\lst@column=\count99
+\lst@pos=\count100
 \lst@lostspace=\dimen121
 \lst@width=\dimen122
-\lst@newlines=\count100
-\lst@lineno=\count101
+\lst@newlines=\count101
+\lst@lineno=\count102
 \lst@maxwidth=\dimen123
 
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
-File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
-\c@lstnumber=\count102
-\lst@skipnumbers=\count103
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2013/07/10 1.5 (Carsten Heinz)
+\c@lstnumber=\count103
+\lst@skipnumbers=\count104
 \lst@framebox=\box27
 )
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.cfg"
-File: listings.cfg 2014/03/04 1.5c listings configuration
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2013/06/27 1.5pre1 listings configuration
 ))
-Package: listings 2014/03/04 1.5c (Carsten Heinz)
+Package: listings 2013/07/10 1.5 (Carsten Heinz)
 
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
@@ -547,16 +530,17 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
-File: lstlang1.sty 2014/03/04 1.5c listings language file
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
 )
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
-File: lstlang1.sty 2014/03/04 1.5c listings language file
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
 )
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
-File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
-)
-(C:\Users\Beny\xmlia\Rapport\main.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2013/07/10 1.5 (Carsten Heinz)
+) (./main.aux)
+\openout1 = `main.aux'.
+
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
 LaTeX Font Info:    ... okay on input line 35.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
@@ -572,7 +556,7 @@ LaTeX Font Info:    ... okay on input line 35.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 35.
 
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 35.
@@ -580,47 +564,96 @@ LaTeX Info: Redefining \degres on input line 35.
 LaTeX Info: Redefining \dots on input line 35.
 LaTeX Info: Redefining \up on input line 35.
 
-("D:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count104
+\scratchcounter=\count105
 \scratchdimen=\dimen124
 \scratchbox=\box28
-\nofMPsegments=\count105
-\nofMParguments=\count106
+\nofMPsegments=\count106
+\nofMParguments=\count107
 \everyMPshowfont=\toks18
-\MPscratchCnt=\count107
+\MPscratchCnt=\count108
 \MPscratchDim=\dimen125
-\MPnumerator=\count108
-\makeMPintoPDFobject=\count109
+\MPnumerator=\count109
+\makeMPintoPDFobject=\count110
 \everyMPtoPDFconversion=\toks19
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
-\c@lstlisting=\count110
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\c@lstlisting=\count111
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 36.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 36.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 36.
- [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [1] [1
+[1
 
-]
-(C:\Users\Beny\xmlia\Rapport\main.toc
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [1] [1
+
+] (./main.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 4.
 )
 \tf@toc=\write3
+\openout3 = `main.toc'.
 
-(C:\Users\Beny\xmlia\Rapport\introduction.tex [2
+
+(./introduction.tex [2
 
 ]
 Chapitre 1.
-) (C:\Users\Beny\xmlia\Rapport\analyse-projet.tex [3
+) (./analyse-projet.tex [3
 
 ]
 Chapitre 2.
-<images/analyse-oxygen1.png, id=23, 712.91344pt x 568.37344pt>
+<images/analyse-oxygen1.png, id=24, 712.91344pt x 568.37344pt>
 File: images/analyse-oxygen1.png Graphic file (type png)
 
 <use images/analyse-oxygen1.png>
@@ -632,23 +665,22 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [4
 
-] <images/analyse-diag-fichier.png, id=28, 335.00156pt x 249.18094pt>
+] <images/analyse-diag-fichier.png, id=29, 335.00156pt x 249.18094pt>
 File: images/analyse-diag-fichier.png Graphic file (type png)
 
 <use images/analyse-diag-fichier.png>
 Package pdftex.def Info: images/analyse-diag-fichier.png used on input line 38.
 
 (pdftex.def)             Requested size: 167.50037pt x 124.59015pt.
- [5 <C:/Users/Beny/xmlia/Rapport/images/analyse-oxygen1.png> <C:/Users/Beny/xml
-ia/Rapport/images/analyse-diag-fichier.png>] <images/analyse-diag-arbo.png, id=
-36, 295.85532pt x 308.65312pt>
+ [5 <./images/analyse-oxygen1.png> <./images/analyse-diag-fichier.png>]
+<images/analyse-diag-arbo.png, id=37, 295.85532pt x 308.65312pt>
 File: images/analyse-diag-arbo.png Graphic file (type png)
 
 <use images/analyse-diag-arbo.png>
 Package pdftex.def Info: images/analyse-diag-arbo.png used on input line 51.
 (pdftex.def)             Requested size: 147.92729pt x 154.32617pt.
 
-<images/analyse-diag-editeur.png, id=37, 362.10281pt x 309.40594pt>
+<images/analyse-diag-editeur.png, id=38, 362.10281pt x 309.40594pt>
 File: images/analyse-diag-editeur.png Graphic file (type png)
 
 <use images/analyse-diag-editeur.png>
@@ -656,7 +688,7 @@ Package pdftex.def Info: images/analyse-diag-editeur.png used on input line 59.
 
 (pdftex.def)             Requested size: 181.05095pt x 154.70259pt.
 
-<images/analyse-maquette.png, id=38, 642.4pt x 401.5pt>
+<images/analyse-maquette.png, id=39, 642.4pt x 401.5pt>
 File: images/analyse-maquette.png Graphic file (type png)
 
 <use images/analyse-maquette.png>
@@ -666,14 +698,12 @@ Package pdftex.def Info: images/analyse-maquette.png used on input line 70.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6 <C:/Users/Beny/xmlia/Rapport/images/analyse-diag-arbo.png> <C:/Users/Beny/xm
-lia/Rapport/images/analyse-diag-editeur.png>])
-(C:\Users\Beny\xmlia\Rapport\rapport-activite.tex [7 <C:/Users/Beny/xmlia/Rappo
-rt/images/analyse-maquette.png>]
+[6 <./images/analyse-diag-arbo.png> <./images/analyse-diag-editeur.png>])
+(./rapport-activite.tex [7 <./images/analyse-maquette.png>]
 Chapitre 3.
 [8
 
-] <images/apparence_linux.png, id=51, 803.0pt x 182.6825pt>
+] <images/apparence_linux.png, id=52, 803.0pt x 182.6825pt>
 File: images/apparence_linux.png Graphic file (type png)
 
 <use images/apparence_linux.png>
@@ -684,7 +714,7 @@ File: images/apparence_linux.png Graphic file (type png)
 Package pdftex.def Info: images/apparence_linux.png used on input line 48.
 (pdftex.def)             Requested size: 401.49902pt x 91.34102pt.
 
-<images/apparence_windows.png, id=52, 609.02531pt x 137.01187pt>
+<images/apparence_windows.png, id=53, 609.02531pt x 137.01187pt>
 File: images/apparence_windows.png Graphic file (type png)
 
 <use images/apparence_windows.png>
@@ -694,9 +724,8 @@ Package pdftex.def Info: images/apparence_windows.png used on input line 53.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[9] [10 <C:/Users/Beny/xmlia/Rapport/images/apparence_linux.png> <C:/Users/Beny
-/xmlia/Rapport/images/apparence_windows.png>]
-<images/bitbucket-exemple-issue.png, id=60, 753.5653pt x 354.57469pt>
+[9] [10 <./images/apparence_linux.png> <./images/apparence_windows.png>]
+<images/bitbucket-exemple-issue.png, id=61, 753.5653pt x 354.57469pt>
 File: images/bitbucket-exemple-issue.png Graphic file (type png)
 
 <use images/bitbucket-exemple-issue.png>
@@ -707,40 +736,37 @@ Package pdftex.def Info: images/bitbucket-exemple-issue.png used on input line
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (C:\Users\Beny\xmlia\Rapport\rapport-technique.tex [11] [12 <C:/Users/Beny/xm
-lia/Rapport/images/bitbucket-exemple-issue.png>]
+) (./rapport-technique.tex [11] [12 <./images/bitbucket-exemple-issue.png>]
 Chapitre 4.
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 19.
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 23.
  [13
 
-] [14]
-[15] [16] [17] [18] [19] [20])
-(C:\Users\Beny\xmlia\Rapport\manuel-utilisation.tex [21]
+] [14] [15]
+[16] [17] [18] [19] [20]) (./manuel-utilisation.tex [21]
 Chapitre 5.
-) (C:\Users\Beny\xmlia\Rapport\conclusion.tex [22
+) (./conclusion.tex [22
 
 ]
 Chapitre 6.
-) (C:\Users\Beny\xmlia\Rapport\table-figures.tex [23
+) (./table-figures.tex [23
 
-]
-(C:\Users\Beny\xmlia\Rapport\main.lof)
+] (./main.lof)
 \tf@lof=\write4
+\openout4 = `main.lof'.
+
 ) [24
 
-]
-(C:\Users\Beny\xmlia\Rapport\main.aux) ) 
+] (./main.aux) ) 
 Here is how much of TeX's memory you used:
-<<<<<<< HEAD
- 6026 strings out of 495002
- 80165 string characters out of 6180262
+ 6044 strings out of 495002
+ 80687 string characters out of 6180262
  321877 words of memory out of 5000000
- 9118 multiletter control sequences out of 15000+600000
+ 9133 multiletter control sequences out of 15000+600000
  18863 words of font info for 43 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  38i,9n,58p,1677b,1746s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -755,34 +781,10 @@ ec/ecbx2074.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.6
 four/jknappen/ec/ecbx1095.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen
 /ec/ecrm1200.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.
 600pk>
-Output written on main.pdf (25 pages, 448405 bytes).
-=======
- 5520 strings out of 493921
- 72706 string characters out of 3144879
- 318759 words of memory out of 3000000
- 8716 multiletter control sequences out of 15000+200000
- 18863 words of font info for 43 fonts, out of 3000000 for 9000
- 841 hyphenation exceptions out of 8191
- 33i,9n,58p,1677b,1744s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Beny\AppData\Local\MiKTeX\2.
-9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1095.pk> <C:\Users\Beny\AppData\Local\
-MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1095.pk> <C:\Users\Beny\AppDa
-ta\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt0900.pk> <C:\Users\B
-eny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecit0900.pk> <C
-:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx12
-00.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi6
-00\eccc1095.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappe
-n\ec\dpi600\ecbx1440.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
-r\jknappen\ec\dpi600\ecbx2074.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts
-\pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk> <C:\Users\Beny\AppData\Local\MiKTeX\
-2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1095.pk> <C:\Users\Beny\AppData\Loca
-l\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\Beny\App
-Data\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users
-\Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk>
-Output written on main.pdf (26 pages, 586711 bytes).
->>>>>>> 57f01c033ca1827d93c9453b81f8ca31d47c35a3
+Output written on main.pdf (26 pages, 544917 bytes).
 PDF statistics:
- 628 PDF objects out of 1000 (max. 8388607)
+ 631 PDF objects out of 1000 (max. 8388607)
+ 112 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
