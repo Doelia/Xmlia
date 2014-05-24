@@ -1,6 +1,11 @@
 #ifndef XMLFILEMANAGER_H
 #define XMLFILEMANAGER_H
 
+/*===============================================
+ * nom : xmlfilemanager.h         projet : xmlia
+ * gestionnaire de ficher
+ *=============================================*/
+
 #include <QString>
 #include <modelexml.h>
 #include <QDomDocument>

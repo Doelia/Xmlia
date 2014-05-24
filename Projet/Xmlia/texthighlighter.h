@@ -1,6 +1,11 @@
 #ifndef TEXTHIGHLIGHTER_H
 #define TEXTHIGHLIGHTER_H
 
+/*===============================================
+ * nom : texthighlighter.h         projet : xmlia
+ * colorateur syntaxique
+ *=============================================*/
+
 #include <QSyntaxHighlighter>
 #include <iostream>
 #include <QTextEdit>

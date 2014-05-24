@@ -1,6 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+/*===============================================
+ * nom : mainwindow.h         projet : xmlia
+ * widget principal dans lequel seront inclus
+ * les autres widgets
+ *=============================================*/
+
 #include <QWidget>
 #include <QGridLayout>
 #include <QMainWindow>

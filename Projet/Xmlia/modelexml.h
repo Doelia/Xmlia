@@ -1,6 +1,12 @@
 #ifndef MODELEXML_H
 #define MODELEXML_H
 
+/*===============================================
+ * nom : modelexml.h         projet : xmlia
+ * modele de données representant la structure
+ * du document xml
+ *=============================================*/
+
 #include <QDomNode>
 #include <QWidget>
 #include <stack>

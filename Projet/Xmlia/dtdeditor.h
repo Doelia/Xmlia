@@ -1,6 +1,11 @@
 #ifndef DTDEDITOR_H
 #define DTDEDITOR_H
 
+/*===============================================
+ * nom : dtdeditor.h         projet : xmlia
+ * widget de l'editeur de schema
+ *=============================================*/
+
 #include "texteditor.h"
 
 class DtdEditor  : public TextEditor

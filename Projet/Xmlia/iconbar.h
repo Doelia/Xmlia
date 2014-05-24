@@ -1,6 +1,11 @@
 #ifndef ICONBAR_H
 #define ICONBAR_H
 
+/*===============================================
+ * nom : iconbar.h         projet : xmlia
+ * widget de la barre d'icones
+ *=============================================*/
+
 #include <QWidget>
 #include <QPushButton>
 #include <QHBoxLayout>

@@ -1,6 +1,11 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
+/*===============================================
+ * nom : logger.h         projet : xmlia
+ * widget du logger
+ *=============================================*/
+
 #include <QWidget>
 #include <QTextEdit>
 #include <QGridLayout>

@@ -1,5 +1,9 @@
 #ifndef ARBO_H
 #define ARBO_H
+/*===============================================
+ * nom : arbo.h         projet : xmlia
+ * widget de la vue arborescente
+ *=============================================*/
 
 #include <QApplication>
 #include <QTreeWidget>

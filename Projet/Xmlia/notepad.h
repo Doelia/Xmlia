@@ -1,6 +1,12 @@
 #ifndef NOTEPAD_H
 #define NOTEPAD_H
 
+/*===============================================
+ * nom : notepad.h         projet : xmlia
+ * widget contenant l'editeur xml et l'editeur
+ * de schema
+ *=============================================*/
+
 #include <QObject>
 #include <QtGui>
 //#include <QtWidgets>

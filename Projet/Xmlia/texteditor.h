@@ -1,6 +1,12 @@
 #ifndef TEXTEDITOR_H
 #define TEXTEDITOR_H
 
+/*===============================================
+ * nom : texteditor.h         projet : xmlia
+ * widget de base de l'editeur de texte contenant
+ * les fonctionnalités basiques
+ *=============================================*/
+
 #include <QTextEdit>
 #include <QGridLayout>
 #include <QWidget>

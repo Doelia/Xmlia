@@ -1,6 +1,11 @@
 #ifndef XMLEDITOR_H
 #define XMLEDITOR_H
 
+/*===============================================
+ * nom : xmleditor.h         projet : xmlia
+ * widget de l'editeur xml
+ *=============================================*/
+
 #include <QTextEdit>
 #include <QXmlStreamReader>
 #include <QDomNode>
