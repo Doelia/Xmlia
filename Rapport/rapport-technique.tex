@@ -52,7 +52,8 @@ L'organisation de l'architecture se résume dans le diagramme de classe \ref{dia
 
 Le programme est composé d'un et d'un seul modèle représentant le fichier XML arborescent.
 Il contient les informations sur tous les noeud de la structure XML (Nom, valeur, attributs).
-L'accès à l'arborescence XML se fait à partir d'un unique attribut noeud parent de type \emph{QDomDocument}, 
+L'accès à l'arborescence XML se fait à partir d'un unique attribut noeud parent de type \emph{QDomDocument}. Ce type était très contraignant dans la programmation 
+car il n'utilisait pas des pointeurs mais des références, y comprit dans tous ses fils, au contraire de tous les autres types de données utilisés ailleurs dans le programme.
 
 \paragraph{}
 Au lancement du programme, un dom vide est est généré. Il est redéfinit à l'ouverture d'un fichier de façon automatique grâce à une simple méthode de Qt de la façon suivante.

@@ -30,5 +30,6 @@ QT += xml
 QT += xmlpatterns
 
 CONFIG += qt
+CONFIG+=c++11
 
 QMAKE_CXXFLAGS += -std=c++11
