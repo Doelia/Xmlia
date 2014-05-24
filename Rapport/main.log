@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.22)  24 MAY 2014 14:59
-=======
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.21)  24 MAY 2014 15:53
->>>>>>> 57f01c033ca1827d93c9453b81f8ca31d47c35a3
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.21)  24 MAY 2014 16:59
 entering extended mode
 **main.tex
 (C:\Users\Beny\xmlia\Rapport\main.tex
@@ -608,7 +604,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ]
 (C:\Users\Beny\xmlia\Rapport\main.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 4.
+(Font)              <10.95> on input line 7.
 )
 \tf@toc=\write3
 
@@ -736,27 +732,6 @@ Chapitre 6.
 ]
 (C:\Users\Beny\xmlia\Rapport\main.aux) ) 
 Here is how much of TeX's memory you used:
-<<<<<<< HEAD
- 6026 strings out of 495002
- 80165 string characters out of 6180262
- 321877 words of memory out of 5000000
- 9118 multiletter control sequences out of 15000+600000
- 18863 words of font info for 43 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 38i,9n,58p,1677b,1746s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600
-pk> </tmp/texfonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </tmp/texfonts/pk/ljfo
-ur/jknappen/ec/ectt0900.600pk> </tmp/texfonts/pk/ljfour/jknappen/ec/ecit0900.60
-0pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </tmp/te
-xfonts/pk/ljfour/jknappen/ec/eccc1095.600pk> </home/noe/.texmf-var/fonts/pk/ljf
-our/jknappen/ec/ecbx1440.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/
-ec/ecbx2074.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.6
-00pk> </tmp/texfonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </tmp/texfonts/pk/lj
-four/jknappen/ec/ecbx1095.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen
-/ec/ecrm1200.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.
-600pk>
-Output written on main.pdf (25 pages, 448405 bytes).
-=======
  5520 strings out of 493921
  72706 string characters out of 3144879
  318759 words of memory out of 3000000
@@ -779,8 +754,7 @@ r\jknappen\ec\dpi600\ecbx2074.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts
 l\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\Beny\App
 Data\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users
 \Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk>
-Output written on main.pdf (26 pages, 586711 bytes).
->>>>>>> 57f01c033ca1827d93c9453b81f8ca31d47c35a3
+Output written on main.pdf (26 pages, 588813 bytes).
 PDF statistics:
  628 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
