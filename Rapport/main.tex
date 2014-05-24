@@ -6,7 +6,7 @@
 \usepackage{textcomp}
 \usepackage{vmargin}
 \usepackage{dirtree}
-\usepackage{listings}
+\usepackage{listingsutf8}
 \usepackage{xcolor}
 \usepackage{textcomp}
 \usepackage{float}
@@ -15,6 +15,7 @@
 
 \lstset{
   belowcaptionskip=1\baselineskip,
+  inputencoding=utf8/latin1,
   breaklines=true,
   frame=L,
   xleftmargin=\parindent,
@@ -31,6 +32,8 @@
 \renewcommand\headrulewidth{1pt}
 \fancyhead[L]{}
 \fancyhead[R]{\leftmark}
+
+
 
 
 \title {Projet Xmlia}
@@ -87,6 +90,13 @@ Nous remercions tout particulièrement Michel Meynard pour nous avoir encadré e
 \section{Code annexe}
 
 
+\lstinputlisting[language=C++]{../Projet/Xmlia/arbo.h}
+\lstinputlisting[language=C++]{../Projet/Xmlia/arbo.cpp}
+\newpage{}
+\lstinputlisting[language=C++]{../Projet/Xmlia/xmleditor.h}
+\lstinputlisting[language=C++]{../Projet/Xmlia/xmleditor.cpp}
+
+
 \section{Historique des commits}
 
 \begin{center}
@@ -128,12 +138,12 @@ Nous remercions tout particulièrement Michel Meynard pour nous avoir encadré e
 \chapter*{}
 \thispagestyle{empty}
 \section*{Résumé}
-Ce rapport est le compte rendu du projet Xmlia, exécuté par les auteurs et proposé par Michel Meynard pour l’unité d’enseignement GLIN605 Projet Informatique du sixième semestre du parcours Licence Informatique de la Faculté de Sciences de Montpellier en 2013-2014. Il décrit la conception et la réalisation d'un éditeur XML en C++ en utilisant la bibliothèque d'affichage graphique Qt. Une partie analyse commence par décrire le contexte et rendre compte de l'existant tout en parlant des besoins fonctionnels et non fonctionnels pour ensuite décrire les techniques de travail dans le rapport d'activité. Le rapport technique se chargera de mettre en avant la conception, l'architecture et la mise en oeuvre de notre projet. \\
+Ce rapport est le compte rendu du projet Xmlia, exécuté par les auteurs et proposé par Michel Meynard pour l’unité d’enseignement GLIN602 Projet Informatique du sixième semestre du parcours Licence Informatique de la Faculté de Sciences de Montpellier en 2013-2014. Il décrit la conception et la réalisation d'un éditeur XML en C++ en utilisant la bibliothèque d'affichage graphique Qt. Une partie analyse commence par décrire le contexte et rendre compte de l'existant tout en parlant des besoins fonctionnels et non fonctionnels pour ensuite décrire les techniques de travail dans le rapport d'activité. Le rapport technique se chargera de mettre en avant la conception, l'architecture et la mise en oeuvre de notre projet. \\
 
 \textbf{Mots clés : } Xml, Qt, C++, Éditeur de texte
 
 \section*{Abstract}
-This report is an account of the Xmlia project, implemented by its authors and proposed by Michel Meynard for the sixth semester course GLIN605 Computer Sciences Project for the computer sciences degree from the Faculty of Montpellier in 2013-2014. It desrcibes the design and implemetation of an XML editor in C++ using Qt as a graphical display library. An analysis part begins by desribing the context and the already existing work while talking about functionnal and non functionnal requirements. An activity report then describes our working methods and a technical report will complete this report by showing the design, architecture and implemetation of our project. \\
+This report is an account of the Xmlia project, implemented by its authors and proposed by Michel Meynard for the sixth semester course GLIN602 Computer Sciences Project for the computer sciences degree from the Faculty of Montpellier in 2013-2014. It desrcibes the design and implemetation of an XML editor in C++ using Qt as a graphical display library. An analysis part begins by desribing the context and the already existing work while talking about functionnal and non functionnal requirements. An activity report then describes our working methods and a technical report will complete this report by showing the design, architecture and implemetation of our project. \\
 
 \textbf{Key words : } Xml, Qt, C++, Text editor
 %\chapter*{}
