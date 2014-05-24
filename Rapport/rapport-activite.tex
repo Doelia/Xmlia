@@ -19,7 +19,17 @@ Il fallait enfin définir l'organisation du travail au sein du groupe avec des t
 Puis la phase d'apprentissage et de développement commença, il fallait alors découvrir et apprendre le framework utilisé, et commencer à développer pour le projet, la communication s'est donc faite au travers de messages sur Google Hangouts, de mails, de commentaires via le gestionnaire de projet et de communication orale dans une salle informatique de la faculté.
         
 \subsection{Répartition des tâches}
-Nous nous sommes répartis les tâches de la façon suivante : l'arborescence pour Stéphane, l'éditeur de texte pour Noé, Benoi t
+Nous nous sommes répartis les tâches de la façon suivante : l'arborescence pour Stéphane, l'éditeur de texte pour Noé, Benoit pour aider dans la réalisation de ces deux parties et Ulrich sur la validation du document XML à l'aide d'une DTD. L'attribution de chaque tâche a été faite en fonction de l'avancement dans l'apprentissage de Qt et des préférences de chacun, car rappelons le, aucun des membres du groupe n'avait d'expérience avec Qt. La réflexion sur l'architecture du programme, comment les différents modules devaient communiquer ou comment représenter les données s'est en revanche faite entre les deux développeurs des modules principaux du projet.
+\paragraph{}
+Nous avons un groupe assez restreint, il a donc été facile pour chacun de trouver sa place et de fournir le travail qu'il jugeait juste et suffisant.
+
+\subsection{Apprentissage d'une nouvelle API}
+Il nous a fallu dans un premier temps découvrir le fonctionnement intrinsèque de Qt. Pour certains ce fût même la découverte de la programmation d'interface graphique basée sur des widgets. Qt étant utilisé par un grand nombre de développeurs, un nombre égal du tutoriels et astuces ont vu le jour, en plus d'une documentation très complète fournie par les développeurs de Qt de tous leurs outils. Se mettre en route a donc été assez rapide selon le degré de motivation de chacun.
+\paragraph{}
+Mais Qt est énorme, et intègre un grand nombre d'outils et de classes. Nous avons à plusieurs reprises produit un bout de code pour nous rendre compte par la suite que cette fonctionnalité était déjà implémentée par une classe de Qt. Une grande partie du travail a donc été de trouver et apprendre à utiliser les classes proposées par Qt.
+\paragraph{}
+Un refactoring continu a été effectué tout au long du développement à mesure que nous nous améliorions en C++ et que nous connaissions Qt.
+
 \section{Outils de développement}
 
 \subsection{Langage et bibliothèques}
@@ -29,7 +39,6 @@ Nous avons décider d'utiliser C++ comme langage pour ce projet, nous avions ég
 Qt a également l'avantage d'être multi-plateforme, le code produit est en théorie compilable sur les systèmes d'opération majeurs. C'est alors le gestionnaire de fenêtre de la plateforme cible qui sera utilisé comme on peut le voir figures \ref{apparence_linux}, \ref{apparence_mac} et \ref{apparence_windows}, on a donc des applications qui se fondent dans l'environnement natif et respectent l'esthétique du système sans travail supplémentaire de la part du développeur.
 
 \begin{figure}[h!]
-
 \begin{minipage}[b]{\linewidth}
 \centering \includegraphics[scale=0.5]{images/apparence_linux.png}
 \caption{Apparence sous Linux}
@@ -53,10 +62,9 @@ Qt nous fourni un grand nombre de modules qui vont de la communication réseau �
 \subsection{IDE}
 Nous avons naturellement utilisé Qt Creator comme IDE, c'est en effet l'IDE fourni avec Qt, il intègre donc nativement toutes les opérations spécifiques à la création et la compilation d'un projet sous Qt. Il propose également toutes les fonctionnalités que l'on pourrait attendre d'un IDE digne de ce nom, telles que la coloration syntaxique, l'auto-completion ou encore un debugger.
 \paragraph{}
-Il est tout à fait possible de réaliser un projet entier avec Qt sans passer par Qt creator, mais l'intégration de la documentation est des fichiers en-tête des différentes classe de Qt est un gain de temps énorme et accélère grandement le processus de développement d'une part, mais également le processus d'apprentissage.
+Il est tout à fait possible de réaliser un projet entier avec Qt sans passer par Qt creator, mais l'intégration de la documentation et des fichiers en-tête des différentes classe de Qt est un gain de temps énorme et accélère grandement le processus de développement d'une part, mais également le processus d'apprentissage.
 \paragraph{}
-Qt propose en plus un éditeur d'interface graphique nommé Qt Designer qui permet de créer des interfaces très simplement avec du glisser-déposer notamment et d'ensuite les intégrer dans une application Qt. Nous avons cependant fait le choix de ne pas l'utiliser, notre interface est en effet suffisamment simple pour ne pas avoir recours à un outil supplémentaire.
-
+Qt propose en plus un éditeur d'interface graphique nommé Qt Designer qui permet de créer des interfaces très simplement avec du glisser-déposer notamment pour les intégrer par la suite dans une application Qt. Nous avons cependant fait le choix de ne pas l'utiliser, notre interface est en effet suffisamment simple pour ne pas avoir recours à un outil supplémentaire.
 
 \subsection{Gestionnaire de projet}
 Le gestionnaire de projet utilisé est Bitbucket, un site Internet d'hébergement mutualisé supportant des projets utilisant Mercurial ou Git comme gestionnaire de versions. Dans le cas de Xmlia, Git a été retenu et utilisé.
