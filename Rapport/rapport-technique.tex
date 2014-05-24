@@ -1,4 +1,4 @@
-\chapter{Rapport technique}
+u\chapter{Rapport technique}
 
 \section{Conception}
 
@@ -40,7 +40,7 @@ Qt propose un QCompleter, il ne peut cependant pas s'intégrer et proposer l'aut
     cursor.setPosition(pos, QTextCursor::KeepAnchor);
     text->setTextCursor(cursor);
 \end{lstlisting}
-
+\paragraph{}
 Il n'est pas possible d'intégrer directement l'auto-completion, mais on peut en revanche facilement lier un colorateur syntaxique à un QTextEdit. Qt propose une classe abstraite QSyntaxHighLighter qu'il faut implémenter en y indiquant nos règles de coloration. Le QTextEdit appelle automatiquement la méthode \textit{highlightBlock} du QSyntaxHighLighter dans laquelle on aura indiqué nos règles.
 
 \begin{lstlisting}
@@ -63,7 +63,7 @@ Il n'est pas possible d'intégrer directement l'auto-completion, mais on peut en
     }
   }
 \end{lstlisting}
-
+\paragraph{}
 Voici par exemple la méthode qui permet de colorer les commentaires :
 \begin{lstlisting}
   bool TextHighLighter::cComment(int &last, const QString &text, int i)
@@ -93,7 +93,7 @@ Voici par exemple la méthode qui permet de colorer les commentaires :
     return false;
   }
 \end{lstlisting}
-
+\paragraph{}
 \subsubsection{La classe XmlEditor}
 
 C'est donc une sous classe de TextEditor. Nous avons fait le choix de représenter les données de l'éditeur de texte simplement par une QString, pas de référence vers la position d'un noeud ou d'information supplémentaire comme sa taille ou la délimitation de son contenu.
@@ -115,7 +115,7 @@ Un noeud étant identifié par son chemin depuis la racine, il faut reconstruire
     }
   }
 \end{lstlisting}
-
+\paragraph{}
 On utilise une structure de pile lors de parcours de l'arborescence. On empile l'indice du sommet lorsque l'on rencontre une balise ouvrante et on dépile lorsque l'on rencontre une balise fermante.
 On parvient ainsi à se déplacer et à se repérer dans la QString.
 
@@ -159,7 +159,7 @@ Cette méthode de parcours de l'arbre est appelée lorsqu'un noeud est inséré,
   //on passe en parametre un pointeur de fonction
   xmlEditor->parseDom(n, n.nodeName(), QString(newName), &XmlEditor::updateNodeName);
 \end{lstlisting}
-
+\paragraph{}
 Voici l'implémentation de l'appel de fonction dans le pseudo code du parcours de document :
 \begin{lstlisting}
   
@@ -176,7 +176,7 @@ Voici l'implémentation de l'appel de fonction dans le pseudo code du parcours d
     }
   }
 \end{lstlisting}
-
+\paragraph{}
 Voici le prototype de la fonction \textit{parseDom} avec la fonction qu'elle prend en paramètre et les fonctions de manipulation de noeud qu'elle peut prendre en paramètre.
 
 \begin{lstlisting}
@@ -193,6 +193,7 @@ Voici le prototype de la fonction \textit{parseDom} avec la fonction qu'elle pre
   //insere un noeud
   bool insertNodeText(int &nbFound, int &begin, int &end, QTextCursor &c, QString oldName, QString newName, QXmlStreamReader &xml);
 \end{lstlisting}
+\paragraph{}
 Ces fonctions manipulent le texte à travers un QTextCursor qui permet de naviguer dans un QTextEdit. Un QTextCursor permet notamment de se déplacer de mot en mot, d'aller à la fin de la ligne ou d'aller à la ligne suivante. Un outil donc indispensable dans la manipulation du texte.
 
 \paragraph{}
@@ -209,7 +210,7 @@ La liaison vers un schéma se fait à l'aide d'expressions régulières. Le XML 
     text->setText(s);
   }
 \end{lstlisting}
-
+\paragraph{}
 Il est intéressant de noter que l'on utilise une fois de plus la classe QXmlStreamReader pour se déplacer dans l'arborescence XML. Le lien vers le schéma se trouve dans la balise racine, le plus simple pour la trouver est donc de parcourir le document jusqu'à la trouver.
 \begin{lstlisting}
   while(!xml.atEnd())
@@ -230,7 +231,7 @@ Il est intéressant de noter que l'on utilise une fois de plus la classe QXmlStr
     xml.readNext();
   }
 \end{lstlisting}
-
+\paragraph{}
 En plus de créer et supprimer un lien vers un schéma, il est également possible de l'extraire, pour la validation par exemple. Cela se fait une fois de plus grâce à une expression régulière. Il est intéressant de noter dans l'exemple suivant que nous ne gérons que les liens locaux vers un schéma et pas les lien vers un schéma distant.
 \begin{lstlisting}
   QString s(text->toPlainText());
@@ -253,6 +254,7 @@ En plus de créer et supprimer un lien vers un schéma, il est également possib
   }
   return "";
 \end{lstlisting}
+\paragraph{}
 \subsubsection{La classe SchemaEditor}
 La classe SchemaEditor ne rajoute pas vraiment de fonctionnalités à la classe TextEditor mise à part la génération de schéma à partir d'un document XML. Elle fonctionne de manière très simple, les balises sont extraites du document XML et sont ajoutées au schéma. L'extraction des balises se fait à nouveau grâce à la classe QXmlStreamReader, on parcourt le document et ajoute chaque balise dans une liste si elle n'est pas déjà présente
 
@@ -266,6 +268,7 @@ La classe SchemaEditor ne rajoute pas vraiment de fonctionnalités à la classe 
   //on appelle la methode de generation de schema
   schemaEditor->genSchema(h.keys());
 \end{lstlisting}
+\paragraph{}
 Voici l'implémentation de la méthode de génération de schéma, on peut remarquer qu'elle est assez basique et laisse à l'utilisateur le soin de compléter la valeur et le type de chaque élément.
 \begin{lstlisting}
   void DtdEditor::genSchema(QList<QString> l)
@@ -286,7 +289,7 @@ Voici l'implémentation de la méthode de génération de schéma, on peut remar
   }
 
 \end{lstlisting}
-
+\paragraph{}
 \subsubsection{La validation}
 Parlons maintenant de la validation syntaxique et sémantique. La validation syntaxique se fait très simplement à l'aide du QXmlStreamReader, qui permet de détecter une erreur et d'indiquer la ligne, ainsi que le type de l'erreur.
 
@@ -302,7 +305,7 @@ Parlons maintenant de la validation syntaxique et sémantique. La validation syn
     }
   }
 \end{lstlisting}
-
+\paragraph{}
 Pour la validation sémantique, qui ne peut se faire que si un schéma est rattaché au document XML, on doit passer par une autre classe de Qt, le QXmlSchemaValidator et sa méthode validate. Nous l'utilisons le la manière suivante :
 \begin{lstlisting}
   QXmlSchema schema;
@@ -330,6 +333,7 @@ Pour la validation sémantique, qui ne peut se faire que si un schéma est ratta
   //si le schema n'a pas pu etre trouve
   emit log("Schema XSD invalide, est-il manquant ou invalide ?", QColor("orange"));
 \end{lstlisting}
+\paragraph{}
 \subsection{Le logger}
 Le logger est la partie que reçoit tous les messages pour les afficher à l'utilisateur. Il repose fortement sur le principe de signaux et de slots de Qt. Le fonctionnement est les suivant : Qt propose de connecter un objet émetteur, qui enverra des messages avec la macro \textit{emit} sur le slot d'un objet receveur, qui est en réalité une fonction qui sera appelée au moment du \textit{emit}. Voici par exemple le fonctionnement de l'envoi de messages à afficher :
 
@@ -356,12 +360,13 @@ Tout d'abord l'interface de notre Logger, pour montrer que les slots ne sont rie
     //attributs prives
   };
 \end{lstlisting}
+\paragraph{}
 On connecte les objets entre eux grâce à la fonction \textit{connect(sender, signal, receiver, slot)} de Qt.
 \begin{lstlisting}
   //on connecte l'editeur de texte avec le logger sur le slot log
   connect(notepad, SIGNAL(log(QString,QColor)), logger, SLOT(log(QString,QColor)));
 \end{lstlisting}
-
+\paragraph{}
 Et lorsque qu'il y aura un \textit{emit} du signal \textit{log}, la fonction correspondante, dans notre cas \textit{log} sera appelée.
 
 \begin{lstlisting}
@@ -381,9 +386,12 @@ Et lorsque qu'il y aura un \textit{emit} du signal \textit{log}, la fonction cor
     show();
   }
 \end{lstlisting}
+\paragraph{}
 Ce système de signal/slot est énormément utilisé pour faire communiquer nos widgets les uns avec les autres, et permet d'une part de les séparer, c'est à dire que l'arborescence ne possède pas de pointeur vers l'éditeur de texte et inversement, mais également de ne pas avoir non plus de pointeur vers le contrôleur, une fois que les connexions sont faites dans le contrôleur, nos widgets peuvent communiquer de manière totalement indépendante.
 
 \subsection{Le gestionnaire de fichiers}
-
+Nous avons fait le choix d'avoir une seule instance du gestionnaire de fichier, et de s'en servir pour stocker le modèle et les différents documents ouverts. Le gestionnaire de fichier est donc un singleton. 
+\paragraph{}
+Il embarque les fonctionnalités basiques d'un gestionnaire de fichier, telles que l'ouverture et la sauvegarde. C'est à travers ce gestionnaire de fichiers que l'on va gérer les deux documents ouverts, le document XML et le schéma qui lui est associé.
 
 \section{Résultat}
