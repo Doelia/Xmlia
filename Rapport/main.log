@@ -1,14 +1,14 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.5.24)  25 MAY 2014 01:00
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.22)  25 MAY 2014 01:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **main.tex
 (./main.tex
 LaTeX2e <2011/06/27>
-Babel <3.9f> and hyphenation patterns for 78 languages loaded.
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/report.cls
+Babel <3.9f> and hyphenation patterns for 4 languages loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/size11.clo
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -24,13 +24,13 @@ File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/local/texlive/2013/texmf-dist/tex/generic/babel/babel.sty
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2013/05/16 v3.9f The Babel package
 
-(/usr/local/texlive/2013/texmf-dist/tex/generic/babel-french/frenchb.ldf
-Language: frenchb 2013/05/20 v2.6c French support from the babel system
+(/usr/share/texlive/texmf-dist/tex/generic/babel-french/frenchb.ldf
+Language: frenchb 2013/07/06 v2.6e French support from the babel system
 
-(/usr/local/texlive/2013/texmf-dist/tex/generic/babel/babel.def
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2013/05/16 v3.9f Babel common definitions
 \babel@savecnt=\count88
 \U@D=\dimen103
@@ -48,24 +48,24 @@ Package babel Info: Making ? an active character on input line 243.
 \leftmarginFB=\skip45
 \parindentFFN=\dimen105
 ))
-(/usr/local/texlive/2013/texmf-dist/tex/latex/carlisle/scalefnt.sty)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/keyval.sty
+(/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks15
 \inpenc@posthook=\toks16
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/utf8.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/t1enc.dfu
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
 File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -215,7 +215,7 @@ File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/ot1enc.dfu
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
 File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -246,7 +246,7 @@ File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/omsenc.dfu
+(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
 File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -270,27 +270,27 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/trig.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/graphics.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count92
@@ -298,14 +298,14 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen106
 \Gin@req@width=\dimen107
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/t1enc.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/textcomp.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -320,12 +320,12 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/ts1enc.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 Now handling font encoding TS1 ...
 ... processing UTF-8 mapping file for font encoding TS1
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/ts1enc.dfu
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.dfu
 File: ts1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A2 (decimal 162)
    defining Unicode char U+00A3 (decimal 163)
@@ -460,16 +460,16 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/vmargin/vmargin.sty
+(/usr/share/texlive/texmf-dist/tex/latex/vmargin/vmargin.sty
 Package: vmargin 2004/07/15 V2.5 set document margins (VK)
 
 Package: vmargin 2004/07/15 V2.5 set document margins (VK)
 \PaperWidth=\dimen108
 \PaperHeight=\dimen109
-) (/usr/local/texlive/2013/texmf-dist/tex/generic/dirtree/dirtree.sty
+) (/usr/share/texlive/texmf-dist/tex/generic/dirtree/dirtree.sty
 Package: dirtree 2012/12/11 v0.32 package wrapper for dirtree
 
-(/usr/local/texlive/2013/texmf-dist/tex/generic/dirtree/dirtree.tex
+(/usr/share/texlive/texmf-dist/tex/generic/dirtree/dirtree.tex
 `dirtree' v0.32, 2012/12/11 (jcc)
 \DT@offset=\dimen110
 \DT@width=\dimen111
@@ -488,10 +488,10 @@ Package: dirtree 2012/12/11 v0.32 package wrapper for dirtree
 )
 File: dirtree.tex 2012/12/11 v0.32 `dirtree' (jcc)
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/listingsutf8.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/listingsutf8.sty
 Package: listingsutf8 2011/11/10 v1.2 Allow UTF-8 in listings input (HO)
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/listings.sty
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count97
 \lst@gtempboxa=\box26
 \lst@token=\toks17
@@ -505,26 +505,26 @@ Package: listingsutf8 2011/11/10 v1.2 Allow UTF-8 in listings input (HO)
 \lst@lineno=\count102
 \lst@maxwidth=\dimen123
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2013/07/10 1.5 (Carsten Heinz)
 \c@lstnumber=\count103
 \lst@skipnumbers=\count104
 \lst@framebox=\box27
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2007/02/22 1.4 listings configuration
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2013/06/27 1.5pre1 listings configuration
 ))
-Package: listings 2007/02/22 1.4 (Carsten Heinz)
+Package: listings 2013/07/10 1.5 (Carsten Heinz)
 
-(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
-(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
@@ -533,17 +533,17 @@ Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/stringenc.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/stringenc.sty
 Package: stringenc 2011/12/02 v1.10 Convert strings between diff. encodings (HO
 )
 
-(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdfescape.sty
 Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
 )))
-(/usr/local/texlive/2013/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/color.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
@@ -557,7 +557,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/float/float.sty
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count105
 \float@exts=\toks18
@@ -565,14 +565,14 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks19
 \@floatcapt=\box29
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
 
-(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
 Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
 
 
-(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
 Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
 Package hobsub Info: Skipping package `infwarerr' (already loaded).
@@ -606,27 +606,27 @@ Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
 Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
 Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 )
-(/usr/local/texlive/2013/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/auxhook.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
 \@linkdim=\dimen124
 \Hy@linkcounter=\count106
 \Hy@pagecounter=\count107
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/hyperref/pd1enc.def
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
 \Hy@SavedSpaceFactor=\count108
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
 Package hyperref Info: Hyper figures OFF on input line 4443.
@@ -638,7 +638,7 @@ Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
 \c@Hy@tempcnt=\count109
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/url/url.sty
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
@@ -663,19 +663,19 @@ LaTeX Info: Redefining \pageref on input line 6369.
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
 \Fld@listcount=\count114
 \c@bookmark@seq@number=\count115
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
 \Hy@SectionHShift=\skip46
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip47
 \f@ncyO@elh=\skip48
 \f@ncyO@erh=\skip49
@@ -686,16 +686,15 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \f@ncyO@olf=\skip54
 \f@ncyO@orf=\skip55
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2004/09/05 1.3 listings language file
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2004/09/05 1.3 listings language file
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2013/06/27 1.5pre1 listings language file
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-)
-No file main.aux.
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2013/07/10 1.5 (Carsten Heinz)
+) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
@@ -712,7 +711,8 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
 LaTeX Font Info:    ... okay on input line 49.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 49.
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/ts1cmr.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 49.
@@ -722,7 +722,7 @@ LaTeX Info: Redefining \degres on input line 49.
 LaTeX Info: Redefining \dots on input line 49.
 LaTeX Info: Redefining \up on input line 49.
 
-(/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count116
 \scratchdimen=\dimen128
@@ -735,10 +735,10 @@ LaTeX Info: Redefining \up on input line 49.
 \MPnumerator=\count120
 \makeMPintoPDFobject=\count121
 \everyMPtoPDFconversion=\toks21
-) (/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/grfext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
 )
 Package grfext Info: Graphics extension search list:
@@ -746,7 +746,7 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 452.
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
@@ -754,10 +754,10 @@ e
 \AtBeginShipoutBox=\box31
 Package hyperref Info: Link coloring OFF on input line 49.
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
-(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count123
@@ -779,37 +779,47 @@ Package pdftex.def Info: images/logo_um2.png used on input line 55.
 (pdftex.def)             Requested size: 128.23076pt x 78.69728pt.
  [1
 
-{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./image
-s/logo_um2.png>]pdfTeX warning (ext4): destination with the same identifier (na
-me{page.1}) has been already used, duplicate ignored
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/logo_um2.png>]pdf
+TeX warning (ext4): destination with the same identifier (name{page.1}) has bee
+n already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.78 \tableofcontents
                       [1
 
-]
+] (./main.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 7.
+ [2
+
+])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- (./table-figures.tex [2
+ (./table-figures.tex
 
-]
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[3] (./main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
-) (./introduction.tex
-[3
+) (./introduction.tex [4
 
 ]
 Chapitre 1.
-) (./analyse-projet.tex [4
+) (./analyse-projet.tex [5
 
 ]
 Chapitre 2.
-
-LaTeX Warning: Reference `oxygen' on page 5 undefined on input line 18.
-
-<images/analyse-oxygen1.png, id=230, 712.91344pt x 568.37344pt>
+<images/analyse-oxygen1.png, id=322, 712.91344pt x 568.37344pt>
 File: images/analyse-oxygen1.png Graphic file (type png)
 
 <use images/analyse-oxygen1.png>
@@ -819,41 +829,24 @@ Package pdftex.def Info: images/analyse-oxygen1.png used on input line 24.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[5
+[6
 
-]
-
-LaTeX Warning: Reference `diagfichier' on page 6 undefined on input line 34.
-
-<images/analyse-diag-fichier.png, id=240, 335.00156pt x 249.18094pt>
+] <images/analyse-diag-fichier.png, id=334, 335.00156pt x 249.18094pt>
 File: images/analyse-diag-fichier.png Graphic file (type png)
 
 <use images/analyse-diag-fichier.png>
 Package pdftex.def Info: images/analyse-diag-fichier.png used on input line 38.
 
 (pdftex.def)             Requested size: 167.50037pt x 124.59015pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[6 <./images/analyse-oxygen1.png> <./images/analyse-diag-fichier.png>]
-
-LaTeX Warning: Reference `diagarbo' on page 7 undefined on input line 47.
-
-
-LaTeX Warning: Reference `diagediteur' on page 7 undefined on input line 47.
-
-<images/analyse-diag-arbo.png, id=251, 295.85532pt x 308.65312pt>
+ [7 <./images/analyse-oxygen1.png> <./images/analyse-diag-fichier.png>]
+<images/analyse-diag-arbo.png, id=345, 295.85532pt x 308.65312pt>
 File: images/analyse-diag-arbo.png Graphic file (type png)
 
 <use images/analyse-diag-arbo.png>
 Package pdftex.def Info: images/analyse-diag-arbo.png used on input line 51.
 (pdftex.def)             Requested size: 147.92729pt x 154.32617pt.
 
-<images/analyse-diag-editeur.png, id=252, 362.10281pt x 309.40594pt>
+<images/analyse-diag-editeur.png, id=346, 362.10281pt x 309.40594pt>
 File: images/analyse-diag-editeur.png Graphic file (type png)
 
 <use images/analyse-diag-editeur.png>
@@ -861,11 +854,7 @@ Package pdftex.def Info: images/analyse-diag-editeur.png used on input line 59.
 
 (pdftex.def)             Requested size: 181.05095pt x 154.70259pt.
 
-
-LaTeX Warning: Reference `maquette_interface' on page 7 undefined on input line
- 66.
-
-<images/analyse-maquette.png, id=253, 642.4pt x 401.5pt>
+<images/analyse-maquette.png, id=348, 642.4pt x 401.5pt>
 File: images/analyse-maquette.png Graphic file (type png)
 
 <use images/analyse-maquette.png>
@@ -875,39 +864,26 @@ Package pdftex.def Info: images/analyse-maquette.png used on input line 70.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[7 <./images/analyse-diag-arbo.png> <./images/analyse-diag-editeur.png>])
-(./rapport-activite.tex [8 <./images/analyse-maquette.png>]
+[8 <./images/analyse-diag-arbo.png> <./images/analyse-diag-editeur.png>])
+(./rapport-activite.tex [9 <./images/analyse-maquette.png>]
 Chapitre 3.
-[9
+[10
 
-]
-
-LaTeX Warning: Reference `apparence_linux' on page 10 undefined on input line 4
-0.
-
-
-LaTeX Warning: Reference `apparence_mac' on page 10 undefined on input line 40.
-
-
-
-LaTeX Warning: Reference `apparence_windows' on page 10 undefined on input line
- 40.
-
-<images/apparence_linux.png, id=278, 803.0pt x 182.6825pt>
+] <images/apparence_linux.png, id=373, 803.0pt x 182.6825pt>
 File: images/apparence_linux.png Graphic file (type png)
 
 <use images/apparence_linux.png>
 Package pdftex.def Info: images/apparence_linux.png used on input line 44.
 (pdftex.def)             Requested size: 401.49902pt x 91.34102pt.
 
-<images/apparence_macos.png, id=279, 803.0pt x 182.6825pt>
+<images/apparence_macos.png, id=374, 803.0pt x 182.6825pt>
 File: images/apparence_macos.png Graphic file (type png)
 
 <use images/apparence_macos.png>
 Package pdftex.def Info: images/apparence_macos.png used on input line 50.
 (pdftex.def)             Requested size: 401.49902pt x 91.34102pt.
 
-<images/apparence_windows.png, id=280, 609.02531pt x 137.01187pt>
+<images/apparence_windows.png, id=375, 609.02531pt x 137.01187pt>
 File: images/apparence_windows.png Graphic file (type png)
 
 <use images/apparence_windows.png>
@@ -917,19 +893,15 @@ Package pdftex.def Info: images/apparence_windows.png used on input line 56.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[10pdfTeX warning (ext4): destination with the same identifier (name{section*.2
+[11pdfTeX warning (ext4): destination with the same identifier (name{section*.2
 2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.67 \paragraph
-               {}] [11 <./images/apparence_linux.png> <./images/apparence_macos
+               {}] [12 <./images/apparence_linux.png> <./images/apparence_macos
 .png (PNG copy)> <./images/apparence_windows.png>]
-
-LaTeX Warning: Reference `ticket_Bitbucket' on page 12 undefined on input line 
-81.
-
-<images/bitbucket-exemple-issue.png, id=300, 753.5653pt x 354.57469pt>
+<images/bitbucket-exemple-issue.png, id=396, 753.5653pt x 354.57469pt>
 File: images/bitbucket-exemple-issue.png Graphic file (type png)
 
 <use images/bitbucket-exemple-issue.png>
@@ -940,102 +912,99 @@ Package pdftex.def Info: images/bitbucket-exemple-issue.png used on input line
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./rapport-technique.tex [12] [13 <./images/bitbucket-exemple-issue.png>]
+) (./rapport-technique.tex [13] [14 <./images/bitbucket-exemple-issue.png>]
 Chapitre 4.
-
-LaTeX Warning: Reference `diag_classe' on page 14 undefined on input line 38.
-
-<images/classes.png, id=314, 932.48375pt x 1470.49374pt>
+<images/classes.png, id=409, 932.48375pt x 1470.49374pt>
 File: images/classes.png Graphic file (type png)
 
 <use images/classes.png>
 Package pdftex.def Info: images/classes.png used on input line 42.
 (pdftex.def)             Requested size: 372.9869pt x 588.18709pt.
- [14
+ [15
 
-] [15 <./images/classes.png>]
+] [16 <./images/classes.png>]
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 61.
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/t1cmtt.fd
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 62.
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
-) [16]
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+) [17]
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 )
-<images/arbo.png, id=371, 371.3875pt x 241.90375pt>
+<images/arbo.png, id=465, 371.3875pt x 241.90375pt>
 File: images/arbo.png Graphic file (type png)
  <use images/arbo.png>
 Package pdftex.def Info: images/arbo.png used on input line 133.
 (pdftex.def)             Requested size: 185.69328pt x 120.95157pt.
 
-[17 <./images/arbo.png>]
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+[18 <./images/arbo.png>]
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2008/03/30 v1.1d Input encoding file
-) [18]
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 ) [19]
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2008/03/30 v1.1d Input encoding file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 ) [20]
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2008/03/30 v1.1d Input encoding file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 ) [21]
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2008/03/30 v1.1d Input encoding file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2008/03/30 v1.1d Input encoding file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 ) [22]
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 ) [23]
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2008/03/30 v1.1d Input encoding file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 ) [24]
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 ) [25]
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 )
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2008/03/30 v1.1d Input encoding file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 ) [26]
-<images/final.png, id=743, 1305.87875pt x 750.805pt>
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2008/03/30 v1.1d Input encoding file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2008/03/30 v1.1d Input encoding file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2008/03/30 v1.1d Input encoding file
+) [27]
+<images/final.png, id=835, 1305.87875pt x 750.805pt>
 File: images/final.png Graphic file (type png)
  <use images/final.png>
 Package pdftex.def Info: images/final.png used on input line 628.
@@ -1044,7 +1013,7 @@ Package pdftex.def Info: images/final.png used on input line 628.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/final_xsd.png, id=744, 1305.87875pt x 750.805pt>
+<images/final_xsd.png, id=836, 1305.87875pt x 750.805pt>
 File: images/final_xsd.png Graphic file (type png)
 
 <use images/final_xsd.png>
@@ -1054,50 +1023,49 @@ Package pdftex.def Info: images/final_xsd.png used on input line 635.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./manuel-utilisation.tex [27] [28 <./images/final.png> <./images/final_xsd.p
+) (./manuel-utilisation.tex [28] [29 <./images/final.png> <./images/final_xsd.p
 ng>]
 Chapitre 5.
-[29
+[30
 
-] <images/help1.png, id=764, 980.66376pt x 681.54625pt>
+] <images/help1.png, id=856, 980.66376pt x 681.54625pt>
 File: images/help1.png Graphic file (type png)
 
 <use images/help1.png>
 Package pdftex.def Info: images/help1.png used on input line 57.
 (pdftex.def)             Requested size: 450.0pt x 312.7351pt.
-) (./conclusion.tex [30 <./images/help1.png>]
+) (./conclusion.tex [31 <./images/help1.png>]
 Chapitre 6.
-[31
+[32
 
-]) [32]
+]) [33]
 Chapitre 7.
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 )
-(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/se-utf8.def
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-utf8.def
 File: se-utf8.def 2011/12/02 v1.10 stringenc: UTF-8
 )
-(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/se-iso-8859-1.def
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-iso-8859-1.def
 File: se-iso-8859-1.def 2011/12/02 v1.10 stringenc: ISO-8859-1
-)
-[33
+) [34
 
-] [34] (/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+]
+[35] (/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
-)
-[35] [36] [37] [38]
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+) [36] [37]
+[38] [39] (/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
-) [39] [40]
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+) [40]
+[41] (/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2008/03/30 v1.1d Input encoding file
-) [41] [42]
-[43] [44]
+) [42] [43]
+[44] [45]
 Overfull \hbox (0.70674pt too wide) in paragraph at lines 237--238
 [][][] 
  []
 
-[45] [46] [47] [48] [49] <images/c1.png, id=1792, 1080.035pt x 953.5625pt>
+[46] [47] [48] [49] [50] <images/c1.png, id=1882, 1080.035pt x 953.5625pt>
 File: images/c1.png Graphic file (type png)
 
 <use images/c1.png>
@@ -1107,7 +1075,7 @@ Package pdftex.def Info: images/c1.png used on input line 106.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/c2.png, id=1793, 1054.94125pt x 954.56625pt>
+<images/c2.png, id=1883, 1054.94125pt x 954.56625pt>
 File: images/c2.png Graphic file (type png)
  <use images/c2.png>
 Package pdftex.def Info: images/c2.png used on input line 111.
@@ -1116,7 +1084,7 @@ Package pdftex.def Info: images/c2.png used on input line 111.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/c3.png, id=1794, 1078.0275pt x 932.48375pt>
+<images/c3.png, id=1884, 1078.0275pt x 932.48375pt>
 File: images/c3.png Graphic file (type png)
  <use images/c3.png>
 Package pdftex.def Info: images/c3.png used on input line 116.
@@ -1125,7 +1093,7 @@ Package pdftex.def Info: images/c3.png used on input line 116.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/c4.png, id=1795, 1075.01625pt x 958.58125pt>
+<images/c4.png, id=1885, 1075.01625pt x 958.58125pt>
 File: images/c4.png Graphic file (type png)
  <use images/c4.png>
 Package pdftex.def Info: images/c4.png used on input line 121.
@@ -1134,7 +1102,7 @@ Package pdftex.def Info: images/c4.png used on input line 121.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/c5.png, id=1796, 1066.98625pt x 929.4725pt>
+<images/c5.png, id=1886, 1066.98625pt x 929.4725pt>
 File: images/c5.png Graphic file (type png)
  <use images/c5.png>
 Package pdftex.def Info: images/c5.png used on input line 126.
@@ -1143,7 +1111,7 @@ Package pdftex.def Info: images/c5.png used on input line 126.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/c6.png, id=1797, 1067.99pt x 432.61626pt>
+<images/c6.png, id=1887, 1067.99pt x 432.61626pt>
 File: images/c6.png Graphic file (type png)
  <use images/c6.png>
 Package pdftex.def Info: images/c6.png used on input line 131.
@@ -1152,8 +1120,8 @@ Package pdftex.def Info: images/c6.png used on input line 131.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[50] [51 <./images/c1.png>] [52 <./images/c2.png>] [53 <./images/c3.png>]
-[54 <./images/c4.png>] [55 <./images/c5.png>] [56 <./images/c6.png>]
+[51] [52 <./images/c1.png>] [53 <./images/c2.png>] [54 <./images/c3.png>]
+[55 <./images/c4.png>] [56 <./images/c5.png>] [57 <./images/c6.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 142--143
 
  []
@@ -1163,56 +1131,51 @@ Underfull \hbox (badness 10000) in paragraph at lines 147--148
 
  []
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2008/03/30 v1.1d Input encoding file
-) [57
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 151.
+[58
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 153.
- [58]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 153.
-
-(./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 153.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 153.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 151.
+ (./main.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 151.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 151.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D916FB5260557EA1A9E4DB3BB65C04EB;3131.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 153.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 151.
  ) 
 Here is how much of TeX's memory you used:
- 12020 strings out of 493315
- 175175 string characters out of 6137904
- 628859 words of memory out of 5000000
- 13671 multiletter control sequences out of 15000+600000
- 16963 words of font info for 34 fonts, out of 8000000 for 9000
- 957 hyphenation exceptions out of 8191
+ 11949 strings out of 495002
+ 172983 string characters out of 6180262
+ 625325 words of memory out of 5000000
+ 13411 multiletter control sequences out of 15000+600000
+ 19402 words of font info for 42 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
  39i,12n,58p,1682b,2354s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
-</usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></
-usr/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></us
-r/local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/
-local/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/lo
-cal/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/loca
-l/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/
-texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/te
-xlive/2013/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texl
-ive/2013/texmf-dist/fonts/type1/public/cm-super/sfit0900.pfb></usr/local/texliv
-e/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/
-2013/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/20
-13/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2013
-/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2013/t
-exmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on main.pdf (59 pages, 2003228 bytes).
+pdfTeX warning (dest): name{section*.24} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.23} has been referenced but does not exist
+, replaced by a fixed one
+
+ </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk> </tmp/texfon
+ts/pk/ljfour/jknappen/ec/ecit0900.600pk> </tmp/texfonts/pk/ljfour/jknappen/ec/e
+ctt0900.600pk> </tmp/texfonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </tmp/texfo
+nts/pk/ljfour/jknappen/ec/eccc1095.600pk> </home/noe/.texmf-var/fonts/pk/ljfour
+/jknappen/ec/ecbx1440.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/
+ecbx2074.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600p
+k> </tmp/texfonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </tmp/texfonts/pk/ljfou
+r/jknappen/ec/ecrm1095.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec
+/ecrm1200.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600
+pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/no
+e/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk>
+Output written on main.pdf (59 pages, 1883165 bytes).
 PDF statistics:
- 2325 PDF objects out of 2487 (max. 8388607)
- 2193 compressed objects within 22 object streams
- 1558 named destinations out of 1728 (max. 500000)
+ 2901 PDF objects out of 2984 (max. 8388607)
+ 2214 compressed objects within 23 object streams
+ 1501 named destinations out of 1728 (max. 500000)
  482 words of extra memory for PDF output out of 10000 (max. 10000000)
 
