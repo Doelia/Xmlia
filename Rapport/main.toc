@@ -35,7 +35,7 @@
 \contentsline {subsection}{\numberline {3.2.2}IDE}{9}
 \contentsline {paragraph}{}{9}
 \contentsline {paragraph}{}{9}
-\contentsline {subsection}{\numberline {3.2.3}Gestionnaire de projet}{10}
+\contentsline {subsection}{\numberline {3.2.3}Gestionnaire de projet}{9}
 \contentsline {paragraph}{}{10}
 \contentsline {paragraph}{}{10}
 \contentsline {paragraph}{}{10}
