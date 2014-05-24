@@ -10,17 +10,22 @@
 \contentsline {chapter}{\numberline {3}Rapport d'activit\IeC {\'e}}{8}
 \contentsline {section}{\numberline {3.1}Organisation du travail}{8}
 \contentsline {subsection}{\numberline {3.1.1}Communication}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {paragraph}{}{8}
 \contentsline {subsection}{\numberline {3.1.2}R\IeC {\'e}partition des t\IeC {\^a}ches}{8}
-\contentsline {section}{\numberline {3.2}Outils de d\IeC {\'e}veloppement}{8}
-\contentsline {subsection}{\numberline {3.2.1}Langage et biblioth\IeC {\`e}ques}{8}
+\contentsline {section}{\numberline {3.2}Outils de d\IeC {\'e}veloppement}{9}
+\contentsline {subsection}{\numberline {3.2.1}Langage et biblioth\IeC {\`e}ques}{9}
 \contentsline {paragraph}{}{9}
 \contentsline {paragraph}{}{9}
-\contentsline {subsection}{\numberline {3.2.2}IDE}{9}
-\contentsline {paragraph}{}{9}
+\contentsline {subsection}{\numberline {3.2.2}IDE}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{10}
 \contentsline {subsection}{\numberline {3.2.3}Gestionnaire de projet}{10}
 \contentsline {paragraph}{}{10}
 \contentsline {paragraph}{}{10}
-\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{11}
 \contentsline {chapter}{\numberline {4}Rapport technique}{12}
 \contentsline {section}{\numberline {4.1}Conception}{12}
 \contentsline {section}{\numberline {4.2}Architecture de l'application}{12}

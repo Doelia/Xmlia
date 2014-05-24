@@ -4,18 +4,22 @@
         
 \subsection{Communication}
 
-        La communication s'est au départ faite au travers de réunions hebdomadaires au cours desquelles le cahier des charges a été défini auprès de M. Meynard.
-        
-        Une fois le cahier des charges défini et rendu, le but suivant a été de déterminer quel langage et quel bibliothèque d'affichage graphique sélectionner pour le projet et ainsi être conscient des avantages et des limites des éléments choisis.
-        
-        Ensuite, l'objectif suivant a été de définir une maquette du logiciel afin de savoir quelles seront les fonctionnalités retenues, la manière de les exploiter et quel organisation visuelle du logiciel sera retenue. C'est ainsi qu'a été définie la maquette qui comporte une interface simple avec une barre d'outils, une vue principale sur le côté droit avec le système d'éditeur de texte, une vue secondaire sur la gauche avec la vue arborescente du modèle XML du fichier présenté par l'utilisateur et enfin la fenêtre de log associé au différents messages liés à l'utilisation de l'éditeur, par exemple, des erreurs de schéma.
-        
-        Il fallait enfin définir l'organisation du travail au sein du groupe avec des tâches définies et mettre un place un plan de travail, c'est donc Stéphane WOUTERS, le chef du projet, qui a mis en place le gestionnaire de projet, a décidé des moyens de communication et qui a défini le premier objectif de développement : l'apprentissage de la librairie.
-        
-        Puis la phase d'apprentissage et de développement commença, il fallait alors découvrir et apprendre le framework utilisé, et commencer à développer pour le projet, la communication s'est donc faite au travers de messages sur Google Hangouts, de mails, de commentaires via le gestionnaire de projet et de communication orale dans une salle informatique de la faculté.
-        
-        \subsection{Répartition des tâches}
+La communication s'est au départ faite au travers de réunions hebdomadaires au cours desquelles le cahier des charges a été défini auprès de M. Meynard.
+\paragraph{}
+       
+Une fois le cahier des charges défini et rendu, le but suivant a été de déterminer quel langage et quel bibliothèque d'affichage graphique sélectionner pour le projet et ainsi être conscient des avantages et des limites des éléments choisis.
+\paragraph{}
 
+L'objectif suivant a été de définir une maquette du logiciel afin de savoir quelles seront les fonctionnalités retenues, la manière de les exploiter et quel organisation visuelle du logiciel sera retenue. C'est ainsi qu'a été définie la maquette qui comporte une interface simple avec une barre d'outils, une vue principale sur le côté droit avec le système d'éditeur de texte, une vue secondaire sur la gauche avec la vue arborescente du modèle XML du fichier présenté par l'utilisateur et enfin la fenêtre de log associé au différents messages liés à l'utilisation de l'éditeur, par exemple, des erreurs de schéma.
+\paragraph{}
+
+Il fallait enfin définir l'organisation du travail au sein du groupe avec des tâches définies et mettre un place un plan de travail, c'est donc Stéphane WOUTERS, le chef du projet, qui a mis en place le gestionnaire de projet, a décidé des moyens de communication et qui a défini le premier objectif de développement : l'apprentissage de la librairie.
+\paragraph{}
+
+Puis la phase d'apprentissage et de développement commença, il fallait alors découvrir et apprendre le framework utilisé, et commencer à développer pour le projet, la communication s'est donc faite au travers de messages sur Google Hangouts, de mails, de commentaires via le gestionnaire de projet et de communication orale dans une salle informatique de la faculté.
+        
+\subsection{Répartition des tâches}
+Nous nous sommes répartis les tâches de la façon suivante : l'arborescence pour Stéphane, l'éditeur de texte pour Noé, Benoi t
 \section{Outils de développement}
 
 \subsection{Langage et bibliothèques}
@@ -44,13 +48,15 @@ Qt a également l'avantage d'être multi-plateforme, le code produit est en thé
 \end{figure}
 
 \paragraph{}
-
-Qt DANS SA GRANDEUR EMBARQUE PLEIN DE MODULES LOUÉ SOIT Qt !
+Qt nous fourni un grand nombre de modules qui vont de la communication réseau à la gestion d'OpenGL, mais c'est surtout pour sa gestion complète et native du XML que nous l'avons préféré à GTK.
 
 \subsection{IDE}
-Nous avons naturellement utilisé Qt Creator comme IDE, c'est en effet l'IDE fourni avec Qt, il intègre donc nativement toutes les opérations spécifiques à la création et la compilation d'un projet sous Qt. Il intègre également toutes les fonctionnalités que l'on pourrait attendre d'un IDE digne de ce nom.
+Nous avons naturellement utilisé Qt Creator comme IDE, c'est en effet l'IDE fourni avec Qt, il intègre donc nativement toutes les opérations spécifiques à la création et la compilation d'un projet sous Qt. Il propose également toutes les fonctionnalités que l'on pourrait attendre d'un IDE digne de ce nom, telles que la coloration syntaxique, l'auto-completion ou encore un debugger.
+\paragraph{}
+Il est tout à fait possible de réaliser un projet entier avec Qt sans passer par Qt creator, mais l'intégration de la documentation est des fichiers en-tête des différentes classe de Qt est un gain de temps énorme et accélère grandement le processus de développement d'une part, mais également le processus d'apprentissage.
 \paragraph{}
 Qt propose en plus un éditeur d'interface graphique nommé Qt Designer qui permet de créer des interfaces très simplement avec du glisser-déposer notamment et d'ensuite les intégrer dans une application Qt. Nous avons cependant fait le choix de ne pas l'utiliser, notre interface est en effet suffisamment simple pour ne pas avoir recours à un outil supplémentaire.
+
 
 \subsection{Gestionnaire de projet}
 Le gestionnaire de projet utilisé est Bitbucket, un site Internet d'hébergement mutualisé supportant des projets utilisant Mercurial ou Git comme gestionnaire de versions. Dans le cas de Xmlia, Git a été retenu et utilisé.
