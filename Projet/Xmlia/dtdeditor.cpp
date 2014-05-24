@@ -21,8 +21,6 @@ bool DtdEditor::eventFilter(QObject *o, QEvent *e)
         emit cursorInfo(text->textCursor().block().blockNumber(), text->textCursor().positionInBlock());
         if (keyEvent->key() == Qt::Key_Right || keyEvent->key() == Qt::Key_Tab)
         {
-            cout << textUnderCursor().toStdString() << endl;
-
             return insertCompletion();
         }
         else

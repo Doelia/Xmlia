@@ -53,7 +53,7 @@ void Arbo::onEdit (QStandardItem* item) {
             } else {
                 //Quand on droppe un elem en tant que nouvelle racine
                 cout << "Arbo::onEdit BUG : Parent non existant" << endl;
-                updateView();
+                //updateView();
             }
         }
     }

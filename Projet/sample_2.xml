@@ -9,10 +9,9 @@
                 <surname2>a</surname2>
                 <salut2>auniert</salut2>
                 <uris2>anruiset</uris2>
-                <narste2/>
         </person2>
         <person3 id="3">
-                <firstname3>a</firstname3>
+                <firstname3>a<narste2/></firstname3>
                 <surname3>a</surname3>
                 <pd3>auniert</pd3>
                 <uris3>anruiset</uris3>

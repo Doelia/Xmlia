@@ -133,6 +133,70 @@ intéractive avec toutes les options nécessaires (Renommage, suppresion, glisse
 \end{minipage}
 \end{figure}
 
+\subsubsection{Un modèle non compatible}
+
+
+La difficulté technique dans cette partie du programme est en rapport avec le modèle nécessaire à la construction de la vue :
+Il n'est pas compatible avec le modèle que nous avons conçu. Si le modèle utilise des objets de type QDomNode, QTreeView utilise des objets de type QStandardItem. Une grande partie de la programmation de la vue arborsecente à donc été de réaliser des convertions pour communiquer avec le modèle.
+\paragraph{}
+
+La classe est donc composée de tout un tas de méthodes utilitaires permettants ces convertions. Quelques exemples de signatures :
+\begin{itemize}
+\item QStandardItem* getItemFromNode(QDomNode dom);
+\item QDomNode getNodeFromItem(QStandardItem* item);
+\item QStandardItem* getFils(QDomNode dom);
+\item void preOrder(QDomNode dom, QStandardItemModel *model); // Construit une arborescence de QStandardItem à partir d'une arborescence QDomNode.
+\end{itemize}
+
+
+\subsubsection{La gestion des évenements}
+
+La vue arborescence est modifiée par les évenements quand l'éditeur de texte effectue des modifications.
+Pour des raisons pratiques, la vue arborscente est regénérée uniquement lors de la validation synthaxique et non tout au long de
+l'édition textuelle. Il n'est tout simplement pas possible de générer une arborescente d'un dom non valide.
+La gestion des évenements entrant et donc très simple, il suffit d'apeller la méthode de reconstruction de la vue à partir du modèle.
+\paragraph{}
+
+Pour ce qui est des évenements sortants (Les évenements déclanchés par l'utilisateur lorsqu'il modifie l'arbre), la programmation
+est plus complexe. La liste des possibilités de l'utilisateur est la suivante :
+
+\begin{itemize}
+\item Renommage d'un noeud
+\item Suppresion d'un noeud
+\item Glisser/déposé d'un noeud
+\end{itemize}
+
+\paragraph{}
+Le renommage et la suppresion est triviale. Le renommage étant effectué instannément sur la vue, il suffit d'envoyer le signal de modification au modèle. La suppresion est légèrement plus compliqué car l'option n'est pas implémentée directement par Qt. Un simple menu contextuel a été ajouté, puis les méthodes utilitaires permettent d'effectuer simplement l'action.
+
+\begin{lstlisting}
+// Lorsque l'utilisateur supprime un noeud (clic droit)
+void Arbo::onRemoveNode() {
+    QStandardItem* item = this->itemRoot->model()->itemFromIndex(this->getVue()->selectionModel()->currentIndex());
+    item->parent()->removeRow(item->row());
+}
+\end{lstlisting}
+
+\paragraph{}
+Ce qui déclanche automatiquement un évenement par Qt :
+\begin{lstlisting}
+void Arbo::onRowsAboutToBeRemoved(const QModelIndex &i , int x, int y)
+{
+    QStandardItem* item = this->itemRoot->model()->itemFromIndex(i);
+    QDomNode node = this->getNodeFromItem(item);
+    node = node.childNodes().at(x);
+    XmlFileManager::getFileManager()->getModele()->aboutToBeRemoved(node);
+}
+\end{lstlisting}
+
+\paragraph{}
+Le glisser déposé nécessite davantage de programmation. Aucun évenement "Glisser/déposé" n'est envoyé par Qt, mais deux évenements apellés indépendaments : Ajout d'un noeud, puis suppresion d'un noeud. C'est source de beaucoup de problèmes de conflits.
+
+\paragraph{}
+De plus, l'évenement d'ajout de noeud déclanché lors du déposé est ambigüe. Il est appelé sous la forme d'un évenement d'édition avec comme parametre unique le parent dans lequel le noeud à été déposé : Le noeud inséré n'est pas passé en parametre.
+Il est donc nécessaire de parcourir l'abre afin de trouver le noeud présent en double (l'ancien n'a pas encore été supprimé à cet instant). Une fois trouvé, un signal d'ajout de noeud est finalement envoyé au modèle pour repercurter les modifications à l'éditeur de texte.
+Par contre, l'évenement de suppresion est le même que celui utilisé plus haut pour la suppresion manuelle d'un noeud.
+
 
 \subsection{L'éditeur de texte}
 
