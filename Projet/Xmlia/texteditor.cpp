@@ -82,13 +82,15 @@ void TextEditor::indent()
     {
         QXmlStreamReader::TokenType token = xml.readNext();
 
-        for (int var = last; var < xml.lineNumber(); ++var) {
+        for (int var = last; var < xml.lineNumber(); ++var)
+        {
             indentLineWithBounds(&line, var, upperBound, lowerBound);
         }
 
         if(token == QXmlStreamReader::StartElement)
         {
-            if(last != xml.lineNumber()) {
+            if(last != xml.lineNumber())
+            {
                 last = xml.lineNumber();
                 indentLineWithBounds(&line, last - 1, upperBound, lowerBound);
             }
