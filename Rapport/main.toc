@@ -18,7 +18,6 @@
 \contentsline {section}{\numberline {2.4}Analyse des besoins non fonctionnels}{7}
 \contentsline {subsection}{\numberline {2.4.1}Sp\IeC {\'e}cifications techniques}{7}
 \contentsline {subsection}{\numberline {2.4.2}Contraintes ergonomiques}{7}
-\contentsline {paragraph}{}{7}
 \contentsline {chapter}{\numberline {3}Rapport d'activit\IeC {\'e}}{8}
 \contentsline {section}{\numberline {3.1}Organisation du travail}{8}
 \contentsline {subsection}{\numberline {3.1.1}Communication}{8}

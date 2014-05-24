@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.21)  24 MAY 2014 16:59
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.21)  24 MAY 2014 17:35
 entering extended mode
 **main.tex
 (C:\Users\Beny\xmlia\Rapport\main.tex
@@ -697,7 +697,7 @@ File: images/bitbucket-exemple-issue.png Graphic file (type png)
 
 <use images/bitbucket-exemple-issue.png>
 Package pdftex.def Info: images/bitbucket-exemple-issue.png used on input line 
-80.
+79.
 (pdftex.def)             Requested size: 376.78172pt x 177.28691pt.
 
 
@@ -738,7 +738,7 @@ Here is how much of TeX's memory you used:
  8716 multiletter control sequences out of 15000+200000
  18863 words of font info for 43 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 33i,9n,58p,1677b,1744s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 33i,9n,58p,1678b,1744s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Beny\AppData\Local\MiKTeX\2.
 9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1095.pk> <C:\Users\Beny\AppData\Local\
 MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1095.pk> <C:\Users\Beny\AppDa
@@ -754,9 +754,9 @@ r\jknappen\ec\dpi600\ecbx2074.pk> <C:\Users\Beny\AppData\Local\MiKTeX\2.9\fonts
 l\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\Beny\App
 Data\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users
 \Beny\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk>
-Output written on main.pdf (26 pages, 588813 bytes).
+Output written on main.pdf (26 pages, 589183 bytes).
 PDF statistics:
- 628 PDF objects out of 1000 (max. 8388607)
+ 629 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
