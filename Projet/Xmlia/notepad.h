@@ -38,9 +38,21 @@ public:
      */
     bool isDtdEnabled() const;
 private slots:
+    /**
+     * @brief onShiftTabHit switch a rebours entre les onglets
+     */
     void onShiftTabHit();
+    /**
+     * @brief onTabHit switch entre les onglets
+     */
     void onTabHit();
+    /**
+     * @brief onToggle affiche/masque le logger
+     */
     void onToggle();
+    /**
+     * @brief onTabChanged changement de l'onglet courant
+     */
     void onTabChanged();
 private:
     bool dtdEnabled;
@@ -153,13 +165,33 @@ public slots:
     void validateAndRefreshTree();
 
 private slots:
+    /**
+     * @brief onLog connecte le log des editeur de texte et du logger
+     */
     void onLog(QString, QColor);
+    /**
+     * @brief onUpdate
+     */
     void onUpdate();
+    /**
+     * @brief onCursorInfo affiche la position du curseur dans le logger
+     */
     void onCursorInfo(int, int);
 
 signals:
+    /**
+     * @brief update le dom
+     */
     void update();
+    /**
+     * @brief log demande de log s de la couleur c
+     * @param s
+     * @param c
+     */
     void log(QString s, QColor c);
+    /**
+     * @brief cursorInfo demande d'afficher la position du curseur
+     */
     void cursorInfo(int, int);
 
 private:
@@ -170,10 +202,20 @@ private:
     bool dragndropHappened;
     stack<int> savedPath;
 
+    /**
+     * @brief getStringFromDom
+     * @return la string a partir du modele
+     */
     QString getStringFromDom() const;
 
+    /**
+     * @brief updateDom met le modele à jour
+     */
     void updateDom();
 
+    /**
+     * @brief addCompletion ajoute le dictionnaire pour l'autocompletion
+     */
     void addCompletion();
 
     /**

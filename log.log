@@ -1,0 +1,1411 @@
+commit bcf0a81ff338ab788e07c8048444608d495a3ea8
+Author: Stéphane Wouters <doelia@pcdoelia.home>
+Date:   Sat May 24 19:28:32 2014 +0200
+
+    ;
+
+commit c25fe4875cefb2bb4cc8bd1cdbf60737b06e7ad9
+Merge: ea5b64b 78c9fc6
+Author: Stéphane Wouters <doelia@pcdoelia.home>
+Date:   Sat May 24 19:26:18 2014 +0200
+
+    ;
+
+commit ea5b64b1523e0d89c143107cfbeabafa7054768e
+Author: Stéphane Wouters <doelia@pcdoelia.home>
+Date:   Sat May 24 19:25:42 2014 +0200
+
+    ;
+
+commit 78c9fc6181863d63f6f78e81df508b7db2feb765
+Merge: 6cb8ca0 0e4a5f8
+Author: Benoit <beny13.awesome@gmail.com>
+Date:   Sat May 24 19:14:29 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+    
+    Conflicts:
+    	Rapport/main.aux
+    	Rapport/main.log
+    	Rapport/main.pdf
+    	Rapport/main.toc
+
+commit 6cb8ca0787723483d5c86aeb2b539d614490a6aa
+Author: Benoit <beny13.awesome@gmail.com>
+Date:   Sat May 24 19:10:14 2014 +0200
+
+    Ajout de la partie Perspectives
+
+commit 0e4a5f8b48b9fc918bbc57a5ff0c43f710cfe31b
+Merge: 092eefb 1839e27
+Author: Stéphane Wouters <doelia@pcdoelia.home>
+Date:   Sat May 24 18:31:16 2014 +0200
+
+    ;
+
+commit 092eefbfbf5b078b9a2647039b81906836fbc200
+Author: Stéphane Wouters <doelia@pcdoelia.home>
+Date:   Sat May 24 18:28:06 2014 +0200
+
+    ;
+
+commit 1839e27bdc1516f5d244eda8e1bced9fd26a2c7f
+Author: Benoit <beny13.awesome@gmail.com>
+Date:   Sat May 24 18:26:50 2014 +0200
+
+    Correction fautes 2 + fix diag classe
+
+commit bb2677f2de9056a3ff7830c6aafa5aa1f1af2288
+Author: Stéphane Wouters <doelia@pcdoelia.home>
+Date:   Sat May 24 18:18:55 2014 +0200
+
+    ;
+
+commit 0edeac8e9c623e3e5f5950b41c7435a323c576ea
+Merge: d69c209 9edefc8
+Author: Benoit <beny13.awesome@gmail.com>
+Date:   Sat May 24 18:02:08 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+    
+    Conflicts:
+    	Rapport/main.log
+    	Rapport/main.pdf
+    	Rapport/rapport-activite.tex
+
+commit d69c209e52d40356d2dafe919b64c588ed2d52ed
+Author: Benoit <beny13.awesome@gmail.com>
+Date:   Sat May 24 17:50:57 2014 +0200
+
+    Correction 1
+
+commit 9edefc882f161943989643a262dbd30c057b9980
+Merge: 7fffa83 8cd358d
+Author: Stéphane Wouters <doelia@pcdoelia.home>
+Date:   Sat May 24 17:41:21 2014 +0200
+
+    ;
+
+commit 7fffa8304e73f7b69cacff430403cd335a3bdeb9
+Merge: 3bea740 57f01c0
+Author: Stéphane Wouters <doelia@pcdoelia.home>
+Date:   Sat May 24 17:01:44 2014 +0200
+
+    ;
+
+commit 8cd358d70c4143e6c4710262f084a403048acbb8
+Author: Benoit <beny13.awesome@gmail.com>
+Date:   Sat May 24 17:00:19 2014 +0200
+
+    Ajout de l'intro
+
+commit 4e85006279654805ba9e733c09e02cb99a540333
+Merge: 77395e2 57f01c0
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Sat May 24 16:24:54 2014 +0200
+
+    correction d'un bug dans l'insertion
+
+commit 3bea740588aa5fe66a3a8f15efa2080e6ba89f15
+Author: Stéphane Wouters <doelia@pcdoelia.home>
+Date:   Sat May 24 16:24:53 2014 +0200
+
+    ;
+
+commit 77395e2b550e011f4e1bc047873a87075dde4194
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Sat May 24 16:24:24 2014 +0200
+
+    correction d'un bug dans l'insertion
+
+commit 57f01c033ca1827d93c9453b81f8ca31d47c35a3
+Author: Benoit <beny13.awesome@gmail.com>
+Date:   Sat May 24 15:54:21 2014 +0200
+
+    Ajout des diag de cas d'utilisation dans la partie analyse
+
+commit 9e57d7d3251f456873dad798529f827562765e29
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Sat May 24 14:37:22 2014 +0200
+
+    ajout de l'image enregistrer sous pour windows
+
+commit 810f8802ad990c989132f420987dbf428c3b9197
+Author: Benoit <beny13.awesome@gmail.com>
+Date:   Sat May 24 14:27:58 2014 +0200
+
+    ajout d'une capture sous windows de l'app
+
+commit 7528466fa2e52cae799a8e05a992b6eadc3212a6
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Sat May 24 14:18:21 2014 +0200
+
+    ajout d'une partie dans le rapport d'activité
+
+commit e951a6cbec61e88d6b30300c505fd875034b16f1
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Sat May 24 13:03:25 2014 +0200
+
+    ajout dans la partie langage librairie
+
+commit cde9516db9034ce25b8638cd5323093869715c67
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Sat May 24 11:53:48 2014 +0200
+
+    ajout de la partie langage librairie
+
+commit f662ba27795396ac231104dcf5c559f8f41818a9
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Fri May 23 16:03:15 2014 +0200
+
+    ajout de la partie sur le logger
+
+commit b5d4aa73827c0e5af4dad9945c02d28dba51a926
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Fri May 23 12:07:43 2014 +0200
+
+    ajouts dans le rapport technique
+
+commit 258d7ab632bd2ff511f0225f70828541f3413e1f
+Merge: 179495d 24f8622
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Thu May 22 19:48:08 2014 +0200
+
+    ajout de la partie sur l'editeur de texte
+
+commit 179495d0f44e17d1440276b5910b0cf0f185786f
+Merge: 03cd9e1 bfc9d4f
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Thu May 22 17:25:29 2014 +0200
+
+    merge
+
+commit 24f862297b4712f623f264fad8e4f0d906cd1a64
+Author: Benoit <beny13.awesome@gmail.com>
+Date:   Thu May 22 16:34:04 2014 +0200
+
+    Ajout partie Analyse Existant
+
+commit 03cd9e1e259647f40dd7cc6720be07a267de6987
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Thu May 22 15:41:33 2014 +0200
+
+    commit temporaire
+
+commit bfc9d4f3b77a5813ba55723d680c0430e60ee3ad
+Author: Benoit <beny13.awesome@gmail.com>
+Date:   Thu May 22 15:30:02 2014 +0200
+
+    Ajout de la maquette d'interface dans la partie analyse
+
+commit 6e94ef5441c450b623e48f93f12f913297ca3a70
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Thu May 22 15:28:59 2014 +0200
+
+    debut de contenu dans le rapport technique
+
+commit b9511a57cc0751dd4922b52cf1e73006088da2e6
+Merge: 69b1975 9c78f84
+Author: Benoit <beny13.awesome@gmail.com>
+Date:   Thu May 22 14:54:15 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit 69b197507a224c9b339398048dc47fd59c53d40d
+Author: Benoit <beny13.awesome@gmail.com>
+Date:   Thu May 22 14:53:13 2014 +0200
+
+    Ajout de la table des illustrations et avancement du rapport d'activité
+
+commit 9c78f84882e26e939442d42dead4bb95174a1f28
+Merge: 9f4a910 53f09ac
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Thu May 22 13:12:36 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit 9f4a9106686199b3285bcaccb187a418a57b2d8e
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Thu May 22 13:12:29 2014 +0200
+
+    ajout de la completion auto dans l'editeur xml
+
+commit efe944ef5959a9e5bc93af6864e52cc5124b9bad
+Author: Benoit <beny13.awesome@gmail.com>
+Date:   Thu May 22 12:17:07 2014 +0200
+
+    Changement d'orga (activité avant technique
+
+commit 53f09aca842628915deae488483e9871d2f31340
+Author: Benoit <beny13.awesome@gmail.com>
+Date:   Thu May 22 12:11:16 2014 +0200
+
+    Ajout de la partie technique + avancement rapport activité
+
+commit fb7e5000db02cca7208c6d81f87264e19c6a0517
+Author: Benoit <beny13.awesome@gmail.com>
+Date:   Wed May 21 18:34:49 2014 +0200
+
+    Début de la partie Analyse (A COMPLETER)
+
+commit 6e64eda5af8ab61fa04b21ee74a028dcaead8c9e
+Author: Benoit <beny13.awesome@gmail.com>
+Date:   Wed May 21 15:50:52 2014 +0200
+
+    Changement d'organisation du rapport
+
+commit 13863ab8663a69d7804f35d5de63d2c796eb53ba
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Mon Apr 28 22:05:54 2014 +0200
+
+    bug corrigé
+
+commit 23dc9203d4e91899a8bf5082a0516e792f2ad5b4
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Mon Apr 28 22:03:39 2014 +0200
+
+    tentative de correction de bug
+
+commit cfeff7e4e2765c05c9be36c3003f886d311f1846
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Mon Apr 28 21:35:02 2014 +0200
+
+    tentative de correction de crash
+
+commit 77c8ef0ecf48ce01aa099056e3ae303d301432d4
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Mon Apr 28 21:25:46 2014 +0200
+
+    renommage de methodes
+
+commit df386e2bb03e780213344e0cf6c09d91739c6798
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Mon Apr 28 19:55:05 2014 +0200
+
+    ajout de commentaires
+
+commit 664430f3ad015ca1a59c4a7c9c1fc231ee7bd7de
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Mon Apr 28 19:54:37 2014 +0200
+
+    ajout de commentaires
+
+commit 801c9d1ed9f1bf554004623ba941c323bafaaaa3
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Mon Apr 28 19:32:27 2014 +0200
+
+    correction de l'insertion de noeud dans l'editeur de texte
+
+commit 47aab0b69a4f3badb756ced97d7376aece4451f8
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Mon Apr 28 18:54:58 2014 +0200
+
+    factorisation du code de l'editeur xml
+
+commit 762558ab23940ef64437c82637016de558de0ec2
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Mon Apr 28 17:11:25 2014 +0200
+
+    simplification du code de l'editeur xml
+
+commit 0322f1348caa561cf76886d49eb4fed027e82438
+Merge: af03a3b c8337ce
+Author: Stéphane Wouters <doelia@doelia.fr>
+Date:   Mon Apr 28 15:21:40 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit af03a3b55cda3513b0ba281170ca61cd4c94a4b2
+Author: Stéphane Wouters <doelia@doelia.fr>
+Date:   Mon Apr 28 15:20:40 2014 +0200
+
+    Ajout pages rapports
+
+commit c8337ce8fa776249e2de6ec7df5bcb1b16095370
+Author: nlephilippe <nlephilippe@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Mon Apr 28 15:13:18 2014 +0200
+
+    amelioration de la suppression de schema xsd
+
+commit 95da1c31e1ccee07312a6f271bb4e31e956c4e05
+Merge: 45e492a c18099f
+Author: nlephilippe <nlephilippe@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Mon Apr 28 15:08:25 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit 45e492adaed8c25b0d7386417e33afbf91019e58
+Author: nlephilippe <nlephilippe@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Mon Apr 28 15:07:38 2014 +0200
+
+    suppression du schema xsd fonctionnelle
+
+commit c18099f03b48de0b0a5aac0a609c77232e4d9f5e
+Merge: f82177b 68e7e39
+Author: Stéphane Wouters <doelia@doelia.fr>
+Date:   Mon Apr 28 14:52:07 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit f82177b6e746ee18f6142a2cf903b191034278d5
+Author: Stéphane Wouters <doelia@doelia.fr>
+Date:   Mon Apr 28 14:51:28 2014 +0200
+
+    Ajout base rapport et exemple
+
+commit 68e7e39e7f0f470cfa68a23e173c94a9e039048a
+Author: nlephilippe <nlephilippe@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Mon Apr 28 14:09:46 2014 +0200
+
+    ouverture et lien vers un schema lors de la generation du schema
+
+commit 08a5d86d8b83266f6bb087bcd8f618484af66a44
+Author: nlephilippe <nlephilippe@c16.etu.info-ufr.univ-montp2.fr>
+Date:   Mon Apr 28 13:06:50 2014 +0200
+
+    reagencement des menus
+
+commit 824b6b8b1fe1c7917656adaadb8177dd973db719
+Author: nlephilippe <nlephilippe@c16.etu.info-ufr.univ-montp2.fr>
+Date:   Mon Apr 28 10:00:57 2014 +0200
+
+    amelioration de l'ouverture du schema
+
+commit 5c86f41b95cb00e70dee55c7e679c018f2cc52aa
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Sun Apr 27 17:15:32 2014 +0200
+
+    ouverture automatique du schema xml lors de l'ouverture d'un document xml avec un lien valide
+
+commit a0b352a5430d35f25e116f1ecdd7f6dedd1836fd
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Sat Apr 26 07:51:37 2014 +0200
+
+    ajout de l'autocompletion dans l'editeur de schema
+
+commit 0c5eaa138a53080c163d7eb2ef43ac6db47ea44e
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Fri Apr 25 21:50:14 2014 +0200
+
+    correction de l'insertion de noeud dans l'editeur de texte pour les noeuds solitaires
+
+commit bdd2b0ba37b762f4fc75027404afccbabac85f9b
+Merge: 612cb72 d98ee93
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Fri Apr 25 21:09:10 2014 +0200
+
+    deplacement de noeud repercuté correctement dans l'editeur de texte
+
+commit d98ee9313b2e569aa16b7c5edf471630349a7a06
+Author: bboivin <bboivin@c18.etu.info-ufr.univ-montp2.fr>
+Date:   Fri Apr 25 17:30:37 2014 +0200
+
+    Pseudo fix pour les bugs lors des dragndrop dans l'arbre
+
+commit 612cb72c6b1202b0273e10591cfc89e12a67e58b
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Fri Apr 25 11:28:43 2014 +0200
+
+    debut d'insert de node dans l'éditeur, il faut maintenant synchroniser les signaux
+
+commit a7ea77efd3f4c1bd9547d6a9ae577810fffd80be
+Merge: ab672ce c6f9e30
+Author: nlephilippe <nlephilippe@h15.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 17:55:50 2014 +0200
+
+    ;
+
+commit ab672ce297a8e15e7efa04ff0f3bc9d19c56ae5a
+Merge: 02281d5 cee02e2
+Author: nlephilippe <nlephilippe@h15.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 17:42:27 2014 +0200
+
+    ;
+
+commit c6f9e3024ad3823a6316a4203506a529e437e608
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 17:42:05 2014 +0200
+
+    Permission de modification du nom des nodes
+
+commit 266dcc449b06a1ef3244ecb5fbe8323d0d597567
+Merge: 713bc95 b61e798
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 17:35:24 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit 713bc956f2fd2c8796075cf336e88e61c91fdcfa
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 17:34:44 2014 +0200
+
+    Modif arbo
+
+commit b61e7982c22a8afa9b926da89f1aa5d67067dd96
+Author: bboivin <bboivin@h13.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 17:24:07 2014 +0200
+
+    Changement d'icône (l'ancienne n'avait pas une résolution suffisante)
+
+commit ab605f9f5c9c12ded2166ad62716a1371bf6ae0b
+Merge: ee1ec62 92f2f0c
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 17:16:29 2014 +0200
+
+    Merge
+
+commit ee1ec6234f2b2edc2534853626ead2b12f207e94
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 17:15:49 2014 +0200
+
+    merge
+
+commit 92f2f0c6c0311a439c824f74ef17f44d166d05b7
+Author: bboivin <bboivin@h13.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 17:14:02 2014 +0200
+
+    Ajout d'une icone au programme (assets/icon.ico)
+
+commit 02281d5e026994e6e68c9983c85eb0aa6f8279ac
+Author: nlephilippe <nlephilippe@h15.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 16:56:46 2014 +0200
+
+    ;
+
+commit cee02e20c277587ad88520a23236d90b5a5f6165
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 16:56:00 2014 +0200
+
+    Retrait du debug
+
+commit 277c8386acbb284243e8160e092ffa8f9db9c7d9
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 16:44:57 2014 +0200
+
+    Modification signal de suppresion
+
+commit a94b47b6be98dffb2bd412185020462ba986f1c3
+Merge: 4409798 c5456b9
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 16:14:35 2014 +0200
+
+    Changement des signaux
+
+commit 440979877ae8c5e67e4db1c2cbcf661cc8edc784
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 16:13:39 2014 +0200
+
+    Modifcation modèle
+
+commit c5456b99acb9724440dc8fc4a3b6043e9874770f
+Author: bboivin <bboivin@h13.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 16:12:30 2014 +0200
+
+    Indentation
+
+commit 427d389584d8f27befbcc753db49bec22a3ef8d1
+Merge: d5d3fd2 97d808d
+Author: bboivin <bboivin@h13.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 15:55:43 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+    
+    Conflicts:
+    	Projet/Xmlia-build-desktop-Qt_4_8_1_dans_le_PATH__Syst_me__Release/Xmlia
+    	Projet/Xmlia-build-desktop-Qt_4_8_1_dans_le_PATH__Syst_me__Release/moc_arbo.cpp
+    	Projet/Xmlia-build-desktop-Qt_4_8_1_dans_le_PATH__Syst_me__Release/moc_mainwindow.cpp
+    	Projet/Xmlia-build-desktop-Qt_4_8_1_dans_le_PATH__Syst_me__Release/moc_modelexml.cpp
+    	Projet/Xmlia-build-desktop-Qt_4_8_1_dans_le_PATH__Syst_me__Release/moc_notepad.cpp
+
+commit d5d3fd29b5a70ec39f77ef403ed7f8a78c0ce189
+Author: bboivin <bboivin@h13.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 15:53:56 2014 +0200
+
+    Ajout de la fonction getNonPointerRoot
+
+commit 97d808ddf4739fc709547fdec4228809431ce449
+Merge: d46e61d 60b3c65
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 15:49:17 2014 +0200
+
+    merge
+
+commit d46e61dec3b9379c4e61d8667015562760c84e65
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 15:48:16 2014 +0200
+
+    Ajout d'une méthode de comparaison de nombre total de fils
+
+commit 60b3c65e39b45c21cc28c7d45c19a53c90ce5ff1
+Merge: 91e1e5c 4603d18
+Author: bboivin <bboivin@h13.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 15:45:50 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+    
+    Conflicts:
+    	Projet/Xmlia-build-desktop-Qt_4_8_1_dans_le_PATH__Syst_me__Release/Xmlia
+    	Projet/Xmlia-build-desktop-Qt_4_8_1_dans_le_PATH__Syst_me__Release/moc_arbo.cpp
+    	Projet/Xmlia-build-desktop-Qt_4_8_1_dans_le_PATH__Syst_me__Release/moc_mainwindow.cpp
+    	Projet/Xmlia-build-desktop-Qt_4_8_1_dans_le_PATH__Syst_me__Release/moc_modelexml.cpp
+    	Projet/Xmlia-build-desktop-Qt_4_8_1_dans_le_PATH__Syst_me__Release/moc_notepad.cpp
+    	Projet/Xmlia-build-desktop-Qt_4_8_1_dans_le_PATH__Syst_me__Release/moc_texthighlighter.cpp
+
+commit 91e1e5c99fad81af409e25612a9d072ef9c141a2
+Merge: b8b12bb 82657b5
+Author: bboivin <bboivin@h13.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 15:43:43 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+    
+    Conflicts:
+    	Projet/Xmlia-build-desktop-Qt_4_8_1_dans_le_PATH__Syst_me__Release/Xmlia
+    	Projet/Xmlia-build-desktop-Qt_4_8_1_dans_le_PATH__Syst_me__Release/arbo.o
+    	Projet/Xmlia-build-desktop-Qt_4_8_1_dans_le_PATH__Syst_me__Release/moc_arbo.cpp
+    	Projet/Xmlia-build-desktop-Qt_4_8_1_dans_le_PATH__Syst_me__Release/moc_mainwindow.cpp
+    	Projet/Xmlia-build-desktop-Qt_4_8_1_dans_le_PATH__Syst_me__Release/moc_modelexml.cpp
+    	Projet/Xmlia-build-desktop-Qt_4_8_1_dans_le_PATH__Syst_me__Release/moc_notepad.cpp
+    	Projet/Xmlia/arbo.cpp
+    	Projet/Xmlia/modelexml.cpp
+
+commit 4603d1842ed4b1316e36791df3022f5ff4472c2c
+Author: nlephilippe <nlephilippe@h15.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 15:31:33 2014 +0200
+
+    ajout de fichiers xml pour les tests
+
+commit 16557cb547eb48f29d810485e5795aa32959cfd2
+Merge: 8e1f24b 82657b5
+Author: nlephilippe <nlephilippe@h15.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 15:24:34 2014 +0200
+
+    ;
+
+commit 8e1f24bbfe3f50962c351c8097bf8766dd15c031
+Author: nlephilippe <nlephilippe@h15.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 15:22:54 2014 +0200
+
+    validation selon le schema xml operationnelle
+
+commit b8b12bbd20d2272c5f055a26269053c6ea2210a2
+Author: bboivin <bboivin@h13.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 15:20:38 2014 +0200
+
+    Ajout de getSameNodeFromItemRecursive et equals
+
+commit 82657b54433b74814a3eff79a2126b8bf8d62a81
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 15:14:07 2014 +0200
+
+    Ajout du signal d'insertion de node au modèle et du slot dans le nodepad
+
+commit 9e32812b4b35705e447d56655f0cb745a2683eb3
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 15:04:33 2014 +0200
+
+    Debug de la suppresion de node au dnd
+
+commit 7d18f988ca5c0fccc21ae684686bd3f6a9901d18
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 13:50:21 2014 +0200
+
+    Ajout sample 2
+
+commit 23fa51812c7b5e4753c471aad226e431ace615e5
+Merge: c832ffa fbcc855
+Author: nlephilippe <nlephilippe@h15.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 12:54:19 2014 +0200
+
+    ;
+
+commit c832ffaa00c1e54c3f8f478a39fccfd3f0f3f620
+Author: nlephilippe <nlephilippe@h15.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 12:52:12 2014 +0200
+
+    passage de la dtd au schema et ajout de l'emplacement du curseur
+
+commit fbcc85520514459fb27ca3fe0748c0f26318536c
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 12:46:34 2014 +0200
+
+    Correction d'un bug
+
+commit dd33c0cb4d1171b8d1fd038a1f8a1abd0c334677
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 24 12:46:03 2014 +0200
+
+    Ajout suppresion de noeud au drag n drop (ajout restant à faire)
+    ;
+
+commit 95d8277384c61558f72e201d89392119aebcd54a
+Merge: 4397333 6aab4ec
+Author: nlephilippe <nlephilippe@i16.etu.info-ufr.univ-montp2.fr>
+Date:   Wed Apr 23 14:56:11 2014 +0200
+
+    ;
+
+commit 43973334e214221ee941cae9efc7fd5fd1362d6f
+Author: nlephilippe <nlephilippe@i16.etu.info-ufr.univ-montp2.fr>
+Date:   Wed Apr 23 14:54:40 2014 +0200
+
+    debut d'ajout d'une dtd
+
+commit 6aab4ec2f4b730dcd0545c2f67a0915e5ec3292a
+Author: Doelia.UM2 <swouters@i17.etu.info-ufr.univ-montp2.fr>
+Date:   Wed Apr 23 14:54:32 2014 +0200
+
+    Ajout fonction drag n drop. Signal en construction
+
+commit 554ad04a76a3c6ba4ca24b64f654654def06bf96
+Merge: e5b6a6a c5ebbc7
+Author: nlephilippe <nlephilippe@d15.etu.info-ufr.univ-montp2.fr>
+Date:   Wed Apr 23 11:58:21 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit e5b6a6a3f1de579ded1ec906614fccf91af0512d
+Author: nlephilippe <nlephilippe@d15.etu.info-ufr.univ-montp2.fr>
+Date:   Wed Apr 23 11:57:53 2014 +0200
+
+    ajout du connect entre l'éditeur xml et le notepad
+
+commit c5ebbc72b1979017d1510c348bca0be168490378
+Merge: 1a2f0db 3b5941b
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Wed Apr 23 11:56:17 2014 +0200
+
+    xMerge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit 1a2f0db1272d6c39ab5343433c29c289af7f86ed
+Merge: e61c478 76caa0f
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Wed Apr 23 11:56:02 2014 +0200
+
+    Merge
+
+commit 3b5941b8feeb47244baf590438973ca6fff4e7c8
+Author: nlephilippe <nlephilippe@d15.etu.info-ufr.univ-montp2.fr>
+Date:   Wed Apr 23 11:52:32 2014 +0200
+
+    amelioration de la numerotation des lignes
+
+commit e61c478fbab1e37d1b7b6c2b3a0148651975aff9
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Wed Apr 23 11:40:41 2014 +0200
+
+    Ajout d'includes dans les .h
+
+commit 76caa0f311e2a2559bca52ef6344fe96b1c7e12b
+Author: nlephilippe <nlephilippe@d15.etu.info-ufr.univ-montp2.fr>
+Date:   Wed Apr 23 11:37:42 2014 +0200
+
+    ajout d'onglets pour l'edition de la dtd
+
+commit 8a0cec00f0ca93e2556767fbf7dd4024bef64345
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Tue Apr 22 19:39:21 2014 +0200
+
+    correction d'un bug sur la suppression de noeud dans l'editeur de texte
+
+commit 27949b1475ebaa258986b5eb2a0c326ff0d937c8
+Author: nlephilippe <nlephilippe@h8.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Apr 22 18:43:40 2014 +0200
+
+    modification de node et suppression de node refait dans l'editeur de texte
+
+commit 31e422dad37e9dd4aafd54afbd83964eb1a99727
+Author: nlephilippe <nlephilippe@h9.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Apr 22 12:45:43 2014 +0200
+
+    deplacement du code pour enlever les noeuds indesirables pour ne pas avoir à modifier le modele
+
+commit 35af2a7805fcded7340e9fcde4c71d483cd7de25
+Author: nlephilippe <nlephilippe@h9.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Apr 22 12:24:41 2014 +0200
+
+    les commentaire et le texte des nodes dans l'arbo ne sont plus affichés
+
+commit 0bc540dae7bc08a6cc64945a95d333827e0aded0
+Author: nlephilippe <nlephilippe@h9.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Apr 22 11:00:35 2014 +0200
+
+    ajout du redimensionnement vertical
+
+commit a400add8f436ab79c93702b0092abf8d1bee1264
+Author: Noé LE PHILIPPE <znoraka@gmail.com>
+Date:   Sun Apr 20 10:21:28 2014 +0200
+
+    amelioration du logger
+
+commit 91cc8a3640ff0f70b61f4bd3a6cff11530006b6f
+Author: Noé LE PHILIPPE <znoraka@gmail.com>
+Date:   Sat Apr 19 23:46:07 2014 +0200
+
+    modification de la fenetre de log et deplacement des methodes de lecture et ecriture
+
+commit 20b1a986c3f05e3f70ba635577c5d0cdc900dc3a
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Thu Apr 17 22:16:53 2014 +0200
+
+    ajout d'une fenetre pour les logs
+
+commit d26b309c151ac19abf9ef277dc042eb9bee5913c
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Thu Apr 17 18:36:04 2014 +0200
+
+    ajout d'une barre de menu avec des boutons
+
+commit 1dbb4854249659515faecd0801b49997d1e12e06
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Thu Apr 17 17:39:19 2014 +0200
+
+    Ajout d'includes pour build depuis mon laptop
+
+commit 9e2ca7c7b4cc6d8e39ce18ada4b03d39b2a92657
+Merge: 2902dbb 0fd5e09
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Thu Apr 17 17:33:09 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit 2902dbbbcbc63b75e6209ca2ec5dbdf8af68fe55
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Thu Apr 17 17:33:03 2014 +0200
+
+    ;
+
+commit 0fd5e096ebf9f271aea0e39cd7eb794b0b450013
+Author: nlephilippe <nlephilippe@h5.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 17 16:28:33 2014 +0200
+
+    deplacement du curseur sur l'erreur
+
+commit 6ac128c4bc04915e809bce33e698a8b90bea1af8
+Author: nlephilippe <nlephilippe@h5.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 17 16:21:49 2014 +0200
+
+    le QTextEdit des lignes n'est plus scus scrollable
+
+commit e55bb8a89a5065288a1dae888149e01a2a2185aa
+Merge: 51e0245 e0ba77d
+Author: nlephilippe <nlephilippe@h5.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 17 15:49:13 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit 51e0245e6fdbdd9836495b5152c4229fb733581e
+Author: nlephilippe <nlephilippe@h5.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 17 15:48:59 2014 +0200
+
+    ajout des numeros de ligne
+
+commit e0ba77d8448dddaca4270a13b69d079fd6743cc8
+Merge: a0e4d9f 432fef2
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Thu Apr 17 13:23:56 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit a0e4d9f9f7ecfef60d2a594fbfcea6fd665dc86c
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Thu Apr 17 13:23:42 2014 +0200
+
+    Ajout d'un slot
+
+commit 432fef23b5a99541f9a3e2779ed37e18a0d772f5
+Author: nlephilippe <nlephilippe@h5.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 17 13:21:54 2014 +0200
+
+    implementation de la methode pour mettre le modele à jour apres appui sur le bouton de refresh
+
+commit d2f6a1965f7c9742afd5bc2b4a61b9bcea28ce0c
+Author: nlephilippe <nlephilippe@h5.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 17 12:29:10 2014 +0200
+
+    ajout de connect entre le bouton et uton et l'editeur
+
+commit 00fee363c21418cc45d0646886a84d78e1663a19
+Merge: 50afac3 d1f8b6b
+Author: nlephilippe <nlephilippe@h5.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 17 12:23:13 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit 50afac3eda16b7cebc1ba4aecff992ef6aa353e3
+Author: nlephilippe <nlephilippe@h5.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 17 12:23:04 2014 +0200
+
+    ajout du slot pour le bouton refresh
+
+commit d1f8b6bf121c8b418782d51ea398bb15d9b894ed
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Thu Apr 17 12:22:44 2014 +0200
+
+    Ajout bouton refresh
+
+commit 9319d8170dcf1d8916ac8822ae84062d334f8939
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Thu Apr 17 11:54:10 2014 +0200
+
+    Ajout du fichier de test
+
+commit 0c44b6e7701a906318a1d4622d2630e22ab4d78f
+Merge: ff02a36 fdf54a6
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Thu Apr 17 11:51:50 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit ff02a3675e63d06bb826666a0b7284563be2afe7
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Thu Apr 17 11:51:37 2014 +0200
+
+    ;
+
+commit 8f5391afa09207e8872751b0255ed6e5a80cd6d6
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Thu Apr 17 11:48:47 2014 +0200
+
+    Ajout du .pro
+
+commit fdf54a619b98b2104e593f1bcc9008abc3ce474b
+Author: nlephilippe <nlephilippe@h5.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 17 11:47:14 2014 +0200
+
+    ;
+
+commit 78d1efdc67ecdd5086bbdcfd7ab90957eb7455bf
+Merge: 0044959 44d7723
+Author: nlephilippe <nlephilippe@h5.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 17 11:46:01 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit 0044959e2f1fdf32643a7b0618b2d9887c45c56a
+Author: nlephilippe <nlephilippe@h5.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 17 11:45:36 2014 +0200
+
+    ;
+
+commit 44d7723a0fde942094870139795bcab6216ce46f
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Thu Apr 17 11:40:43 2014 +0200
+
+    Ajout du readme
+
+commit 95ea733121f701d34e667b00d493df8c641efeeb
+Merge: def5047 f1c210c
+Author: nlephilippe <nlephilippe@h5.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 17 11:38:35 2014 +0200
+
+    ;
+
+commit def504782dfa57e67a09d30ddcfacf54aa61e0ec
+Merge: 61be6d3 8cc4247
+Author: nlephilippe <nlephilippe@h5.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 17 11:37:58 2014 +0200
+
+    correction de la suppression d'un noeud dans l'editeur de texte
+
+commit f1c210c428da6c3770e681c05457f984d62e6cde
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Thu Apr 17 11:35:51 2014 +0200
+
+    Ajout projet
+
+commit e68552c46e3e8d7f8f7c9f9cc8bc1ad18d185419
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Thu Apr 17 11:35:31 2014 +0200
+
+    Reconstruction
+
+commit e4425fa9bdd78a4263474fde6c8ff70af8f91878
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Thu Apr 17 11:34:15 2014 +0200
+
+    Ajout gitignore v2
+
+commit 4c6b61cf671a9a1a1402e2d0861682a1ea6c3518
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Thu Apr 17 11:33:58 2014 +0200
+
+    Suppresion gitignore
+
+commit 36943220bf89cfd0e6db70dd327839a2753c7d04
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Thu Apr 17 11:32:00 2014 +0200
+
+    Ajout gitignore
+
+commit 14a5047440a9f1aa861603d42a8d0a1d47dced39
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Thu Apr 17 11:12:08 2014 +0200
+
+    Réglage position widget
+
+commit 61be6d370c6022864230152546762af1db37b5f6
+Author: nlephilippe <nlephilippe@h5.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 17 10:53:33 2014 +0200
+
+    implementation de la methode de supression de noeud dans l'editeur de texte
+
+commit 8cc424764644ec90aab305d91e746e661be0673b
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Thu Apr 17 10:44:32 2014 +0200
+
+    Répercution suppresion d'un noeud -> suppresion dans l'arbre
+
+commit f2403711975ef00aaf7a6baa3ba6777c1deb00ca
+Author: Doelia.UM2 <swouters@h6.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 17 10:23:19 2014 +0200
+
+    Ajout recupeation de la pile pour getItemFromNod
+
+commit 7055328a51b244ebbf3e2951beda24c6656cd348
+Merge: 5c8c703 8ae431d
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Wed Apr 16 19:25:24 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit 5c8c703266d1fc13bf16e974fdd35ba89e3f8153
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Wed Apr 16 19:25:06 2014 +0200
+
+    correction d'un bug de coloration
+
+commit 8ae431dd8b13e15309ccd50bb7a9c472ec0e03f1
+Author: bboivin <bboivin@j5.etu.info-ufr.univ-montp2.fr>
+Date:   Wed Apr 16 14:56:45 2014 +0200
+
+    Implémentation de ModeleXml::removeNode
+
+commit 13052374e5f95c88e6464984197f44172199203c
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Tue Apr 15 21:04:23 2014 +0200
+
+    ajout d'une methode permettant deretourner un QDomNode a partir de la position du curseur dans le texte
+
+commit 78ba8f740eadd4a0c98867082855f948d3b5b264
+Merge: b306304 1ee36cb
+Author: nlephilippe <nlephilippe@g11.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Apr 15 15:11:18 2014 +0200
+
+    ;
+
+commit b3063046653ffc3f8a6aa23c4e6d8907a28ad148
+Author: nlephilippe <nlephilippe@g11.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Apr 15 15:09:09 2014 +0200
+
+    ;
+
+commit 1ee36cb1fa03308e74f288ba6b5c8b3a6993d93a
+Author: Doelia.UM2 <swouters@h12.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Apr 15 14:39:16 2014 +0200
+
+    Correction de bug dans l'arbo
+
+commit 1f97e54c1cd33fd4e7606ced8ac5004cab830ec8
+Author: Doelia.UM2 <swouters@h12.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Apr 15 14:32:04 2014 +0200
+
+    Ajout slots de suppresion de node
+
+commit f50c4b0aa31d2b2edc43f58edf90673b2d4798ab
+Author: Doelia.UM2 <swouters@h12.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Apr 15 14:24:08 2014 +0200
+
+    Ajout de documentation au modèle
+
+commit 3b3edfc728c79122627eb7bc8ddb8e4e8386a9e1
+Author: Doelia.UM2 <swouters@h12.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Apr 15 14:12:28 2014 +0200
+
+    Ajout documentation dans arbo + signaux d'édition de node
+
+commit 79413edd277d5baa28693c7a20e8edf37f037c92
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Fri Apr 11 12:22:25 2014 +0200
+
+    correction de bug sur la modification du texte a partir de l'arbo
+
+commit af8e278e031354e803ecdb9127a213fc381d5333
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Thu Apr 10 21:16:09 2014 +0200
+
+    mise a jour de l'editeur de texte lors de la modification de l'arbre
+
+commit a871f295251bd9635e21288b4dd0a9896051b6cc
+Merge: 243a5cc 1c7c514
+Author: nlephilippe <nlephilippe@g6.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 10 17:07:57 2014 +0200
+
+    correction de bugs
+
+commit 243a5ccfa3e0e308c3ccd8b974ce02b46046d052
+Author: nlephilippe <nlephilippe@g6.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 10 17:01:50 2014 +0200
+
+    debut de solution pour la mise a jour du texte dans l'editeur de texte
+
+commit 1c7c514e86e5eb066094fc268e1a48cb6d6611fc
+Author: bboivin <bboivin@g4.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 10 16:17:54 2014 +0200
+
+    Fix de updateNodeName : on peut maintenant modifier le nom des QDomElement seulement
+
+commit 6ebacbd568833e3217d77dfd9963a6a48b431913
+Merge: 7c47c4a 3817204
+Author: bboivin <bboivin@g4.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 10 16:13:25 2014 +0200
+
+    Implémentation de la méthode de mise à jour du modèle après renommage d'un node dans l'arbre. Merge
+
+commit 7c47c4a01f52346eba7b66a1ca769520d50f6157
+Author: bboivin <bboivin@g4.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 10 16:09:55 2014 +0200
+
+    Implémentation de la méthode de mise à jour du modèle après renommage d'un node dans l'arbre.
+
+commit 3817204665fa3b9c6148ecacf82efba4aacb6e62
+Merge: 7eeb1c3 359ff81
+Author: Doelia.UM2 <swouters@g5.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 10 16:02:37 2014 +0200
+
+    Merge
+
+commit 7eeb1c3d865307c3e35db972073d8bc64400e649
+Author: Doelia.UM2 <swouters@g5.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 10 15:59:16 2014 +0200
+
+    Ajout menu contextuel sur l'arbo
+
+commit 359ff81bc610b5ebcfc557c302df049b821f31af
+Merge: 2b42799 de2710e
+Author: nlephilippe <nlephilippe@g6.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 10 14:44:44 2014 +0200
+
+    mise en place de l'architecture pour hitecture pour la modification du modele vers les vues
+
+commit 2b42799b4c5e8ce9cac174615efeb5492ca12dfd
+Author: nlephilippe <nlephilippe@g6.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 10 13:33:07 2014 +0200
+
+    merge
+
+commit de2710e7f87a7a2479001f974d12e72c8b6f58a5
+Author: Doelia.UM2 <swouters@g5.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 10 13:31:55 2014 +0200
+
+    Debug d'un crash au démarrage
+
+commit e39a6c3ba20cef41bb42c2e25e3d7662c61b3231
+Merge: 1b7821f c21d554
+Author: Doelia.UM2 <swouters@g5.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 10 13:24:39 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit c21d554a6341210fd2c14b2f5489379923be4950
+Merge: e75b8d2 9eeac71
+Author: nlephilippe <nlephilippe@i8.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 10 12:10:00 2014 +0200
+
+    insertion automatique des balises fermantes
+
+commit e75b8d2ff4b1687c2e59190b8de5ec98172fa7ce
+Author: nlephilippe <nlephilippe@i8.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 10 12:06:37 2014 +0200
+
+    insertion automatique des balises fermantes
+
+commit 1b7821f04fa3e8e6678be79d7fbb94b8c606665d
+Author: Doelia.UM2 <swouters@i7.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 10 11:56:30 2014 +0200
+
+    Ajout méthode à faire : Modification d'un noeud du modèle
+
+commit 9eeac7145636e4e110dc2d81a8415c273c2fe585
+Author: Doelia.UM2 <swouters@i7.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 10 11:36:46 2014 +0200
+
+    Detection du node modifié à partir d'une edition dans la vue arborescente
+
+commit 04fe4388185cbad8833209573c5732444408da84
+Author: Doelia.UM2 <swouters@i7.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 10 10:47:50 2014 +0200
+
+    Detection lors de la modification d'un noeud de l'arbre
+
+commit 6269ef337ab16f851bda647c91d6430029f64549
+Merge: 2f9367d 74ab9d6
+Author: nlephilippe <nlephilippe@d6.etu.info-ufr.univ-montp2.fr>
+Date:   Wed Apr 9 09:10:47 2014 +0200
+
+    ;
+
+commit 2f9367d36f45e03b22cc83464125a93562006602
+Author: nlephilippe <nlephilippe@d6.etu.info-ufr.univ-montp2.fr>
+Date:   Wed Apr 9 09:01:09 2014 +0200
+
+    ajout d'une methode pas forcement utile
+
+commit 4c6979a82ea3899c9dc6810337cda03d2e2917d0
+Merge: 9ba539c b5bc1c7
+Author: nlephilippe <nlephilippe@g10.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Apr 8 16:46:54 2014 +0200
+
+    ajout d'une methode peut etre utile
+
+commit 74ab9d6d2d57126c453aae81e52dd58ddac967ea
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Tue Apr 8 14:56:29 2014 +0200
+
+    Detection modification de l'arbre
+
+commit 93babbd566dfeaa32afaab85a687f4552077befa
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Tue Apr 8 14:33:34 2014 +0200
+
+    Modification slot edition
+
+commit 9ba539cddaedd65af2cc73597d77127fff5b3b95
+Author: nlephilippe <nlephilippe@g10.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Apr 8 14:17:01 2014 +0200
+
+    ;
+
+commit b5bc1c7ddd841b9568d534665922bfc94c05b6a5
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Tue Apr 8 14:13:23 2014 +0200
+
+    Ajout signal d'édition
+
+commit f1281b7a2d583a55c13ff76dbf101dd7a3208649
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Tue Apr 8 13:33:05 2014 +0200
+
+    Ajout de la méthode de mise à jour de l'arbre
+
+commit 27403917279f1c0e624057831b2e83964eed6d7e
+Merge: 9edf854 8818303
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Tue Apr 8 12:19:30 2014 +0200
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit 8818303e21264868387354a1692c646ac79b6673
+Author: nlephilippe <nlephilippe@h23.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Apr 8 12:17:34 2014 +0200
+
+    ;
+
+commit 9edf854af038d96ba66a222b4a5c3a64165d3e5c
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Tue Apr 8 12:17:33 2014 +0200
+
+    ;
+
+commit 112c08dc12f1bf7fdd288de1ea3fb65f412ba00d
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Mon Apr 7 20:25:46 2014 +0200
+
+    amelioration de l'indentation et de la coloration
+
+commit 1b5193d43a3202d04ac0abbbe6dfb7697b759d31
+Author: nlephilippe <nlephilippe@c18.etu.info-ufr.univ-montp2.fr>
+Date:   Thu Apr 3 11:16:59 2014 +0200
+
+    ;
+
+commit e202989132d0d55d7d526390ac83a06d1bc05a19
+Merge: 003d258 397d104
+Author: nlephilippe <nlephilippe@g14.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Apr 1 12:54:47 2014 +0200
+
+    ;
+
+commit 003d2589694df5b7c148d3a86e7f32a184a43399
+Merge: 344b7ed 0026cdf
+Author: nlephilippe <nlephilippe@g14.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Apr 1 12:53:08 2014 +0200
+
+    ;
+
+commit 397d104d84c7a632798236c12ae0c85978b4e79d
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Tue Apr 1 12:36:12 2014 +0200
+
+    ;
+
+commit 71f00cf04080d5fd10a2deb237b7845f2ae8f901
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Tue Apr 1 11:38:27 2014 +0200
+
+    ;
+
+commit 344b7edb13bc30107ebf440d28295b57add9c2c6
+Merge: 37b8d29 59f4dd5
+Author: nlephilippe <nlephilippe@g20.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Apr 1 09:22:51 2014 +0200
+
+    ;
+
+commit 0026cdf34dfa461bdf8f6db41c632585ac29689e
+Author: doelia.laptopia <kyxalia@gmail.com>
+Date:   Tue Apr 1 00:05:45 2014 +0200
+
+    Ajout de la vue arbo au projet principal
+
+commit 7cd7c6efd5b11a2cd53d85a6a119c4e2261c306a
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Mon Mar 31 21:19:28 2014 +0200
+
+    amelioration de l'indentation
+
+commit 37b8d2988ecb554f615c23c0aa8c7e786b7a7ae5
+Author: nlephilippe <nlephilippe@d21.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Mar 18 16:48:11 2014 +0100
+
+    nrs
+
+commit 59f4dd5085240797b516e6488a6b2a924a72e019
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Mon Mar 17 21:44:31 2014 +0100
+
+    amelioration de la coloration
+
+commit e3be3455c2ae334128f5f201692f2b5fc8e023f0
+Author: noe <noe.lephilippe@gmail.com>
+Date:   Mon Mar 17 19:28:14 2014 +0100
+
+    amelioration de l'indentation
+
+commit a91e4e7e1b08bf4b8927cda82cec320f6dc81bb5
+Author: nlephilippe <nlephilippe@g20.etu.info-ufr.univ-montp2.fr>
+Date:   Wed Mar 12 09:28:03 2014 +0100
+
+    amelioration de la coloration
+
+commit 507a501210b764a641bd8055d00fe5c201409fed
+Author: nlephilippe <nlephilippe@c22.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Mar 11 16:03:57 2014 +0100
+
+    correction d'un bug sur la detection de balises
+
+commit b12e6dbe33f371d65a97f72f74dc150cc7c1591d
+Author: nlephilippe <nlephilippe@b11.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Mar 11 14:48:29 2014 +0100
+
+    factorisation du code
+
+commit d5cefbd2a0ed80044b016bef179f736f30fb194d
+Merge: fc0644d 0c91296
+Author: nlephilippe <nlephilippe@b11.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Mar 11 14:28:52 2014 +0100
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit fc0644dd11b71994f901d329d69cba7f4f4e789e
+Author: nlephilippe <nlephilippe@b11.etu.info-ufr.univ-montp2.fr>
+Date:   Tue Mar 11 14:28:27 2014 +0100
+
+    correction de l'indentation avec les fichier cette fois
+
+commit 0c912961c263496a746319d96d18d5c539075ed6
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Mon Mar 10 15:55:33 2014 +0100
+
+    Ajout des .h principaux dans le projet
+
+commit 79b6fd2811f20a64a14922bbb79cc7c64ffea71f
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Mon Mar 10 15:32:55 2014 +0100
+
+    Revert test
+
+commit 349036fd7556d4ef122b131e73cd055072ae55ca
+Author: Doelia.UM2 <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Mon Mar 10 15:32:06 2014 +0100
+
+    Test
+
+commit 1abc8dbe329335c54fcdf05d3f5927bf51b058b3
+Merge: dcd0766 2ae499a
+Author: swouters <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Mon Mar 10 15:28:25 2014 +0100
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit dcd076616b557e2218eb5ae9a924cc0cb6cbd04e
+Author: swouters <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Mon Mar 10 15:27:52 2014 +0100
+
+    Reorganisation et création du projet principal
+
+commit 2ae499af9467d5a60e8def2a67b76a96d0932a5e
+Author: Doelia <kyxalia@gmail.com>
+Date:   Mon Mar 10 14:17:48 2014 +0000
+
+    TODO_Arbo deleted online with Bitbucket
+
+commit 04aacc9c816fe0bdce938345f2c0cca8e877bec6
+Author: Doelia <kyxalia@gmail.com>
+Date:   Mon Mar 10 14:12:21 2014 +0000
+
+    TODO_Arbo created online with Bitbucket
+
+commit 3eda83de6b1188f1bce2a0bca77f59ca0672dd00
+Author: swouters <swouters@h14.etu.info-ufr.univ-montp2.fr>
+Date:   Mon Mar 10 14:24:31 2014 +0100
+
+    Préparation code pour lecture XML
+
+commit 59d5b794dbe59fd4f35fb25b25873ab777c69e4e
+Author: Doelia <kyxalia@gmail.com>
+Date:   Mon Mar 10 10:45:52 2014 +0100
+
+    Lecture fichier XML corrigée
+
+commit 4d4bc8aab1e2ef2f02283cffb6706bf6dfb1d90c
+Author: Doelia <kyxalia@gmail.com>
+Date:   Mon Mar 10 10:41:17 2014 +0100
+
+    Test de lecture de fichier .xml (non fonctionnel)
+
+commit e42873ac8178bb68180061168186168150fe6866
+Merge: 0354c37 28c63c7
+Author: Doelia <kyxalia@gmail.com>
+Date:   Mon Mar 10 10:29:55 2014 +0100
+
+    Merge branch 'master' of https://bitbucket.org/Doelia/xmlia
+
+commit 0354c37a54e5a53599882b9b2af9366669c7fb18
+Author: Doelia <kyxalia@gmail.com>
+Date:   Mon Mar 10 10:29:40 2014 +0100
+
+    Ajout début module Arbo
+
+commit 28c63c77379637b7d8c3cd8db039fe792151eb76
+Author: Noé LE PHILIPPE <znoraka@gmail.com>
+Date:   Sat Mar 8 16:19:43 2014 +0100
+
+    correction de bugs sur l'indentation
+
+commit 0e57b7ee92c65033e39411ed52653d1e39149070
+Author: Noé LE PHILIPPE <znoraka@gmail.com>
+Date:   Wed Mar 5 20:50:12 2014 +0100
+
+    amelioration de l'indentation
+
+commit 8dad3acf2d8942a5e92a461bb7f6edadc47bbc5f
+Author: Noé LE PHILIPPE <znoraka@gmail.com>
+Date:   Tue Mar 4 17:37:48 2014 +0100
+
+    ajout initial de l'editeur de texte
+
+commit bc45f4bf65a9699b23b7855b9fe6fe862dbf3cb1
+Author: Noé LE PHILIPPE <znoraka@gmail.com>
+Date:   Tue Mar 4 17:36:38 2014 +0100
+
+    First commit. Adding a README.
