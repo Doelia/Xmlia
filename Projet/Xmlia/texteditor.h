@@ -29,7 +29,13 @@ public:
     MessageHandler();
     void handleMessage(QtMsgType type, const QString &description, const QUrl &identifier, const QSourceLocation &sourceLocation);
 signals:
+    /**
+     * @brief log signal du MessageHandler pour la validation sémantique
+     */
     void log(QString, QColor);
+    /**
+     * @brief error affiche l'erreur dans le logger pour la validation sémantique
+     */
     void error(int);
 };
 
@@ -68,8 +74,21 @@ public:
     void parseEditorForWordCompletion(TextEditor* t);
 
 signals:
+    /**
+     * @brief log demande de log s de la couleur c
+     * @param s
+     * @param c
+     */
     void log(QString s, QColor c);
+
+    /**
+     * @brief error envoi la ligne de l'erreur
+     */
     void error(int);
+
+    /**
+     * @brief cursorInfo demande d'afficher la position du curseur
+     */
     void cursorInfo(int, int);
 
  private slots:
@@ -123,12 +142,21 @@ protected:
 
 public slots:
     void onScroll(int);
+    /**
+     * @brief addLinesNumber affiche le numero des lignes
+     */
     void addLinesNumber();
+    /**
+     * @brief resetLinesNumber clear le numero des lignes
+     */
     void resetLinesNumber();
 
 protected slots:
     void onLog(QString, QColor);
     void onError(int);
+    /**
+     * @brief popupCompletion affiche l'autocompletion
+     */
     void popupCompletion();
 };
 

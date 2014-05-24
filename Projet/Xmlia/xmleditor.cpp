@@ -17,7 +17,9 @@ XmlEditor::XmlEditor() : TextEditor::TextEditor(new TextHighLighter(0))
 
 void XmlEditor::addDtd()
 {
+    //enleve le lien vers le schema s'il est présent
     this->removeSchema();
+    //si aucun schema n'a été trouvé
     if(extractSchemaUrl().size() == 0)
     {
         QXmlStreamReader xml(text->toPlainText());
@@ -27,6 +29,7 @@ void XmlEditor::addDtd()
         {
             if(xml.isStartElement())
             {
+                //on se place dans la racine, emplacement du lien vers le schema
                 moveCursorToLineAndColumn(c, xml.lineNumber() - 1, xml.columnNumber() - 1, false);
                 QString link("\nxmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\nxsi:noNamespaceSchemaLocation=\"");
                 link.append(XmlFileManager::getFileManager()->getSchemaName()).append("\"");
@@ -43,6 +46,7 @@ void XmlEditor::addDtd()
 void XmlEditor::removeSchema()
 {
     QString s(text->toPlainText());
+    //suppression du lien schema selon le pattern suivant
     QRegExp r("\n*xmlns:xsi.*=\".*\.xsd\"\n*");
     s.remove(r);
     text->setText(s);
@@ -50,16 +54,19 @@ void XmlEditor::removeSchema()
 
 bool XmlEditor::updateNodeName(int &nbFound, int &begin, int &end, QTextCursor &c, QString oldName, QString newName, QXmlStreamReader &xml)
 {
+    //on repere l'emplacement de la balise ouvrante
     if(nbFound == 0)
     {
         nbFound++;
         moveCursorToLineAndColumn(c, xml.lineNumber() - 1, xml.columnNumber() - oldName.size() - 2, false);
         c.setPosition(c.position() + oldName.size() + 1, QTextCursor::KeepAnchor);
+        //sauvegarde de l'emplacement du debut et fin de la balise
         begin = c.selectionStart();
         begin = goToNodeStart(begin, text->toPlainText());
         end = c.selectionEnd();
         return false;
     }
+    //lorsque la balise fermante est trouvée
     else if (nbFound == 1 && xml.name().size() > 0)
     {
         moveCursorToLineAndColumn(c, xml.lineNumber() - 1, xml.columnNumber() - oldName.size() - 2, false);
@@ -69,6 +76,7 @@ bool XmlEditor::updateNodeName(int &nbFound, int &begin, int &end, QTextCursor &
 
         if(c.position() > end)
         {
+            //on remplace le nom par le nouveau dans le cas ou ce n'est pas une balise auto fermante
             t.replace(oldName, newName);
             c.removeSelectedText();
             c.insertText(t);
@@ -77,6 +85,7 @@ bool XmlEditor::updateNodeName(int &nbFound, int &begin, int &end, QTextCursor &
         c.setPosition(begin);
         c.setPosition(end, QTextCursor::KeepAnchor);
         t = c.selectedText();
+        //on remplace l'ancien nom par le nouvau
         t.replace(oldName, newName);
         c.removeSelectedText();
         c.insertText(t);
@@ -89,9 +98,9 @@ bool XmlEditor::updateNodeName(int &nbFound, int &begin, int &end, QTextCursor &
 
 bool XmlEditor::deleteNode(int &nbFound, int &begin, int &end, QTextCursor &c, QString oldName, QString newName, QXmlStreamReader &xml)
 {
-    cout << "oldname : " << oldName.toStdString() << endl;
     if(nbFound == 0)
     {
+        //sauvegarde de la position de la balise ouvrante
         moveCursorToLineAndColumn(c, xml.lineNumber() - 1, xml.columnNumber() - 1, true);
         begin = c.position();
         begin = goToNodeStart(begin, text->toPlainText());
@@ -103,14 +112,17 @@ bool XmlEditor::deleteNode(int &nbFound, int &begin, int &end, QTextCursor &c, Q
     {
         moveCursorToLineAndColumn(c, xml.lineNumber() - 1, xml.columnNumber(), true);
         end = c.position();
+        //selection de la balise
         c.setPosition(begin, QTextCursor::MoveAnchor);
         c.setPosition(end, QTextCursor::KeepAnchor);
+        //suppression de la balise
         c.removeSelectedText();
         c.movePosition(QTextCursor::StartOfLine);
         c.movePosition(QTextCursor::EndOfLine, QTextCursor::KeepAnchor);
         QRegExp q("\\S+");
         if(q.indexIn(c.selectedText()) == -1)
         {
+            //suppression des tabulations en trop
             c.setPosition(c.position() + 1, QTextCursor::KeepAnchor);
             c.removeSelectedText();
         }
@@ -128,6 +140,7 @@ bool XmlEditor::saveNodeData(int &nbFound, int &begin, int &end, QTextCursor &c,
 {
     if(nbFound == 0)
     {
+        //sauvegarde de la position de la balise ouvrante
         nbFound++;
         moveCursorToLineAndColumn(c, xml.lineNumber() - 1, xml.columnNumber() - 1, false);
         begin = c.position();
@@ -140,6 +153,7 @@ bool XmlEditor::saveNodeData(int &nbFound, int &begin, int &end, QTextCursor &c,
         end = c.position();
         c.setPosition(begin, QTextCursor::MoveAnchor);
         c.setPosition(end, QTextCursor::KeepAnchor);
+        //sauvegarde des données de la balise
         savedNodeData = c.selectedText();
         cout << "data : " << savedNodeData.toStdString() << endl;
         return true;
@@ -181,6 +195,7 @@ bool XmlEditor::validateAndRefreshTree()
             schema.load(QString("file://").append(url));
             if (schema.isValid())
             {
+                //si le schema est valide
                 emit log("Schema XSD valide", QColor("green"));
                 QXmlSchemaValidator validator(schema);
                 validator.setMessageHandler(mh);
@@ -231,6 +246,7 @@ void XmlEditor::parseDom(QDomNode &target, QString oldName, QString newName,
 
     vector<int> nodePath;
 
+    //conversion de la stack en vector pour une meilleure manipulation
     while(!st.empty())
     {
         nodePath.push_back(st.top());
@@ -301,6 +317,7 @@ void XmlEditor::parseDom(QDomNode &target, QString oldName, QString newName,
 int XmlEditor::goToNodeStart(int begin, QString s)
 {
     QString open = "<";
+    //on a atteint le debut de la balise lorsque l'on trouve le caracter <
     while(open.compare(s.at(begin)) != 0)
     {
         begin--;
@@ -349,10 +366,12 @@ void XmlEditor::addCloseMarkup()
         if(!open.compare(at))
         {
             QString markup = s.mid(pos + 1, c.position() - pos - 1);
+            //trouve le nom de la balise
             markup = markup.split(" ").at(0);
             if(markup.length() > 0)
             {
                 QString toAdd = "></";
+                //insere et ferme la balise
                 toAdd.append(markup).append(">");
                 c.insertText(toAdd);
                 c.setPosition(c.position() -  markup.length() - 3);
@@ -363,6 +382,7 @@ void XmlEditor::addCloseMarkup()
         }
         else if (!error1.compare(at) || !error2.compare(at) || !error3.compare(at))
         {
+            //si on trouve un caractère qui n'est pas censé faire partie de la balise
             cout << s.mid(pos + 1, c.position()).toStdString() << endl;
             c.insertText(">");
             text->setTextCursor(c);
@@ -483,6 +503,7 @@ bool XmlEditor::insertNodeText(int &nbFound, int &begin, int &end, QTextCursor &
 
         c.setPosition(pos);
 
+        //trouve si c'est une balise auto fermante
         if(!slash.compare(text->toPlainText().at(c.position() - 1)))
         {
             c.setPosition(c.position() - 1, QTextCursor::MoveAnchor);
@@ -490,6 +511,7 @@ bool XmlEditor::insertNodeText(int &nbFound, int &begin, int &end, QTextCursor &
         }
         c.insertText(savedNodeData.append("<"));
 
+        //transforme la balise auto fermante en balise normale
         if(isSingle)
         {
             c.insertText(QString("</").append(xml.name().toString()));
@@ -499,7 +521,8 @@ bool XmlEditor::insertNodeText(int &nbFound, int &begin, int &end, QTextCursor &
         text->setTextCursor(c);
         return true;
     }
-    else {
+    else
+    {
         nbFound++;
         return false;
     }
