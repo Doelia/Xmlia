@@ -47,9 +47,7 @@
 \contentsline {subsection}{\numberline {4.1.1}L'architecture de Qt}{13}
 \contentsline {paragraph}{}{13}
 \contentsline {paragraph}{}{13}
-\contentsline {paragraph}{}{13}
 \contentsline {subsection}{\numberline {4.1.2}Mod\IeC {\`e}le de classe}{13}
-\contentsline {paragraph}{}{13}
 \contentsline {paragraph}{}{14}
 \contentsline {section}{\numberline {4.2}Architecture de l'application}{15}
 \contentsline {subsection}{\numberline {4.2.1}Le mod\IeC {\`e}le}{15}

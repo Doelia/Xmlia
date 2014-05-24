@@ -6,42 +6,46 @@
 
 Qt impose un très grand nombre de contraintes par rapport aux classes à utiliser et à leur connexion.
 Il n'est pas possible de décider de l'organisation des classes de l'application sans connaître celle de Qt.
-L'étape de conception de l'application s'est dû d'être réalisée après l'apprentisage de la librairie.
-\paragraph{}
-
-Qt est fortement basé sur le patron MVC \emph{Modèle-vue-contrôleur}, tout l'architecture du programme en dépend.
+L'étape de conception de l'application a dû d'être réalisée après l'apprentissage de la librairie.
+Qt est fortement basé sur le patron MVC \emph{Modèle-vue-contrôleur}, toute l'architecture du programme en dépend.
 \paragraph{}
 
 La librairie Qt se décompose en plusieurs parties :
 \begin{itemize}
-\item \emph{Les modèles}, contenants les données de l'application ;
-\item \emph{Les vues}, qui peuvent être générées automatiquements à partir d'un même modèle ;
-\item \emph{Un système d'écoute d'évenements} aux travers des signaux/slots propre à Qt.
+\item \emph{Les modèles}, contenant les données de l'application ;
+\item \emph{Les vues}, qui peuvent être générées automatiquement à partir d'un même modèle ;
+\item \emph{Un système d'écoute d'évènements} au travers des signaux/slots propres à Qt.
 \end{itemize}
 
 \paragraph{}
-Le principe est de générer un unique modèle qui sera affiché par les différenteces la vue.
-Les évenements décanchés sur les différentes vues par l'utilsateur sont traités pour modifier le modèle, puis la vue est rafraichie.
+Le principe est de générer un unique modèle qui sera affiché par les différentes vues.
+Les évènements déclenchés sur les différentes vues par l'utilisateur sont traités pour modifier le modèle, puis la vue est rafraichie.
 La partie \emph{contrôleur} est intégrée aux classes de la vue car le système de slots/signaux que propose Qt est propre et peu encombrant.
 
 \subsection{Modèle de classe}
-Toutes les classes héritent de celles de Qt. La librarie impose que toutes les vues doivent hériter du type de vue de Qt voulu (Vue arborescente, editeur de texte, bouton...), qui héritent elles-même de de la classe QWidget.
-
-\paragraph{}
+Toutes les classes héritent de celles de Qt. La librairie impose que toutes les vues doivent hériter du type de vue de Qt voulu (vue arborescente, editeur de texte, bouton...), qui héritent elles-même de la classe QWidget.
 Le programme se compose ainsi des classes principales suivantes :
 \begin{itemize}
 \item \emph{MainWindow}, contenant des pointeurs vers toutes les vues ainsi que la barre de menu et celle des boutons ;
 \item \emph{ModeleXml}, contenant les données de l'arbre XML à jour et toutes les méthodes nécessaire à sa modification ;
-\item \emph{Notepad}, la vue des éditeurs de textes (XML et Schéma) ;
+\item \emph{Notepad}, la vue des éditeurs de texte (XML et Schéma) ;
 \item \emph{Arbo}, la vue de l'arboresence ;
 \item \emph{Logger}, la vue du logger ;
-\item Et tout un tas des sous classes conçues au fil de la phase de développement dans un soucis de clareté du code.
+\item Et un grand nombre de sous-classes conçues au fil de la phase de développement dans un soucis de clareté du code.
 \end{itemize}
 
 \paragraph{}
-L'organisation de l'architecture se résume dans le diagramme de classe qui suit. Seules les composantes principales du programme apparaisent.
+L'organisation de l'architecture se résume dans le diagramme de classe \ref{diag_classe}. Seules les composantes principales du programme apparaissent.
 
-\includegraphics[scale=0.4]{images/classes.png}
+\begin{figure}[h!]
+\begin{minipage}[b]{\linewidth}
+\centering \includegraphics[scale=0.4]{images/classes.png}
+\caption{Diagramme de classe}
+\label{diag_classe}
+\end{minipage}
+\end{figure}
+
+
 
 \section{Architecture de l'application}
 \subsection{Le modèle}
