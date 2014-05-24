@@ -20,7 +20,7 @@ La librairie Qt se décompose en plusieurs parties :
 \end{itemize}
 
 \paragraph{}
-Le principe est de générer un unique modèle qui sera affiché par les différenteces la vue.
+Le principe est de générer un unique modèle qui sera affiché par les différentes vues.
 Les évenements décanchés sur les différentes vues par l'utilsateur sont traités pour modifier le modèle, puis la vue est rafraichie.
 La partie \emph{contrôleur} est intégrée aux classes de la vue car le système de slots/signaux que propose Qt est propre et peu encombrant.
 
@@ -148,6 +148,8 @@ La classe est donc composée de tout un tas de méthodes utilitaires permettants
 \item void preOrder(QDomNode dom, QStandardItemModel *model); // Construit une arborescence de QStandardItem à partir d'une arborescence QDomNode.
 \end{itemize}
 
+La méthode de convertion reste cependant toujours la même, on passe d'un type à un autre en parcourant les structures en se basant
+sur une pile de parcours en largeur en utilisant les numéros des sommets, qui sont les même quelque soit le type d'arborescence.
 
 \subsubsection{La gestion des évenements}
 
@@ -586,3 +588,34 @@ Nous avons fait le choix d'avoir une seule instance du gestionnaire de fichier, 
 Il embarque les fonctionnalités basiques d'un gestionnaire de fichier, telles que l'ouverture et la sauvegarde. C'est à travers ce gestionnaire de fichiers que l'on va gérer les deux documents ouverts, le document XML et le schéma qui lui est associé.
 
 \section{Résultat}
+
+Nous avons obtenus un éditeur pleinement fonctionnel apportant un lot suffisant d'outils pour permettre une édition complète, contrôlée et pratique d'un fichier XML.
+
+\subsection{Fonctionnalités présentes}
+
+\begin{itemize}
+\item Ouverture / Enregistrement d'un fichier XML
+\item Edition du fichier
+  \begin{itemize}
+  \item Coloration synthaxique
+  \item Auto-complétion
+  \end{itemize}
+\item Validation synthaxique
+\item Gestion d'un schéma
+  \begin{itemize}
+  \item Edition du schéma
+  \item Génération automatique d'un schéma à partir du XML
+  \item Validation synthaxique avec prise en compte du schéma
+  \end{itemize}
+\item Vue arborescente avec répércution sur la vue de l'éditeur
+  \begin{itemize}
+  \item Renommage d'un noeud
+  \item Suppresion d'un noeud
+  \item Glissé / Déposé d'un noeud
+  \end{itemize}
+\item Logger
+\end{itemize}
+
+\subsection{Captures}
+
+
