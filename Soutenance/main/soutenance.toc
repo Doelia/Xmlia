@@ -1,13 +1,15 @@
 \beamer@endinputifotherversion {3.24pt}
 \select@language {french}
 \beamer@sectionintoc {1}{Pr\IeC {\'e}sentation du projet}{2}{0}{1}
-\beamer@subsectionintoc {1}{1}{Cahier des charges}{3}{0}{1}
-\beamer@subsectionintoc {1}{2}{L'existant}{4}{0}{1}
-\beamer@sectionintoc {2}{Organisation du projet}{5}{0}{2}
-\beamer@subsectionintoc {2}{1}{Choix de d\IeC {\'e}veloppement}{6}{0}{2}
-\beamer@subsectionintoc {2}{2}{Fonctionnement du groupe}{7}{0}{2}
-\beamer@sectionintoc {3}{D\IeC {\'e}veloppement}{8}{0}{3}
-\beamer@subsectionintoc {3}{1}{Qt}{9}{0}{3}
-\beamer@subsectionintoc {3}{2}{Architecture}{16}{0}{3}
-\beamer@sectionintoc {4}{R\IeC {\'e}sultat}{18}{0}{4}
-\beamer@sectionintoc {5}{Conclusion}{20}{0}{5}
+\beamer@subsectionintoc {1}{1}{\IeC {\'E}diteur XML}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Cahier des charges}{5}{0}{1}
+\beamer@subsectionintoc {1}{3}{L'existant}{14}{0}{1}
+\beamer@sectionintoc {2}{Organisation du projet}{18}{0}{2}
+\beamer@subsectionintoc {2}{1}{Choix de d\IeC {\'e}veloppement}{19}{0}{2}
+\beamer@subsectionintoc {2}{2}{Fonctionnement du groupe}{22}{0}{2}
+\beamer@sectionintoc {3}{D\IeC {\'e}veloppement}{29}{0}{3}
+\beamer@subsectionintoc {3}{1}{Qt}{30}{0}{3}
+\beamer@subsectionintoc {3}{2}{Architecture}{37}{0}{3}
+\beamer@subsectionintoc {3}{3}{Les probl\IeC {\`e}mes rencontr\IeC {\'e}s}{42}{0}{3}
+\beamer@sectionintoc {4}{R\IeC {\'e}sultat}{46}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{48}{0}{5}

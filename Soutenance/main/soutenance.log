@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.22)  25 MAY 2014 20:09
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.22)  25 MAY 2014 22:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1165,7 +1165,7 @@ LaTeX Font Warning: Font shape `T1/cmss/m/sc' undefined
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <4> not available
 (Font)              size <5> substituted on input line 35.
 
-<images/logo_um2.png, id=66, 834.11626pt x 511.9125pt>
+<images/logo_um2.png, id=74, 834.11626pt x 511.9125pt>
 File: images/logo_um2.png Graphic file (type png)
 
 <use images/logo_um2.png>
@@ -1184,29 +1184,29 @@ Package pdftex.def Info: images/logo_um2.png used on input line 37.
 File: images/logo_um2.png Graphic file (type png)
 
 <use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 43.
+Package pdftex.def Info: images/logo_um2.png used on input line 48.
 (pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
  [3
 
 ]
 File: images/logo_um2.png Graphic file (type png)
  <use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 49.
+Package pdftex.def Info: images/logo_um2.png used on input line 48.
 (pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
  [4
 
-] (./soutenance.toc)
+]
 File: images/logo_um2.png Graphic file (type png)
 
 <use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 54.
+Package pdftex.def Info: images/logo_um2.png used on input line 82.
 (pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
  [5
 
 ]
 File: images/logo_um2.png Graphic file (type png)
  <use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 60.
+Package pdftex.def Info: images/logo_um2.png used on input line 82.
 (pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
  [6
 
@@ -1214,29 +1214,29 @@ Package pdftex.def Info: images/logo_um2.png used on input line 60.
 File: images/logo_um2.png Graphic file (type png)
 
 <use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 66.
+Package pdftex.def Info: images/logo_um2.png used on input line 82.
 (pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
  [7
-
-] (./soutenance.toc)
-File: images/logo_um2.png Graphic file (type png)
- <use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 71.
-(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
-
-[8
 
 ]
 File: images/logo_um2.png Graphic file (type png)
  <use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 86.
+Package pdftex.def Info: images/logo_um2.png used on input line 82.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [8
+
+]
+File: images/logo_um2.png Graphic file (type png)
+
+<use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 82.
 (pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
  [9
 
 ]
 File: images/logo_um2.png Graphic file (type png)
  <use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 86.
+Package pdftex.def Info: images/logo_um2.png used on input line 82.
 (pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
  [10
 
@@ -1244,14 +1244,14 @@ Package pdftex.def Info: images/logo_um2.png used on input line 86.
 File: images/logo_um2.png Graphic file (type png)
 
 <use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 86.
+Package pdftex.def Info: images/logo_um2.png used on input line 82.
 (pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
  [11
 
 ]
 File: images/logo_um2.png Graphic file (type png)
  <use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 101.
+Package pdftex.def Info: images/logo_um2.png used on input line 82.
 (pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
  [12
 
@@ -1259,90 +1259,299 @@ Package pdftex.def Info: images/logo_um2.png used on input line 101.
 File: images/logo_um2.png Graphic file (type png)
 
 <use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 101.
+Package pdftex.def Info: images/logo_um2.png used on input line 82.
 (pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
  [13
 
 ]
 File: images/logo_um2.png Graphic file (type png)
  <use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 101.
+Package pdftex.def Info: images/logo_um2.png used on input line 103.
 (pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
  [14
 
 ]
-<images/abstract-connections.png, id=567, 517.935pt x 502.87875pt>
-File: images/abstract-connections.png Graphic file (type png)
-
-<use images/abstract-connections.png>
-Package pdftex.def Info: images/abstract-connections.png used on input line 107
-.
-(pdftex.def)             Requested size: 181.27995pt x 176.0102pt.
 File: images/logo_um2.png Graphic file (type png)
- <use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 107.
+
+<use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 103.
 (pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
  [15
 
- <./images/abstract-connections.png (PNG copy)>]
+]
 File: images/logo_um2.png Graphic file (type png)
  <use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 118.
+Package pdftex.def Info: images/logo_um2.png used on input line 103.
 (pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
  [16
 
 ]
-<images/communication.png, id=633, 612.2875pt x 410.53375pt>
-File: images/communication.png Graphic file (type png)
-
-<use images/communication.png>
-Package pdftex.def Info: images/communication.png used on input line 123.
-(pdftex.def)             Requested size: 306.143pt x 205.26637pt.
-
-Overfull \vbox (7.52797pt too high) detected at line 123
- []
-
 File: images/logo_um2.png Graphic file (type png)
+
 <use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 123.
+Package pdftex.def Info: images/logo_um2.png used on input line 103.
 (pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
  [17
 
- <./images/communication.png>] (./soutenance.toc)
+] (./soutenance.toc)
 File: images/logo_um2.png Graphic file (type png)
-
-<use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 125.
+ <use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 108.
 (pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
- [18
+
+[18
 
 ]
-<images/final.png, id=700, 1305.87875pt x 750.805pt>
-File: images/final.png Graphic file (type png)
- <use images/final.png>
-Package pdftex.def Info: images/final.png used on input line 130.
-(pdftex.def)             Requested size: 261.17113pt x 150.15834pt.
 File: images/logo_um2.png Graphic file (type png)
-
-<use images/logo_um2.png>
+ <use images/logo_um2.png>
 Package pdftex.def Info: images/logo_um2.png used on input line 130.
 (pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
  [19
 
- <./images/final.png>] (./soutenance.toc)
+]
 File: images/logo_um2.png Graphic file (type png)
-
-<use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 133.
+ <use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 130.
 (pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
  [20
 
 ]
 File: images/logo_um2.png Graphic file (type png)
- <use images/logo_um2.png>
-Package pdftex.def Info: images/logo_um2.png used on input line 142.
+
+<use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 130.
 (pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
  [21
+
+]
+File: images/logo_um2.png Graphic file (type png)
+ <use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 161.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [22
+
+]
+File: images/logo_um2.png Graphic file (type png)
+
+<use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 161.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [23
+
+]
+File: images/logo_um2.png Graphic file (type png)
+ <use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 161.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [24
+
+]
+File: images/logo_um2.png Graphic file (type png)
+
+<use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 161.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [25
+
+]
+File: images/logo_um2.png Graphic file (type png)
+ <use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 161.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [26
+
+]
+File: images/logo_um2.png Graphic file (type png)
+
+<use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 161.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [27
+
+]
+File: images/logo_um2.png Graphic file (type png)
+ <use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 161.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [28
+
+] (./soutenance.toc)
+File: images/logo_um2.png Graphic file (type png)
+ <use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 165.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [29
+
+]
+File: images/logo_um2.png Graphic file (type png)
+ <use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 180.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [30
+
+]
+File: images/logo_um2.png Graphic file (type png)
+
+<use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 180.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [31
+
+]
+File: images/logo_um2.png Graphic file (type png)
+ <use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 180.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [32
+
+]
+File: images/logo_um2.png Graphic file (type png)
+
+<use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 195.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [33
+
+]
+File: images/logo_um2.png Graphic file (type png)
+ <use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 195.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [34
+
+]
+File: images/logo_um2.png Graphic file (type png)
+
+<use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 195.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [35
+
+]
+<images/abstract-connections.png, id=1287, 517.935pt x 502.87875pt>
+File: images/abstract-connections.png Graphic file (type png)
+
+<use images/abstract-connections.png>
+Package pdftex.def Info: images/abstract-connections.png used on input line 201
+.
+(pdftex.def)             Requested size: 181.27995pt x 176.0102pt.
+File: images/logo_um2.png Graphic file (type png)
+ <use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 201.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [36
+
+ <./images/abstract-connections.png (PNG copy)>]
+File: images/logo_um2.png Graphic file (type png)
+ <use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 218.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [37
+
+]
+File: images/logo_um2.png Graphic file (type png)
+
+<use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 218.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [38
+
+]
+File: images/logo_um2.png Graphic file (type png)
+ <use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 218.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [39
+
+]
+File: images/logo_um2.png Graphic file (type png)
+
+<use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 218.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [40
+
+]
+<images/communication.png, id=1455, 612.2875pt x 410.53375pt>
+File: images/communication.png Graphic file (type png)
+
+<use images/communication.png>
+Package pdftex.def Info: images/communication.png used on input line 223.
+(pdftex.def)             Requested size: 306.143pt x 205.26637pt.
+
+Overfull \vbox (7.52797pt too high) detected at line 223
+ []
+
+File: images/logo_um2.png Graphic file (type png)
+<use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 223.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [41
+
+ <./images/communication.png>]
+File: images/logo_um2.png Graphic file (type png)
+
+<use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 236.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [42
+
+]
+File: images/logo_um2.png Graphic file (type png)
+ <use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 236.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [43
+
+]
+File: images/logo_um2.png Graphic file (type png)
+
+<use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 247.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [44
+
+]
+File: images/logo_um2.png Graphic file (type png)
+ <use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 247.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [45
+
+] (./soutenance.toc)
+File: images/logo_um2.png Graphic file (type png)
+ <use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 249.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [46
+
+]
+<images/final.png, id=1656, 1305.87875pt x 750.805pt>
+File: images/final.png Graphic file (type png)
+ <use images/final.png>
+Package pdftex.def Info: images/final.png used on input line 254.
+(pdftex.def)             Requested size: 261.17113pt x 150.15834pt.
+File: images/logo_um2.png Graphic file (type png)
+
+<use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 254.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [47
+
+ <./images/final.png>] (./soutenance.toc)
+File: images/logo_um2.png Graphic file (type png)
+
+<use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 257.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [48
+
+]
+File: images/logo_um2.png Graphic file (type png)
+ <use images/logo_um2.png>
+Package pdftex.def Info: images/logo_um2.png used on input line 266.
+(pdftex.def)             Requested size: 23.17691pt x 14.22636pt.
+ [49
 
 ]
 \tf@nav=\write6
@@ -1354,11 +1563,11 @@ Package pdftex.def Info: images/logo_um2.png used on input line 142.
 \tf@snm=\write8
 \openout8 = `soutenance.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 146.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 146.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 270.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 270.
  (./soutenance.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 146.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 146.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 270.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 270.
 
 
 Package rerunfilecheck Warning: File `soutenance.out' has changed.
@@ -1366,8 +1575,8 @@ Package rerunfilecheck Warning: File `soutenance.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `soutenance.out':
-(rerunfilecheck)             Before: 71F3C1C5D25CAFF3825C4515A11DDABB;647
-(rerunfilecheck)             After:  4AFE1CD6BC444A831326263C51708A83;647.
+(rerunfilecheck)             Before: 3FBF279DA660878FA93C1B0E34895836;793
+(rerunfilecheck)             After:  1A3CFE017091D2C88BA32BA87943FB94;796.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
@@ -1375,30 +1584,25 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 146.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 270.
  ) 
 Here is how much of TeX's memory you used:
- 17012 strings out of 495002
- 310119 string characters out of 6180262
+ 17147 strings out of 495002
+ 312845 string characters out of 6180262
  395057 words of memory out of 5000000
- 19758 multiletter control sequences out of 15000+600000
- 8093 words of font info for 21 fonts, out of 8000000 for 9000
+ 19835 multiletter control sequences out of 15000+600000
+ 9623 words of font info for 23 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  49i,19n,64p,399b,732s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Navigation22} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.3.2.18} has been referenced but does not e
-xist, replaced by a fixed one
-
- </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0800.600pk> </home/noe/.
-texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1095.600pk> </home/noe/.texmf-var/fon
-ts/pk/ljfour/jknappen/ec/ecss1440.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/
-jknappen/ec/ecss0600.600pk>
-Output written on soutenance.pdf (21 pages, 280573 bytes).
+ </tmp/texfonts/pk/ljfour/jknappen/ec/ecss0900.600pk> </tmp/texfonts/pk/ljfou
+r/jknappen/ec/ecss1000.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec
+/ecss0800.600pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1095.600
+pk> </home/noe/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1440.600pk> </home/no
+e/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0600.600pk>
+Output written on soutenance.pdf (49 pages, 374315 bytes).
 PDF statistics:
- 964 PDF objects out of 1000 (max. 8388607)
- 770 compressed objects within 8 object streams
- 56 named destinations out of 1000 (max. 500000)
- 205 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2021 PDF objects out of 2073 (max. 8388607)
+ 1706 compressed objects within 18 object streams
+ 112 named destinations out of 1000 (max. 500000)
+ 227 words of extra memory for PDF output out of 10000 (max. 10000000)
 
