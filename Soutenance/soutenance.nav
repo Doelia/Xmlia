@@ -1,0 +1,133 @@
+\beamer@endinputifotherversion {3.24pt}
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\sectionentry {1}{Pr\IeC {\'e}sentation du sujet}{2}{Pr\IeC {\'e}sentation du sujet}{0}}
+\headcommand {\beamer@sectionpages {1}{1}}
+\headcommand {\beamer@subsectionpages {1}{1}}
+\headcommand {\slideentry {1}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\slideentry {1}{0}{3}{3/5}{}{0}}
+\headcommand {\beamer@framepages {3}{5}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{6}{Qu'est ce qu'un serious game}}\headcommand {\beamer@subsectionpages {2}{5}}
+\headcommand {\slideentry {1}{1}{1}{6/6}{Qu'est ce qu'un serious game}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{7}{Contraintes li\IeC {\'e}es au public}}\headcommand {\beamer@subsectionpages {6}{6}}
+\headcommand {\slideentry {1}{2}{1}{7/9}{Contraintes li\IeC {\'e}es au public}{0}}
+\headcommand {\beamer@framepages {7}{9}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{10}{Mise en place de la r\IeC {\'e}\IeC {\'e}ducation}}\headcommand {\beamer@subsectionpages {7}{9}}
+\headcommand {\slideentry {1}{3}{1}{10/12}{Mise en place de la r\IeC {\'e}\IeC {\'e}ducation}{0}}
+\headcommand {\beamer@framepages {10}{12}}
+\headcommand {\slideentry {1}{3}{2}{13/13}{Mise en place de la r\IeC {\'e}\IeC {\'e}ducation}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\beamer@subsectionentry {0}{1}{4}{14}{Vocabulaire}}\headcommand {\beamer@subsectionpages {10}{13}}
+\headcommand {\slideentry {1}{4}{1}{14/14}{Vocabulaire}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\sectionentry {2}{Game Design Document}{15}{Game Design Document}{0}}
+\headcommand {\beamer@sectionpages {2}{14}}
+\headcommand {\beamer@subsectionpages {14}{14}}
+\headcommand {\slideentry {2}{0}{2}{15/15}{}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{16}{Principe de base du jeu}}\headcommand {\beamer@subsectionpages {15}{15}}
+\headcommand {\slideentry {2}{1}{1}{16/16}{Principe de base du jeu}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\slideentry {2}{1}{2}{17/18}{Principe de base du jeu}{0}}
+\headcommand {\beamer@framepages {17}{18}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{19}{Des concepts \IeC {\`a} la r\IeC {\'e}alit\IeC {\'e}}}\headcommand {\beamer@subsectionpages {16}{18}}
+\headcommand {\slideentry {2}{2}{1}{19/19}{Des concepts \IeC {\`a} la r\IeC {\'e}alit\IeC {\'e}}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\slideentry {2}{2}{2}{20/20}{Des concepts \IeC {\`a} la r\IeC {\'e}alit\IeC {\'e}}{0}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\slideentry {2}{2}{3}{21/21}{Des concepts \IeC {\`a} la r\IeC {\'e}alit\IeC {\'e}}{0}}
+\headcommand {\beamer@framepages {21}{21}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{22}{Les \IeC {\'e}l\IeC {\'e}ments du d\IeC {\'e}cor}}\headcommand {\beamer@subsectionpages {19}{21}}
+\headcommand {\slideentry {2}{3}{1}{22/22}{Les \IeC {\'e}l\IeC {\'e}ments du d\IeC {\'e}cor}{0}}
+\headcommand {\beamer@framepages {22}{22}}
+\headcommand {\slideentry {2}{3}{2}{23/27}{Les \IeC {\'e}l\IeC {\'e}ments du d\IeC {\'e}cor}{0}}
+\headcommand {\beamer@framepages {23}{27}}
+\headcommand {\beamer@subsectionentry {0}{2}{4}{28}{Les rewards}}\headcommand {\beamer@subsectionpages {22}{27}}
+\headcommand {\slideentry {2}{4}{1}{28/30}{Les rewards}{0}}
+\headcommand {\beamer@framepages {28}{30}}
+\headcommand {\beamer@subsectionentry {0}{2}{5}{31}{Le chemin de secours}}\headcommand {\beamer@subsectionpages {28}{30}}
+\headcommand {\slideentry {2}{5}{1}{31/35}{Le chemin de secours}{0}}
+\headcommand {\beamer@framepages {31}{35}}
+\headcommand {\slideentry {2}{5}{2}{36/36}{Le chemin de secours}{0}}
+\headcommand {\beamer@framepages {36}{36}}
+\headcommand {\beamer@subsectionentry {0}{2}{6}{37}{Exemple de niveau basique}}\headcommand {\beamer@subsectionpages {31}{36}}
+\headcommand {\slideentry {2}{6}{1}{37/37}{Exemple de niveau basique}{0}}
+\headcommand {\beamer@framepages {37}{37}}
+\headcommand {\sectionentry {3}{Conception}{38}{Conception}{0}}
+\headcommand {\beamer@sectionpages {15}{37}}
+\headcommand {\beamer@subsectionpages {37}{37}}
+\headcommand {\slideentry {3}{0}{2}{38/38}{}{0}}
+\headcommand {\beamer@framepages {38}{38}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{39}{UML du monde}}\headcommand {\beamer@subsectionpages {38}{38}}
+\headcommand {\slideentry {3}{1}{1}{39/39}{UML du monde}{0}}
+\headcommand {\beamer@framepages {39}{39}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{40}{Architecture client-serveur}}\headcommand {\beamer@subsectionpages {39}{39}}
+\headcommand {\slideentry {3}{2}{1}{40/40}{Architecture client-serveur}{0}}
+\headcommand {\beamer@framepages {40}{40}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{41}{Adaptation}}\headcommand {\beamer@subsectionpages {40}{40}}
+\headcommand {\slideentry {3}{3}{1}{41/41}{Adaptation}{0}}
+\headcommand {\beamer@framepages {41}{41}}
+\headcommand {\slideentry {3}{3}{2}{42/42}{Adaptation}{0}}
+\headcommand {\beamer@framepages {42}{42}}
+\headcommand {\slideentry {3}{3}{3}{43/43}{Adaptation}{0}}
+\headcommand {\beamer@framepages {43}{43}}
+\headcommand {\slideentry {3}{3}{4}{44/44}{Adaptation}{0}}
+\headcommand {\beamer@framepages {44}{44}}
+\headcommand {\slideentry {3}{3}{5}{45/45}{Adaptation}{0}}
+\headcommand {\beamer@framepages {45}{45}}
+\headcommand {\slideentry {3}{3}{6}{46/46}{Adaptation}{0}}
+\headcommand {\beamer@framepages {46}{46}}
+\headcommand {\slideentry {3}{3}{7}{47/47}{Adaptation}{0}}
+\headcommand {\beamer@framepages {47}{47}}
+\headcommand {\slideentry {3}{3}{8}{48/50}{Adaptation}{0}}
+\headcommand {\beamer@framepages {48}{50}}
+\headcommand {\beamer@subsectionentry {0}{3}{4}{51}{D\IeC {\'e}placements du chat}}\headcommand {\beamer@subsectionpages {41}{50}}
+\headcommand {\slideentry {3}{4}{1}{51/52}{D\IeC {\'e}placements du chat}{0}}
+\headcommand {\beamer@framepages {51}{52}}
+\headcommand {\slideentry {3}{4}{2}{53/53}{D\IeC {\'e}placements du chat}{0}}
+\headcommand {\beamer@framepages {53}{53}}
+\headcommand {\slideentry {3}{4}{3}{54/54}{D\IeC {\'e}placements du chat}{0}}
+\headcommand {\beamer@framepages {54}{54}}
+\headcommand {\beamer@subsectionentry {0}{3}{5}{55}{La bo\IeC {\^\i }te}}\headcommand {\beamer@subsectionpages {51}{54}}
+\headcommand {\slideentry {3}{5}{1}{55/55}{La bo\IeC {\^\i }te}{0}}
+\headcommand {\beamer@framepages {55}{55}}
+\headcommand {\slideentry {3}{5}{2}{56/56}{La bo\IeC {\^\i }te}{0}}
+\headcommand {\beamer@framepages {56}{56}}
+\headcommand {\slideentry {3}{5}{3}{57/57}{La bo\IeC {\^\i }te}{0}}
+\headcommand {\beamer@framepages {57}{57}}
+\headcommand {\beamer@subsectionentry {0}{3}{6}{58}{Plusieurs esth\IeC {\'e}tiques : plusieurs jeux}}\headcommand {\beamer@subsectionpages {55}{57}}
+\headcommand {\slideentry {3}{6}{1}{58/58}{Plusieurs esth\IeC {\'e}tiques : plusieurs jeux}{0}}
+\headcommand {\beamer@framepages {58}{58}}
+\headcommand {\slideentry {3}{6}{2}{59/59}{Plusieurs esth\IeC {\'e}tiques : plusieurs jeux}{0}}
+\headcommand {\beamer@framepages {59}{59}}
+\headcommand {\slideentry {3}{6}{3}{60/60}{Plusieurs esth\IeC {\'e}tiques : plusieurs jeux}{0}}
+\headcommand {\beamer@framepages {60}{60}}
+\headcommand {\slideentry {3}{6}{4}{61/61}{Plusieurs esth\IeC {\'e}tiques : plusieurs jeux}{0}}
+\headcommand {\beamer@framepages {61}{61}}
+\headcommand {\sectionentry {4}{R\IeC {\'e}sultats}{62}{R\IeC {\'e}sultats}{0}}
+\headcommand {\beamer@sectionpages {38}{61}}
+\headcommand {\beamer@subsectionpages {58}{61}}
+\headcommand {\slideentry {4}{0}{5}{62/62}{}{0}}
+\headcommand {\beamer@framepages {62}{62}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{63}{D\IeC {\'e}monstration}}\headcommand {\beamer@subsectionpages {62}{62}}
+\headcommand {\slideentry {4}{1}{1}{63/63}{D\IeC {\'e}monstration}{0}}
+\headcommand {\beamer@framepages {63}{63}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{64}{En cours de test}}\headcommand {\beamer@subsectionpages {63}{63}}
+\headcommand {\slideentry {4}{2}{1}{64/64}{En cours de test}{0}}
+\headcommand {\beamer@framepages {64}{64}}
+\headcommand {\slideentry {4}{2}{2}{65/65}{En cours de test}{0}}
+\headcommand {\beamer@framepages {65}{65}}
+\headcommand {\sectionentry {5}{Conclusion}{66}{Conclusion}{0}}
+\headcommand {\beamer@sectionpages {62}{65}}
+\headcommand {\beamer@subsectionpages {64}{65}}
+\headcommand {\slideentry {5}{0}{3}{66/66}{}{0}}
+\headcommand {\beamer@framepages {66}{66}}
+\headcommand {\slideentry {5}{0}{4}{67/67}{}{0}}
+\headcommand {\beamer@framepages {67}{67}}
+\headcommand {\beamer@partpages {1}{67}}
+\headcommand {\beamer@subsectionpages {66}{67}}
+\headcommand {\beamer@sectionpages {66}{67}}
+\headcommand {\beamer@documentpages {67}}
+\headcommand {\def \inserttotalframenumber {47}}
